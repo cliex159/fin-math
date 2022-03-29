@@ -9,12 +9,11 @@ exercise-1-2
 exercise-2-2
 exercise-3-1
 continuous
+stochastic-process
 random-walk
-gambler-ruin
-simulation
-fair-game
+martingale
 brownian-motion
-ito---doeblin
+ito---doeblin-formula
 riemann-approach
 differential-form
 integral-form
@@ -32,4 +31,5 @@ blackscholes-call-formula
 blackscholes-put-formula
 integrand
 r-programming
+risk-neutral-pricing-ar
 group-4

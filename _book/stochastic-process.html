@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Stochastic Process | FM2</title>
+<meta name="author" content="Tran Thanh Dat">
+<meta name="description" content="2.1 Random Walk  Slide 28 A gambler starts with $3 dollars. On each play a fair coin is tossed and the gambler wins $1 if heads occurs, or loses $1 if tails occurs. The gambler stops when he...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Stochastic Process | FM2">
+<meta property="og:type" content="book">
+<meta property="og:description" content="2.1 Random Walk  Slide 28 A gambler starts with $3 dollars. On each play a fair coin is tossed and the gambler wins $1 if heads occurs, or loses $1 if tails occurs. The gambler stops when he...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Stochastic Process | FM2">
+<meta name="twitter:description" content="2.1 Random Walk  Slide 28 A gambler starts with $3 dollars. On each play a fair coin is tossed and the gambler wins $1 if heads occurs, or loses $1 if tails occurs. The gambler stops when he...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">FM2</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Course Descripition</a></li>
+<li class="book-part">Probability</li>
+<li><a class="" href="distribution.html"><span class="header-section-number">1</span> Distribution</a></li>
+<li><a class="active" href="stochastic-process.html"><span class="header-section-number">2</span> Stochastic Process</a></li>
+<li><a class="" href="ito---doeblin-formula.html"><span class="header-section-number">3</span> Ito - Doeblin Formula</a></li>
+<li class="book-part">Risk Neutral</li>
+<li><a class="" href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></li>
+<li><a class="" href="risk-neutral-pricing-bs.html"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a></li>
+<li><a class="" href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></li>
+<li class="book-part">Midterm Mock</li>
+<li><a class="" href="group-4.html"><span class="header-section-number">7</span> Group 4</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/cliex159/fin-risk-mana">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="stochastic-process" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Stochastic Process<a class="anchor" aria-label="anchor" href="#stochastic-process"><i class="fas fa-link"></i></a>
+</h1>
+<div id="random-walk" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Random Walk<a class="anchor" aria-label="anchor" href="#random-walk"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-28" class="section level3 unnumbered">
+<h3>Slide 28<a class="anchor" aria-label="anchor" href="#slide-28"><i class="fas fa-link"></i></a>
+</h3>
+<p>A gambler starts with $3 dollars. On each play a fair coin is tossed and the gambler wins $1 if heads occurs, or loses $1 if tails occurs. The gambler stops when he reaches $8 or loses all his money. Find the probability that the gambler will eventually lose.</p>
+<blockquote>
+<p>Let <span class="math inline">\(R_n\)</span> denote the total fortune after the <span class="math inline">\(n^{th}\)</span> gamble.
+While the game proceeds, <span class="math inline">\(\{R_n : n \geq 0\}\)</span> forms a simple random walk:
+<span class="math display">\[R_n = R_0+ \Delta_1 +\Delta_2+ · · · + \Delta_n \]</span>
+where <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 1) = p\)</span>, <span class="math inline">\(P(\Delta = −1) = q\)</span>, <span class="math inline">\(p+q=1\)</span>, and represents the earnings on the succesive gambles.</p>
+</blockquote>
+<blockquote>
+Let <span class="math inline">\(P_3\)</span> denote the probability that the gambler wins when <span class="math inline">\(R_0 = 3\)</span>, we need to find <span class="math inline">\(1-P_3\)</span>.
+<ul>
+<li>
+If <span class="math inline">\(\Delta_1 = 1\)</span>, then the gambler’s total fortune
+increases to <span class="math inline">\(R_1 = 3+1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{4}\)</span>.
+</li>
+<li>
+If <span class="math inline">\(\Delta_1 = −1\)</span>, then the gambler’s fortune decreases to <span class="math inline">\(R_1 = 3 − 1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{2}\)</span>.
+</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+P_3&amp;= pP_{4}+qP_{2} \\
+pP_{3}+qP_{3}&amp;= pP_{4}+qP_{2} \\
+p(P_4-P_3)&amp;=q(P_3-P_2) \\
+P_4-P_3&amp;=\frac{q}{p}(P_3-P_2) \\
+&amp;=\left( \frac{q}{p} \right)^2(P_2-P_1) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1-P_0) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>By induction, we can prove <span class="math inline">\(P_{k+1}-P_k= \left( \frac{q}{p} \right)^k P_1\)</span>, which implies the following recursive sequence:
+<span class="math display">\[\begin{align*}
+P_2-P_1&amp;=\left( \frac{q}{p} \right)(P_1-P_0)=\left( \frac{q}{p} \right) P_1\\
+P_3-P_2&amp;=\left( \frac{q}{p} \right)(P_2-P_1)=\left( \frac{q}{p} \right)^2 P_1 \\
+...\\
+P_{i+1}-P_i&amp;= \left( \frac{q}{p} \right)^i P_1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Adding all the above sequence and noticing that <span class="math inline">\(P_N=1\)</span> shall yield:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}-P_1&amp;=  \sum_{k=1}^{i} (P_{k+1}-P_k) \\
+&amp;=\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}&amp;=P_1+\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+&amp;= P_1\sum_{k=0}^{i} \left( \frac{q}{p} \right)^k \\
+&amp;=P_1\sum_{k=0}^{i} \left( \frac{0.5}{0.5} \right)^k  \\
+&amp;=P_1\sum_{k=0}^{i} \left( 1 \right)^k  \\
+&amp;=P_1(i+1) \\
+\rightarrow P_N&amp;=P_1\cdot N \\
+\rightarrow P_1&amp;=\frac{1}{N} \\
+\rightarrow P_3&amp;=3 P_1 \\
+&amp;=3\cdot \frac{1}{N} \\
+&amp;=\frac{3}{N} \\
+&amp;=\frac{3}{8} \\
+\rightarrow 1-P_3&amp;=\frac{5}{8} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the gambler will eventually lose is 62.5%.</p>
+</blockquote>
+</div>
+<div id="slide-29" class="section level3 unnumbered">
+<h3>Slide 29<a class="anchor" aria-label="anchor" href="#slide-29"><i class="fas fa-link"></i></a>
+</h3>
+<p>A gambler starts with $3 dollars. On each play an unfair coin is tossed and
+the gambler wins $1 if heads occurs, with probability 0.6, or loses $1 if
+tails occurs, with probability 0.4. The gambler stops when he reaches $8
+or loses all his money. Find the probability that the gambler will eventually
+lose.</p>
+<blockquote>
+<p>Let <span class="math inline">\(R_n\)</span> denote the total fortune after the <span class="math inline">\(n^{th}\)</span> gamble.
+While the game proceeds, <span class="math inline">\(\{R_n : n \geq 0\}\)</span> forms a simple random walk:
+<span class="math display">\[R_n = R_0+ \Delta_1 +\Delta_2+ · · · + \Delta_n \]</span>
+where <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 1) = p\)</span>, <span class="math inline">\(P(\Delta = −1) = q\)</span>, <span class="math inline">\(p+q=1\)</span>, and represents the earnings on the succesive gambles.</p>
+</blockquote>
+<blockquote>
+Let <span class="math inline">\(P_3\)</span> denote the probability that the gambler wins when <span class="math inline">\(R_0 = 3\)</span>, we need to find <span class="math inline">\(1-P_3\)</span>.
+<ul>
+<li>
+If <span class="math inline">\(\Delta_1 = 1\)</span>, then the gambler’s total fortune
+increases to <span class="math inline">\(R_1 = 3+1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{4}\)</span>.
+</li>
+<li>
+If <span class="math inline">\(\Delta_1 = −1\)</span>, then the gambler’s fortune decreases to <span class="math inline">\(R_1 = 3 − 1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{2}\)</span>.
+</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+P_3&amp;= pP_{4}+qP_{2} \\
+pP_{3}+qP_{3}&amp;= pP_{4}+qP_{2} \\
+p(P_4-P_3)&amp;=q(P_3-P_2) \\
+P_4-P_3&amp;=\frac{q}{p}(P_3-P_2) \\
+&amp;=\left( \frac{q}{p} \right)^2(P_2-P_1) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1-P_0) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>By induction, we can prove <span class="math inline">\(P_{k+1}-P_k= \left( \frac{q}{p} \right)^k P_1\)</span>, which implies the following recursive sequence:
+<span class="math display">\[\begin{align*}
+P_2-P_1&amp;=\left( \frac{q}{p} \right)(P_1-P_0)=\left( \frac{q}{p} \right) P_1\\
+P_3-P_2&amp;=\left( \frac{q}{p} \right)(P_2-P_1)=\left( \frac{q}{p} \right)^2 P_1 \\
+...\\
+P_{i+1}-P_i&amp;= \left( \frac{q}{p} \right)^i P_1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Adding all the above sequence and noticing that <span class="math inline">\(P_N=1\)</span> shall yield:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}-P_1&amp;=  \sum_{k=1}^{i} (P_{k+1}-P_k) \\
+&amp;=\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}&amp;=P_1+\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+&amp;= P_1\sum_{k=0}^{i} \left( \frac{q}{p} \right)^k \\
+&amp;=P_1 \cdot \frac{1-(\frac{q}{p})^{i+1}}{1-\frac{q}{p}} &amp;(1) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_N&amp;=P_1 \cdot \frac{1-(\frac{q}{p})^N}{1-\frac{q}{p}} \\
+P_1&amp;= \frac{1-\frac{q}{p}}{1-(\frac{q}{p})^N}&amp;(2) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+(1),(2)\rightarrow P_{i+1}&amp;=\frac{1-(\frac{q}{p})^{i+1}}{1-(\frac{q}{p})^N} \\
+P_{3}&amp;=\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8} \\
+1-P_{3}&amp;=1-\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8}=0.2677
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the gambler will eventually lose is 26.77%.</p>
+</blockquote>
+</div>
+<div id="slide-45" class="section level3 unnumbered">
+<h3>Slide 45<a class="anchor" aria-label="anchor" href="#slide-45"><i class="fas fa-link"></i></a>
+</h3>
+<p>For each toss of a fair coin, you will win <span class="math inline">\(\$1\)</span> if it lands up heads and lose <span class="math inline">\(\$1\)</span> if it lands up tails. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k tosses. Then <span class="math inline">\((M_k)_{k\in \mathbb{N}}\)</span> is a random walk.</p>
+<ul>
+<li>Play the game with your friend 20 times and plot your accumulated money after every play.</li>
+</ul>
+<blockquote>
+<p>While the game proceeds, <span class="math inline">\((M_k)_{k\in \mathbb{N}}\)</span> forms a simple random walk:
+<span class="math display">\[M_k = M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k \]</span>
+where <span class="math inline">\(M_0=0\)</span>, <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 1) = \frac{1}{2}\)</span>, <span class="math inline">\(P(\Delta = −1) = \frac{1}{2}\)</span>, and represents the earnings on the succesive games.</p>
+</blockquote>
+<blockquote>
+<p>Using the law of total expectation, the expected accumulated money after every play is the expected money for each toss either the coin lands up head or tail.
+<span class="math display">\[\begin{align*}
+E[\Delta] &amp;= E[\Delta|\Delta=1]P(\Delta=1)+E[\Delta|\Delta=-1]P(\Delta=-1) \\
+&amp;=\frac{1}{2}(1)+\frac{1}{2}(-1) \\
+&amp;=0
+\end{align*}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expected accumulated money after every play is 0$.</p>
+</blockquote>
+<ul>
+<li>Write a R code to simulate the game</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plots</span><span class="op">=</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,
+          <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>, <span class="co"># random walk</span>
+                  size<span class="op">=</span><span class="fl">20</span>, 
+                  replace<span class="op">=</span><span class="cn">T</span>,
+                  prob<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.5</span>,<span class="fl">0.5</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>
+          <span class="va">plot</span>,         <span class="co"># plot</span>
+          type<span class="op">=</span><span class="st">"o"</span>, 
+          col<span class="op">=</span><span class="st">"blue"</span>,
+          xlab<span class="op">=</span><span class="st">"number of playing games"</span>,
+          ylab<span class="op">=</span><span class="st">"the accumulated money"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-1-1.png" width="90%" style="display: block; margin: auto;"></div>
+</div>
+<div id="slide-48" class="section level3 unnumbered">
+<h3>Slide 48<a class="anchor" aria-label="anchor" href="#slide-48"><i class="fas fa-link"></i></a>
+</h3>
+<p>For each toss of a unfair coin, you will win <span class="math inline">\(\$2\)</span> if it lands up heads and lose <span class="math inline">\(\$1\)</span> if it lands up tails. The probability of landing up heads is 0.3 and the probability of landing up tails is 0.7. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k tosses.</p>
+<ul>
+<li>Should you play the game?</li>
+</ul>
+<blockquote>
+<p>While the game proceeds, <span class="math inline">\((M_k)_{k\in \mathbb{N}}\)</span> forms a simple random walk:
+<span class="math display">\[M_k = M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k \]</span>
+where <span class="math inline">\(M_0=0\)</span>, <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 2) = 0.3\)</span>, <span class="math inline">\(P(\Delta = −1) = 0.7\)</span>, and represents the earnings on the succesive games.</p>
+</blockquote>
+<blockquote>
+<p>Using the law of total expectation, the expected accumulated money after every play is the expected money for each toss either the coin lands up head or tail.
+<span class="math display">\[\begin{align*}
+E[\Delta] &amp;=E[\Delta|\Delta=2]P(\Delta=2)+E[\Delta|\Delta=-1]P(\Delta=-1) \\
+&amp;=0.3(1)+0.7(-1) \\
+&amp;=-0.1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The game should not be played.</p>
+</blockquote>
+<ul>
+<li>Write a R code to simulate possible results for playing the games 500 times</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plots</span><span class="op">=</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,
+          <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>, <span class="co"># random walk</span>
+                  size<span class="op">=</span><span class="fl">500</span>, 
+                  replace<span class="op">=</span><span class="cn">T</span>,
+                  prob<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>
+          <span class="va">plot</span>,         <span class="co"># plot</span>
+          type<span class="op">=</span><span class="st">"o"</span>, 
+          col<span class="op">=</span><span class="st">"blue"</span>,
+          xlab<span class="op">=</span><span class="st">"number of playing games"</span>,
+          ylab<span class="op">=</span><span class="st">"the accumulated money"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-2-1.png" width="90%" style="display: block; margin: auto;"></div>
+</div>
+</div>
+<div id="martingale" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Martingale<a class="anchor" aria-label="anchor" href="#martingale"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-50" class="section level3 unnumbered">
+<h3>Slide 50<a class="anchor" aria-label="anchor" href="#slide-50"><i class="fas fa-link"></i></a>
+</h3>
+<p>For each toss of a fair coin, you will win <span class="math inline">\(\$1\)</span> if it lands up heads and lose <span class="math inline">\(\$1\)</span> if it lands up tails. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k tosses. Then <span class="math inline">\((M_k)_{k\in\mathbb{N}}\)</span> is a random walk.</p>
+<ul>
+<li>Compute the probability of winning after playing the game 9 times.</li>
+</ul>
+<blockquote>
+<p>We need to find the probability that <span class="math inline">\(M_9\)</span> or the amount of money after nine
+plays greater than 0</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(M_9&gt;0)&amp;=P(5H4T)+P(6H3T)+P(7H2T)+P(8H1T)+P(9H0T) \\
+&amp;= \sum_{k=5}^{9} \binom{9}{k}p^k(1-p)^{9-k} \\
+&amp;=0.5
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability of winning after playing the game 9 times is 50%</p>
+</blockquote>
+<ul>
+<li>Compute the probability of winning after playing the game 10 times.</li>
+</ul>
+<blockquote>
+<p>We need to find the probability that <span class="math inline">\(M_{10}\)</span> or the amount of money after ten
+plays greater than 0</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(M_{10}&gt;0)&amp;=P(6H4T)+P(7H3T)+P(8H2T)+P(9H1T)+P(10H0T) \\
+&amp;= \sum_{k=6}^{10} \binom{10}{k}p^k(1-p)^{10-k} \\
+&amp;=0.3769
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability of winning after playing the game 10 times is 37.69%</p>
+</blockquote>
+<ul>
+<li>Is this game fair, i.e., the chance of winning a fair game is equal for all players?</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X] &amp;= E[X|X=1]P(X=1)+E[X|X=-1]P(X=-1) \\
+&amp;=\frac{1}{2}(1)+\frac{1}{2}(-1) \\
+&amp;=0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>If the process <span class="math inline">\(M_k\)</span> is a martingale, it is a fair game.
+<span class="math display">\[\begin{align*}
+E[M_{k+1} | \mathcal{F}_k] &amp;= E[M_k+X_{k+1} | \mathcal{F}_k] \\
+&amp;=E[M_k| \mathcal{F}_k]+E[X_{k+1} | \mathcal{F}_k] \\
+&amp;=E[M_k]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: This is a fair game.</p>
+</blockquote>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plots</span><span class="op">=</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,
+          <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="op">-</span><span class="fl">1</span><span class="op">)</span>, <span class="co"># random walk</span>
+                  size<span class="op">=</span><span class="fl">500</span>, 
+                  replace<span class="op">=</span><span class="cn">T</span>,
+                  prob<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.3</span>,<span class="fl">0.7</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>
+          <span class="va">plot</span>,         <span class="co"># plot</span>
+          type<span class="op">=</span><span class="st">"o"</span>, 
+          col<span class="op">=</span><span class="st">"blue"</span>,
+          xlab<span class="op">=</span><span class="st">"number of playing games"</span>,
+          ylab<span class="op">=</span><span class="st">"the accumulated money"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-3-1.png" width="90%" style="display: block; margin: auto;"></div>
+</div>
+<div id="slide-55" class="section level3 unnumbered">
+<h3>Slide 55<a class="anchor" aria-label="anchor" href="#slide-55"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider a game based on a standard normal random variable Z. At each run, the player will receive the money equals to the value of Z at that run. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k plays.</p>
+<ul>
+<li>Given that <span class="math inline">\(\displaystyle{\int_{\frac{1}{\sqrt{10}}}^{+\infty} \frac{1}{\sqrt{2\pi}}e^{-x^2/2} \, dx}=0.376\)</span>, find the probability that <span class="math inline">\(M_{10} &gt; 1\)</span>.</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[M_{10}=\sum_{i=1}^{10}Z_i \sim N(0,\sqrt{10})\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(M_{10}&gt;1)&amp;=P(\frac{M_{10}}{\sqrt{10}}&gt;\frac{1}{\sqrt{10}}) \\
+&amp;=P(Z&gt;0.3162) \\
+&amp;=P(Z&lt;-0.3162) \\
+&amp;=0.37591
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that <span class="math inline">\(M_{10} &gt; 1\)</span> is 36.591%.</p>
+</blockquote>
+<ul>
+<li>Should you play the game, i.e., is this a fair game?</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[Z] &amp;= E[Z|Z=1]P(Z=1)+E[Z|Z=-1]P(Z=-1) \\
+&amp;=\frac{1}{2}(1)+\frac{1}{2}(-1) \\
+&amp;=0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}E[M_{k+1} | \mathcal{F}_k] &amp;= E[M_k+Z_{k+1} | \mathcal{F}_k] \\
+&amp;=E[M_k| \mathcal{F}_k]+E[Z_{k+1} | \mathcal{F}_k] \\
+&amp;=M_k+0 \\
+&amp;=M_k
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: This is a fair game.</p>
+</blockquote>
+<ul>
+<li>Play the game 10 times and plot your accumulated money after every play. Write a R code to simulate the game</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plots</span><span class="op">=</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,
+          <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>
+          <span class="va">plot</span>,         <span class="co"># plot</span>
+          type<span class="op">=</span><span class="st">"o"</span>, 
+          col<span class="op">=</span><span class="st">"blue"</span>,
+          xlab<span class="op">=</span><span class="st">"number of playing games"</span>,
+          ylab<span class="op">=</span><span class="st">"the accumulated money"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-4-1.png" width="90%" style="display: block; margin: auto;"></div>
+</div>
+<div id="slide-58" class="section level3 unnumbered">
+<h3>Slide 58<a class="anchor" aria-label="anchor" href="#slide-58"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider a game based on a standard normal random variable Z. At each run, the player will receive the money equals to <span class="math inline">\(\$0.3\)</span> plus the value of Z at that run. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k plays.</p>
+<ul>
+<li>Compute the probability that <span class="math inline">\(M_{10}&gt;0\)</span>, given that <span class="math inline">\(\displaystyle{\int_0^{0.3\sqrt{10}}\frac{1}{\sqrt{2\pi}}e^{-x^2/2} \, dx}=0.3286\)</span>.</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[M_{10}=\sum_{i=1}^{10}0.3+Z_i=3+\sum_{i=1}^{10}Z_i \sim N(3,\sqrt{10})\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}P(M_{10}&gt;0) &amp;= P(\frac{M_{10}-3}{\sqrt{10}}&gt;\frac{0-3}{\sqrt{10}}) \\
+&amp;=P(Z&gt;\frac{-3}{\sqrt{10}}) \\
+&amp;=P(Z&lt;\frac{3}{\sqrt{10}}) \\
+&amp;=0.8286
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that <span class="math inline">\(M_{10} &gt; 0\)</span> is 82.86%.</p>
+</blockquote>
+<ul>
+<li>Should you play the game, i.e., is this a fair game?</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[M_{k}|\mathcal{F}_{k-1}] &amp;= E\left[\sum_{i=1}^{k}(0.3+Z_i) | \mathcal{F}_{k-1}\right] \\
+&amp;=\sum_{i=1}^{k}0.3+\sum_{i=1}^{k}E[Z_i| \mathcal{F}_{k-1}] \\
+&amp;=0.3k
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: This is not a fair game.</p>
+</blockquote>
+<ul>
+<li>Write a R code to simulate the obtained result after playing the game 500 times.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>,<span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="va">plots</span><span class="op">=</span><span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,
+          <span class="op">~</span><span class="fu"><a href="https://rdrr.io/r/base/cumsum.html">cumsum</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">500</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+      <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>
+          <span class="va">plot</span>,         <span class="co"># plot</span>
+          type<span class="op">=</span><span class="st">"o"</span>, 
+          col<span class="op">=</span><span class="st">"blue"</span>,
+          xlab<span class="op">=</span><span class="st">"number of playing games"</span>,
+          ylab<span class="op">=</span><span class="st">"the accumulated money"</span><span class="op">)</span></code></pre></div>
+<div class="inline-figure"><img src="01-intro_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;"></div>
+</div>
+<div id="slide-76" class="section level3 unnumbered">
+<h3>Slide 76<a class="anchor" aria-label="anchor" href="#slide-76"><i class="fas fa-link"></i></a>
+</h3>
+<p>Prove the following random processes are martingale:</p>
+<ol style="list-style-type: decimal">
+<li>Brownian motion <span class="math inline">\((B_t)\)</span> is a martingale process.</li>
+</ol>
+<p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of Brownian motion <span class="math inline">\(\{ B_t \}_{t \geq0}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, we have:</p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[|B_t|]&amp;= \int_{-\infty}^{\infty}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx  \\
+&amp;=\int_{-\infty}^{0}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx+\int_{0}^{\infty}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx \\
+&amp;=\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx+\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx \\
+&amp;=\sqrt{\frac{2}{{\pi t}}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx \\
+&amp;=\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}e^{\frac{-x^2}{2t}}\,dx^2 \\
+&amp;=-\sqrt{\frac{2t}{\pi}}e^{\frac{-u}{2t}}\Biggr|_{0}^{\infty} \\
+&amp;=\sqrt{\frac{2t}{\pi}} &lt; \infty
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[B_t|\mathcal{F}_s]&amp;=E[(B_t-B_s)+B_s|\mathcal{F}_s] \\
+&amp;=E[(B_t-B_s)|\mathcal{F}_s]+E[B_s|\mathcal{F}_s] \\
+&amp;=0+B_s \\
+&amp;=B_s
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(Y_t = B_t^2 − t, \forall t \geq 0\)</span>. Show that <span class="math inline">\((Y_t)_{t \geq 0}\)</span> is a martingale with respect to Brownian motion.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of <span class="math inline">\(\{ Y_t=B_t^2-t \}_{t \geq0}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[|Y_t|]&amp;=E[|B_t^2-t] \\
+&amp;\leq E[B_t^2+t] \\
+&amp;=E[B_t^2]+t \\
+&amp;=2t &lt; \infty
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[Y_t|\mathcal{F}_s]&amp;=E[B_t^2-t|\mathcal{F}_s] \\
+&amp;=E[(B_t-B_s+B_s)^2|\mathcal{F}_s]-t \\
+&amp;=E[(B_t-B_s)^2+2B_s(B_t-B_s)+B_s^2|\mathcal{F}_s]-t \\
+&amp;=E[(B_t-B_s)^2|\mathcal{F}_s]+E[2B_s(B_t-B_s)|\mathcal{F}_s]+E[B_s^2|\mathcal{F}_s]-t \\
+&amp;=E[(B_t-B_s)^2]+0+B_s^2-t \\
+&amp;=E[(B_t-B_s)^2]-E[B_t-B_s]^2+B_s^2-t \\
+&amp;=Var[B_t-B_s]+B_s^2-t \\
+&amp;=t-s+B_s^2-t \\
+&amp;=B_s^2-s
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(Z_t = e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\)</span> (<span class="math inline">\(\sigma\)</span> is a positive constant) is a martingale with respect to the standard Brownian motion.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of <span class="math inline">\(\{ Z_t=e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, since <span class="math inline">\(B_t-B_s \sim N(0,t-s)\)</span> we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[|Z_t|]&amp;=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
+&amp;=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}] \\
+&amp;=E[Z_t] \\
+&amp;=1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[E[e^{tX}]=e^{\mu t+\frac{1}{2}\sigma^2 t^2} \rightarrow E[e^{\sigma (B_t-B_s)}]=e^{\frac{1}{2}\sigma^2 (t-s)}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[Z_t|\mathcal{F}_s]&amp;=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|\mathcal{F}_s] \\
+&amp;=E[e^{\sigma (B_t-B_s+B_s) − \frac{1}{2} \sigma^2 (t-s+s)}|\mathcal{F}_s] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)}] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2}  \\
+&amp;= Z_s
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+</div>
+<div id="brownian-motion" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Brownian Motion<a class="anchor" aria-label="anchor" href="#brownian-motion"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-65" class="section level3 unnumbered">
+<h3>Slide 65<a class="anchor" aria-label="anchor" href="#slide-65"><i class="fas fa-link"></i></a>
+</h3>
+<p>A particle’s position is modelled by a standard Brownian motion. Find the probability that the particle’s position at time t = 3 is above the level 1.5.</p>
+<blockquote>
+<p>Let <span class="math inline">\((B_t)_t \geq 0\)</span> be the position of the particle at time t is <span class="math inline">\(B_t\)</span>.
+The position of the particle at time t = 3 is <span class="math inline">\(B_3\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>The desired probability is
+<span class="math display">\[\begin{align*}
+P(B_3 \geq 1.5 | B_0 = 0)&amp;=P(B_3 \geq 1.5) \\
+&amp;= 1-P(B_3 \leq 1.5) \\
+&amp;=1-P(Z \leq \frac{1.5}{\sqrt{3}}) \\
+&amp;=1-pnorm(1.5,0,sqrt(3))=0.1932381
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the particle’s position at time t = 3 is above the level 1.5 is 19.32%</p>
+</blockquote>
+</div>
+<div id="slide-65-1" class="section level3 unnumbered">
+<h3>Slide 65’<a class="anchor" aria-label="anchor" href="#slide-65-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>A particle’s position is modelled by a standard Brownian motion. Find the probability that the particle’s position at time t = 7 is above the level 2.</p>
+<blockquote>
+<p>Let <span class="math inline">\((B_t)_t \geq 0\)</span> be the position of the particle at time t is <span class="math inline">\(B_t\)</span>.
+The position of the particle at time t = 7 is <span class="math inline">\(B_3\)</span>.</p>
+</blockquote>
+<blockquote>
+<p>The desired probability is
+<span class="math display">\[\begin{align*}
+P(B_7 \geq 2 | B_0 = 0)&amp;=P(B_7 \geq 2) \\
+&amp;= 1-P(B_7 \leq 2) \\
+&amp;=1-P(Z \leq \frac{2}{\sqrt{7}}) \\
+&amp;=1-pnorm(2,0,sqrt(7))=0.2248459
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the particle’s position at time t = 3 is above the level 1.5 is 22.48%</p>
+</blockquote>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="distribution.html"><span class="header-section-number">1</span> Distribution</a></div>
+<div class="next"><a href="ito---doeblin-formula.html"><span class="header-section-number">3</span> Ito - Doeblin Formula</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#stochastic-process"><span class="header-section-number">2</span> Stochastic Process</a></li>
+<li>
+<a class="nav-link" href="#random-walk"><span class="header-section-number">2.1</span> Random Walk</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-28">Slide 28</a></li>
+<li><a class="nav-link" href="#slide-29">Slide 29</a></li>
+<li><a class="nav-link" href="#slide-45">Slide 45</a></li>
+<li><a class="nav-link" href="#slide-48">Slide 48</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#martingale"><span class="header-section-number">2.2</span> Martingale</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-50">Slide 50</a></li>
+<li><a class="nav-link" href="#slide-55">Slide 55</a></li>
+<li><a class="nav-link" href="#slide-58">Slide 58</a></li>
+<li><a class="nav-link" href="#slide-76">Slide 76</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#brownian-motion"><span class="header-section-number">2.3</span> Brownian Motion</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-65">Slide 65</a></li>
+<li><a class="nav-link" href="#slide-65-1">Slide 65’</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/cliex159/fin-risk-mana/blob/master/01-intro.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/cliex159/fin-risk-mana/edit/master/01-intro.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-03-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

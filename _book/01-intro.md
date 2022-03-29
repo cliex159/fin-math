@@ -649,9 +649,9 @@ Var(X)=Var(e^Y)&=E[(e^Y)^2]-E[e^Y]^2 \\
 
 >Answer: The mean of X is $E[X]=e^{\mu+\frac{1}{2}\sigma^2}$ and its variance is $Var(X)=e^{2\mu+ \sigma^2}(e^{\sigma^2}-1)$  
 
-# Random walk
+# Stochastic Process
 
-## Gambler Ruin
+## Random Walk
 
 ### Slide 28 {.unnumbered}
 
@@ -776,8 +776,6 @@ P_{3}&=\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8} \\
 
 >Answer: The probability that the gambler will eventually lose is 26.77\%.
 
-## Simulation
-
 ### Slide 45   {.unnumbered}
 
 For each toss of a fair coin, you will win $\$1$ if it lands up heads and lose $\$1$ if it lands up tails. Suppose that you start the game with $\$0$ and denote $M_k$ is the amount of money you obtain after k tosses. Then $(M_k)_{k\in \mathbb{N}}$ is a random walk.  
@@ -858,7 +856,7 @@ plots=map(1:9,
 
 <img src="01-intro_files/figure-html/unnamed-chunk-2-1.png" width="90%" style="display: block; margin: auto;" />
 
-## Fair Game
+## Martingale
 
 ### Slide 50   {.unnumbered}
 
@@ -1020,42 +1018,6 @@ plots=map(1:9,
 
 <img src="01-intro_files/figure-html/unnamed-chunk-5-1.png" width="90%" style="display: block; margin: auto;" />
 
-## Brownian Motion
-
-### Slide 65 {.unnumbered}
-
-A particle’s position is modelled by a standard Brownian motion. Find the probability that the particle’s position at time t = 3 is above the level 1.5.
-
->Let $(B_t)_t \geq 0$ be the position of the particle at time t is $B_t$.
-The position of the particle at time t = 3 is $B_3$.
-
->The desired probability is
-$$\begin{align*}
-P(B_3 \geq 1.5 | B_0 = 0)&=P(B_3 \geq 1.5) \\
-&= 1-P(B_3 \leq 1.5) \\
-&=1-P(Z \leq \frac{1.5}{\sqrt{3}}) \\
-&=1-pnorm(1.5,0,sqrt(3))=0.1932381
-\end{align*}$$
-
->Answer: The probability that the particle’s position at time t = 3 is above the level 1.5 is 19.32\%
-
-### Slide 65' {.unnumbered}
-
-A particle’s position is modelled by a standard Brownian motion. Find the probability that the particle’s position at time t = 7 is above the level 2.
-
->Let $(B_t)_t \geq 0$ be the position of the particle at time t is $B_t$.
-The position of the particle at time t = 7 is $B_3$.
-
->The desired probability is
-$$\begin{align*}
-P(B_7 \geq 2 | B_0 = 0)&=P(B_7 \geq 2) \\
-&= 1-P(B_7 \leq 2) \\
-&=1-P(Z \leq \frac{2}{\sqrt{7}}) \\
-&=1-pnorm(2,0,sqrt(7))=0.2248459
-\end{align*}$$
-
->Answer: The probability that the particle’s position at time t = 3 is above the level 1.5 is 22.48\%
-
 ### Slide 76 {.unnumbered}
 
 Prove the following random processes are martingale:
@@ -1127,7 +1089,43 @@ E[Z_t|\mathcal{F}_s]&=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|\mathcal{F}_s]
 &= Z_s
 \end{align*}$$
 
-# Ito - Doeblin
+## Brownian Motion
+
+### Slide 65 {.unnumbered}
+
+A particle’s position is modelled by a standard Brownian motion. Find the probability that the particle’s position at time t = 3 is above the level 1.5.
+
+>Let $(B_t)_t \geq 0$ be the position of the particle at time t is $B_t$.
+The position of the particle at time t = 3 is $B_3$.
+
+>The desired probability is
+$$\begin{align*}
+P(B_3 \geq 1.5 | B_0 = 0)&=P(B_3 \geq 1.5) \\
+&= 1-P(B_3 \leq 1.5) \\
+&=1-P(Z \leq \frac{1.5}{\sqrt{3}}) \\
+&=1-pnorm(1.5,0,sqrt(3))=0.1932381
+\end{align*}$$
+
+>Answer: The probability that the particle’s position at time t = 3 is above the level 1.5 is 19.32\%
+
+### Slide 65' {.unnumbered}
+
+A particle’s position is modelled by a standard Brownian motion. Find the probability that the particle’s position at time t = 7 is above the level 2.
+
+>Let $(B_t)_t \geq 0$ be the position of the particle at time t is $B_t$.
+The position of the particle at time t = 7 is $B_3$.
+
+>The desired probability is
+$$\begin{align*}
+P(B_7 \geq 2 | B_0 = 0)&=P(B_7 \geq 2) \\
+&= 1-P(B_7 \leq 2) \\
+&=1-P(Z \leq \frac{2}{\sqrt{7}}) \\
+&=1-pnorm(2,0,sqrt(7))=0.2248459
+\end{align*}$$
+
+>Answer: The probability that the particle’s position at time t = 3 is above the level 1.5 is 22.48\%
+
+# Ito - Doeblin Formula
 
 ## Riemann Approach
 

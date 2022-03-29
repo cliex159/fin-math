@@ -1348,3 +1348,5 @@ European_call_binomial(T=5, t=0.5,r=0.08, X=62,N=1000,S0=X[1],sigma=sigma*sqrt(2
 #>   theta2 
 #> 42.04177
 ```
+
+# Risk Neutral Pricing AR
