@@ -120,7 +120,5 @@ Financial Mathematics is the application of mathematical methods to financial pr
 
 ## Course References {.unnumbered}
 
-John.C. Hull.Options Futures and Other Derivatives Prentice Hall. 2014
-
 1. John.C. Hull.Options Futures and Other Derivatives Prentice Hall. 2014
 2. Bill Dalton. Financial products: an introduction using mathematics and Excel.Cambridge University Press. 2008

@@ -531,8 +531,10 @@ f_{tx}&=-0.06e^{-0.06t}
 >Aply Ito-Doeblin formula, we have:
 $$\begin{align*}
 d(e^{-0.06t}S_t) &= -0.06e^{-0.06t}S_t\,dt+e^{-0.06t}\,dS_t -0.06e^{-0.06t}\,dt \,dS_t \\
-&= -0.06e^{-0.06t}S_t\,dt+e^{-0.06t}(0.15 S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}) -0.06e^{-0.06t}\,dt(0.15 S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}) \\
-&= e^{-0.06t}S_t[(0.15-0.06) \,dt+0.4 \,d W_t^{\mathcal{P}}] -0.06 \cdot 0.15 e^{-0.06t}St\,dt^2 - 0.06 \cdot 0.4 S_t \,dt\,dW_t^\mathcal{P})\\
+&= -0.06e^{-0.06t}S_t\,dt+e^{-0.06t}(0.15 S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}) \\
+&-0.06e^{-0.06t}\,dt(0.15 S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}) \\
+&= e^{-0.06t}S_t[(0.15-0.06) \,dt+0.4 \,d W_t^{\mathcal{P}}] -0.06 \cdot 0.15 e^{-0.06t}St\,dt^2 \\
+&- 0.06 \cdot 0.4 S_t \,dt\,dW_t^\mathcal{P})\\
 &= e^{-0.06t}S_t[0.15-0.06 \,dt+0.4 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
 &= e^{-0.06t}S_t[(0.15-0.06-0.4 \theta_t) \,dt+0.4 \,d W_t^{\mathcal{Q}} \,dt]
 \end{align*}$$
@@ -577,9 +579,13 @@ $$\begin{align*}
 
 >We have
 $$\begin{align*}
-\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &\sim \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
-e^{\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
- (S_T|10) &\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+&\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) \\
+&\sim \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+\\
+&e^{\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} \\
+&\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+\\
+&(S_T|10) \sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \end{align*}$$
 
 >The probability density function of $(S_T|10)$ is
@@ -773,8 +779,10 @@ f_{tx}&=0
 >Aply Ito-Doeblin formula, we have:
 $$\begin{align*}
 d(e^{-0.07t}S_t) &= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\,dt \,dS_t \\
-&= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) -0.07e^{-0.07t}\,dt(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
-&= e^{-0.07t}S_t[(0.1-0.07) \,dt+0.3 \,d W_t^{\mathcal{P}}] -0.07 \cdot 0.1 e^{-0.07t}St\,dt^2 - 0.07 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
+&= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
+&-0.07e^{-0.07t}\,dt(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
+&= e^{-0.07t}S_t[(0.1-0.07) \,dt+0.3 \,d W_t^{\mathcal{P}}] \\
+&-0.07 \cdot 0.1 e^{-0.07t}St\,dt^2 - 0.07 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
 &= e^{-0.07t}S_t[0.1-0.07 \,dt+0.3 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
 &= e^{-0.07t}S_t[(0.1-0.07-0.3 \theta_t) \,dt+0.3 \,d W_t^{\mathcal{Q}} \,dt]
 \end{align*}$$
@@ -819,9 +827,13 @@ $$\begin{align*}
 
 >We have
 $$\begin{align*}
-\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &\sim \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
-e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
- (S_T|S_t) &\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+&\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) \\
+&\sim \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+\\
+&e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} \\
+&\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+\\
+&(S_T|S_t) \sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \end{align*}$$
 
 >The probability density function of $(S_T|S_t)$ is
@@ -865,7 +877,7 @@ Prove that
 a. $e^{-r(T-t)} \int_K^\infty \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=S_t e^{-\delta(T-t)}N(d_1(S_t,t))$
 
 >$$ 
-e^{-r(T-t)} \int_K^\infty \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy
+RHS = e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy
 $$
 
 >Let $u=\frac{\ln y -m}{\sigma\sqrt{T-t}}$ then
@@ -881,7 +893,7 @@ $$\begin{align*}
 \end{align*}$$
 
 >$$\begin{align*}
-e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy &=e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
+RHS &=e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
 &= e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
 &=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2+u\sigma \sqrt{T-t}}\,d u \\
 &=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}(u^2-2u\sigma \sqrt{T-t}+\sigma^2(T-t))+\frac{1}{2}\sigma^2(T-t)}\,d u \\
@@ -892,11 +904,9 @@ e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2
 &=S_te^{−\delta(T−t)} N(d_1(S_t,t)) \\
 \end{align*}$$
 
-
-
 b. $e^{-r(T-t)} \int_K^\infty \frac{1}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=K e^{-r(T-t)}N(d_2(S_t,t))$
 
->$$e^{-r(T-t)} \int_K^\infty \frac{K}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}}\,dy$$
+>$$RHS = Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}}\,dy$$
 
 >Let $u=\frac{\ln y -m}{\sigma\sqrt{T-t}}$ then
 $$\,d u = \frac{1}{y\sigma\sqrt{T-t}} \,dy$$
@@ -908,7 +918,7 @@ $$\begin{align*}
 \end{align*}$$
 
 >$$\begin{align*}
-Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}} \,dy &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{u_K}^{\infty}e^{-\frac{1}{2}u^2}\,du \\
+RHS &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{u_K}^{\infty}e^{-\frac{1}{2}u^2}\,du \\
 &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-u_K}e^{-\frac{1}{2}u^2}\,du \\
 &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} N(d_2(S_t,t))
 \end{align*}$$
@@ -924,7 +934,7 @@ Prove that
 c. $e^{-r(T-t)} \int_{-\infty}^K \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=S_t e^{-\delta(T-t)}N(d_1(S_t,t))$
 
 >$$ 
-e^{-r(T-t)} \int_{-\infty}^K \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy
+RHS = e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy
 $$
 
 >Let $u=\frac{\ln y -m}{\sigma\sqrt{T-t}}$ then
@@ -940,7 +950,7 @@ u_K-\sigma \sqrt{T-t} &= -\sigma \sqrt{T-t}+\frac{\ln K -m}{\sigma\sqrt{T-t}} \\
 \end{align*}$$
 
 >$$\begin{align*}
-e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy &=e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
+RHS &=e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
 &= e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
 &=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2+u\sigma \sqrt{T-t}}\,d u \\
 &=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}(u^2-2u\sigma \sqrt{T-t}+\sigma^2(T-t))+\frac{1}{2}\sigma^2(T-t)}\,d u \\
@@ -951,9 +961,10 @@ e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigm
 &=S_te^{−\delta(T−t)} N(-d_1(S_t,t)) \\
 \end{align*}$$
 
-d. $e^{-r(T-t)} \int_0^K \frac{1}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=K e^{-r(T-t)}N(-d_2(S_t,t))$
+d. $e^{-r(T-t)} \int_{-\infty}^K \frac{K}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=K e^{-r(T-t)}N(-d_2(S_t,t))$
 
->$$e^{-r(T-t)} \int_{-\infty}^K \frac{K}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}}\,dy$$
+>
+$$RHS = Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}}\,dy$$
 
 >Let $u=\frac{\ln y -m}{\sigma\sqrt{T-t}}$ then
 $$\,d u = \frac{1}{y\sigma\sqrt{T-t}} \,dy$$
@@ -966,7 +977,7 @@ $$\begin{align*}
 \end{align*}$$
 
 >$$\begin{align*}
-Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}} \,dy &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K}e^{-\frac{1}{2}u^2}\,du \\
+RHS &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K}e^{-\frac{1}{2}u^2}\,du \\
 &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K}e^{-\frac{1}{2}u^2}\,du \\
 &=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} N(-d_2(S_t,t))
 \end{align*}$$
