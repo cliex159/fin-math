@@ -105,7 +105,7 @@ Financial Mathematics is the application of mathematical methods to financial pr
 <img height="16" width="16" alt="💝" referrerpolicy="origin-when-cross-origin" src="https://static.xx.fbcdn.net/images/emoji.php/v9/tb6/2/16/1f49d.png">
 </span>Dr. Tan is considerate towards all students
 </div>
-<div dir="auto" style="text-align: start;"> Truth be told, if you text him a message to ask for questions, he will give you back a phone call with exactly the things you've been looking for. In social media, he is an interactive user who frequently interacts with the students via reactions or friendly comments. Experienced in Financial Bankings, his colleagues are just very well likely to be a data analyst, quantitative analyst, or credit analyst and that explains his numerous available employment possibility and fast-forwarding career advice. 
+<div dir="auto" style="text-align: start;"> Truth be told, if you text him a message to ask for questions, he will give you back a phone call with exactly the things you've been looking for. In social media, he is an active user who frequently interacts with the students via friendly reactions or positive comments. Experienced in Financial Banking, his colleagues are just very well likely to be a data analyst, quantitative analyst, or credit analyst and that explains his numerous available employment possibility and fast-forwarding career advice. 
 </div>
 <div dir="auto" style="text-align: start;">_______________________________________
 </div>
