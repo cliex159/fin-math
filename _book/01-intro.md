@@ -2070,7 +2070,7 @@ dY_t&= \frac{1}{X_t}(4(t^3−3)X_t\,dt+t^2X_t\,dW_t) - \frac{1}{2}\frac{1}{X_t^2
 \end{align*}$$
 
 >$$\begin{align*}
-\int_2^4 t^2 \,d W_t &\sim \mathcal{N} \left(0,\int_2^4 t^2 \,d t \right) \\
+\int_2^4 t^2 \,d W_t &\sim \mathcal{N} \left(0,\int_2^4 t^4 \,d t \right) \\
 &\sim \mathcal{N}\left(0,\frac{992}{5} \right) \\
 \end{align*}$$
 
