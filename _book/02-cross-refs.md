@@ -502,9 +502,10 @@ I_2 &=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2}
 \end{align*}$$
 
 >Answer:
-$$
-C(S_t,t) =S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) - Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
-$$
+$$\begin{align*}
+C(S_t,t) &=S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \\
+&- Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}$$
 
 ### Slide 47 {.unnumbered}
 
@@ -742,7 +743,11 @@ I_2&=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{
 &=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
 \end{align*}$$
 
->Answer: $$ P(S_t,t) = -S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  +Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)\\$$
+>Answer: 
+$$\begin{align*}
+P(S_t,t) &= -S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  \\
+&+ Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)\\
+\end{align*}$$
 
 ### Slide 48 {.unnumbered}
 
@@ -1291,126 +1296,6 @@ sigma=coef(fit)[2]
 
 c. According to the Black-Scholes framework and using the probabilistic approach, compute the fair value for $C_0$?
 
->Let $\mathcal{P}$ and $\mathcal{Q}$ be the physical and risk neutral measures on $(\omega,\mathcal{F})$ respectively. Let $\{W_t^\mathcal{P}\}_{t \geq 0}$ be the standard Brownian motion on $\mathcal{P}$. For $\{S_t\}_{t \geq 0}$ be the process of asset price, we have:
-$$dSt = 0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P}$$
-
->With $f(t,x)=e^{-0.08t}x$ then we can calculate:
-$$\begin{align*} 
-f_t&=-0.08e^{-0.08t}x \\
-f_x&=e^{-0.08t} \\
-f_{tt}&=0.08^2e^{-0.08t}x \\
-f_{xx}&=0 \\
-f_{tx}&=0
-\end{align*}$$
-
->Aply Ito-Doeblin formula, we have:
-$$\begin{align*}
-d(e^{-0.08t}S_t) &= -0.08e^{-0.08t}S_t\,dt+e^{-0.08t}\,dS_t \\
-&= -0.08e^{-0.08t}S_t\,dt+e^{-0.08t}(0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P}) \\
-&= e^{-0.08t}S_t[(-0.08+0.00252) \,dt+0.46 \,d W_t^{\mathcal{P}}] \\
-&= e^{-0.08t}S_t[-0.08+0.00252 \,dt+0.46 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
-&= e^{-0.08t}S_t[(-0.08+0.00252-0.46 \theta_t) \,dt+0.46 \,d W_t^{\mathcal{Q}} \,dt]
-\end{align*}$$
-
->In order to have the process $\{e^{−0.08t}S_t\}_{t \geq 0}$ be the martigale process, we choose $\theta_t$ such that:
-$$-0.08+0.00252-0.46 \theta_t=0 \rightarrow \theta_t=\frac{-0.08+0.00252}{0.46} $$
-then $$E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]<\infty$$
-
->By the Girsanov’s theorem, there is a risk neutral measure $\mathcal{Q}$ defined by the Radon-Nykodym $$E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}$$ such that $W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds$  
-is the standard Brownian motion under $\mathcal{Q}$.
-$$W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
-\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt$$
-
->Since $e^{-rt}S_t$ is a martingale under $\mathcal{Q}$ and $\mathcal{Q}$ is an equivalent martingale measure to $\mathcal{P}$, we can write:
-$$\begin{align*}
-\,dS_t &= 0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P} \\
-&=0.00252S_t \,dt + 0.46 S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
-&=0.00252S_t \,dt + 0.46 S_t (\,dW_t^\mathcal{Q}-\frac{-0.08+0.00252}{0.46} \,dt) \\
-&=\left(0.00252-0.46\cdot\frac{-0.08+0.00252}{0.46} \right)S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q} \\
-&=-0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q} \\
-\end{align*}$$
-
->Let $Y_t=\ln S_t$ and $f(t,x)=\ln x$, we have:
-$$\begin{align*}
-f_t&=0 \\
-f_x&=\frac{1}{x} \\
-f_{tt}&=0 \\
-f_{xx}&=-\frac{1}{x^2} \\
-f_{tx}&=0 \\
-\end{align*}$$
-
->Applying Ito Doeblin formula, we have:
-$$\begin{align*}
-\,d(Y_t)&=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
-&=\frac{1}{S_t} (0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q})^2 \\
-&=(0.08-\frac{1}{2} \cdot 0.46^2)\,dt + 0.46 \,dW_t^\mathcal{Q} \\
-\,d(\ln S_t)&=(0.08-\frac{1}{2} \cdot 0.46^2)\,dt + 0.46 \,dW_t^\mathcal{Q} \\
- \int_t^T \,d(\ln S_s)&=\int_t^T(0.08-\frac{1}{2} \cdot 0.46^2)\,ds + \int_t^T0.46 \,dW_s^\mathcal{Q} \\
- ln \left( \frac{S_T}{S_t} \right)&=(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
- S_T&=e^{\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
-\end{align*}$$
-
-Compute the fair price when $t = 0.5,T = 5, S_t = 83.5$.
-
->We have
-$$\begin{align*}
-\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &\sim \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
-e^{\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \log \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
- (S_T|S_t) &\sim \log \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
-\end{align*}$$
-
->The probability density function of $(S_T|S_t)$ is
-$$f_{S_T|S_t}(x)=\frac{1}{0.46x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)))^2}{0.46^2(T-t)}} $$
-
->From Feyman-Kac formula we have:
-$$ C(S_t,t)=e^{-0.08(T-t)} \mathbb{E}^\mathcal{Q}[max(S_T-K,0)|\mathcal{F}_t] $$
-
->Applying the moment generating function, we have:
-$$\begin{align*} 
-C(S_t,t)&=e^{-0.08(T-t)}\int_{-\infty}^\infty \max(x-62,0) f_{S_T|S_t}(x) \,dx \\
-C(S_t,t)&=e^{-0.08(T-t)}\int_62^\infty (x-62) \frac{1}{0.46x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)))^2}{0.46^2(T-t)}} \,dx
-\end{align*}$$
-
->With the maturity time $T=1$, substitute $S_t=83.5$ and $t=0.5$, we have
-$$\begin{align*}
-C(83.5,0.5)&=e^{-0.08(5-0.5)}\int_62^\infty (x-62) \frac{1}{0.46x\sqrt{2\pi}\sqrt{(5-0.5)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln 83.5 +(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \,dx \\
-&=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi}\sqrt{(5-0.5)}} \int_62^\infty (x-62)e^{-\frac{1}{2} \frac{(\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \frac{1}{x}\,dx
-\end{align*}$$
-
->Let $u_x=\frac{\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}$, we have
-$$\begin{align*}
-\ln \left( \frac{x}{83.5} \right)&=0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5) \\
-x&=83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}
-\end{align*}$$ 
-
->$$\begin{align*}
-\,du&=\frac{1}{0.46x\sqrt{5-0.5}}\,dx \\
-0.46\sqrt{5-0.5}\,du&=\frac{1}{x}\,dx
-\end{align*}$$
-
->$$\begin{align*}
-u_62&=\frac{\ln 62-\ln 83.5 +(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}} \\
-&=\frac{\ln \left( \frac{62}{83.5} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}
-\end{align*}$$
-
->The value of the call option becomes:
-$$\begin{align*}
-    C(83.5,0.5)&=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi} \sqrt{T-t}} \int_62^\infty (x-62)e^{-\frac{1}{2} \frac{(\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \frac{1}{x}\,dx \\
-    &=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi}\sqrt{T-t}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}-62)e^{-\frac{1}{2} u^2} 0.46\sqrt{5-0.5}\,du \\
-    &=\frac{e^{-0.08(5-0.5)}\sqrt{5-0.5}}{\sqrt{2\pi}\sqrt{T-t}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}e^{-\frac{1}{2} u^2}-62e^{-\frac{1}{2} u^2}) \,du \\
-    &=\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)-\frac{1}{2} u^2}-62e^{-\frac{1}{2} u^2}) \,du \\
-    &=\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty 83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)-\frac{1}{2} u^2}\,du-\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty 62e^{-\frac{1}{2} u^2} \,du \\
-    &=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2+0.46u\sqrt{5-0.5}-0.08(5-0.5)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-    &=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} (u-0.46\sqrt{5-0.5})^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-    &=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} (u-0.46\sqrt{5-0.5})^2}\,d(u-0.46\sqrt{5-0.5})-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-    &=\frac{83.5}{\sqrt{2\pi}} \int_{u_62-0.46\sqrt{5-0.5}}^\infty e^{-\frac{1}{2} u^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-    &= \frac{83.5}{\sqrt{2\pi}} \int_{-\infty}^{0.46\sqrt{5-0.5}-u_62} e^{-\frac{1}{2} u^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{-\infty}^{-u_62} e^{-\frac{1}{2} u^2} \,du \\
-    &=83.5\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{0.46\sqrt{5-0.5}-\frac{\ln \left( \frac{62}{83.5} \right)-(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2}\,du-62e^{-0.08(5-0.5)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{62}{83.5} \right)-(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2} \,du \\
-    &=83.5\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{83.5}{62} \right)+(0.08+\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2}\,du-62e^{-0.08(5-0.5)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{83.5}{62} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2} \,du \\
-    &=83.5 \cdot N \left({\frac{\ln \left( \frac{83.5}{62} \right)+(0.08+\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}}\right) -62e^{-0.08(5-0.5)} \cdot N \left({\frac{\ln \left( \frac{83.5}{62} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}}\right)=48.32
-    \end{align*}$$
-
-
 d. Write a R code to compute $C_0$ using the Black-Scholes-Merton formula.
 
 ```r
@@ -1452,4 +1337,3 @@ European_call_binomial(T=5, t=0.5,r=0.08, X=62,N=1000,S0=X[1],sigma=sigma*sqrt(2
 #>   theta2 
 #> 42.04177
 ```
-

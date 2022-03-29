@@ -51,7 +51,8 @@
 <li class="book-part">Risk Neutral</li>
 <li><a class="" href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></li>
 <li><a class="active" href="risk-neutral-pricing-bs.html"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a></li>
-<li><a class="" href="midterm-mock.html">Midterm Mock</a></li>
+<li class="book-part">Midterm Mock</li>
+<li><a class="" href="group-4.html"><span class="header-section-number">6</span> Group 4</a></li>
 </ul>
 
         <div class="book-extra">
@@ -427,9 +428,10 @@ I_2 &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1
 </blockquote>
 <blockquote>
 <p>Answer:
-<span class="math display">\[
-C(S_t,t) =S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) - Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
-\]</span></p>
+<span class="math display">\[\begin{align*}
+C(S_t,t) &amp;=S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \\
+&amp;- Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
 </blockquote>
 <div id="slide-47" class="section level3 unnumbered">
 <h3>Slide 47<a class="anchor" aria-label="anchor" href="#slide-47"><i class="fas fa-link"></i></a>
@@ -700,7 +702,11 @@ I_1&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u
 <p><span class="math inline">\(\begin{align*} I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \end{align*}\)</span>$</p>
 </blockquote>
 <blockquote>
-<p>Answer: <span class="math display">\[ P(S_t,t) = -S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  +Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)\\\]</span></p>
+<p>Answer:
+<span class="math display">\[\begin{align*}
+P(S_t,t) &amp;= -S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  \\
+&amp;+ Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)\\
+\end{align*}\]</span></p>
 </blockquote>
 <div id="slide-48-1" class="section level3 unnumbered">
 <h3>Slide 48<a class="anchor" aria-label="anchor" href="#slide-48-1"><i class="fas fa-link"></i></a>
@@ -1264,145 +1270,8 @@ Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sig
 <span class="va">mu</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
 <span class="va">sigma</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
 <ol start="3" style="list-style-type: lower-alpha">
-<li>According to the Black-Scholes framework and using the probabilistic approach, compute the fair value for <span class="math inline">\(C_0\)</span>?</li>
-</ol>
-<blockquote>
-<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
-<span class="math display">\[dSt = 0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P}\]</span></p>
-</blockquote>
-<blockquote>
-<p>With <span class="math inline">\(f(t,x)=e^{-0.08t}x\)</span> then we can calculate:
-<span class="math display">\[\begin{align*}
-f_t&amp;=-0.08e^{-0.08t}x \\
-f_x&amp;=e^{-0.08t} \\
-f_{tt}&amp;=0.08^2e^{-0.08t}x \\
-f_{xx}&amp;=0 \\
-f_{tx}&amp;=0
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>Aply Ito-Doeblin formula, we have:
-<span class="math display">\[\begin{align*}
-d(e^{-0.08t}S_t) &amp;= -0.08e^{-0.08t}S_t\,dt+e^{-0.08t}\,dS_t \\
-&amp;= -0.08e^{-0.08t}S_t\,dt+e^{-0.08t}(0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P}) \\
-&amp;= e^{-0.08t}S_t[(-0.08+0.00252) \,dt+0.46 \,d W_t^{\mathcal{P}}] \\
-&amp;= e^{-0.08t}S_t[-0.08+0.00252 \,dt+0.46 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
-&amp;= e^{-0.08t}S_t[(-0.08+0.00252-0.46 \theta_t) \,dt+0.46 \,d W_t^{\mathcal{Q}} \,dt]
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>In order to have the process <span class="math inline">\(\{e^{−0.08t}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
-<span class="math display">\[-0.08+0.00252-0.46 \theta_t=0 \rightarrow \theta_t=\frac{-0.08+0.00252}{0.46} \]</span>
-then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
-</blockquote>
-<blockquote>
-<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
-is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
-<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
-\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
-</blockquote>
-<blockquote>
-<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
-<span class="math display">\[\begin{align*}
-\,dS_t &amp;= 0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P} \\
-&amp;=0.00252S_t \,dt + 0.46 S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
-&amp;=0.00252S_t \,dt + 0.46 S_t (\,dW_t^\mathcal{Q}-\frac{-0.08+0.00252}{0.46} \,dt) \\
-&amp;=\left(0.00252-0.46\cdot\frac{-0.08+0.00252}{0.46} \right)S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q} \\
-&amp;=-0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q} \\
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
-<span class="math display">\[\begin{align*}
-f_t&amp;=0 \\
-f_x&amp;=\frac{1}{x} \\
-f_{tt}&amp;=0 \\
-f_{xx}&amp;=-\frac{1}{x^2} \\
-f_{tx}&amp;=0 \\
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>Applying Ito Doeblin formula, we have:
-<span class="math display">\[\begin{align*}
-\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
-&amp;=\frac{1}{S_t} (0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q})^2 \\
-&amp;=(0.08-\frac{1}{2} \cdot 0.46^2)\,dt + 0.46 \,dW_t^\mathcal{Q} \\
-\,d(\ln S_t)&amp;=(0.08-\frac{1}{2} \cdot 0.46^2)\,dt + 0.46 \,dW_t^\mathcal{Q} \\
-\int_t^T \,d(\ln S_s)&amp;=\int_t^T(0.08-\frac{1}{2} \cdot 0.46^2)\,ds + \int_t^T0.46 \,dW_s^\mathcal{Q} \\
-ln \left( \frac{S_T}{S_t} \right)&amp;=(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
-S_T&amp;=e^{\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
-\end{align*}\]</span></p>
-</blockquote>
-<p>Compute the fair price when <span class="math inline">\(t = 0.5,T = 5, S_t = 83.5\)</span>.</p>
-<blockquote>
-<p>We have
-<span class="math display">\[\begin{align*}
-\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
-e^{\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \log \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
-(S_T|S_t) &amp;\sim \log \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
-<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{0.46x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)))^2}{0.46^2(T-t)}} \]</span></p>
-</blockquote>
-<blockquote>
-<p>From Feyman-Kac formula we have:
-<span class="math display">\[ C(S_t,t)=e^{-0.08(T-t)} \mathbb{E}^\mathcal{Q}[max(S_T-K,0)|\mathcal{F}_t] \]</span></p>
-</blockquote>
-<blockquote>
-<p>Applying the moment generating function, we have:
-<span class="math display">\[\begin{align*}
-C(S_t,t)&amp;=e^{-0.08(T-t)}\int_{-\infty}^\infty \max(x-62,0) f_{S_T|S_t}(x) \,dx \\
-C(S_t,t)&amp;=e^{-0.08(T-t)}\int_62^\infty (x-62) \frac{1}{0.46x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)))^2}{0.46^2(T-t)}} \,dx
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>With the maturity time <span class="math inline">\(T=1\)</span>, substitute <span class="math inline">\(S_t=83.5\)</span> and <span class="math inline">\(t=0.5\)</span>, we have
-<span class="math display">\[\begin{align*}
-C(83.5,0.5)&amp;=e^{-0.08(5-0.5)}\int_62^\infty (x-62) \frac{1}{0.46x\sqrt{2\pi}\sqrt{(5-0.5)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln 83.5 +(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \,dx \\
-&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi}\sqrt{(5-0.5)}} \int_62^\infty (x-62)e^{-\frac{1}{2} \frac{(\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \frac{1}{x}\,dx
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>Let <span class="math inline">\(u_x=\frac{\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}\)</span>, we have
-<span class="math display">\[\begin{align*}
-\ln \left( \frac{x}{83.5} \right)&amp;=0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5) \\
-x&amp;=83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p><span class="math display">\[\begin{align*}
-\,du&amp;=\frac{1}{0.46x\sqrt{5-0.5}}\,dx \\
-0.46\sqrt{5-0.5}\,du&amp;=\frac{1}{x}\,dx
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p><span class="math display">\[\begin{align*}
-u_62&amp;=\frac{\ln 62-\ln 83.5 +(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}} \\
-&amp;=\frac{\ln \left( \frac{62}{83.5} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p>The value of the call option becomes:
-<span class="math display">\[\begin{align*}
-C(83.5,0.5)&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi} \sqrt{T-t}} \int_62^\infty (x-62)e^{-\frac{1}{2} \frac{(\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \frac{1}{x}\,dx \\
-&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi}\sqrt{T-t}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}-62)e^{-\frac{1}{2} u^2} 0.46\sqrt{5-0.5}\,du \\
-&amp;=\frac{e^{-0.08(5-0.5)}\sqrt{5-0.5}}{\sqrt{2\pi}\sqrt{T-t}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}e^{-\frac{1}{2} u^2}-62e^{-\frac{1}{2} u^2}) \,du \\
-&amp;=\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)-\frac{1}{2} u^2}-62e^{-\frac{1}{2} u^2}) \,du \\
-&amp;=\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty 83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)-\frac{1}{2} u^2}\,du-\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty 62e^{-\frac{1}{2} u^2} \,du \\
-&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2+0.46u\sqrt{5-0.5}-0.08(5-0.5)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} (u-0.46\sqrt{5-0.5})^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} (u-0.46\sqrt{5-0.5})^2}\,d(u-0.46\sqrt{5-0.5})-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62-0.46\sqrt{5-0.5}}^\infty e^{-\frac{1}{2} u^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
-&amp;= \frac{83.5}{\sqrt{2\pi}} \int_{-\infty}^{0.46\sqrt{5-0.5}-u_62} e^{-\frac{1}{2} u^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{-\infty}^{-u_62} e^{-\frac{1}{2} u^2} \,du \\
-&amp;=83.5\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{0.46\sqrt{5-0.5}-\frac{\ln \left( \frac{62}{83.5} \right)-(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2}\,du-62e^{-0.08(5-0.5)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{62}{83.5} \right)-(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2} \,du \\
-&amp;=83.5\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{83.5}{62} \right)+(0.08+\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2}\,du-62e^{-0.08(5-0.5)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{83.5}{62} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2} \,du \\
-&amp;=83.5 \cdot N \left({\frac{\ln \left( \frac{83.5}{62} \right)+(0.08+\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}}\right) -62e^{-0.08(5-0.5)} \cdot N \left({\frac{\ln \left( \frac{83.5}{62} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}}\right)=48.32
-\end{align*}\]</span></p>
-</blockquote>
-<ol start="4" style="list-style-type: lower-alpha">
-<li>Write a R code to compute <span class="math inline">\(C_0\)</span> using the Black-Scholes-Merton formula.</li>
+<li><p>According to the Black-Scholes framework and using the probabilistic approach, compute the fair value for <span class="math inline">\(C_0\)</span>?</p></li>
+<li><p>Write a R code to compute <span class="math inline">\(C_0\)</span> using the Black-Scholes-Merton formula.</p></li>
 </ol>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">BS_call</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">S0</span>,<span class="va">K</span>,<span class="va">T</span>,<span class="va">r</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span>
@@ -1439,9 +1308,12 @@ C(83.5,0.5)&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi} \sqrt{T-t}} \int_62^\i
 </div>
 </div>
 </div>
+
+
+
   <div class="chapter-nav">
 <div class="prev"><a href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></div>
-<div class="next"><a href="midterm-mock.html">Midterm Mock</a></div>
+<div class="next"><a href="group-4.html"><span class="header-section-number">6</span> Group 4</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">

@@ -100,7 +100,7 @@ Financial Mathematics is the application of mathematical methods to financial pr
 <img height="16" width="16" alt="❓" referrerpolicy="origin-when-cross-origin" src="https://static.xx.fbcdn.net/images/emoji.php/v9/tcd/2/16/2753.png">
 </span>
 </div>
-<div dir="auto" style="text-align: start;">Just like that, He just loves a class with students who are constantly ready to speak. Having so familiar with his classes, I remember his go-to catchphrase is "in the class, we are actually discussing the things that I have learned, not big a deal". So, being a student in his class, why don't we act cool and ask questions. For those who don't know just jet, in the class you keep silent and in the exam you go to hell.
+<div dir="auto" style="text-align: start;">Just like that, he loves a class with students who are constantly ready to speak. Having so familiar with his classes, I remember his go-to catchphrase is "in the class, we are actually discussing the things that I have learned, not big a deal". So, being a student in his class, why don't we act cool and ask questions. For those who don't know just jet, in the class you keep silent and in the exam you go to hell.
 </div>
 <div dir="auto" style="text-align: start;">
 <span class="pq6dq46d tbxw36s4 knj5qynh kvgmc6g5 ditlmg2l oygrvhab nvdbi5me sf5mxxl7 gl3lb2sf hhz5lgdu">
@@ -122,8 +122,7 @@ Financial Mathematics is the application of mathematical methods to financial pr
 
 ## Course References {.unnumbered}
 
-1. A.J. MacNeil, R. Frey and P. Embrechts. Quantitative risk
-management. Princeton University press. 2015
-2. J. Danielsson. Financial Risk Forecasting. Wiley Finance. 2011
-3. Allan M. Malz, Financial Risk Management: Models, History, and
-Institutions, Willey, 2011.
+John.C. Hull.Options Futures and Other Derivatives Prentice Hall. 2014
+
+1. John.C. Hull.Options Futures and Other Derivatives Prentice Hall. 2014
+2. Bill Dalton. Financial products: an introduction using mathematics and Excel.Cambridge University Press. 2008
