@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 5 Risk Neutral Pricing BS | FM2</title>
+<meta name="author" content="Tran Thanh Dat">
+<meta name="description" content="Slide 23’ Consider the asset price process \(S_t\) follows a geometric Brownian motion: \(\,d S_t = 0.25S_t \,dt+0.4St\,dW_t\), where \(W_t\) is a standard Brownian motion on the real world...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 5 Risk Neutral Pricing BS | FM2">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Slide 23’ Consider the asset price process \(S_t\) follows a geometric Brownian motion: \(\,d S_t = 0.25S_t \,dt+0.4St\,dW_t\), where \(W_t\) is a standard Brownian motion on the real world...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 5 Risk Neutral Pricing BS | FM2">
+<meta name="twitter:description" content="Slide 23’ Consider the asset price process \(S_t\) follows a geometric Brownian motion: \(\,d S_t = 0.25S_t \,dt+0.4St\,dW_t\), where \(W_t\) is a standard Brownian motion on the real world...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">FM2</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Course Descripition</a></li>
+<li class="book-part">Probability</li>
+<li><a class="" href="distribution.html"><span class="header-section-number">1</span> Distribution</a></li>
+<li><a class="" href="random-walk.html"><span class="header-section-number">2</span> Random walk</a></li>
+<li><a class="" href="ito---doeblin.html"><span class="header-section-number">3</span> Ito - Doeblin</a></li>
+<li class="book-part">Risk Neutral</li>
+<li><a class="" href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></li>
+<li><a class="active" href="risk-neutral-pricing-bs.html"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a></li>
+<li><a class="" href="midterm-mock.html">Midterm Mock</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/cliex159/fin-risk-mana">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="risk-neutral-pricing-bs" class="section level1" number="5">
+<h1>
+<span class="header-section-number">5</span> Risk Neutral Pricing BS<a class="anchor" aria-label="anchor" href="#risk-neutral-pricing-bs"><i class="fas fa-link"></i></a>
+</h1>
+<div id="slide-23" class="section level3 unnumbered">
+<h3>Slide 23’<a class="anchor" aria-label="anchor" href="#slide-23"><i class="fas fa-link"></i></a>
+</h3>
+<p>Consider the asset price process <span class="math inline">\(S_t\)</span> follows a geometric Brownian motion: <span class="math inline">\(\,d S_t = 0.25S_t \,dt+0.4St\,dW_t\)</span>,
+where <span class="math inline">\(W_t\)</span> is a standard Brownian motion on the real world probability space, denoted by <span class="math inline">\((\omega, \mathcal{F}, \mathcal{P})\)</span>. Suppose the asset price is <span class="math inline">\(10\)</span>.
+What is the probability that the asset price will be greater than <span class="math inline">\(10.4\)</span> after <span class="math inline">\(2\)</span> year from now?
+What is the expected price after <span class="math inline">\(2\)</span> year from now?</p>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (0.25S_t\,dt + 0.4S_t\,dW_t)-\frac{1}{2}\frac{1}{S_t^2}(0.25S_t\,dt + 0.4S_t\,dW_t)^2 \\
+&amp;=\frac{1}{S_t}\cdot0.25S_t\,dt + \frac{1}{S_t} \cdot 0.4S_t\,dW_t-\frac{1}{2}\frac{1}{S_t^2} \cdot 0.4^2S_t^2\,dW_t^2 \\
+&amp;=0.25\,dt + 0.4\,dW_t-\frac{0.4^2}{2}\,dt \\
+&amp;=0.17\,dt + 0.4\,dW_t \\
+\,d \ln S_t&amp;=0.17\,dt + 0.4\,dW_t \\
+\int_0^2 \,d \ln S_s&amp;= \int_0^2 0.17\,ds +\int_0^2 0.4\,dW_s \\
+\ln S_s\Biggr|_{0}^{2} &amp;= 0.17\Biggr|_{0}^{2}+0.4W_s\Biggr|_{0}^{2} \\
+\ln \left( \frac{S_2}{S_0} \right) &amp;= 0.34+0.4W_2 \\
+S_2 &amp;= S_0e^{0.34+0.4W_2} \\
+S_2 &amp;= 10e^{0.34+0.4W_2} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability that the asset price will be less than 10.4 after 2 year from now is:
+<span class="math display">\[\begin{align*}
+P(S_2) &lt;10.4 &amp;= P \left(W_2 &lt; \frac{\ln \left(\frac{10.4}{10} \right)-0.34}{0.4} \right) \\
+&amp;=P \left(W_1 &lt; \frac{\ln \left(\frac{10.4}{10} \right)-0.34}{0.4 \cdot \sqrt{2}} \right) \\
+&amp;= \Phi(-0.53) \\
+&amp;=0.29746
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[ \ln 10 +0.34+0.4W_2 \sim \mathcal{N}(\ln 10 +0.34,0.4 \sqrt{2}) \\
+e^{\ln 10 +0.34+0.4W_2} \sim \log\mathcal{N}(\ln 10 +0.34,0.4 \sqrt{2}) \\
+(S_2|S_0=10) \sim \log\mathcal{N}(\ln 10 +0.34,0.4 \sqrt{2})
+\]</span>
+The expected price after 2 year from now is:
+<span class="math display">\[\begin{align*}
+\mathbb{E}[S_2]&amp;=e^{\mu+\frac{1}{2}\sigma^2} \\
+&amp;=e^{\ln 10 +0.34+\frac{1}{2}(0.4 \sqrt{2})^2} \\
+&amp;=16.49
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the asset price will be less than 10.4 after 2 year from now is <span class="math inline">\(29.47\%\)</span>. The expected price after 2 year from now is <span class="math inline">\(16.49\)</span>.</p>
+</blockquote>
+</div>
+<div id="slide-34" class="section level3 unnumbered">
+<h3>Slide 34<a class="anchor" aria-label="anchor" href="#slide-34"><i class="fas fa-link"></i></a>
+</h3>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_1 &amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} u^2+\sigma u\sqrt{T-t}-r(T-t)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}\,du \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,du \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,d(u-\sigma\sqrt{T-t}) \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K-\sigma\sqrt{T-t}}^\infty e^{-\frac{1}{2} u^2}\,du \\
+&amp;= S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\sigma\sqrt{T-t}-u_K} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\sigma\sqrt{T-t}-\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\sigma^2(T-t)-\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_2 &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-u_K} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+<div id="slide-27" class="section level3 unnumbered">
+<h3>Slide 27<a class="anchor" aria-label="anchor" href="#slide-27"><i class="fas fa-link"></i></a>
+</h3>
+<p>Suppose the stochastic process of the asset price <span class="math inline">\(S_t\)</span> follows a geometric Brownian motion:
+<span class="math inline">\(\,d S_t = 0.1 S_t \,dt+0.3 S_t \,dW_t^\mathcal{P}\)</span>,
+where W_t^ is a standard Brownian motion on the real world probability space, denoted by <span class="math inline">\((\omega, \mathcal{F}, \mathcal{P})\)</span>. A European call option written on the stock with parameters: exercise price <span class="math inline">\(K = 10\)</span>, maturity time <span class="math inline">\(T &gt; t\)</span> (year), the risk-free interest rate is <span class="math inline">\(r = 0.07\)</span>.</p>
+<p>Compute the fair price when <span class="math inline">\(t = 0.5\)</span>, <span class="math inline">\(T = 1\)</span>, <span class="math inline">\(S_t = 11\)</span> using Binomial pricing approach.</p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u&amp;=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
+&amp;=e^{0.3\sqrt{\frac{1-0.5}{3}}} \\
+&amp;=1.13 \\
+d&amp;=e^{-\sigma \sqrt{\frac{T-t}{N}}} \\
+&amp;=e^{-0.3\sqrt{\frac{1-0.5}{3}}} \\
+&amp;=0.88 \\
+p &amp;= \frac{e^{r \cdot \frac{T-t}{N}-d}}{u-d} \\
+&amp;= \frac{e^{0.07 \cdot \frac{1-0.5}{3}-0.88}}{1.13-0.88} \\
+&amp;=0.52 \\
+q &amp;= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
+&amp;= \frac{1.13-e^{0.07 \cdot \frac{1-0.5}{3}}}{1.13-0.88} \\
+&amp;=0.48 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{03}&amp;=\max(S_0 \cdot 1.13^3-10,0) \\
+&amp;=\max(11 \cdot 1.13^3-10,0) \\
+&amp;= 5.88 \\
+V_{13}&amp;=\max(S_0 \cdot u^2 d-10,0) \\
+&amp;=\max(11 \cdot 1.13^2 \cdot 0.88-10,0) \\
+&amp;=2.43 \\
+V_{23}&amp;=\max(S_0 \cdot u d^2-10,0) \\
+&amp;=\max(11 \cdot 1.13 \cdot 0.88^2-10,0) \\
+&amp;=0 \\
+V_{33}&amp;=\max(S_0 \cdot d^3-10,0) \\
+&amp;=\max(11 \cdot 0.88^3-10,0) \\
+&amp;=0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{02}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{03} \cdot p + V_{13} \cdot q) \\
+&amp;=e^{-0.07 \cdot \frac{1-0.5}{3}}(5.88 \cdot 0.52 + 2.43 \cdot 0.48) \\
+&amp;=4.17 \\
+V_{12}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{13} \cdot p + V_{23} \cdot q) \\
+&amp;=e^{-0.07 \cdot \frac{1-0.5}{3}}(2.43 \cdot 0.52 + 0 \cdot 0.48) \\
+&amp;=1.24 \\
+V_{22}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{23} \cdot p + V_{33} \cdot q) \\
+&amp;=e^{-0.07 \cdot \frac{1-0.5}{3}}(0 \cdot 0.52 + 0 \cdot 0.48) \\
+&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{01}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{02} \cdot p + V_{12} \cdot q) \\
+&amp;=e^{-0.07 \cdot \frac{1-0.5}{3}}(4.17 \cdot 0.52 + 1.24 \cdot 0.48) \\
+&amp;=2.72 \\
+V_{11}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{12} \cdot p + V_{22} \cdot q) \\
+&amp;=e^{-0.07 \cdot \frac{1-0.5}{3}}(1.24 \cdot 0.52 + 0 \cdot 0.48) \\
+&amp;=0.64 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
+&amp;=e^{-0.07 \cdot \frac{1-0.5}{3}}(2.72 \cdot 0.52 + 0.64 \cdot 0.48) \\
+&amp;=1.7
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The fair price of the option is <span class="math inline">\(1.7\)</span></p>
+</blockquote>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">European_call_binomial</span><span class="op">=</span><span class="kw">function</span><span class="op">(</span> <span class="va">T</span>, <span class="va">t</span>,<span class="va">r</span>, <span class="va">X</span>,<span class="va">N</span>,<span class="va">S0</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">delta_t</span><span class="op">=</span><span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="va">N</span>
+  <span class="va">u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">p</span> <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="va">delta_t</span><span class="op">)</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">u</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span> <span class="co">### probability of up move</span>
+  <span class="va">Df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span> <span class="op">*</span> <span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="co">### discounting factor</span>
+  <span class="va">Ce</span><span class="op">=</span><span class="fl">0</span>;
+  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+    <span class="va">Ce</span> <span class="op">=</span><span class="va">Ce</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="va">N</span>,<span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">p</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">p</span><span class="op">)</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">-</span><span class="va">i</span><span class="op">}</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">S0</span><span class="op">*</span><span class="va">u</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="va">d</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">-</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span><span class="op">}</span><span class="op">-</span><span class="va">X</span>,<span class="fl">0</span><span class="op">)</span>
+    <span class="op">}</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">Df</span><span class="op">*</span><span class="va">Ce</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">European_call_binomial</span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0.5</span>,<span class="fl">0.07</span>,<span class="fl">10</span>,<span class="fl">3</span>,<span class="fl">11</span>,<span class="fl">0.3</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; [1] 1.696403</code></pre>
+</div>
+<div id="log-normal-distribution" class="section level2" number="5.1">
+<h2>
+<span class="header-section-number">5.1</span> Log-normal Distribution<a class="anchor" aria-label="anchor" href="#log-normal-distribution"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-46" class="section level3 unnumbered">
+<h3>Slide 46<a class="anchor" aria-label="anchor" href="#slide-46"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let X be a normal random variable with mean 1 and variance 3 and
+<span class="math inline">\(Y = e^X\)</span>.
+What is the probability density function of <span class="math inline">\(X\)</span>?</p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+f_X(x) &amp;= \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{1}{2} \left( \frac{x - \mu}{\sigma} \right)^2}\\
+&amp;= \frac{1}{\sqrt{3}\sqrt{2\pi}} e^{-\frac{1}{2} \left( \frac{x - 1}{\sqrt{3}} \right)^2}\\
+&amp;=  \frac{1}{\sqrt{6 \pi}}e^{- \frac{(x-1)^2}{6}}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(f_X(x)=\frac{1}{\sqrt{6 \pi}}e^{- \frac{(x-1)^2}{6}}\)</span></p>
+</blockquote>
+<p>What is the probability density function of <span class="math inline">\(Y\)</span>?</p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+f_Y(x) &amp;=\frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{1}{2} \left( \frac{\ln x - \mu}{\sigma} \right)^2} \\
+&amp;=\frac{1}{x\sqrt{3}\sqrt{2\pi}}e^{-\frac{1}{2} \left( \frac{\ln x - 1}{\sqrt{3}} \right)^2} \\
+&amp;=\frac{1}{x\sqrt{6\pi}}e^{- \frac{(\ln x - 1)^2}{6} }   
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(f_Y(x)=\frac{1}{x\sqrt{6\pi}}e^{- \frac{(\ln x - 1)^2}{6} }\)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="blackscholes-call-formula" class="section level2" number="5.2">
+<h2>
+<span class="header-section-number">5.2</span> Black–Scholes Call formula<a class="anchor" aria-label="anchor" href="#blackscholes-call-formula"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-rt}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-re^{-rt}x \\
+f_x&amp;=e^{-rt} \\
+f_{tt}&amp;=r^2e^{-rt}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=-re^{-rt}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-rt}S_t) &amp;= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
+&amp;= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-rt}S_t[(\mu-r) \,dt+\sigma \,d W_t^{\mathcal{P}}] -\mu re^{-rt}St\,dt^2 + \sigma S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-rt}S_t[\mu-r \,dt+\sigma (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-rt}S_t[(\mu-r-\sigma \theta_t) \,dt+\sigma \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−rt}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[\mu-r-\sigma \theta_t=0 \rightarrow \theta_t=\frac{\mu-r}{\sigma} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P} \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\frac{\mu-r}{\sigma} \,dt) \\
+&amp;=\left(\mu-\sigma\cdot\frac{\mu-r}{\sigma} \right)S_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+&amp;=rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
+<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{\sigma x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \]</span></p>
+</blockquote>
+<blockquote>
+<p>From Feyman-Kac formula we have:
+<span class="math display">\[ C(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(S_T-K,0)|\mathcal{F}_t] \]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying the moment generating function, we have:
+<span class="math display">\[\begin{align*}
+C(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(x-K,0) f_{S_T|S_t}(x) \,dx \\
+&amp;=e^{-r(T-t)}\int_K^\infty (x-K) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+C(S_t,t)&amp;=e^{-r(T-t)}\int_K^\infty (x-K) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_K^\infty (x-K)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\ln \left( \frac{x}{S_t} \right)&amp;=\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t) \\
+x&amp;=S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,du&amp;=\frac{1}{\sigma x\sqrt{T-t}}\,dx \\
+\sigma\sqrt{T-t}\,du&amp;=\frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u_K&amp;=\frac{\ln K-\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}} \\
+&amp;=\frac{\ln \left( \frac{K}{S_t} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the put option becomes:
+<span class="math display">\[\begin{align*}
+C(S_t,t)&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi} \sqrt{T-t}} \int_K^\infty (x-K)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{T-t}} \int_{u_K}^\infty (S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}-K)e^{-\frac{1}{2} u^2} \sigma\sqrt{T-t}\,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma\sqrt{2\pi}\sqrt{T-t}} \sigma\sqrt{T-t} \int_{u_K}^\infty (S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}e^{-\frac{1}{2} u^2}-Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{u_K}^\infty (S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}-Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{u_K}^\infty S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}\,du \\
+&amp;-\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{u_K}^\infty Ke^{-\frac{1}{2} u^2} \,du \\
+&amp;=I_1 \\
+&amp;-  I_2 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_1 &amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} u^2+\sigma u\sqrt{T-t}-r(T-t)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}\,du \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,du \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,d(u-\sigma\sqrt{T-t}) \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K-\sigma\sqrt{T-t}}^\infty e^{-\frac{1}{2} u^2}\,du \\
+&amp;= S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\sigma\sqrt{T-t}-u_K} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\sigma\sqrt{T-t}-\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\sigma^2(T-t)-\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_2 &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-u_K} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer:
+<span class="math display">\[
+C(S_t,t) =S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) - Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\]</span></p>
+</blockquote>
+<div id="slide-47" class="section level3 unnumbered">
+<h3>Slide 47<a class="anchor" aria-label="anchor" href="#slide-47"><i class="fas fa-link"></i></a>
+</h3>
+<p>Suppose the stochastic process of the asset price <span class="math inline">\(S_t\)</span> follows a geometric
+Brownian motion:</p>
+<p><span class="math display">\[dSt = 0.15S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}\]</span>
+where <span class="math inline">\(W_t^P\)</span> is a standard Brownian motion on the real world probability
+space, denoted by <span class="math inline">\((\omega, \mathcal{F},\mathcal{P})\)</span>. A European call option written on the stock
+with parameters: exercise price <span class="math inline">\(K = 8\)</span>, maturity time <span class="math inline">\(T &gt; t\)</span> (year), the
+risk-free interest rate is <span class="math inline">\(r = 0.06\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Under the Black-Scholes framework, using the probabilistic approach to
+derive the formula in terms of <span class="math inline">\(t,T\)</span> and <span class="math inline">\(S_t\)</span> for the fair price of the option?</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = 0.15S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-0.06t}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-0.06e^{-0.06t}x \\
+f_x&amp;=e^{-0.06t} \\
+f_{tt}&amp;=0.06^2e^{-0.06t}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=-0.06e^{-0.06t}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-0.06t}S_t) &amp;= -0.06e^{-0.06t}S_t\,dt+e^{-0.06t}\,dS_t -0.06e^{-0.06t}\,dt \,dS_t \\
+&amp;= -0.06e^{-0.06t}S_t\,dt+e^{-0.06t}(0.15 S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}) -0.06e^{-0.06t}\,dt(0.15 S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-0.06t}S_t[(0.15-0.06) \,dt+0.4 \,d W_t^{\mathcal{P}}] -0.06 \cdot 0.15 e^{-0.06t}St\,dt^2 - 0.06 \cdot 0.4 S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-0.06t}S_t[0.15-0.06 \,dt+0.4 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-0.06t}S_t[(0.15-0.06-0.4 \theta_t) \,dt+0.4 \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−0.06t}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[-0.06+0.15-0.4 \theta_t=0 \rightarrow \theta_t=\frac{-0.06+0.15}{0.4} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= 0.15S_t \,dt + 0.4 S_t \,dW_t^\mathcal{P} \\
+&amp;=0.15S_t \,dt + 0.4 S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=0.15S_t \,dt + 0.4 S_t (\,dW_t^\mathcal{Q}-\frac{-0.06+0.15}{0.4} \,dt) \\
+&amp;=\left(0.15-0.4\cdot\frac{-0.06+0.15}{0.4} \right)S_t \,dt + 0.4 S_t \,dW_t^\mathcal{Q} \\
+&amp;=-0.06S_t \,dt + 0.4 S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (0.06S_t \,dt + 0.4 S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(0.06S_t \,dt + 0.4 S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(0.06-\frac{1}{2} \cdot 0.4^2)\,dt + 0.4 \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(0.06-\frac{1}{2} \cdot 0.4^2)\,dt + 0.4 \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(0.06-\frac{1}{2} \cdot 0.4^2)\,ds + \int_t^T0.4 \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(0.06-\frac{1}{2} \cdot 0.4^2)(T-t)+0.4(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(0.06-\frac{1}{2} \cdot 0.4^2)(T-t)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+e^{\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+(S_T|10) &amp;\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|10)\)</span> is
+<span class="math display">\[f_{S_T|10}(x)=\frac{1}{0.4 x\sqrt{2\pi(1-0.5)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)))^2}{0.4^2(1-0.5)}} \]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the fair price when <span class="math inline">\(t = 0.5,T = 1, S_t = 10\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+S_t &amp;=10 \\ K&amp;=8 \\ r&amp;=0.06 \\ \sigma &amp;=0.4 \\ T&amp;=1 \\ t&amp;=0.5
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We calculate <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>
+<span class="math display">\[\begin{align*}
+d_1&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r+\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=\frac{\ln\left(\frac{10}{8} \right)+(0.06+\frac{1}{2} \cdot 0.4^2) \cdot (1-0.5)}{0.4 \cdot \sqrt{(1-0.5)}} \\
+&amp;=1.03 \\
+d_2&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=\frac{\ln\left(\frac{10}{8} \right)+(0.06-\frac{1}{2} \cdot 0.4^2) \cdot (1-0.5)}{0.4 \cdot \sqrt{(1-0.5)}} \\
+&amp;=0.75 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the call option is:
+<span class="math display">\[\begin{align*}
+C&amp;=S_t \cdot N(d_1) - K \cdot N(d_2) \cdot e^{-r(T-t)} \\
+&amp;=10 \cdot N(0.91) - 8 \cdot N(0.51) \cdot e^{-0.06 \cdot (1-0.5)} \\
+&amp;=2.49
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+</div>
+<div id="blackscholes-put-formula" class="section level2" number="5.3">
+<h2>
+<span class="header-section-number">5.3</span> Black–Scholes Put formula<a class="anchor" aria-label="anchor" href="#blackscholes-put-formula"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-rt}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-re^{-rt}x \\
+f_x&amp;=e^{-rt} \\
+f_{tt}&amp;=r^2e^{-rt}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=-re^{-rt}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-rt}S_t) &amp;= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
+&amp;= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-rt}S_t[(\mu-r) \,dt+\sigma \,d W_t^{\mathcal{P}}] -\mu re^{-rt}St\,dt^2 + \sigma S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-rt}S_t[\mu-r \,dt+\sigma (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-rt}S_t[(\mu-r-\sigma \theta_t) \,dt+\sigma \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−rt}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[\mu-r-\sigma \theta_t=0 \rightarrow \theta_t=\frac{\mu-r}{\sigma} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P} \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\frac{\mu-r}{\sigma} \,dt) \\
+&amp;=\left(\mu-\sigma\cdot\frac{\mu-r}{\sigma} \right)S_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+&amp;=rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
+<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{\sigma x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \]</span></p>
+</blockquote>
+<blockquote>
+<p>From Feyman-Kac formula we have:
+<span class="math display">\[ P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] \]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying the moment generating function, we have:
+<span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\ln \left( \frac{x}{S_t} \right)&amp;=\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t) \\
+x&amp;=S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,du&amp;=\frac{1}{\sigma x\sqrt{T-t}}\,dx \\
+\sigma\sqrt{T-t}\,du&amp;=\frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u_K&amp;=\frac{\ln K-\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}} \\
+&amp;=\frac{\ln \left( \frac{K}{S_t} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the put option becomes:
+<span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi} \sqrt{T-t}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{T-t}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}+K)e^{-\frac{1}{2} u^2} \sigma\sqrt{T-t}\,du \\
+&amp;=\frac{e^{-r(T-t)}\sqrt{T-t}}{\sqrt{2\pi}\sqrt{T-t}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}e^{-\frac{1}{2} u^2}+Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}+Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} -S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}\,du \\
+&amp;+\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} Ke^{-\frac{1}{2} u^2} \,du \\
+&amp;= I_1 \\
+&amp;+I_2
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_1&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2+\sigma u\sqrt{T-t}-r(T-t)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}\,du \\
+&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,du \\
+&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,d(u-\sigma\sqrt{T-t}) \\
+&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K-\sigma\sqrt{T-t}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=-S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\sigma^2(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=-S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=-S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math inline">\(\begin{align*} I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \end{align*}\)</span>$</p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math display">\[ P(S_t,t) = -S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  +Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)\\\]</span></p>
+</blockquote>
+<div id="slide-48-1" class="section level3 unnumbered">
+<h3>Slide 48<a class="anchor" aria-label="anchor" href="#slide-48-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Suppose the stochastic process of the asset price <span class="math inline">\(S_t\)</span> follows a geometric
+Brownian motion:
+<span class="math display">\[\,d S_t = 0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}\]</span>
+where <span class="math inline">\(W_t^P\)</span>
+is a standard Brownian motion on the real world probability
+space, denoted by <span class="math inline">\((\omega, \mathcal{F},\mathcal{P})\)</span>. A European put option written on the stock
+with parameters: exercise price <span class="math inline">\(K = 10\)</span>, maturity time <span class="math inline">\(T &gt; t\)</span> (year), the
+risk-free interest rate is <span class="math inline">\(r = 0.07\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>Under the Black-Scholes framework, using the probabilistic approach to
+derive the formula in terms of <span class="math inline">\(t,T\)</span> and <span class="math inline">\(S_t\)</span> for the fair price of the option?</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = 0.1S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-0.07t}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-0.07e^{-0.07t}x \\
+f_x&amp;=e^{-0.07t} \\
+f_{tt}&amp;=0.07^2e^{-0.07t}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-0.07t}S_t) &amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\,dt \,dS_t \\
+&amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) -0.07e^{-0.07t}\,dt(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-0.07t}S_t[(0.1-0.07) \,dt+0.3 \,d W_t^{\mathcal{P}}] -0.07 \cdot 0.1 e^{-0.07t}St\,dt^2 - 0.07 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-0.07t}S_t[0.1-0.07 \,dt+0.3 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-0.07t}S_t[(0.1-0.07-0.3 \theta_t) \,dt+0.3 \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−0.07t}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[-0.07+0.1-0.3 \theta_t=0 \rightarrow \theta_t=\frac{-0.07+0.1}{0.3} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= 0.1S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P} \\
+&amp;=0.1S_t \,dt + 0.3 S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=0.1S_t \,dt + 0.3 S_t (\,dW_t^\mathcal{Q}-\frac{-0.07+0.1}{0.3} \,dt) \\
+&amp;=\left(0.1-0.3\cdot\frac{-0.07+0.1}{0.3} \right)S_t \,dt + 0.3 S_t \,dW_t^\mathcal{Q} \\
+&amp;=-0.07S_t \,dt + 0.3 S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (0.07S_t \,dt + 0.3 S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(0.07S_t \,dt + 0.3 S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(0.07-\frac{1}{2} \cdot 0.3^2)\,dt + 0.3 \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(0.07-\frac{1}{2} \cdot 0.3^2)\,dt + 0.3 \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(0.07-\frac{1}{2} \cdot 0.3^2)\,ds + \int_t^T0.3 \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
+<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{0.3x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)))^2}{0.3^2(T-t)}} \]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the fair price when <span class="math inline">\(t = 0.5,T = 1, S_t = 11\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+S_t &amp;=11 \\ K&amp;=10 \\ r&amp;=0.07 \\ \sigma &amp;=0.3 \\ T&amp;=1 \\ t&amp;=0.5
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We calculate <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>
+<span class="math display">\[\begin{align*}
+d_1&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r+\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=\frac{\ln\left(\frac{11}{10} \right)+(0.07+\frac{1}{2} \cdot 0.3^2) \cdot (1-0.5)}{0.3 \cdot \sqrt{(1-0.5)}} \\
+&amp;=0.72 \\
+d_2&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=\frac{\ln\left(\frac{11}{10} \right)+(0.07-\frac{1}{2} \cdot 0.3^2) \cdot (1-0.5)}{0.3 \cdot \sqrt{(1-0.5)}} \\
+&amp;=0.51 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the call option is:
+<span class="math display">\[\begin{align*}
+P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
+&amp;=10 \cdot N(-0.51) \cdot e^{-0.06 \cdot (1-0.5)} - 11 \cdot N(-0.72) \\
+&amp;=0.37
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+</div>
+<div id="integrand" class="section level2" number="5.4">
+<h2>
+<span class="header-section-number">5.4</span> Integrand<a class="anchor" aria-label="anchor" href="#integrand"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-49" class="section level3 unnumbered">
+<h3>Slide 49<a class="anchor" aria-label="anchor" href="#slide-49"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let <span class="math display">\[\begin{align*}
+d_1(S_t,t)&amp;=\frac{\ln S_t - \ln K+\left(r-\delta+\frac{1}{2} \sigma^2\right)(T-t)}{\sigma \sqrt{T-t}} \\
+d_2(S_t,t)&amp;=d_1(S_t,t)-\sigma \sqrt{T-t} \\
+N(x)&amp;=\int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}y^2} \,dy \\
+m&amp;= \ln S_t+\left(r−\delta− \frac{1}{2}\sigma^2 \right)(T−t)
+\end{align*}\]</span>
+Prove that</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(e^{-r(T-t)} \int_K^\infty \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=S_t e^{-\delta(T-t)}N(d_1(S_t,t))\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[
+e^{-r(T-t)} \int_K^\infty \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln y -m}{\sigma\sqrt{T-t}}\)</span> then
+<span class="math display">\[y=e^{m+u\sigma \sqrt{T-t}} \]</span>
+<span class="math display">\[\,d u = \frac{1}{y\sigma\sqrt{T-t}} \,dy \rightarrow e^{m+u\sigma \sqrt{T-t}}\,d u = \frac{1}{\sigma\sqrt{T-t}} \,dy\]</span></p>
+</blockquote>
+<blockquote>
+<p>From <span class="math inline">\(u_K= \frac{\ln K -m}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\sigma \sqrt{T-t}-u_K &amp;= \sigma \sqrt{T-t}-\frac{\ln K -m}{\sigma\sqrt{T-t}} \\
+&amp;=\frac{\sigma^2(T-t)- \ln K +(\ln S_t+\left(r−\delta− \frac{1}{2}\sigma^2 \right)(T−t))}{\sigma\sqrt{T-t}} \\
+&amp;=\frac{\ln S_t - \ln K+\left(r-\delta+\frac{1}{2} \sigma^2\right)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=d_1(S_t,t) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy &amp;=e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
+&amp;= e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
+&amp;=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}u^2+u\sigma \sqrt{T-t}}\,d u \\
+&amp;=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}(u^2-2u\sigma \sqrt{T-t}+\sigma^2(T-t))+\frac{1}{2}\sigma^2(T-t)}\,d u \\
+&amp;=e^{-r(T-t)+m+\frac{1}{2}\sigma^2(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K}^\infty e^{-\frac{1}{2}(u-\sigma \sqrt{T-t})^2}\,d (u-\sigma \sqrt{T-t}) \\
+&amp;=e^{-r(T-t)+\ln S_t+\left(r−\delta− \frac{1}{2}\sigma^2 \right)(T−t)+\frac{1}{2}\sigma^2(T-t)} \frac{1}{\sqrt{2\pi}}\int_{u_K-\sigma \sqrt{T-t}}^\infty e^{-\frac{1}{2}u^2}\,d u \\
+&amp;=S_te^{−\delta(T−t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\sigma \sqrt{T-t}-u_K} e^{-\frac{1}{2}u^2}\,d u \\
+&amp;=S_te^{−\delta(T−t)} N(\sigma \sqrt{T-t}-u_K) \\
+&amp;=S_te^{−\delta(T−t)} N(d_1(S_t,t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(e^{-r(T-t)} \int_K^\infty \frac{1}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=K e^{-r(T-t)}N(d_2(S_t,t))\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[e^{-r(T-t)} \int_K^\infty \frac{K}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}}\,dy\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln y -m}{\sigma\sqrt{T-t}}\)</span> then
+<span class="math display">\[\,d u = \frac{1}{y\sigma\sqrt{T-t}} \,dy\]</span></p>
+</blockquote>
+<blockquote>
+<p>From <span class="math inline">\(u_K= \frac{\ln K -m}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\sigma \sqrt{T-t}-u_K &amp;=d_1(S_t,t) \\ \rightarrow -u_K&amp;=d_1(S_t,t)-\sigma \sqrt{T-t} \\
+&amp;=d_2(S_t,t)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_K^\infty e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}} \,dy &amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{u_K}^{\infty}e^{-\frac{1}{2}u^2}\,du \\
+&amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-u_K}e^{-\frac{1}{2}u^2}\,du \\
+&amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} N(d_2(S_t,t))
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+<div id="slide-50-1" class="section level3 unnumbered">
+<h3>Slide 50<a class="anchor" aria-label="anchor" href="#slide-50-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let <span class="math display">\[\begin{align*}
+d_1(S_t,t)&amp;=\frac{\ln S_t - \ln K+\left(r-\delta+\frac{1}{2} \sigma^2\right)(T-t)}{\sigma \sqrt{T-t}} \\
+d_2(S_t,t)&amp;=d_1(S_t,t)-\sigma \sqrt{T-t} \\
+N(x)&amp;=\int_{-\infty}^{x} \frac{1}{\sqrt{2\pi}}e^{-\frac{1}{2}y^2} \,dy \end{align*}\]</span>
+Prove that</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(e^{-r(T-t)} \int_{-\infty}^K \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=S_t e^{-\delta(T-t)}N(d_1(S_t,t))\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[
+e^{-r(T-t)} \int_{-\infty}^K \frac{1}{\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln y -m}{\sigma\sqrt{T-t}}\)</span> then
+<span class="math display">\[y=e^{m+u\sigma \sqrt{T-t}} \]</span>
+<span class="math display">\[\,d u = \frac{1}{y\sigma\sqrt{T-t}} \,dy \rightarrow e^{m+u\sigma \sqrt{T-t}}\,d u = \frac{1}{\sigma\sqrt{T-t}} \,dy\]</span></p>
+</blockquote>
+<blockquote>
+<p>From <span class="math inline">\(u_K= \frac{\ln K -m}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+u_K-\sigma \sqrt{T-t} &amp;= -\sigma \sqrt{T-t}+\frac{\ln K -m}{\sigma\sqrt{T-t}} \\
+&amp;=-\frac{\sigma^2(T-t)- \ln K +(\ln S_t+\left(r−\delta− \frac{1}{2}\sigma^2 \right)(T−t))}{\sigma\sqrt{T-t}} \\
+&amp;=-\frac{\ln S_t - \ln K+\left(r-\delta+\frac{1}{2} \sigma^2\right)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=-d_1(S_t,t) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{\sigma \sqrt{(T-t)}}\,dy &amp;=e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
+&amp;= e^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2} e^{m+u\sigma \sqrt{T-t}}\,d u \\
+&amp;=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}u^2+u\sigma \sqrt{T-t}}\,d u \\
+&amp;=e^{-r(T-t)+m} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}(u^2-2u\sigma \sqrt{T-t}+\sigma^2(T-t))+\frac{1}{2}\sigma^2(T-t)}\,d u \\
+&amp;=e^{-r(T-t)+m+\frac{1}{2}\sigma^2(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K} e^{-\frac{1}{2}(u-\sigma \sqrt{T-t})^2}\,d (u-\sigma \sqrt{T-t}) \\
+&amp;=e^{-r(T-t)+\ln S_t+\left(r−\delta− \frac{1}{2}\sigma^2 \right)(T−t)+\frac{1}{2}\sigma^2(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K-\sigma \sqrt{T-t}} e^{-\frac{1}{2}u^2}\,d u \\
+&amp;=S_te^{−\delta(T−t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u_K-\sigma \sqrt{T-t}} e^{-\frac{1}{2}u^2}\,d u \\
+&amp;=S_te^{−\delta(T−t)} N(u_K-\sigma \sqrt{T-t}) \\
+&amp;=S_te^{−\delta(T−t)} N(-d_1(S_t,t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(e^{-r(T-t)} \int_0^K \frac{1}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy=K e^{-r(T-t)}N(-d_2(S_t,t))\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[e^{-r(T-t)} \int_{-\infty}^K \frac{K}{y\sigma \sqrt{2\pi(T-t)}}e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \,dy = Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}}\,dy\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln y -m}{\sigma\sqrt{T-t}}\)</span> then
+<span class="math display">\[\,d u = \frac{1}{y\sigma\sqrt{T-t}} \,dy\]</span></p>
+</blockquote>
+<blockquote>
+<p>From <span class="math inline">\(u_K= \frac{\ln K -m}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\sigma \sqrt{T-t}-u_K &amp;=d_1(S_t,t) \\
+\rightarrow -u_K&amp;=d_1(S_t,t)-\sigma \sqrt{T-t} \\
+&amp;=d_2(S_t,t)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}}\int_{-\infty}^K e^{-\frac{(\ln y -m)^2}{2\sigma^2(T-t)}} \frac{1}{y\sigma \sqrt{(T-t)}} \,dy &amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K}e^{-\frac{1}{2}u^2}\,du \\
+&amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K}e^{-\frac{1}{2}u^2}\,du \\
+&amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} N(-d_2(S_t,t))
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+</div>
+<div id="r-programming" class="section level2" number="5.5">
+<h2>
+<span class="header-section-number">5.5</span> R programming<a class="anchor" aria-label="anchor" href="#r-programming"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-51" class="section level3 unnumbered">
+<h3>Slide 51<a class="anchor" aria-label="anchor" href="#slide-51"><i class="fas fa-link"></i></a>
+</h3>
+<p>Suppose each of 30 stocks in VN30 are governed by a geometric Brownian motion. Write a R code to find the corresponding parameters for each stock.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://lubridate.tidyverse.org">lubridate</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/tidyquant">tidyquant</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">tseries</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/business-science/timetk">timetk</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://plotly-r.com">plotly</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">stats4</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va">sde</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/joshuaulrich/xts">xts</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://broom.tidymodels.org/">broom</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://httr.r-lib.org/">httr</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://rvest.tidyverse.org/">rvest</a></span><span class="op">)</span>
+
+<span class="va">new</span><span class="op">=</span><span class="cn">NULL</span>
+<span class="va">id_list</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"ACB"</span>,<span class="st">"BID"</span>,<span class="st">"BVH"</span>,<span class="st">"CTG"</span>,<span class="st">"FPT"</span>,<span class="st">"GAS"</span>,<span class="st">"GVR"</span>,<span class="st">"HDB"</span>,<span class="st">"HPG"</span>,<span class="st">"KDH"</span>,<span class="st">"MBB"</span>,<span class="st">"MSN"</span>,<span class="st">"MWG"</span>,<span class="st">"NVL"</span>,<span class="st">"PDR"</span>,<span class="st">"PLX"</span>,<span class="st">"PNJ"</span>,<span class="st">"POW"</span>,<span class="st">"SAB"</span>,<span class="st">"SSI"</span>,<span class="st">"STB"</span>,<span class="st">"TCB"</span>,<span class="st">"TPB"</span>,<span class="st">"VCB"</span>,<span class="st">"VHM"</span>,<span class="st">"VIC"</span>,<span class="st">"VJC"</span>,<span class="st">"VNM"</span>,<span class="st">"VPB"</span>,<span class="st">"VRE"</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="va">id_list</span><span class="op">)</span><span class="op">{</span>
+  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span><span class="op">{</span> <span class="co">#################################</span>
+    <span class="va">query_params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>currentPage<span class="op">=</span><span class="va">i</span>,id <span class="op">=</span> <span class="va">j</span><span class="op">)</span>
+    <span class="va">parameter_response</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://httr.r-lib.org/reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"https://www.cophieu68.vn/historyprice.php"</span>, query <span class="op">=</span> <span class="va">query_params</span><span class="op">)</span>
+    <span class="va">stock_share</span> <span class="op">=</span><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="va">parameter_response</span><span class="op">)</span>
+    <span class="va">new1</span><span class="op">=</span><span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes</a></span><span class="op">(</span><span class="va">stock_share</span>, xpath<span class="op">=</span><span class="st">"//table[@class='stock']"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+      <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_table.html">html_table</a></span><span class="op">(</span>header <span class="op">=</span> <span class="cn">TRUE</span>,fill<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="va">new1</span><span class="op">=</span><span class="va">new1</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">13</span><span class="op">]</span>
+    <span class="va">new1</span><span class="op">$</span><span class="va">symbol</span><span class="op">=</span><span class="va">j</span>
+    <span class="va">new</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">new</span>,<span class="va">new1</span><span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="va">stock</span><span class="op">=</span><span class="va">new</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">stock</span><span class="op">)</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date"</span>,<span class="st">"Last_closed_price"</span>,<span class="st">"absolute_price_change"</span>,
+                  <span class="st">"Percentage_price_change"</span>, <span class="st">"Closed_price"</span>,
+                  <span class="st">"Trading_Volume"</span>,<span class="st">"Open_price"</span>,<span class="st">"Highest_price"</span>,
+                  <span class="st">"Lowest_price"</span>,<span class="st">"Exchange_volume"</span>, <span class="st">"Foregin_buy_volume"</span>, <span class="st">"Foreign_sell_volume"</span>,<span class="st">"symbol"</span><span class="op">)</span>
+<span class="va">stock</span><span class="op">$</span><span class="va">date</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">stock</span><span class="op">$</span><span class="va">date</span>, format<span class="op">=</span><span class="st">"%d-%m-%Y"</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span><span class="op">{</span><span class="va">stock</span><span class="op">[</span>,<span class="va">i</span><span class="op">]</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">','</span>, <span class="st">''</span>, <span class="va">stock</span><span class="op">[</span>,<span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">}</span>
+<span class="va">stock</span><span class="op">$</span><span class="va">Trading_Volume</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">','</span>, <span class="st">''</span>, <span class="va">stock</span><span class="op">$</span><span class="va">Trading_Volume</span><span class="op">)</span><span class="op">)</span>
+<span class="va">stock</span><span class="op">$</span><span class="va">Percentage_price_change</span><span class="op">=</span><span class="va">stock</span><span class="op">$</span><span class="va">absolute_price_change</span><span class="op">/</span><span class="va">stock</span><span class="op">$</span><span class="va">Last_closed_price</span>
+
+<span class="va">prices</span> <span class="op">=</span> <span class="va">stock</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>, <span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2022-01-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>close<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Closed_price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">symbol</span> <span class="op">==</span> <span class="st">"VIC"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>,<span class="va">close</span><span class="op">)</span>
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="va">prices</span><span class="op">$</span><span class="va">close</span>
+
+<span class="co"># Estimate parameters using maximum likelihood</span>
+<span class="va">dcBS</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">t</span>, <span class="va">x0</span>, <span class="va">theta</span>, <span class="va">log</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">ml</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">x0</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="va">theta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="va">t</span>
+  <span class="va">sl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">t</span><span class="op">)</span><span class="op">*</span><span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
+  <span class="va">lik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">dlnorm</a></span><span class="op">(</span><span class="va">x</span>, meanlog <span class="op">=</span> <span class="va">ml</span>, sdlog <span class="op">=</span> <span class="va">sl</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> 
+  <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="va">log</span><span class="op">)</span>
+    <span class="va">lik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">lik</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">lik</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="va">BS.lik</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">theta1</span>,<span class="va">theta2</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/yuima/man/setData.html">length</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+  <span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/time.html">deltat</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+  <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/sde/man/rcBS.html">dcBS</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="va">n</span><span class="op">]</span>, t<span class="op">=</span><span class="va">dt</span>, x0<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>, theta<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">theta1</span>,<span class="va">theta2</span><span class="op">)</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="va">fit</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats4/mle.html">mle</a></span><span class="op">(</span><span class="va">BS.lik</span>,start<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>theta1<span class="op">=</span><span class="fl">1</span>,theta2<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,method<span class="op">=</span><span class="st">"L-BFGS-B"</span>,lower<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.00001</span> ,<span class="fl">0.000001</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mu</span><span class="op">=</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+<span class="va">sigma</span><span class="op">=</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
+
+<span class="co"># Estimating parameters using historical mean and volatility of daily stock log-return</span>
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="va">prices</span><span class="op">$</span><span class="va">close</span>
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/diff.html">diff</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">)</span> <span class="co">## compute the log return from the closing adjust price</span>
+<span class="va">alpha</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+<span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mu</span> <span class="op">&lt;-</span> <span class="va">alpha</span> <span class="op">+</span><span class="fl">0.5</span><span class="op">*</span><span class="va">sigma</span><span class="op">^</span><span class="fl">2</span>
+
+<span class="co"># Estimating parameters using quasi-maximum likelihood</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://yuimaproject.com">yuima</a></span><span class="op">)</span>
+<span class="va">X</span> <span class="op">&lt;-</span> <span class="va">prices</span><span class="op">$</span><span class="va">close</span>
+<span class="va">Delta</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">/</span><span class="fl">252</span>
+<span class="va">gBm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/yuima/man/setModel.html">setModel</a></span><span class="op">(</span>drift<span class="op">=</span><span class="st">"mu*x"</span>, diffusion<span class="op">=</span><span class="st">"sigma*x"</span><span class="op">)</span>
+<span class="va">mod</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/yuima/man/setYuima.html">setYuima</a></span><span class="op">(</span>model<span class="op">=</span><span class="va">gBm</span>, data<span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/yuima/man/setData.html">setData</a></span><span class="op">(</span><span class="va">X</span>, delta<span class="op">=</span><span class="va">Delta</span><span class="op">)</span><span class="op">)</span>
+<span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/yuima/man/qmle.html">qmle</a></span><span class="op">(</span><span class="va">mod</span>, start<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mu<span class="op">=</span><span class="fl">0.01</span>, sigma<span class="op">=</span><span class="fl">0.01</span><span class="op">)</span>, lower<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mu<span class="op">=</span><span class="fl">0</span>, sigma<span class="op">=</span><span class="fl">0</span><span class="op">)</span>,
+            upper<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mu<span class="op">=</span><span class="fl">100</span>, sigma<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; Quasi-Maximum likelihood estimation
+#&gt; 
+#&gt; Call:
+#&gt; qmle(yuima = mod, start = list(mu = 0.01, sigma = 0.01), lower = list(mu = 0, 
+#&gt;     sigma = 0), upper = list(mu = 100, sigma = 100))
+#&gt; 
+#&gt; Coefficients:
+#&gt;        Estimate Std. Error
+#&gt; sigma 0.2852063 0.02869789
+#&gt; mu    1.0988913 0.61611613
+#&gt; 
+#&gt; -2 log L: 197.5591</code></pre>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># The corresponding parameters for 30 stocks</span>
+<span class="va">parameter</span><span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">ticker</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">prices</span> <span class="op">=</span> <span class="va">stock</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">date</span><span class="op">)</span>, <span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2022-01-01"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>close<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Closed_price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">symbol</span> <span class="op">==</span> <span class="va">ticker</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+    <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>,<span class="va">close</span><span class="op">)</span>
+  <span class="va">X</span> <span class="op">&lt;-</span> <span class="va">prices</span><span class="op">$</span><span class="va">close</span>
+  
+  <span class="va">dcBS</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">t</span>, <span class="va">x0</span>, <span class="va">theta</span>, <span class="va">log</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">{</span>
+    <span class="va">ml</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">x0</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="va">theta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="va">t</span>
+    <span class="va">sl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">t</span><span class="op">)</span><span class="op">*</span><span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
+    <span class="va">lik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">dlnorm</a></span><span class="op">(</span><span class="va">x</span>, meanlog <span class="op">=</span> <span class="va">ml</span>, sdlog <span class="op">=</span> <span class="va">sl</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> 
+    <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="va">log</span><span class="op">)</span>
+      <span class="va">lik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">lik</span><span class="op">)</span>
+    <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">lik</span><span class="op">)</span>
+  <span class="op">}</span>
+  <span class="va">BS.lik</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">theta1</span>,<span class="va">theta2</span><span class="op">)</span> <span class="op">{</span>
+    <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/yuima/man/setData.html">length</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+    <span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/time.html">deltat</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+    <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/sde/man/rcBS.html">dcBS</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="va">n</span><span class="op">]</span>, t<span class="op">=</span><span class="va">dt</span>, x0<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>, theta<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">theta1</span>,<span class="va">theta2</span><span class="op">)</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+  <span class="op">}</span>
+  
+  <span class="va">fit</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats4/mle.html">mle</a></span><span class="op">(</span><span class="va">BS.lik</span>,start<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>theta1<span class="op">=</span><span class="fl">1</span>,theta2<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,method<span class="op">=</span><span class="st">"L-BFGS-B"</span>,lower<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.00001</span> ,<span class="fl">0.000001</span><span class="op">)</span><span class="op">)</span>
+  
+  <span class="va">mu</span><span class="op">=</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">x</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+  <span class="va">sigma</span><span class="op">=</span><span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">)</span><span class="op">$</span><span class="va">x</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">mu</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">parameter</span><span class="op">(</span><span class="st">"VIC"</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; [1] 0.004353308 0.017347305</code></pre>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">parameters</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">id_list</span>,<span class="va">parameter</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">parameters</span><span class="op">)</span><span class="op">=</span><span class="va">id_list</span>
+<span class="va">parameters</span></code></pre></div>
+<pre><code>#&gt; $ACB
+#&gt; [1] 0.001238712 0.014204725
+#&gt; 
+#&gt; $BID
+#&gt; [1] 0.00001000 0.02629731
+#&gt; 
+#&gt; $BVH
+#&gt; [1] 0.00001000 0.01671762
+#&gt; 
+#&gt; $CTG
+#&gt; [1] 0.001828251 0.019238352
+#&gt; 
+#&gt; $FPT
+#&gt; [1] 0.0000100 0.0145045
+#&gt; 
+#&gt; $GAS
+#&gt; [1] 0.00001000 0.02626481
+#&gt; 
+#&gt; $GVR
+#&gt; [1] 0.002271504 0.025375340
+#&gt; 
+#&gt; $HDB
+#&gt; [1] 0.002519528 0.019288547
+#&gt; 
+#&gt; $HPG
+#&gt; [1] 0.0001983993 0.0229938249
+#&gt; 
+#&gt; $KDH
+#&gt; [1] 0.0003778093 0.0185761083
+#&gt; 
+#&gt; $MBB
+#&gt; [1] 0.00001000 0.02051371
+#&gt; 
+#&gt; $MSN
+#&gt; [1] 0.003248347 0.027512815
+#&gt; 
+#&gt; $MWG
+#&gt; [1] 0.00001000 0.01380855
+#&gt; 
+#&gt; $NVL
+#&gt; [1] 0.001519553 0.014746970
+#&gt; 
+#&gt; $PDR
+#&gt; [1] 0.000541702 0.020785023
+#&gt; 
+#&gt; $PLX
+#&gt; [1] 0.00001000 0.01984691
+#&gt; 
+#&gt; $PNJ
+#&gt; [1] 0.00001000 0.02008744
+#&gt; 
+#&gt; $POW
+#&gt; [1] 0.003387182 0.033464609
+#&gt; 
+#&gt; $SAB
+#&gt; [1] 0.00001000 0.01573738
+#&gt; 
+#&gt; $SSI
+#&gt; [1] 0.00453590 0.02563956
+#&gt; 
+#&gt; $STB
+#&gt; [1] 0.00001000 0.02337951
+#&gt; 
+#&gt; $TCB
+#&gt; [1] 0.000842588 0.013184540
+#&gt; 
+#&gt; $TPB
+#&gt; [1] 0.00179472 0.02482273
+#&gt; 
+#&gt; $VCB
+#&gt; [1] 0.00001000 0.01883966
+#&gt; 
+#&gt; $VHM
+#&gt; [1] 0.002531594 0.017684955
+#&gt; 
+#&gt; $VIC
+#&gt; [1] 0.004353308 0.017347305
+#&gt; 
+#&gt; $VJC
+#&gt; [1] 0.00001000 0.02249408
+#&gt; 
+#&gt; $VNM
+#&gt; [1] 0.002815725 0.011729500
+#&gt; 
+#&gt; $VPB
+#&gt; [1] 0.00001000 0.01893225
+#&gt; 
+#&gt; $VRE
+#&gt; [1] 0.00001000 0.02792013</code></pre>
+</div>
+<div id="slide-52" class="section level3 unnumbered">
+<h3>Slide 52<a class="anchor" aria-label="anchor" href="#slide-52"><i class="fas fa-link"></i></a>
+</h3>
+<p>An investor agreed to pay an amount <span class="math inline">\(C_0\)</span> to buy a European put option with the underlying VCB stock, which was priced at 56, 500 VND per share on 01/02/2019. This option entitles the investor a right, but not an obligation, to sell a VCB share with price 62,000 VND, at the end of the next 6 months. Suppose the risk-free interest rate is 8%.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Write a R code to find the volatility of VCB stock price, using the historical price data over 5 years.</li>
+</ol>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">new</span><span class="op">=</span><span class="cn">NULL</span>
+<span class="va">id_list</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"VCB"</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">j</span> <span class="kw">in</span> <span class="va">id_list</span><span class="op">)</span><span class="op">{</span>
+  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="fl">15</span><span class="op">)</span><span class="op">{</span> <span class="co">#################################</span>
+    <span class="va">query_params</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>currentPage<span class="op">=</span><span class="va">i</span>,id <span class="op">=</span> <span class="va">j</span><span class="op">)</span>
+    <span class="va">parameter_response</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://httr.r-lib.org/reference/GET.html">GET</a></span><span class="op">(</span><span class="st">"https://www.cophieu68.vn/historyprice.php"</span>, query <span class="op">=</span> <span class="va">query_params</span><span class="op">)</span>
+    <span class="va">stock_share</span> <span class="op">=</span><span class="fu"><a href="http://xml2.r-lib.org/reference/read_xml.html">read_html</a></span><span class="op">(</span><span class="va">parameter_response</span><span class="op">)</span>
+    <span class="va">new1</span><span class="op">=</span><span class="fu"><a href="https://rvest.tidyverse.org/reference/rename.html">html_nodes</a></span><span class="op">(</span><span class="va">stock_share</span>, xpath<span class="op">=</span><span class="st">"//table[@class='stock']"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+      <span class="fu"><a href="https://rvest.tidyverse.org/reference/html_table.html">html_table</a></span><span class="op">(</span>header <span class="op">=</span> <span class="cn">TRUE</span>,fill<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="op">)</span>
+    <span class="va">new1</span><span class="op">=</span><span class="va">new1</span><span class="op">[</span>,<span class="fl">2</span><span class="op">:</span><span class="fl">13</span><span class="op">]</span>
+    <span class="va">new1</span><span class="op">$</span><span class="va">symbol</span><span class="op">=</span><span class="va">j</span>
+    <span class="va">new</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">new</span>,<span class="va">new1</span><span class="op">)</span>
+  <span class="op">}</span>
+<span class="op">}</span>
+
+<span class="va">stock</span><span class="op">=</span><span class="va">new</span>
+<span class="fu"><a href="https://rdrr.io/r/base/colnames.html">colnames</a></span><span class="op">(</span><span class="va">stock</span><span class="op">)</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"date"</span>,<span class="st">"Last_closed_price"</span>,<span class="st">"absolute_price_change"</span>,
+                  <span class="st">"Percentage_price_change"</span>, <span class="st">"Closed_price"</span>,
+                  <span class="st">"Trading_Volume"</span>,<span class="st">"Open_price"</span>,<span class="st">"Highest_price"</span>,
+                  <span class="st">"Lowest_price"</span>,<span class="st">"Exchange_volume"</span>, <span class="st">"Foregin_buy_volume"</span>, <span class="st">"Foreign_sell_volume"</span>,<span class="st">"symbol"</span><span class="op">)</span>
+<span class="va">stock</span><span class="op">$</span><span class="va">date</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/pkg/zoo/man/yearmon.html">as.Date</a></span><span class="op">(</span><span class="va">stock</span><span class="op">$</span><span class="va">date</span>, format<span class="op">=</span><span class="st">"%d-%m-%Y"</span><span class="op">)</span>
+<span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">2</span><span class="op">:</span><span class="fl">12</span><span class="op">)</span><span class="op">{</span><span class="va">stock</span><span class="op">[</span>,<span class="va">i</span><span class="op">]</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">','</span>, <span class="st">''</span>, <span class="va">stock</span><span class="op">[</span>,<span class="va">i</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">}</span>
+<span class="va">stock</span><span class="op">$</span><span class="va">Trading_Volume</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span><span class="st">','</span>, <span class="st">''</span>, <span class="va">stock</span><span class="op">$</span><span class="va">Trading_Volume</span><span class="op">)</span><span class="op">)</span>
+<span class="va">stock</span><span class="op">$</span><span class="va">Percentage_price_change</span><span class="op">=</span><span class="va">stock</span><span class="op">$</span><span class="va">absolute_price_change</span><span class="op">/</span><span class="va">stock</span><span class="op">$</span><span class="va">Last_closed_price</span>
+
+<span class="va">prices</span><span class="op">=</span> <span class="va">stock</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>close<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">Closed_price</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span>
+  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">date</span>,<span class="va">close</span><span class="op">)</span>
+<span class="va">prices</span><span class="op">=</span><span class="va">prices</span><span class="op">[</span><span class="va">prices</span><span class="op">$</span><span class="va">date</span><span class="op">&gt;=</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.Date</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="https://lubridate.tidyverse.org/reference/mplus.html">%m-%</a></span> <span class="fu"><a href="https://lubridate.tidyverse.org/reference/period.html">years</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>,<span class="op">]</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">prices</span><span class="op">$</span><span class="va">close</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">na.omit</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; [1] 56.99766</code></pre>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">prices</span><span class="op">$</span><span class="va">close</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> <span class="va">na.omit</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; [1] 17.36393</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>Write a R code to estimate the parameters of the geometric Brownian motion governing the VCB price.</li>
+</ol>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">X</span> <span class="op">&lt;-</span> <span class="va">prices</span><span class="op">$</span><span class="va">close</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> 
+  <span class="va">na.omit</span>
+
+<span class="co"># Estimate parameters using maximum likelihood</span>
+<span class="va">dcBS</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span>, <span class="va">t</span>, <span class="va">x0</span>, <span class="va">theta</span>, <span class="va">log</span> <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">ml</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">x0</span><span class="op">)</span> <span class="op">+</span> <span class="op">(</span><span class="va">theta</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">-</span><span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">^</span><span class="fl">2</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="va">t</span>
+  <span class="va">sl</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">t</span><span class="op">)</span><span class="op">*</span><span class="va">theta</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span>
+  <span class="va">lik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html">dlnorm</a></span><span class="op">(</span><span class="va">x</span>, meanlog <span class="op">=</span> <span class="va">ml</span>, sdlog <span class="op">=</span> <span class="va">sl</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> 
+  <span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="va">log</span><span class="op">)</span>
+    <span class="va">lik</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">lik</span><span class="op">)</span>
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">lik</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="va">BS.lik</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">theta1</span>,<span class="va">theta2</span><span class="op">)</span> <span class="op">{</span>
+  <span class="va">n</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/yuima/man/setData.html">length</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+  <span class="va">dt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/time.html">deltat</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span>
+  <span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/sde/man/rcBS.html">dcBS</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">2</span><span class="op">:</span><span class="va">n</span><span class="op">]</span>, t<span class="op">=</span><span class="va">dt</span>, x0<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">n</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">]</span>, theta<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">theta1</span>,<span class="va">theta2</span><span class="op">)</span>, log<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="va">fit</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats4/mle.html">mle</a></span><span class="op">(</span><span class="va">BS.lik</span>,start<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>theta1<span class="op">=</span><span class="fl">1</span>,theta2<span class="op">=</span><span class="fl">1</span><span class="op">)</span>,method<span class="op">=</span><span class="st">"L-BFGS-B"</span>,lower<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.00001</span> ,<span class="fl">0.000001</span><span class="op">)</span><span class="op">)</span>
+<span class="va">mu</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
+<span class="va">sigma</span><span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/coef.html">coef</a></span><span class="op">(</span><span class="va">fit</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span></code></pre></div>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>According to the Black-Scholes framework and using the probabilistic approach, compute the fair value for <span class="math inline">\(C_0\)</span>?</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = 0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-0.08t}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-0.08e^{-0.08t}x \\
+f_x&amp;=e^{-0.08t} \\
+f_{tt}&amp;=0.08^2e^{-0.08t}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-0.08t}S_t) &amp;= -0.08e^{-0.08t}S_t\,dt+e^{-0.08t}\,dS_t \\
+&amp;= -0.08e^{-0.08t}S_t\,dt+e^{-0.08t}(0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-0.08t}S_t[(-0.08+0.00252) \,dt+0.46 \,d W_t^{\mathcal{P}}] \\
+&amp;= e^{-0.08t}S_t[-0.08+0.00252 \,dt+0.46 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-0.08t}S_t[(-0.08+0.00252-0.46 \theta_t) \,dt+0.46 \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−0.08t}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[-0.08+0.00252-0.46 \theta_t=0 \rightarrow \theta_t=\frac{-0.08+0.00252}{0.46} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= 0.00252S_t \,dt + 0.46 S_t \,dW_t^\mathcal{P} \\
+&amp;=0.00252S_t \,dt + 0.46 S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=0.00252S_t \,dt + 0.46 S_t (\,dW_t^\mathcal{Q}-\frac{-0.08+0.00252}{0.46} \,dt) \\
+&amp;=\left(0.00252-0.46\cdot\frac{-0.08+0.00252}{0.46} \right)S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q} \\
+&amp;=-0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(0.08S_t \,dt + 0.46 S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(0.08-\frac{1}{2} \cdot 0.46^2)\,dt + 0.46 \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(0.08-\frac{1}{2} \cdot 0.46^2)\,dt + 0.46 \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(0.08-\frac{1}{2} \cdot 0.46^2)\,ds + \int_t^T0.46 \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<p>Compute the fair price when <span class="math inline">\(t = 0.5,T = 5, S_t = 83.5\)</span>.</p>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
+e^{\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)+0.46(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \log \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
+(S_T|S_t) &amp;\sim \log \mathcal{N}(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t),0.46^2(T-t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
+<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{0.46x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)))^2}{0.46^2(T-t)}} \]</span></p>
+</blockquote>
+<blockquote>
+<p>From Feyman-Kac formula we have:
+<span class="math display">\[ C(S_t,t)=e^{-0.08(T-t)} \mathbb{E}^\mathcal{Q}[max(S_T-K,0)|\mathcal{F}_t] \]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying the moment generating function, we have:
+<span class="math display">\[\begin{align*}
+C(S_t,t)&amp;=e^{-0.08(T-t)}\int_{-\infty}^\infty \max(x-62,0) f_{S_T|S_t}(x) \,dx \\
+C(S_t,t)&amp;=e^{-0.08(T-t)}\int_62^\infty (x-62) \frac{1}{0.46x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(0.08-\frac{1}{2} \cdot 0.46^2)(T-t)))^2}{0.46^2(T-t)}} \,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With the maturity time <span class="math inline">\(T=1\)</span>, substitute <span class="math inline">\(S_t=83.5\)</span> and <span class="math inline">\(t=0.5\)</span>, we have
+<span class="math display">\[\begin{align*}
+C(83.5,0.5)&amp;=e^{-0.08(5-0.5)}\int_62^\infty (x-62) \frac{1}{0.46x\sqrt{2\pi}\sqrt{(5-0.5)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln 83.5 +(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \,dx \\
+&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi}\sqrt{(5-0.5)}} \int_62^\infty (x-62)e^{-\frac{1}{2} \frac{(\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u_x=\frac{\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\ln \left( \frac{x}{83.5} \right)&amp;=0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5) \\
+x&amp;=83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,du&amp;=\frac{1}{0.46x\sqrt{5-0.5}}\,dx \\
+0.46\sqrt{5-0.5}\,du&amp;=\frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u_62&amp;=\frac{\ln 62-\ln 83.5 +(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}} \\
+&amp;=\frac{\ln \left( \frac{62}{83.5} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the call option becomes:
+<span class="math display">\[\begin{align*}
+C(83.5,0.5)&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi} \sqrt{T-t}} \int_62^\infty (x-62)e^{-\frac{1}{2} \frac{(\ln x-\ln 83.5 -(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)))^2}{0.46^2(5-0.5)}} \frac{1}{x}\,dx \\
+&amp;=\frac{e^{-0.08(5-0.5)}}{0.46 \sqrt{2\pi}\sqrt{T-t}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}-62)e^{-\frac{1}{2} u^2} 0.46\sqrt{5-0.5}\,du \\
+&amp;=\frac{e^{-0.08(5-0.5)}\sqrt{5-0.5}}{\sqrt{2\pi}\sqrt{T-t}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}e^{-\frac{1}{2} u^2}-62e^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty (83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)-\frac{1}{2} u^2}-62e^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty 83.5e^{0.46u\sqrt{5-0.5}+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)-\frac{1}{2} u^2}\,du-\frac{e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty 62e^{-\frac{1}{2} u^2} \,du \\
+&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2+0.46u\sqrt{5-0.5}-0.08(5-0.5)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} (u-0.46\sqrt{5-0.5})^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} (u-0.46\sqrt{5-0.5})^2}\,d(u-0.46\sqrt{5-0.5})-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;=\frac{83.5}{\sqrt{2\pi}} \int_{u_62-0.46\sqrt{5-0.5}}^\infty e^{-\frac{1}{2} u^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{u_62}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;= \frac{83.5}{\sqrt{2\pi}} \int_{-\infty}^{0.46\sqrt{5-0.5}-u_62} e^{-\frac{1}{2} u^2}\,du-\frac{62e^{-0.08(5-0.5)}}{\sqrt{2\pi}} \int_{-\infty}^{-u_62} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=83.5\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{0.46\sqrt{5-0.5}-\frac{\ln \left( \frac{62}{83.5} \right)-(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2}\,du-62e^{-0.08(5-0.5)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{62}{83.5} \right)-(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=83.5\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{83.5}{62} \right)+(0.08+\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2}\,du-62e^{-0.08(5-0.5)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{83.5}{62} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=83.5 \cdot N \left({\frac{\ln \left( \frac{83.5}{62} \right)+(0.08+\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}}\right) -62e^{-0.08(5-0.5)} \cdot N \left({\frac{\ln \left( \frac{83.5}{62} \right)+(0.08-\frac{1}{2} \cdot 0.46^2)(5-0.5)}{0.46\sqrt{5-0.5}}}\right)=48.32
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Write a R code to compute <span class="math inline">\(C_0\)</span> using the Black-Scholes-Merton formula.</li>
+</ol>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">BS_call</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">S0</span>,<span class="va">K</span>,<span class="va">T</span>,<span class="va">r</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">d1</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">S0</span><span class="op">/</span><span class="va">K</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="va">r</span><span class="op">+</span><span class="fl">0.5</span><span class="op">*</span><span class="va">sigma</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="cn">T</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span> 
+  <span class="va">d2</span> <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">-</span> <span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span>
+  <span class="va">opt.val</span> <span class="op">&lt;-</span> <span class="va">S0</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">d1</span><span class="op">)</span><span class="op">-</span><span class="va">K</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span><span class="op">*</span><span class="cn">T</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">d2</span><span class="op">)</span> 
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">opt.val</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">BS_call</span> <span class="op">(</span>S0<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,K<span class="op">=</span><span class="fl">62</span>,T<span class="op">=</span><span class="fl">5</span><span class="op">-</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.08</span>,sigma<span class="op">=</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">252</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt;   theta2 
+#&gt; 42.04235</code></pre>
+<ol start="5" style="list-style-type: lower-alpha">
+<li>Compare the obtained result with that of binomial pricing method.</li>
+</ol>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">European_call_binomial</span><span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">T</span>, <span class="va">t</span>,<span class="va">r</span>, <span class="va">X</span>,<span class="va">N</span>,<span class="va">S0</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span> 
+  <span class="va">delta_t</span><span class="op">=</span><span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="va">N</span>
+  <span class="va">u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">p</span> <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="va">delta_t</span><span class="op">)</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">u</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span> <span class="co">### probability of up move </span>
+  <span class="va">Df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span> <span class="op">*</span> <span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="co">### discounting factor</span>
+  <span class="va">Ce</span><span class="op">=</span><span class="fl">0</span>;
+  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+    <span class="va">Ce</span> <span class="op">=</span><span class="va">Ce</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="va">N</span>,<span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">p</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">p</span><span class="op">)</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">-</span><span class="va">i</span><span class="op">}</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">S0</span><span class="op">*</span><span class="va">u</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="va">d</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">-</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span><span class="op">}</span><span class="op">-</span><span class="va">X</span>,<span class="fl">0</span><span class="op">)</span>
+    <span class="op">}</span>
+<span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">Df</span><span class="op">*</span><span class="va">Ce</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">European_call_binomial</span><span class="op">(</span>T<span class="op">=</span><span class="fl">5</span>, t<span class="op">=</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.08</span>, X<span class="op">=</span><span class="fl">62</span>,N<span class="op">=</span><span class="fl">1000</span>,S0<span class="op">=</span><span class="va">X</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>,sigma<span class="op">=</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">252</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt;   theta2 
+#&gt; 42.04177</code></pre>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></div>
+<div class="next"><a href="midterm-mock.html">Midterm Mock</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li>
+<a class="nav-link" href="#risk-neutral-pricing-bs"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-23">Slide 23’</a></li>
+<li><a class="nav-link" href="#slide-34">Slide 34</a></li>
+<li><a class="nav-link" href="#slide-27">Slide 27</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#log-normal-distribution"><span class="header-section-number">5.1</span> Log-normal Distribution</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#slide-46">Slide 46</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#blackscholes-call-formula"><span class="header-section-number">5.2</span> Black–Scholes Call formula</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#slide-47">Slide 47</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#blackscholes-put-formula"><span class="header-section-number">5.3</span> Black–Scholes Put formula</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#slide-48-1">Slide 48</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#integrand"><span class="header-section-number">5.4</span> Integrand</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-49">Slide 49</a></li>
+<li><a class="nav-link" href="#slide-50-1">Slide 50</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#r-programming"><span class="header-section-number">5.5</span> R programming</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-51">Slide 51</a></li>
+<li><a class="nav-link" href="#slide-52">Slide 52</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/cliex159/fin-risk-mana/blob/master/02-cross-refs.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/cliex159/fin-risk-mana/edit/master/02-cross-refs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-03-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

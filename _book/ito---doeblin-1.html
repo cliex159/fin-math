@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Ito - Doeblin | FM2</title>
+<meta name="author" content="Tran Thanh Dat">
+<meta name="description" content="0.10 Riemann Approach  Slide 79 Compute the Riemann integral \(\int_0^1x^2\,dx=\) by using definition Let \(\Pi\) be a partition of \([0, 1]\): \[0 = t_0 &lt; t_1 = \frac{1}{n} &lt; t_2 = \frac{2}{n} &lt;...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Ito - Doeblin | FM2">
+<meta property="og:type" content="book">
+<meta property="og:description" content="0.10 Riemann Approach  Slide 79 Compute the Riemann integral \(\int_0^1x^2\,dx=\) by using definition Let \(\Pi\) be a partition of \([0, 1]\): \[0 = t_0 &lt; t_1 = \frac{1}{n} &lt; t_2 = \frac{2}{n} &lt;...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ito - Doeblin | FM2">
+<meta name="twitter:description" content="0.10 Riemann Approach  Slide 79 Compute the Riemann integral \(\int_0^1x^2\,dx=\) by using definition Let \(\Pi\) be a partition of \([0, 1]\): \[0 = t_0 &lt; t_1 = \frac{1}{n} &lt; t_2 = \frac{2}{n} &lt;...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">FM2</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Course Descripition</a></li>
+<li><a class="" href="mean-and-variance.html">Mean and Variance</a></li>
+<li><a class="" href="random-walk-1.html">Random walk</a></li>
+<li><a class="active" href="ito---doeblin-1.html">Ito - Doeblin</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/cliex159/fin-risk-mana">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ito---doeblin-1" class="section level1 unnumbered">
+<h1>Ito - Doeblin<a class="anchor" aria-label="anchor" href="#ito---doeblin-1"><i class="fas fa-link"></i></a>
+</h1>
+<div id="riemann-approach" class="section level2" number="0.10">
+<h2>
+<span class="header-section-number">0.10</span> Riemann Approach<a class="anchor" aria-label="anchor" href="#riemann-approach"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-79-2" class="section level3 unnumbered">
+<h3>Slide 79<a class="anchor" aria-label="anchor" href="#slide-79-2"><i class="fas fa-link"></i></a>
+</h3>
+<p>Compute the Riemann integral <span class="math inline">\(\int_0^1x^2\,dx=\)</span> by using definition</p>
+<blockquote>
+<p>Let <span class="math inline">\(\Pi\)</span> be a partition of <span class="math inline">\([0, 1]\)</span>:
+<span class="math display">\[0 = t_0 &lt; t_1 = \frac{1}{n} &lt; t_2 = \frac{2}{n} &lt; ... &lt; t_i &lt; ... &lt; t_n = 1,t_i = \frac{i}{n}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(f(x) = x^2\)</span> is a continuous function of <span class="math inline">\([0, 1]\)</span>, the Riemann integral of <span class="math inline">\(f(x)\)</span> on <span class="math inline">\([0, 1]\)</span> is
+<span class="math display">\[\begin{align*}
+\int_0^1x^2\,dx &amp;= \lim_{n\to\infty} \sum_{i=0}^{n-1}(t_{i+1}-t_i)f(t_i) \\
+&amp;=\lim_{n\to\infty} \sum_{i=0}^{n-1} \frac{1}{n} \left( \frac{i }{n}\right)^2 \\
+&amp;=\lim_{n\to\infty} \frac{1}{n^3} \sum_{i=0}^{n-1}  i^2 \\
+&amp;=\lim_{n\to\infty} \frac{(n-1)(n)(2n-1)}{6n^3} \\
+&amp;=\frac{1}{3}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\int_0^1x^2\,dx=\frac{1}{3}\)</span></p>
+</blockquote>
+</div>
+<div id="slide-79-3" class="section level3 unnumbered">
+<h3>Slide 79’<a class="anchor" aria-label="anchor" href="#slide-79-3"><i class="fas fa-link"></i></a>
+</h3>
+<p>Compute the Riemann integral <span class="math inline">\(\int_0^2x^2\,dx=\)</span> by using definition</p>
+<blockquote>
+<p>Let <span class="math inline">\(\Pi\)</span> be a partition of <span class="math inline">\([0, 2]\)</span>:
+<span class="math display">\[0 = t_0 &lt; t_1 = \frac{2}{n} &lt; t_2 = \frac{4}{n} &lt; ... &lt; t_i &lt; ... &lt; t_n = 2,t_i = \frac{2i}{n}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(f(x) = x^2\)</span> is a continuous function of <span class="math inline">\([0, 2]\)</span>, the Riemann integral of <span class="math inline">\(f(x)\)</span> on <span class="math inline">\([0, 2]\)</span> is
+<span class="math display">\[\begin{align*}
+\int_0^2x^2\,dx &amp;= \lim_{n\to\infty} \sum_{i=0}^{n-1}(t_{i+1}-t_i)f(t_i) \\
+&amp;=\lim_{n\to\infty} \sum_{i=0}^{n-1} \frac{2}{n} \left( \frac{2i }{n}\right)^2 \\
+&amp;=\lim_{n\to\infty} \frac{8}{n^3} \sum_{i=0}^{n-1}  i^2 \\
+&amp;=\lim_{n\to\infty} \frac{8(n-1)(n)(2n-1)}{6n^3} \\
+&amp;=\frac{8}{3}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\int_0^2x^2\,dx=\frac{8}{3}\)</span></p>
+</blockquote>
+</div>
+<div id="slide-86-2" class="section level3 unnumbered">
+<h3>Slide 86<a class="anchor" aria-label="anchor" href="#slide-86-2"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Compute the following Ito’s integral</li>
+</ol>
+<p><span class="math display">\[\int_5^9 \,dX_t\]</span></p>
+<blockquote>
+<p>Let <span class="math inline">\(t_i=5+i\cdot \frac{9-5}{n}=5+ \frac{4i}{n}\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;t_0=5+ \frac{4 \cdot 0}{n}=5 \\
+&amp;t_n=5+ \frac{4 \cdot n}{n}=9
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_5^9 \,dX_t&amp;=\lim_{n\to\infty}  \sum_{i=0}^{n-1} 1 \cdot(X_{t_{i+1}}-X_{t_{i}}) \\
+&amp;=\lim_{n\to\infty} (X_{t_1}-X_{t_0})+(X_{t_2}-X_{t_1})+...+(X_{t_n}-X_{t_{n-1}}) \\
+&amp;= X_9 -X_5
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\int_5^9 \,dX_t=X_9 -X_5\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the following Ito’s integral</li>
+</ol>
+<p><span class="math display">\[\int_2^t \,dX_s^2\]</span></p>
+<blockquote>
+<p>Let <span class="math inline">\(t_i=2+i\cdot \frac{t-2}{n}=2+ \frac{(t-2)i}{n}\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;t_0=2+ \frac{(t-2) \cdot 0}{n}=2 \\
+&amp;t_n=2+ \frac{(t-2) \cdot n}{n}=t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_2^t \,dX_s&amp;=\lim_{n\to\infty}  \sum_{i=0}^{n-1} 1 \cdot(X_{t_{i+1}}^2-X_{t_{i}}^2) \\
+&amp;=\lim_{n\to\infty} (X_{t_1}^2-X_{t_0}^2)+(X_{t_2}^2-X_{t_1}^2)+...+(X_{t_n}^2-X_{t_{n-1}}^2) \\
+&amp;= X_t^2 -X_2^2
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\int_5^9 \,dX_t=X_t^2 -X_2^2\)</span></p>
+</blockquote>
+</div>
+<div id="slide-86-1-1" class="section level3 unnumbered">
+<h3>Slide 86 (1)<a class="anchor" aria-label="anchor" href="#slide-86-1-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Compute the following Ito’s integral</p>
+<p><span class="math display">\[\int_7^{10}\,dX_t^3\]</span></p>
+<blockquote>
+<p>Let <span class="math inline">\(t_i=7+i\cdot \frac{10-7}{n}=7+ \frac{3i}{n}\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;t_0=7+ \frac{3 \cdot 0}{n}=7 \\
+&amp;t_n=7+ \frac{3 \cdot n}{n}10
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_5^9 \,dX_t&amp;=\lim_{n\to\infty}  \sum_{i=0}^{n-1} 1 \cdot(X_{t_{i+1}}^3-X_{t_{i}}^3) \\
+&amp;=\lim_{n\to\infty} (X_{t_1}^3-X_{t_0}^3)+(X_{t_2}^3-X_{t_1}^3)+...+(X_{t_n}^3-X_{t_{n-1}}^3) \\
+&amp;= X_{10}^3 -X_7^3
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\int_7^{10} \,dX_t^3=X_{10}^3 -X_7^3\)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="differential-form" class="section level2" number="0.11">
+<h2>
+<span class="header-section-number">0.11</span> Differential Form<a class="anchor" aria-label="anchor" href="#differential-form"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-94-1" class="section level3 unnumbered">
+<h3>Slide 94<a class="anchor" aria-label="anchor" href="#slide-94-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Find the differential form of the following stochastic processes:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(M_t=\displaystyle\int_0^t3W_s^2\,ds\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[dM_t = 3W_t^2\,dt\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math inline">\(M_t=\displaystyle\int_0^t3W_s\,dWs\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[dM_t = 3W_t\,dW_t\]</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math inline">\(X_t=3+\displaystyle\int_0^t3s\,dW_s+\displaystyle\int_0^t5W_s^2\,ds\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[dX_t = 3t\,dW_t + 5W_t^2\,dt\]</span></p>
+</blockquote>
+</div>
+</div>
+<div id="integral-form" class="section level2" number="0.12">
+<h2>
+<span class="header-section-number">0.12</span> Integral Form<a class="anchor" aria-label="anchor" href="#integral-form"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-95-1" class="section level3 unnumbered">
+<h3>Slide 95<a class="anchor" aria-label="anchor" href="#slide-95-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Find the integral form of the following stochastic processes:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(dX_t = 5\,dt + 3\,dW_t\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+X_t &amp;= X_0 + \int_0^t5\,ds + \int_0^t3\,dW_s \\
+&amp;= X_0+5t+3W_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(X_t=X_0+5t+3W_t\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li><span class="math inline">\(dX_t = 4X_t\,dt + 3X_t\,dW_t\)</span></li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln X_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{X_t} \,dX_t-\frac{1}{2}\frac{1}{X_t^2}\,dX_t^2 \\
+&amp;=\frac{1}{X_t} (4X_t\,dt + 3X_t\,dW_t)-\frac{1}{2}\frac{1}{X_t^2}(4X_t\,dt + 3X_t\,dW_t)^2 \\
+&amp;=\frac{1}{X_t}\cdot4X_t\,dt + \frac{1}{X_t} \cdot 3X_t\,dW_t-\frac{1}{2}\frac{1}{X_t^2} \cdot 9X_t^2\,dW_t^2 \\
+&amp;=4\,dt + 3\,dW_t-\frac{9}{2}\,dt \\
+\,d \ln X_t&amp;=-\frac{1}{2}\,dt + 3\,dW_t \\
+\int_0^t \,d \ln X_s&amp;= \int_0^t-\frac{1}{2}\,ds +\int_0^t 3\,dW_s \\
+\ln X_s\Biggr|_{0}^{t} &amp;= -\frac{1}{2}\Biggr|_{0}^{t}+3W_s\Biggr|_{0}^{t} \\
+\ln \left( \frac{X_t}{X_0} \right) &amp;= -\frac{1}{2}t+3W_t \\
+X_t &amp;= X_0e^{-\frac{1}{2}t+3W_t}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(X_t = X_0e^{-\frac{1}{2}t+3W_t}\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li><span class="math inline">\(\,d W_t^3=3W_t \,dt+3W_t^2 \,dW_t\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+W_t^3 &amp;= W_0 + \int_0^t 3 W_s \,ds + \int_0^t 3W_s^2 \,dW_s \\
+&amp;=
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+<div id="slide-96-1" class="section level3 unnumbered">
+<h3>Slide 96<a class="anchor" aria-label="anchor" href="#slide-96-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Find the integral form form of the following stochastic processes:</p>
+<ul>
+<li>Arithmetic Brownian motion: <span class="math inline">\(dX_t = 5\,dt + 3\,dW_t\)</span>
+</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[X_t = X_0 + \int_0^t5\,ds + \int_0^t3\,dW_s\]</span></p>
+</blockquote>
+<ul>
+<li>Geometric Brownian motion: <span class="math inline">\(dX_t = 5X_t\,dt + 5X_t\,dW_t\)</span>
+</li>
+</ul>
+<blockquote>
+<p><span class="math display">\[X_t = X_0 + \int_0^t5X_s \,ds + \int_0^t5X_s\,dW_s\]</span></p>
+</blockquote>
+</div>
+</div>
+<div id="taylor-expansion" class="section level2" number="0.13">
+<h2>
+<span class="header-section-number">0.13</span> Taylor Expansion<a class="anchor" aria-label="anchor" href="#taylor-expansion"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-97-1" class="section level3 unnumbered">
+<h3>Slide 97<a class="anchor" aria-label="anchor" href="#slide-97-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>For one-variable functions, their second-order Taylor series expansions have the form<br><span class="math display">\[df(x)=f'(x)\,dx+\frac{1}{2}f''(x)\,dx^2\]</span></p>
+<ul>
+<li>Find the second-order Taylor series expansion of <span class="math inline">\(f(x)=e^x\)</span>
+</li>
+</ul>
+<blockquote>
+<p>
+We have <span class="math inline">\(df(x) = f'(x)\,dx + \frac{1}{2}f''(x)\,dx^2\)</span>. Therefore, the second-order Taylor series will be<br><span class="math display">\[f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2\]</span>
+</p>
+</blockquote>
+<blockquote>
+<p>
+Let <span class="math inline">\(f(x)=e^x\)</span> and <span class="math inline">\(x_0=0\)</span>, thus<br><span class="math display">\[\begin{align*}
+f(x) &amp;= e^0 + e^0x + \frac{1}{2}e^0(x)^2 \\
+&amp;= \frac{1}{2}x^2 + x + 1
+\end{align*}\]</span>
+</p>
+</blockquote>
+<ul>
+<li>Find the second-order Taylor series expansion of <span class="math inline">\(f(x)=\sin x\)</span>
+</li>
+</ul>
+<blockquote>
+<p>
+We have <span class="math inline">\(df(x) = f'(x)\,dx + \frac{1}{2}f''(x)\,dx^2\)</span>. Therefore, the second-order Taylor series will be<br><span class="math display">\[f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2\]</span>
+</p>
+</blockquote>
+<blockquote>
+<p>
+Let <span class="math inline">\(f(x)=\sin (x)\)</span> and <span class="math inline">\(x_0=0\)</span>, thus<br><span class="math display">\[\begin{align*}
+f(x) &amp;= \sin (0) + x \cos (0) - \frac{1}{2} \sin (x)^2 \\
+&amp;= x
+\end{align*}\]</span>
+</p>
+</blockquote>
+<ul>
+<li>Find the second-order Taylor series expansion of <span class="math inline">\(f(x)=\ln x,\,x&gt;0\)</span>
+</li>
+</ul>
+<blockquote>
+<p>
+We have <span class="math inline">\(df(x) = f'(x)\,dx + \frac{1}{2}f''(x)\,dx^2\)</span>. Therefore, the second-order Taylor series will be<br><span class="math display">\[f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{1}{2}f''(x_0)(x-x_0)^2\]</span>
+</p>
+</blockquote>
+<blockquote>
+<p>
+Let <span class="math inline">\(f(x)=\ln x\)</span> and <span class="math inline">\(x_0=1\)</span>, thus<br><span class="math display">\[\begin{align*}
+f(x) &amp;= \ln (1) + x-1 - \frac{1}{2}(x-1)^2 \\
+&amp;= x-1 - \frac{1}{2}(x-1)^2 \\
+&amp;= -\frac{1}{2}x^2+2x-\frac{3}{2}
+\end{align*}\]</span>
+</p>
+</blockquote>
+</div>
+<div id="slide-100-1" class="section level3 unnumbered">
+<h3>Slide 100<a class="anchor" aria-label="anchor" href="#slide-100-1"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Find the second-order Taylor series expansion of <span class="math inline">\(f(x)=e^{x+y}\)</span>
+</li>
+</ol>
+<blockquote>
+<p>We have</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+f_x&amp;=e^{x+y} \\
+f_{xx}&amp;=e^{x+y} \\
+f _{xy}&amp;=e^{x+y} \\
+f_y&amp;=e^{x+y} \\
+f_{yy}&amp;=e^{x+y}
+\end{align*}\]</span></p>
+<blockquote>
+<p>Apply the Taylor series expansions we have
+<span class="math display">\[\begin{align*}
+df(x,y) &amp;= f_x(x,y)\,dx + f_y(x,y)\,dy + \frac{1}{2}f_{x^2}\,dx^2 + \frac{1}{2}f_{y^2}\,dy^2 + f_{xy}\,dxdy \\  
+&amp;= e^{x+y}\,dx + e^{x+y}\,dy + \frac{1}{2}e^{x+y}\,dx^2 + \frac{1}{2}e^{x+y}\,dy^2 + e^{x+y}\,dxdy \\
+&amp;= e^{x+y}(\,dx +\,dy + \frac{1}{2}\,dx^2 + \frac{1}{2}\,dy^2 + \,dxdy)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The second-order Taylor series expansion of <span class="math inline">\(f(x)\)</span> is <span class="math inline">\(e^{x+y}\,dx + e^{x+y}\,dy + \frac{1}{2}e^{x+y}\,dx^2 + \frac{1}{2}e^{x+y}\,dy^2 + e^{x+y}\,dxdy \\ &amp;= e^{x+y}(\,dx +\,dy + \frac{1}{2}\,dx^2 + \frac{1}{2}\,dy^2 + \,dxdy)\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Find the second-order Taylor series expansion of <span class="math inline">\(f(x) = \sin(xy)\)</span>
+</li>
+</ol>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+f_x&amp;=ycos(xy) \\
+f_{xx}&amp;=-y^2sin(xy) \\
+f _{xy}&amp;=cos(xy) - xysin(xy) \\
+f_y&amp;=xcos(xy) \\
+f_{yy}&amp;=-x^2sin(xy) &amp;&amp;
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Apply the Taylor series expansions, we havee
+<span class="math display">\[\begin{align*}
+df(x,y) &amp;= f_x(x,y)\,dx + f_y(x,y)\,dy + \frac{1}{2}f_{x^2}\,dx^2 + \frac{1}{2}f_{y^2}\,dy^2 + f_{xy}\,dxdy \\
+&amp;= ycos(xy)\,dx + xcos(xy)\,dy + \frac{1}{2}y^2sin(xy)\,dx^2 + \frac{1}{2}x^2sin(xy)\,dy^2 + cos(xy) - xysin(xy)\,dxdy
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The second-order Taylor series expansion of <span class="math inline">\(f(x)\)</span> is <span class="math display">\[ycos(xy)\,dx + xcos(xy)\,dy +\frac{1}{2}y^2sin(xy)\,dx^2 + \frac{1}{2}x^2sin(xy)\,dy^2 + cos(xy) - xysin(xy)\,dxdy\]</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Find the second-order Taylor series expansion of <span class="math inline">\(f(x)=\ln \left( \frac{x}{y} \right),x,y &gt;0\)</span>
+</li>
+</ol>
+<blockquote>
+<p>We have</p>
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+f_x&amp;=\frac{1}{x} \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f _{xy}&amp;=0 \\
+f_y&amp;=-\frac{1}{y} \\
+f_{yy}&amp;=\frac{1}{y^2}
+\end{align*}\]</span></p>
+<blockquote>
+<p>Apply the formula as
+<span class="math display">\[\begin{align*}
+df(x,y) &amp;= f_x(x,y)\,dx + f_y(x,y)\,dy + \frac{1}{2}f_{x^2}\,dx^2 + \frac{1}{2}f_{y^2}\,dy^2 + f_{xy}\,dxdy \\
+&amp;= \frac{1}{x}\,dx - \frac{1}{y}\,dy + \frac{1}{x^2}\,dx^2 + \frac{1}{y^2}\,dy^2
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The second-order Taylor series expansion of <span class="math inline">\(f(x)\)</span> is <span class="math inline">\(\frac{1}{x}\,dx - \frac{1}{y}\,dy + \frac{1}{x^2}\,dx^2 + \frac{1}{y^2}\,dy^2\)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="dt-and-dw_t" class="section level2" number="0.14">
+<h2>
+<span class="header-section-number">0.14</span> <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span><a class="anchor" aria-label="anchor" href="#dt-and-dw_t"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-99-2" class="section level3 unnumbered">
+<h3>Slide 99’<a class="anchor" aria-label="anchor" href="#slide-99-2"><i class="fas fa-link"></i></a>
+</h3>
+<ol start="3" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,dX_t = 7\,dt + 3\,dW_t\)</span>. Compute <span class="math inline">\(\,d(\sin X_t)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,x)=\sin x\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =0 \\
+&amp;f_{tt} =0 \\
+&amp;f_x =\cos x \\
+&amp;f_{xx} =-\sin x \\
+&amp;f_{tx} =0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(f(X_t) = \sin X_t\)</span>, we have:
+<span class="math display">\[\begin{align*}
+\,d(sinX_t) &amp;= cosX_t\,dX_t - \frac{1}{2}sinX_t\,d X_t^2 \\  
+&amp;= \cos X_t(7\,dt + 3\,dW_t) - \frac{1}{2} \sin X_t(7\,dt + 3\,dW_t)^2 \\  
+&amp;= \cos X_t \cdot 7\,dt + \cos X_t \cdot 3\,dW_t - \frac{1}{2} \sin X_t \cdot 9\,dt \\  
+&amp;= (7 \cos X_t - \frac{9}{2} \sin X_t)\,dt + 3 \cos X_t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(\sin X_t)=(7 \cos X_t - \frac{9}{2} \sin X_t)\,dt + 3 \cos X_t\,dW_t\)</span></p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =7 \,dt+3 \,dW_t\)</span>. Compute <span class="math inline">\(\,d(X_t^2)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,x)=x^2\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =0 \\
+&amp;f_{tt} =0 \\
+&amp;f_x = 2x \\
+&amp;f_{xx} =2 \\
+&amp;f_{tx} =0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(f(X_t) = X_t^2\)</span>, we have:<br><span class="math display">\[\begin{align*}
+d(X_t^2) &amp;= 2X_t \,dX_t + 2\,dX_t^2 \\  
+&amp;= 2X_t (7 \,dt+3 \,dW_t) + 2(7 \,dt+3 \,dW_t)^2 \\
+&amp;= 14X_t \,dt+6 X_t \,dW_t + 2\cdot 9 \,dt \\
+&amp;= (14X_t+9)\,dt + 6X_t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(X_t^2)=(14X_t+9)\,dt + 6X_t\,dW_t\)</span></p>
+</blockquote>
+</div>
+<div id="slide-103-1" class="section level3 unnumbered">
+<h3>Slide 103’<a class="anchor" aria-label="anchor" href="#slide-103-1"><i class="fas fa-link"></i></a>
+</h3>
+<blockquote>
+<p>Let <span class="math inline">\((W_t)_{t \geq 0}\)</span> be a Brownian motion on the filtered probability space <span class="math inline">\((\omega,\mathcal{F},(\mathcal{F_t})_{t \geq 0},\mathcal{P})\)</span>. Consider a process <span class="math inline">\((X_t)_{t \geq 0}: X_t = e^{2 W_t -2t}\)</span> . Compute <span class="math inline">\(\,d X_t\)</span> in terms of <span class="math inline">\(\,d W_t\)</span> and <span class="math inline">\(\,dt\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><span class="math inline">\(f(t,x)=e^{2 x -7t}\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =-7 e^{2 x -7t} \\
+&amp;f_{tt} =49 e^{2 x -7t} \\
+&amp;f_x = 2e^{2 x -7t} \\
+&amp;f_{xx} =4e^{2 x -7t} \\
+&amp;f_{tx} =-14 e^{2 x -7t} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(f(W_t) = e^{2 W_t -7t}\)</span>, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+d(e^{2 W_t -7t}) &amp;= -7 e^{2 W_t -7t}\,dt +49 e^{2 W_t -7t}\,dt^2 +2e^{2 W_t -7t}\,dW_t + 4e^{2 W_t -7t}\,d W_t^2 -14 e^{2 W_t -7t}\,dW_t\,dt \\
+&amp;= -7 e^{2 W_t -7t}\,dt +0 +2e^{2 W_t -7t}\,dW_t + 4e^{2 W_t -7t}\,d t -0 \\
+&amp;= -3 e^{2 W_t -7t}\,dt +2e^{2 W_t -7t}\,dW_t\\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(e^{2 W_t -7t})=-3 e^{2 W_t -7t}\,dt +2e^{2 W_t -7t}\,dW_t\)</span></p>
+</blockquote>
+</div>
+<div id="slide-99-3" class="section level3 unnumbered">
+<h3>Slide 99<a class="anchor" aria-label="anchor" href="#slide-99-3"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Compute <span class="math inline">\(\,dW_t^2\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula<br><span class="math display">\[df(t,W_t) = f_t(t,W_t)\,dt + f_{w_t}(t,W_t)\,dW_t + \frac{1}{2}f_{w_t^2}(t,W_t)\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thus, we have<br><span class="math display">\[\begin{align*}
+d(W_t^2) &amp;= 0\,dt + 2W_t\,dW_t + \frac{1}{2}\cdot2\,dt \\
+&amp;= \,dt+2W_t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(W_t^2)=2W_t\,dW_t + \,dt\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute <span class="math inline">\(\,d(\sin W_t)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula<br><span class="math display">\[df(t,W_t) = f_t(t,W_t)\,dt + f_{w_t}(t,W_t)\,dW_t + \frac{1}{2}f_{w_t^2}(t,W_t)\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thus, we have<br><span class="math display">\[\begin{align*}
+d(sinW_t) &amp;= 0\,dt + cosW_t\,dW_t + \frac{1}{2}(-sinW_t)\,dt \\
+&amp;= - \frac{1}{2}sinW_t\,dt + cosW_t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(sinW_t)=cosW_t\,dW_t - \frac{1}{2}sinW_t\,dt\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,dX_t = 5\,dt + 3\,dW_t\)</span>. Compute <span class="math inline">\(\,d(\sin X_t)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.<br>
+&gt;Let <span class="math inline">\(f(t,x)=\sin x\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =0 \\
+&amp;f_{tt} =0 \\
+&amp;f_x =\cos x \\
+&amp;f_{xx} =-\sin x \\
+&amp;f_{tx} =0 \\
+\end{align*}\]</span>
+</li>
+</ol>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(f(X_t) = \sin X_t\)</span>, we have:
+<span class="math display">\[\begin{align*}
+\,d(sinX_t) &amp;= cosX_t\,dX_t - \frac{1}{2}sinX_t\,d X_t^2 \\  
+&amp;= cosX_t(5\,dt + 3\,dW_t) - \frac{1}{2}sinX_t(5\,dt + 3\,dW_t)^2 \\  
+&amp;= cosX_t \cdot 5\,dt + cosX_t \cdot 3\,dW_t - \frac{1}{2}sinX_t \cdot 9\,dt \\  
+&amp;= (5cosX_t - \frac{9}{2}sinX_t)\,dt + 3cosX_t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(sinX_t)=(5cosX_t - \frac{9}{2}sinX_t)\,dt + 3cosX_t\,dW_t\)</span></p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =5 \,dt+3 \,dW_t\)</span>. Compute <span class="math inline">\(\,d(X_t^2)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,x)=x^2\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =0 \\
+&amp;f_{tt} =0 \\
+&amp;f_x = 2x \\
+&amp;f_{xx} =2 \\
+&amp;f_{tx} =0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(f(X_t) = X_t^2\)</span>, we have:<br><span class="math display">\[\begin{align*}
+d(X_t^2) &amp;= 2X_t \,dX_t + 2\,dX_t^2 \\  
+&amp;= 2X_t (5 \,dt+3 \,dW_t) + 2(5 \,dt+3 \,dW_t)^2 \\
+&amp;= 10X_t \,dt+6 X_t \,dW_t + 2\cdot 9 \,dt \\
+&amp;= (10X_t+9)\,dt + 6X_t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(X_t^2)=(10X_t+9)\,dt + 6X_t\,dW_t\)</span></p>
+</blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =5 \,dt+3 \,dW_t\)</span>. Compute <span class="math inline">\(\,d(e^{X_t})\)</span> in terms of <span class="math inline">\(\,d_t\)</span> and <span class="math inline">\(\,d W_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula<br><span class="math display">\[df(X_t) = f'(X_t)\,dX_t + \frac{1}{2}f''(X_t)\,dX_t^2\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thus, we have</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+df(X_t) &amp;= e^{X_t}\,dX_t + \frac{1}{2}e^{X_t}\,dX_t^2 \\
+&amp;= e^{X_t}(5 \,dt+3 \,dW_t) + \frac{1}{2}e^{X_t}(5 \,dt+3 \,dW_t)^2 \\
+&amp;= 5e^{X_t} \,dt+3e^{X_t} \,dW_t + \frac{1}{2}e^{X_t} \cdot9 \,dt \\
+&amp;= \frac{19}{2}e^{X_t}\,dt + 3e^{X_t}\,dW_t  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(e^{X_t})=\frac{19}{2}e^{X_t}\,dt + 3e^{X_t}\,dW_t\)</span></p>
+</blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =5 X_t \,dt+3 X_t \,dW_t\)</span>. Compute <span class="math inline">\(\,d(X_t^2)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula<br><span class="math display">\[df(X_t) = f'(X_t)\,dX_t + \frac{1}{2}f''(X_t)\Delta_t^2\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thus, we have<br><span class="math display">\[\begin{align*}
+d(X_t^2) &amp;= 2X_t\,dX_t + \frac{1}{2} \cdot 2 (5 X_t \,dt+3 X_t \,dW_t)^2 \\
+d(X_t^2) &amp;= 2X_t(5 X_t \,dt+3 X_t \,dW_t) + 9 X_t^2 \,dt \\
+d(X_t^2) &amp;= 10X_t^2\,dt+6 X_t^2 \,dW_t + 9 X_t^2 \,dt \\
+&amp;= 19X_t^2\,dt + 6X_t^2\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: $d(X_t<sup>2)=19X_t</sup>2,dt + 6X_t^2,dW_t</p>
+</blockquote>
+<ol start="7" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =5 X_t \,dt+3 X_t \,dW_t\)</span>. Compute <span class="math inline">\(\,d(\sin X_t)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula
+<span class="math display">\[df(X_t) = f'(X_t)\,d X_t + \frac{1}{2}f''(X_t)\,d X_t^2\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thus, we have
+<span class="math display">\[\begin{align*}
+d(\sin X_t)&amp;= \cos X_t \,d X_t -\frac{1}{2} \sin X_t \,d X_t^2 \\
+&amp;= \cos X_t (5 X_t \,dt+3 X_t \,dW_t) -\frac{1}{2} \sin X_t (5 X_t \,dt+3 X_t \,dW_t)^2 \\
+&amp;=  5 X_t \cos X_t \,dt+3X_t \cos X_t \,dW_t -\frac{1}{2} \sin X_t \cdot 9 X_t^2 \,dt \\
+&amp;=  (5 X_t \cos X_t -\frac{9}{2} X_t^2 \sin X_t) \,dt +3X_t \cos  X_t \,dW_t  \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(sinX_t)=(5 X_t \cos X_t -\frac{9}{2} X_t^2 \sin X_t) \,dt +3X_t \cos X_t \,dW_t\)</span></p>
+</blockquote>
+<ol start="8" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =5 X_t \,dt+3 X_t \,dW_t\)</span>. Compute <span class="math inline">\(\,d(e^{X_t})\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,d W_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula
+<span class="math display">\[df(X_t) = f'(X_t)\,dX_t + \frac{1}{2}f''(X_t)\,d X_t^2\]</span></p>
+</blockquote>
+<blockquote>
+<p>Thus, we have<br><span class="math display">\[\begin{align*}
+df(X_t) &amp;= e^{X_t}\,dX_t + \frac{1}{2}e^{X_t}\,dX_t^2 \\
+&amp;= e^{X_t}(5 X_t \,dt+3 X_t \,dW_t) + \frac{1}{2}e^{X_t}(5 X_t \,dt+3 X_t \,dW_t)^2 \\
+&amp;= 5e^{X_t} X_t \,dt+3X_te^{X_t} \,dW_t + \frac{1}{2}e^{X_t} \cdot9 X_t^2 \,dt \\
+&amp;= \left(5X_t + \frac{9}{2} X_t^2 \right)e^{X_t}\,dt + 3 X_t e^{X_t}\,dW_t  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(e^{X_t})=\frac{19}{2}e^{X_t}\,dt + 3e^{X_t}\,dW_t\)</span></p>
+</blockquote>
+<ol start="9" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t =5 X_t \,dt+3 X_t \,dW_t\)</span>. Compute <span class="math inline">\(\,d( \ln {X_t})\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,d W_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Apply the formula
+<span class="math display">\[df(X_t) = f'(X_t)\,dX_t + \frac{1}{2}f''(X_t)\,d X_t^2\]</span></p>
+</blockquote>
+<blockquote>
+
+</blockquote>
+<p><span class="math display">\[\begin{align*}
+d(\ln X_t) &amp;= \frac{1}{X_t}\,dX_t + \frac{1}{2} \left( -\frac{1}{X_t^2} \right)\,d X_t^2 \\
+&amp;= \frac{1}{X_t}(5X_t\,dt + 3X_t\,dW_t) - \frac{1}{2X_t^2}(5X_t\,dt + 3X_t\,dW_t)^2 \\
+&amp;= \frac{1}{X_t} \cdot 5X_t\,dt + \frac{1}{X_t} \cdot 3X_t\,dW_t - \frac{1}{2X_t^2} \cdot 9X_t^2\,dt \\
+&amp;= \frac{1}{2}\,dt + 3\,dW_t
+\end{align*}\]</span></p>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(\ln X_t)=3\,dW_t + \frac{1}{2}\,dt\)</span></p>
+</blockquote>
+<ol start="10" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(\,d X_t = 5(4 − X_t) \,dt + 3X_t \,dW_t\)</span>. Compute <span class="math inline">\(\,d(e^{5t}X_t)\)</span> in terms of <span class="math inline">\(\,dt\)</span> and <span class="math inline">\(\,d W_t\)</span>.
+&gt;With</li>
+</ol>
+<p><span class="math inline">\(f(t,x)=e^{5t}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=5e^{5t}x \\
+f_x&amp;=e^{5t} \\
+f_{tt}&amp;=5^2e^{5t}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=5e^{5t}
+\end{align*}\]</span></p>
+<blockquote>
+<p>Apply the Ito Doeblin formula, we have
+<span class="math display">\[\begin{align*}
+d(e^{5t}X_t) &amp;=5e^{5t}X_t \,dt +  e^{5t} \,dX_t + 5^2e^{5t}X_t \,dt^2 +0 \,dX_t^2+5e^{5t}\,dt \,dX_t \\
+&amp;=5e^{5t}X_t \,dt +  e^{5t} (5(4 − X_t) \,dt + 3X_t \,dW_t) + 5e^{5t}\,dt (5(4 − X_t) \,dt + 3X_t \,dW_t) \\
+&amp;=5e^{5t}X_t \,dt +  5(4 − X_t)e^{5t} \,dt + 3X_te^{5t} \,dW_t + 5e^{5t} 5(4 − X_t) \,dt^2 + 3\cdot5 X_t \\
+&amp;=20e^{5t} \,dt + 3X_te^{5t} \,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(d(e^{5t}X_t)=(20e^{5t}-5X_te^{5t}+\frac{9}{2}e^{5t}X_t^2)\,dt + 3e^{5t}X_t\,dW_t\)</span></p>
+</blockquote>
+</div>
+<div id="slide-104-1" class="section level3 unnumbered">
+<h3>Slide 104<a class="anchor" aria-label="anchor" href="#slide-104-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let <span class="math inline">\((W_t)_{t \geq 0}\)</span> be a Brownian motion on the filtered probability space <span class="math inline">\((\Omega,\mathcal{F},(\mathcal{F}_t)_{t \geq 0},\mathcal{P})\)</span>. Compute <span class="math inline">\(\,dX_t\)</span> in terms of <span class="math inline">\(\,dW_t\)</span> and <span class="math inline">\(\,dt\)</span>, where:</p>
+<ol style="list-style-type: decimal">
+<li>
+<span class="math inline">\(X_t=10e^{0.5 \left(0.1-\frac{0.3^2}{6} \right)t+\frac{0.3}{\sqrt{3} W_t}}\)</span>.</li>
+</ol>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+f_t=0.425f(t,W_t) \qquad &amp; f_{W_tW_t}= 3f(t,W_t) \\
+f_{W_t}=\sqrt{3}f(t,W_t) \qquad &amp;  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Apply the formula as
+<span class="math display">\[\begin{align*}
+df(t,W_t) &amp;= f_t(t,W_t)\,dt &amp;&amp;+ f_{W_t}(t,W_t)\,dW_t +&amp;&amp;&amp; \frac{1}{2}f_{W_t^2}(t,W_t)\,dW_t^2 \\
+&amp;= 0.425X_t\,dt &amp;&amp;+ \sqrt{3}X_t\,dW_t +&amp;&amp;&amp; \frac{3}{2}X_t\,dW_t^2 \\
+&amp;= 0.425X_t\,dt &amp;&amp;+ \sqrt{3}X_t\,dW_t +&amp;&amp;&amp; \frac{3}{2}X_t\,dt \\
+&amp;= 1.925X_t\,dt &amp;&amp;+ \sqrt{3}X_t\,dW_t &amp;&amp;&amp;
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(df(t,W_t)=1.925X_t\,dt+ \sqrt{3}X_t\,dW_t\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(X_t=Y_t^3\)</span>, with <span class="math inline">\(\,d Y_t=2Y_t\,dt+3Y_t\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,Y_t) = X_t = Y_t^3\)</span>, we can calculate <span class="math inline">\(f_t=0 \\ f_{Y_t}=3Y_t^2\\ f_{Y_tY_t}=6Y_t\)</span></p>
+</blockquote>
+<blockquote>
+<p>Apply the formula as
+<span class="math display">\[\begin{align*}
+d(X_t) = df(t,Y_t) = f_t(t,Y_t)\,dt + f_{Y_t}(t,Y_t)\,dY_t + \frac{1}{2}f_{Y_tY_t}(t,Y_t)\,dY_t\,dY_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We got  <span class="math inline">\(d(X_t) = 3Y_t^2\,dY_t + 3Y_t\,dY_t\,dY_t\)</span></p>
+</blockquote>
+<blockquote>
+<p>Since  <span class="math inline">\(dY_t = 2Y_t\,dt + 3Y_t\,dW_t\\ dY_t\,dY_t = (3Y_t)^2\,dt\)</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\,d(X_t) &amp;= 3Y_t^2\,(2Y_t\,dt + 3Y_t\,dW_t) + 3Y_t . 9Y_t^2\,dt\\
+&amp;= 33Y_t^3\,dt + 9Y_t^3\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\,d(X_t)=33Y_t^3\,dt + 9Y_t^3\,dW_t\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(X_t=\ln Y_t\)</span>, with <span class="math inline">\(\,dY_t=4tY_t\,dt+2tY_t\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,Y_t) = X_t = \ln Y_t\)</span>, we can calculate  <span class="math inline">\(f_t=0 \\ f_{Y_t}=\frac{1}{Y_t}\\ f_{Y_tY_t}=-\frac{1}{Y_t^2}\)</span></p>
+</blockquote>
+<blockquote>
+<p>Apply the formula as
+<span class="math display">\[\begin{align*}
+d(X_t) = df(t,Y_t) = f_t(t,Y_t)\,dt + f_{Y_t}(t,Y_t)\,dY_t + \frac{1}{2}f_{Y_tY_t}(t,Y_t)\,dY_t\,dY_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We got  <span class="math inline">\(d(X_t) = \frac{1}{Y_t}\,dY_t - \frac{1}{2Y_t^2}\,dY_t\,dY_t\)</span></p>
+</blockquote>
+<blockquote>
+<p>Since  <span class="math inline">\(dY_t = 4tY_t\,dt + 2tY_t\,dW_t\\ dY_t\,dY_t = (2tY_t)^2\,dt\)</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+d(X_t) &amp;= \frac{1}{Y_t}\,(4tY_t\,dt + 2tY_t\,dW_t) + \frac{1}{2Y_t^2} . (2tY_t^2)\,dt\\
+&amp;= (4t-2t^2)\,dt + 2t\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\,d(X_t)=(4t-2t^2)\,dt + 2t\,dW_t\)</span></p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(X_t=\frac{4-Y_t}{1-t}\)</span>, with <span class="math inline">\(\,dY_t=X_t\,dt+\,dW_t\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[ X_t=\frac{4-Y_t}{1-t} \rightarrow Y_t=X_t(t-1)+4 \]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+f(t,x)=\frac{4-x}{1-t}=\frac{x-4}{t-1}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;f_t =-\frac{x-4}{(t-1)^2} \\
+&amp;f_{tt} =\frac{2(x-4)}{(t-1)^3}\\
+&amp;f_x =\frac{1}{t-1} \\
+&amp;f_{xx} =0 \\
+&amp;f_{tx} =-\frac{1}{(t-1)^2} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,dX_t&amp;=-\frac{Y_t-4}{(t-1)^2}\,dt + \frac{1}{t-1} \,dY_t + \frac{1}{2}\frac{2(Y_t-4)}{(t-1)^3} \,dt^2 -\frac{1}{(t-1)^2} \,dW_t \,dt \\
+&amp;= -\frac{Y_t-4}{(t-1)^2}\,dt + \frac{1}{t-1} \,dY_t \\
+&amp;= -\frac{X_t(t-1)+4-4}{(t-1)^2}\,dt + \frac{1}{t-1} (X_t\,dt+\,dW_t) \\
+&amp;= \frac{1}{t-1} \,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\,dX_t=\frac{1}{t-1} \,dW_t\)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="differential-equation" class="section level2" number="0.15">
+<h2>
+<span class="header-section-number">0.15</span> Differential Equation<a class="anchor" aria-label="anchor" href="#differential-equation"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-106-1" class="section level3 unnumbered">
+<h3>Slide 106<a class="anchor" aria-label="anchor" href="#slide-106-1"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>
+<span class="math inline">\(ty′(t)+2y(t)=4t^2, \quad y(1)=2\)</span>.</li>
+</ol>
+<blockquote>
+<p>Standard form<br><span class="math display">\[y'(t) + \frac{2}{t}y(t) = 4t\]</span></p>
+</blockquote>
+<blockquote>
+<p>The integrating factor will be<br><span class="math display">\[\mu(t)=e^{\int{\frac{2}{t}}\,dt}=t^2\]</span></p>
+</blockquote>
+<blockquote>
+<p>The general solution will be given by<br><span class="math display">\[y=\frac{1}{t^2} \left(\:\int4t^3\,dt+C\:\right)
+=\frac{1}{t^2} \left(t^4+C\right)\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(y(1)=2\)</span>, we have that<br><span class="math display">\[1(1+C) = 2 \quad \text{implying } \quad C = 1 \]</span></p>
+</blockquote>
+<blockquote>
+<p>Therefore, <span class="math inline">\(\qquad y=\frac{1}{t^2}\left(t^4+1\right)\)</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y=\frac{1}{t^2}\left(t^4+1\right)\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(2y′(t)+ty(t)=2,\quad y(0)=1\)</span>.</li>
+</ol>
+<blockquote>
+<p>Standard form<br><span class="math display">\[y'(t) + \frac{t}{2}y(t) = 1\]</span></p>
+</blockquote>
+<blockquote>
+<p>The integrating factor will be<br><span class="math display">\[\mu(t)=e^{\int{\frac{t}{2}}\,dt}=e^{\frac{t^2}{4}}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have that<br><span class="math display">\[\begin{align*}
+\frac{d}{dx} &amp;\left(e^{\frac{t^2}{4}}y\right) &amp;&amp;= e^{\frac{t^2}{4}} \\
+\rightarrow \quad &amp;e^{\frac{t^2}{4}}y &amp;&amp;= \displaystyle\int e^{\frac{t^2}{4}}\,dt + C \\
+\rightarrow \quad &amp;y &amp;&amp;= \frac{1}{e^{\frac{t^2}{4}}}\displaystyle\int e^{\frac{t^2}{4}}\,dt + C
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have <span class="math inline">\(y(0)=1, \quad \text{implying } \; C = 0\)</span></p>
+</blockquote>
+<blockquote>
+<p>Therefore, <span class="math inline">\(\qquad y=\frac{1}{e^{\frac{t^2}{4}}}\displaystyle\int e^{\frac{t^2}{4}}\,dt\)</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y=\frac{1}{e^{\frac{t^2}{4}}}\displaystyle\int e^{\frac{t^2}{4}}\,dt\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(y′(t)−y(t)=2te^{2t},y(0)=1\)</span>.</li>
+</ol>
+<blockquote>
+<p>The integrating factor will be
+<span class="math display">\[\mu(t)=e^{\int-1\,dt}=e^{-t}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The general solution will be given by
+<span class="math display">\[y=e^t \left(\: \int2te^t\,dt + C \:\right)
+=e^t\left[\,(2+e^t-2e^t) + C \,\right]\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(y(0)=1\)</span>, we have that<br><span class="math display">\[1[(0-2)+C] = 1 \quad \text{implying } \quad C = 3 \]</span></p>
+</blockquote>
+<blockquote>
+<p>Therefore, <span class="math inline">\(\qquad y=e^t\left[\,(2+e^t-2e^t) + 3 \,\right]\)</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y=e^t\left[\,(2+e^t-2e^t) + 3 \,\right]\)</span></p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(y′+y^2 \sin x=0,y(2)=1\)</span>.</li>
+</ol>
+<blockquote>
+<p>We have that<br><span class="math display">\[\begin{align*}
+y' + y^2sinx &amp;= 0 \\
+\Leftrightarrow \frac{dy}{dx} + y^2sinx &amp;= 0 \\
+\Leftrightarrow \frac{1}{y^2}\,dy + sinx\,dx &amp;= 0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\left.\begin{align*}
+\text{Let: } \quad &amp;M(x,y) = \sin x \\ &amp;N(x,y) = \frac{1}{y^2}  
+\end{align*}\right\}  
+\rightarrow \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}=0
+\quad \text{: the equation is exact}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>So there exists <span class="math inline">\(F(x,y)\)</span>, such that<br><span class="math display">\[\frac{\partial F}{\partial x}=M(x,y)=\sin(x) \quad(1) \quad\text{ and }
+\quad \frac{\partial F}{\partial y}=N(x,y)=\frac{1}{y^2} \quad(2)\]</span></p>
+</blockquote>
+<blockquote>
+<p>Equation (1) implies that<br><span class="math display">\[\begin{align*}F(x,y)&amp;=\int\sin x\,dx=-\cos x + \varphi(y) \\
+\text{Thus, } \quad &amp;\frac{\partial F}{\partial y}=\varphi'(y) \qquad (3)
+\end{align*}\]</span><br>
+Equation (2) and (3) gives<br><span class="math display">\[\begin{align*}
+\frac{1}{y^2} &amp;= \varphi'(y) \\  
+\rightarrow \varphi(y) &amp;= -\frac{1}{y} \\  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+F(x,y) &amp;= -\cos x -\frac{1}{y} = C \\
+\rightarrow y(x) &amp;= \frac{1}{-\cos x - C} \\
+\iff 1 &amp;= \frac{1}{-\cos(2) - C} \qquad \text{ since } \; y(2)=1 \\
+\text{or } \quad C &amp;= -1 -\cos(2) \\
+\text{Thus, } \quad y &amp;= \frac{1}{-\cos x - 1 - \cos(2)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: y = <span class="math inline">\(\frac{1}{-\cos x - 1 - \cos(2)}\)</span></p>
+</blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(y′ =(1−2x)y^2,y(0)=1\)</span>.</li>
+</ol>
+<blockquote>
+<p>We have that<br><span class="math display">\[\begin{align*}
+y' &amp;= (1-2x)y^2 \\
+\Leftrightarrow \frac{\,dy}{\,dx} &amp;= (1-2x)y^2 \\
+\Leftrightarrow (1-2x)\,dx - \frac{1}{y^2}\,dy &amp;= 0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\left.\begin{align*}
+\text{Let: } \quad &amp;M(x,y) = 1-2x \\ &amp;N(x,y) = -\frac{1}{y^2}  
+\end{align*}\right\}  
+\rightarrow \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x}=0
+\quad \text{: the equation is exact}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>So there exists <span class="math inline">\(F(x,y)\)</span>, such that<br><span class="math display">\[\frac{\partial F}{\partial x}=M(x,y)=1-2x \quad(1) \quad\text{ and }
+\quad \frac{\partial F}{\partial y}=N(x,y)=-\frac{1}{y^2} \quad(2)\]</span></p>
+</blockquote>
+<blockquote>
+<p>Equation (1) implies that<br><span class="math display">\[\begin{align*}F(x,y)&amp;=\int(1-2x)\,dx= x-x^2 + \varphi(y) \\
+\text{Thus, } \quad &amp;\frac{\partial F}{\partial y}=\varphi'(y) \qquad (3)
+\end{align*}\]</span><br>
+Equation (2) and (3) gives<br><span class="math display">\[\begin{align*}
+\varphi'(y) &amp;= -\frac{1}{y^2} \\  
+\rightarrow \varphi(y) &amp;= \frac{1}{y} \\  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+F(x,y) &amp;= x-x^2+\frac{1}{y} = C \\
+\rightarrow y(x) &amp;= \frac{1}{-x+x^2+C} \\
+\iff 1 &amp;= \frac{1}{C} \qquad \text{ since } \; y(0)=1 \\
+\text{or } \quad C &amp;= 1 \\
+\text{Thus, } \quad y &amp;= \frac{1}{x^2-x+1}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y = \frac{1}{x^2-x+1}\)</span></p>
+</blockquote>
+<ol start="6" style="list-style-type: decimal">
+<li><span class="math inline">\(x \,dx+ye^{−x}\,dy=0,y(0)=1\)</span></li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\left.\begin{align*}
+\text{Let: } \quad &amp;M(x,y) = 1-2x&amp; N(x,y) &amp;= -\frac{1}{y^2} \\
+\quad &amp;\frac{\partial M}{\partial y} =0&amp; \frac{\partial N}{\partial x}&amp;=-ye^{-x}
+\end{align*}\right\}  
+\rightarrow \frac{\partial M}{\partial y}\neq\frac{\partial N}{\partial x}
+\quad \text{: not exact}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>Moreover,
+<span class="math display">\[\begin{align*}
+\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N}
+&amp;=\frac{0+ye^{-x}}{ye^{-x}} = 1 \\
+\text{thus, } \quad \mu(x) &amp;= e^{\int\,dx} =e^x \quad \text{is an integrating factor of the equation} \\
+\rightarrow e^xx\,dx + y\,dy &amp;= 0 \qquad
+\text{(by multiplying both side with $\mu(x)=1$)} \\
+\rightarrow \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x} &amp;=0
+\quad \text{: exact}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>So there exists <span class="math inline">\(F(x,y)\)</span>, such that<br><span class="math display">\[\frac{\partial F}{\partial x}=M(x,y)=xe^x \quad(1) \quad\text{ and }
+\quad \frac{\partial F}{\partial y}=N(x,y)= y \quad(2)\]</span></p>
+</blockquote>
+<blockquote>
+<p>Equation (2) implies that<br><span class="math display">\[\begin{align*}F(x,y)&amp;=\int y \,dy= \frac{1}{2}y^2 + \varphi(x) \\
+\text{Thus, } \quad &amp;\frac{\partial F}{\partial x}=\varphi'(x) \qquad (3)
+\end{align*}\]</span><br>
+Equation (1) and (3) gives<br><span class="math display">\[\begin{align*}
+\varphi'(x) &amp;= xe^x \\  
+\rightarrow \varphi(x) &amp;= xe^x-e^x \\  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+F(x,y) &amp;= \frac{1}{2}y^2 + xe^x - e^x = C \\
+\rightarrow y(x) &amp;= \sqrt{2(C+e^x-xe^x)} \\
+\iff 1 &amp;= \sqrt{2(C+1-0)} \qquad \text{ since } \; y(0)=1 \\
+\text{or } \quad C &amp;= -\frac{1}{2} \\
+\text{Thus, } \quad y &amp;= \sqrt{2(-\frac{1}{2}+e^x-xe^x)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y = \sqrt{2(-\frac{1}{2}+e^x-xe^x)}\)</span></p>
+</blockquote>
+<ol start="7" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(y'(x)=\frac{x^2+xy+y^2}{x^2},y(2)=2\)</span>.</li>
+</ol>
+<blockquote>
+<p>With <span class="math inline">\(u=y+\frac{x}{2}\)</span> and <span class="math inline">\(v=\frac{2}{\sqrt{3}x}u\)</span>
+<span class="math display">\[\int \frac{1}{x^2+xy+y^2} \,dy \\
+=\int \frac{1}{\left(y+\frac{x}{2} \right)^2+\frac{3}{4}x^2} \,dy \\
+=\int \frac{1}{\left(u \right)^2+\frac{3}{4}x^2} \,du \\
+=\int \frac{4}{4u^2+3x^2} \,du \\
+=\int \frac{4}{3x^2v^2+3x^2} \frac{x\sqrt{3}}{2}\,dv \\
+=\frac{4}{2\sqrt{3}x}\int \frac{1}{v^2+1}\,dv \\
+=\frac{4}{2\sqrt{3}x}\arctan(v) +c \\
+=\frac{2}{\sqrt{3}x} \arctan(\frac{2}{\sqrt{3}x}y+\frac{1}{\sqrt{3}})+c
+\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;y'(x)=\frac{x^2+xy+y^2}{x^2} \\
+&amp;\rightarrow \frac{\,dy}{\,dx}=\frac{x^2+xy+y^2}{x^2} \\
+&amp;\rightarrow \frac{1}{x^2+xy+y^2} \,dy=\frac{1}{x^2}\,dx \\
+&amp;\rightarrow \frac{2}{\sqrt{3}x} \arctan(\frac{2}{\sqrt{3}x}y+\frac{1}{\sqrt{3}})+c=-\frac{1}{x} \\
+&amp;\rightarrow y=\frac{x\sqrt{3}}{2} \tan \left( cx-\frac{\sqrt{3}}{2} \right)-\frac{x}{2}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;y(2)=2 \\
+&amp;\rightarrow c=\frac{\pi}{6}+\frac{\sqrt{3}}{4}+\frac{k\pi}{2} \\
+&amp;\rightarrow y=\frac{x\sqrt{3}}{2} \tan \left( \left( \frac{\pi}{6}+\frac{\sqrt{3}}{4}+\frac{k\pi}{2}  \right)x-\frac{\sqrt{3}}{2} \right)-\frac{x}{2}  
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y=\frac{x\sqrt{3}}{2} \tan \left( \left( \frac{\pi}{6}+\frac{\sqrt{3}}{4}+\frac{k\pi}{2} \right)x-\frac{\sqrt{3}}{2} \right)-\frac{x}{2}\)</span></p>
+</blockquote>
+<ol start="8" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(y'(x)=\frac{x^2+3y^2}{2xy},y(2)=2\)</span>.</li>
+</ol>
+<blockquote>
+<p>We have<br><span class="math display">\[\begin{align*}
+y'(x)&amp;=\frac{x^2+3y^2}{2xy} \\
+(x^2+3y^2)\,dx - (2xy)\,dy &amp;= 0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\left.\begin{align*}
+\text{Let: } \quad &amp;M(x,y) = x^2+3y^2&amp; N(x,y) &amp;= -2xy \\
+\quad &amp;\frac{\partial M}{\partial y} =6y&amp; \frac{\partial N}{\partial x}&amp;=-2y
+\end{align*}\right\}  
+\rightarrow \frac{\partial M}{\partial y}\neq\frac{\partial N}{\partial x}
+\quad \text{: not exact}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>Moreover,
+<span class="math display">\[\begin{align*}
+\frac{\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}}{N}
+&amp;=\frac{6y+2y}{-2xy} = \frac{8y}{-2xy}=\frac{-4}{x} \\
+\text{thus, } \quad \mu(x) &amp;= e^{\int\frac{-4}{x}\,dx} =\frac{1}{x^4} \quad \text{is an integrating factor} \\
+\rightarrow \left(\frac{1}{x^2}+\frac{3y^2}{x^4}\right)\,dx &amp;- \left(\frac{2y}{x^3}\right)\,dy = 0 \quad \text{(by multiplying both side with } \mu(x)=\frac{1}{x^4} \text{)} \\
+\rightarrow \frac{\partial M}{\partial y}=\frac{\partial N}{\partial x} &amp;=\frac{6y}{x^4}
+\quad \text{: exact}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>So there exists <span class="math inline">\(F(x,y)\)</span>, such that<br><span class="math display">\[\frac{\partial F}{\partial x}=M(x,y)=\frac{1}{x^2} + \frac{3y^2}{x^4} \quad(1) \quad\text{ and }
+\quad \frac{\partial F}{\partial y}=N(x,y)= \frac{-2y}{x^3} \quad(2)\]</span></p>
+</blockquote>
+<blockquote>
+<p>Equation (2) implies that<br><span class="math display">\[\begin{align*}F(x,y)&amp;=\int\frac{-2y}{x^3}\,dy= -\frac{y^2}{x^3} + \varphi(x) \\
+\text{Thus, } \quad &amp;\frac{\partial F}{\partial x}=\frac{3y^2}{x^4}+\varphi'(x) \qquad (3)
+\end{align*}\]</span><br>
+Equation (1) and (3) gives<br><span class="math display">\[\begin{align*}
+\frac{3y^2}{x^4}+\varphi'(x) &amp;= \frac{3y^2}{x^4}+\frac{1}{x^2} \\  
+\rightarrow \varphi'(x) &amp;= \frac{1}{x^2} \\  
+\rightarrow \varphi(x) &amp;= -\frac{1}{x}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+F(x,y) &amp;= -\frac{y^2}{x^3} -\frac{1}{x} = C \\
+\rightarrow y(x) &amp;= \sqrt{-x^3C-x^2} \\
+\iff 2 &amp;= \sqrt{-(2)^3C-4} \qquad \text{ since } \; y(2)=2 \\
+\text{or } \quad C &amp;= -1 \\
+\text{Thus, } \quad y &amp;= \sqrt{x^3-x^2}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(y = \sqrt{x^3-x^2}\)</span></p>
+</blockquote>
+</div>
+</div>
+<div id="geometric-brownian-motion" class="section level2" number="0.16">
+<h2>
+<span class="header-section-number">0.16</span> Geometric Brownian motion<a class="anchor" aria-label="anchor" href="#geometric-brownian-motion"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-118-1" class="section level3 unnumbered">
+<h3>Slide 118<a class="anchor" aria-label="anchor" href="#slide-118-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let <span class="math inline">\(\{(W_t)_t \geq 0\}\)</span> be a standard Brownian motion on the probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span>. Suppose that the process <span class="math inline">\((X_t)_t \geq 0\)</span> is governed by the geometric Brownian motion:
+<span class="math inline">\(\,d X_t = 8X_t\,dt + 2X_t\,dW_t\)</span>.
+Find the distribution, the mean and variance of the random variable <span class="math inline">\((X_5|X_3 = 4)\)</span>.</p>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(Y_t = \ln X_t\)</span> with <span class="math inline">\(f(t,x)= \ln x\)</span>, we have:
+<span class="math display">\[f_t= 0 , f_x= \frac{1}{X_t}, f_{xx}=  -\frac{1}{X_t^2}\]</span>
+then
+<span class="math display">\[\begin{align*}
+dY_t&amp;= \frac{1}{X_t}dX_t - \frac{1}{2}\frac{1}{X_t^2}dX_tdX_t \\
+&amp;= \frac{1}{X_t}(8X_tdt + 2X_tdW_t) - \frac{1}{2}\frac{1}{X_t^2}(8X_tdt + 2X_tdW_t)^2 \\
+&amp;= 6dt+2dW_t \\
+\rightarrow \int^5_3 dY_t &amp;=\int^5_3 6dt +\int^5_3 2dW_t \\
+\rightarrow \ln X_5 - \ln X_3 &amp;=  (5-3) \cdot 6 + 2 \cdot (W_5-W_3) \\
+\rightarrow X_5&amp;= e^{\ln X_3 + 12 + 2(W_5-W_3)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\rightarrow \ln X_3+12+2(W_5-W_3) &amp;\sim \mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &amp;\sim \ln\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\rightarrow X_5 &amp;\sim \ln\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\rightarrow (X_5|X_3=4) &amp;\sim \ln\mathcal{N} \left(\ln 4+12,4 \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X_5|X_3=4]&amp;=e^{\ln 4+12+ \frac{1}{2} \cdot 4} \\
+&amp;=e^{15.38} \\
+Var(X_5|X_3=4)&amp;=\left(e^{4}-1\right)e^{\left(2(\ln 4+12)+4 \right)}  \\
+&amp;=(e^{4}-1)e^{30.77}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The mean and variance of <span class="math inline">\((X_5|X_3=4)\)</span> are <span class="math inline">\(e^{15.38}\)</span> and <span class="math inline">\((e^{4}-1)e^{30.77}\)</span></p>
+</blockquote>
+</div>
+<div id="slide-122-1" class="section level3 unnumbered">
+<h3>Slide 122<a class="anchor" aria-label="anchor" href="#slide-122-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let <span class="math inline">\(\{(W_t)_t \geq 0\}\)</span> be a standard Brownian motion on the probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span>. Suppose that the process <span class="math inline">\((X_t)_t \geq 0\)</span> is governed by the geometric Brownian motion:
+<span class="math inline">\(\,d X_t =4(t^3−3)X_t\,dt+t^2X_t\,dW_t\)</span>.
+Find the distribution, the mean and variance of the random variable
+<span class="math inline">\((X_4|X_2 = 3)\)</span>.</p>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(Y_t = \ln X_t\)</span> with <span class="math inline">\(f(t,x)= \ln x\)</span>, we have:
+<span class="math display">\[f_t= 0 , f_x= \frac{1}{X_t}, f_{xx}=  -\frac{1}{X_t^2}\]</span>
+then <span class="math display">\[dY_t= \frac{1}{X_t}\,dX_t - \frac{1}{2}\frac{1}{X_t^2}\,dX_t\,dX_t\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+dY_t&amp;= \frac{1}{X_t}(4(t^3−3)X_t\,dt+t^2X_t\,dW_t) - \frac{1}{2}\frac{1}{X_t^2}(4(t^3−3)X_t\,dt+t^2X_t\,dW_t)^2 \\
+&amp;= \left( -\frac{1}{2}t^4+4t^3-12 \right) \,dt+t^2dW_t \\
+\rightarrow \int_2^4 \,dY_t  &amp;= \int_2^4 \left( -\frac{1}{2}t^4+4t^3-12 \right) \,dt+\int_2^4t^2dW_t \\
+\rightarrow  Y_4-Y_2  &amp;= \frac{584}{5}+\int_2^4 t^2dW_t \\
+\rightarrow  \ln X_4-\ln X_2  &amp;= \frac{584}{5}+\int_2^4 t^2dW_t \\
+\rightarrow  X_4  &amp;= e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_2^4 t^2 \,d W_t &amp;\sim \mathcal{N} \left(0,\int_2^4 t^2 \,d t \right) \\
+&amp;\sim \mathcal{N}\left(0,\frac{992}{5} \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\rightarrow \ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t &amp;\sim \mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &amp;\sim \ln\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\rightarrow X_4 &amp;\sim \ln\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+(X_4|X_2=3) &amp;\sim \ln\mathcal{N} \left(\ln 3+\frac{584}{5},\frac{992}{5} \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X_4|X_2=3]&amp;=e^{\ln 3+\frac{584}{5}+ \frac{1}{2} \cdot \frac{992}{5}} \\
+&amp;=e^{217.09} \\
+Var(X_4|X_2=3)&amp;=\left(e^{\frac{992}{5}}-1\right)e^{\left(2(\ln 3+\frac{584}{5})+\frac{992}{5} \right)}  \\
+&amp;=(e^{198.4}-1)e^{434.19}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean and variance of <span class="math inline">\((X_4|X_2=3)\)</span> are <span class="math inline">\(e^{217.09}\)</span> and <span class="math inline">\((e^{198.4}-1)e^{434.19}\)</span></p>
+</blockquote>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="random-walk-1.html">Random walk</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ito---doeblin-1">Ito - Doeblin</a></li>
+<li>
+<a class="nav-link" href="#riemann-approach"><span class="header-section-number">0.10</span> Riemann Approach</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-79-2">Slide 79</a></li>
+<li><a class="nav-link" href="#slide-79-3">Slide 79’</a></li>
+<li><a class="nav-link" href="#slide-86-2">Slide 86</a></li>
+<li><a class="nav-link" href="#slide-86-1-1">Slide 86 (1)</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#differential-form"><span class="header-section-number">0.11</span> Differential Form</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#slide-94-1">Slide 94</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#integral-form"><span class="header-section-number">0.12</span> Integral Form</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-95-1">Slide 95</a></li>
+<li><a class="nav-link" href="#slide-96-1">Slide 96</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#taylor-expansion"><span class="header-section-number">0.13</span> Taylor Expansion</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-97-1">Slide 97</a></li>
+<li><a class="nav-link" href="#slide-100-1">Slide 100</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#dt-and-dw_t"><span class="header-section-number">0.14</span> \(\,dt\) and \(\,dW_t\)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-99-2">Slide 99’</a></li>
+<li><a class="nav-link" href="#slide-103-1">Slide 103’</a></li>
+<li><a class="nav-link" href="#slide-99-3">Slide 99</a></li>
+<li><a class="nav-link" href="#slide-104-1">Slide 104</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#differential-equation"><span class="header-section-number">0.15</span> Differential Equation</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#slide-106-1">Slide 106</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#geometric-brownian-motion"><span class="header-section-number">0.16</span> Geometric Brownian motion</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-118-1">Slide 118</a></li>
+<li><a class="nav-link" href="#slide-122-1">Slide 122</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/cliex159/fin-risk-mana/blob/master/03-parts.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/cliex159/fin-risk-mana/edit/master/03-parts.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-03-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

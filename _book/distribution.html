@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 1 Distribution | FM2</title>
+<meta name="author" content="Tran Thanh Dat">
+<meta name="description" content="1.1 Discrete  Slide 11 Flip 2 coins simultaneously, and observe whether a heads or a tail landing up. Define a probability measure for the experiment. \[\Omega = \{HH,HT,TH,TT\} \] ...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 1 Distribution | FM2">
+<meta property="og:type" content="book">
+<meta property="og:description" content="1.1 Discrete  Slide 11 Flip 2 coins simultaneously, and observe whether a heads or a tail landing up. Define a probability measure for the experiment. \[\Omega = \{HH,HT,TH,TT\} \] ...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 1 Distribution | FM2">
+<meta name="twitter:description" content="1.1 Discrete  Slide 11 Flip 2 coins simultaneously, and observe whether a heads or a tail landing up. Define a probability measure for the experiment. \[\Omega = \{HH,HT,TH,TT\} \] ...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">FM2</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Course Descripition</a></li>
+<li class="book-part">Probability</li>
+<li><a class="active" href="distribution.html"><span class="header-section-number">1</span> Distribution</a></li>
+<li><a class="" href="random-walk.html"><span class="header-section-number">2</span> Random walk</a></li>
+<li><a class="" href="ito---doeblin.html"><span class="header-section-number">3</span> Ito - Doeblin</a></li>
+<li class="book-part">Risk Neutral</li>
+<li><a class="" href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></li>
+<li><a class="" href="risk-neutral-pricing-bs.html"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a></li>
+<li><a class="" href="midterm-mock.html">Midterm Mock</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/cliex159/fin-risk-mana">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="distribution" class="section level1" number="1">
+<h1>
+<span class="header-section-number">1</span> Distribution<a class="anchor" aria-label="anchor" href="#distribution"><i class="fas fa-link"></i></a>
+</h1>
+<div id="discrete" class="section level2" number="1.1">
+<h2>
+<span class="header-section-number">1.1</span> Discrete<a class="anchor" aria-label="anchor" href="#discrete"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-11" class="section level3 unnumbered">
+<h3>Slide 11<a class="anchor" aria-label="anchor" href="#slide-11"><i class="fas fa-link"></i></a>
+</h3>
+<p>Flip 2 coins simultaneously, and observe whether a heads or a tail landing up. Define a probability measure for the experiment.</p>
+<blockquote>
+<p><span class="math display">\[\Omega = \{HH,HT,TH,TT\} \]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\mathcal{F} = &amp;\{ \emptyset,\Omega,\\
+&amp;\{HH\},\{HT,TH,TT\},\\
+&amp;\{HT\},\{HH,TH,TT\},\\
+&amp;\{TH\},\{HH,HT,TT\},\\
+&amp;\{TT\},\{HH,HT,TH\},\\
+&amp;\{HH,HT\},\{TH,TT\},\\
+&amp;\{HH,TH\},\{HT,TT\},\\
+&amp;\{HH,TT\},\{HT,TH\} \}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;\mathcal{P}:\mathcal{F} \rightarrow [0,1]\\
+\\
+&amp;\mathcal{P}(\emptyset) = 0 \\
+&amp;\mathcal{P}(\Omega) = 1 \\
+&amp;\mathcal{P}(\{HH\}) = p^2\\
+&amp;\mathcal{P}(\{HT,TH,TT\}) = 2p(1-p)+(1-p)^2=1-p^2\\
+&amp;\mathcal{P}(\{HT\}) = p(1-p)=p-p^2\\
+&amp;\mathcal{P}(\{HH,TH,TT\}) = p^2+p(1-p)+(1-p)^2=p^2-p+1\\
+&amp;\mathcal{P}(\{TH\}) = (1-p)p=p-p^2\\
+&amp;\mathcal{P}(\{HH,HT,TT\}) = p^2+p(1-p)+(1-p)^2=p^2-p+1\\
+&amp;\mathcal{P}(\{TT\}) = (1-p)^2=p^2-2p+1\\
+&amp;\mathcal{P}(\{HH,HT,TH\}) = p^2+2p(1-p)=2p-p^2\\
+&amp;\mathcal{P}(\{HH,HT\}) = p^2+p(1-p)=p\\
+&amp;\mathcal{P}(\{TH,TT\}) = p(1-p) + (1-p)^2=1-p\\
+&amp;\mathcal{P}(\{HH,TH\}) = p^2+(1-p)p=p\\
+&amp;\mathcal{P}(\{HT,TT\}) = p(1-p)+(1-p)^2=1-p\\
+&amp;\mathcal{P}(\{HH,TT\}) = p^2+(1-p)^2=1-2p\\
+&amp;\mathcal{P}(\{HT,TH\}) = 2p(1-p)=2p-2p^2\\
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+<div id="slide-21" class="section level3 unnumbered">
+<h3>Slide 21<a class="anchor" aria-label="anchor" href="#slide-21"><i class="fas fa-link"></i></a>
+</h3>
+<div id="exercise-1" class="section level4" number="1.1.0.1">
+<h4>
+<span class="header-section-number">1.1.0.1</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Suppose X is uniformly distributed on {-2, -1, 0, 1, 2}. Find the
+probability mass function of <span class="math inline">\(Y = X^2\)</span>.</p>
+<blockquote>
+<p>X is uniformly distributed on <span class="math inline">\(\{-2,-1,0,1,2\}\)</span> then
+<span class="math display">\[Y = X^2 \in \{0,1,4\}\]</span>
+and the probability for each number that X is picked is <span class="math inline">\(\frac{1}{5}\)</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;P(Y=0)=P(X^2=1)=P(X=0)=\frac{1}{5} \\
+&amp;P(Y=1)=P(X^2=1)=P(X=1 \text{ or } X=-1)=\frac{1}{5}+\frac{1}{5}=\frac{2}{5} \\
+&amp;P(Y=4)=P(X^2=4)=P(X=2 \text{ or } X=-2)=\frac{1}{5}+\frac{1}{5}=\frac{2}{5}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability mass function of Y
+<span class="math display">\[P(Y=K)=\begin{cases}
+\frac{1}{5} &amp; \text{k=0}\\
+\frac{2}{5} &amp; \text{k=1}\\
+\frac{2}{5} &amp; \text{k=4}
+\end{cases} \]</span></p>
+</blockquote>
+</div>
+<div id="exercise-2" class="section level4" number="1.1.0.2">
+<h4>
+<span class="header-section-number">1.1.0.2</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>A number X is picked uniformly at random from 1 to 100. What is the expected value of <span class="math inline">\(X^2\)</span>?</p>
+<blockquote>
+<p>X is uniformly distributed on <span class="math inline">\(\{1,2,...,100\}\)</span> then
+<span class="math display">\[ Y = X^2 \in \{1,4,...,10000\} \]</span>
+and the probability for each number that X is picked is <span class="math inline">\(\frac{1}{100}\)</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;P(Y=1)=P(X^2=1)=P(X=1)=\frac{1}{100} \\
+&amp;P(Y=4)=P(X^2=4)=P(X=2)=\frac{1}{100} \\
+&amp;... \\
+&amp;P(Y=10000)=P(X^2=10000)=P(X=100)=\frac{1}{100}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability mass function of Y
+<span class="math display">\[P(Y=k)=\begin{cases}
+\frac{1}{100} &amp; \text{k=1}\\
+\frac{1}{100} &amp; \text{k=4}\\
+...\\
+\frac{1}{100} &amp; \text{k=10000}
+\end{cases} \]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[E[X^2]=\frac{1}{100} \cdot 1+\frac{1}{100} \cdot 4+...+\frac{1}{100} \cdot 10000=3383.5 \]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The the expected value of <span class="math inline">\(X^2\)</span> is 3383.5.</p>
+</blockquote>
+</div>
+<div id="exercise-3" class="section level4" number="1.1.0.3">
+<h4>
+<span class="header-section-number">1.1.0.3</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3"><i class="fas fa-link"></i></a>
+</h4>
+<p>Find the variance of X with probability mass function:</p>
+<p><span class="math display">\[P(X=k)=\begin{cases}
+      \frac{1}{25} &amp; \text{k=1,7}\\
+      \frac{3}{25} &amp; \text{k=2,6}\\
+      \frac{5}{25} &amp; \text{k=3,5}\\
+      \frac{6}{25} &amp; \text{k=4}
+    \end{cases} \]</span></p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+&amp;E[X] = \frac{1}{25} \cdot 1 +
+\frac{3}{25} \cdot 2+
+\frac{5}{25} \cdot 3+
+\frac{7}{25} \cdot 4+
+\frac{5}{25} \cdot 5+
+\frac{3}{25} \cdot 6+
+\frac{1}{25} \cdot 7 = 4 \\
+&amp;E[X^2] = \frac{1}{25} \cdot 1^2 +
+\frac{3}{25} \cdot 2^2+
+\frac{5}{25} \cdot 3^2+
+\frac{7}{25} \cdot 4^2+
+\frac{5}{25} \cdot 5^2+
+\frac{3}{25} \cdot 6^2+
+\frac{1}{25} \cdot 7^2 = 18.08 \\
+&amp;Var(X) = E[(X-E[X])^2]=E[X^2]-E[X]^2=18.08-16 = 2.08
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The variance of X is 2.08.</p>
+</blockquote>
+</div>
+</div>
+<div id="slide-26" class="section level3 unnumbered">
+<h3>Slide 26<a class="anchor" aria-label="anchor" href="#slide-26"><i class="fas fa-link"></i></a>
+</h3>
+<div id="exercise-1-1" class="section level4" number="1.1.0.4">
+<h4>
+<span class="header-section-number">1.1.0.4</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>A single bacterium, name Bobo, lives in a pond. After one minute Bobo will either die, split into 2 bacteria, or stay the same, with equal probability. In subsequent minutes all above living bacteria will independently behave the same way as Bobo. Using the law of total probability, compute the probability that the bacteria population will eventually die out?</p>
+<blockquote>
+<p>Let p be the probability that the bacteria population will eventually die out. Let X be the bacteria population and Y be the behaviors of the bacterium in subsequent minutes that is stay the same, die, split into 2 bacteria then <span class="math inline">\(Y \in \{0,1,2 \}\)</span> and <span class="math display">\[P(Y=0)=P(Y=1)=P(Y=2)=\frac{1}{3}\]</span></p>
+</blockquote>
+<blockquote>
+<li>
+If the bacteria dies out, the probability that the bacteria population will eventually die out is <span class="math inline">\(P(X=0|Y=0)=1\)</span>.
+</li>
+<li>
+If the bacteria remains as it is, the probability that it dies out is <span class="math inline">\(P(X=0|Y=1)=p\)</span>.
+</li>
+<li>
+If the bacteria turns into 2. the probability that it dies out along with its next generation is <span class="math inline">\(P(X=0|Y=2)=p^2\)</span>.
+</li>
+</blockquote>
+<blockquote>
+<p>Using the law of total probability, the probability of this bacteria dying out is either itself dies out or the bacterias generated by it also dies out.
+<span class="math display">\[\begin{align*}
+P(X=0)&amp;= \sum_{y=1}^{3} P(X=0|Y=y)P(Y=y) \\
+&amp;=P(X=0|Y=0)P(Y=0) \\
+&amp;+P(X=0|Y=1)P(Y=1)+P(X=0|Y=2)P(Y=2) \\
+\rightarrow p&amp;=\frac{1}{3}+\frac{1}{3}p+\frac{1}{3}p^2 \\
+\rightarrow p&amp;=1
+\end{align*} \]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the bacteria population will eventually die out is 1.</p>
+</blockquote>
+</div>
+<div id="exercise-2-1" class="section level4" number="1.1.0.5">
+<h4>
+<span class="header-section-number">1.1.0.5</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>A man is trapped in a room with three exits decorated identically at the centre of a maze. Exit 1 leads outside the maze on average after 6 minutes. Exit 2 leads back to the room on average after 9 minutes. Exit 3 leads back to the room on average after 12 minutes. At the room, the man can make an equally likely choice to any of the three exits. What is the expected time taken for the man to leave the maze?</p>
+<blockquote>
+<p>Let X be the time taken for the man to leave the room and Y be the exit the man chooses on his first step then <span class="math inline">\(Y \in \{1,2,3 \}\)</span> and <span class="math inline">\(P(Y=1)=P(Y=2)=P(Y=3)=\frac{1}{3}\)</span>.</p>
+</blockquote>
+<blockquote>
+<li>
+Exit 1 leads outside the maze on average after 6 minutes then <span class="math inline">\(E[X|Y=1]=3\)</span>.
+</li>
+<li>
+Exit 2 leads back to the room on average after 9 minutes then <span class="math inline">\(E[X|Y=2]=9+E[X]\)</span>.
+</li>
+<li>
+Exit 3 leads back to the room on average after 12 minutes then <span class="math inline">\(E[X|Y=3]=12+E[X]\)</span>.
+</li>
+</blockquote>
+<blockquote>
+<p>Using the law of total expectation, the expected time taken for the man to leave the maze is the expected time the man have to take to make an equally likely choice to any of the three exits.
+<span class="math display">\[\begin{align*}
+E[X]&amp;=E_Y\{E[X|Y]\} \\
+&amp;= \sum_{y=1}^{3} E[X|Y=y]P(Y=y) \\
+&amp;=E[X|Y=1]P(Y=1)+E[X|Y=2]P(Y=2)+E[X|Y=3]P(Y=3) \\
+&amp;=\frac{1}{3}(3)+\frac{1}{3}(9+E[X])+\frac{1}{3}(12+E[X]) \\
+\rightarrow E[X]&amp;=24
+\end{align*}
+\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expected time taken for the man to leave the maze is 24 minutes.</p>
+</blockquote>
+</div>
+</div>
+<div id="slide-32" class="section level3 unnumbered">
+<h3>Slide 32<a class="anchor" aria-label="anchor" href="#slide-32"><i class="fas fa-link"></i></a>
+</h3>
+<p>Angel will daily harvest a random number N tomatoes in her garden, where N has a Poisson distribution with parameter 1000 per day. Each tomato is checked for defects. The chance that a tomato has defects is 10%. Defects are independent from tomato to tomato. Find the expected number of tomatoes with defects.</p>
+<blockquote>
+<p>Let X be the number of tomatoes with defects.</p>
+</blockquote>
+<blockquote>
+<p>N has a Poisson distribution with parameter 1000 per day so the expected number of tomatoes is 1000:
+<span class="math display">\[N \sim P(1000) \rightarrow E[N]=1000\]</span></p>
+</blockquote>
+<blockquote>
+<p>The chance that a tomato has defects is 10% then the probability of tomatoes with defects out of n tomatoes follows binomial distribution with <span class="math inline">\(p=0.1\)</span>:
+<span class="math display">\[X \sim B(0.1,n) \rightarrow E[X]=0.1n\]</span>
+Let the number of n tomatoes be E[N] we have
+<span class="math display">\[E[X]=0.1E[N]=0.1 \cdot 1000=100\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expected number of tomatoes with defects is 100</p>
+</blockquote>
+</div>
+<div id="slide-24" class="section level3 unnumbered">
+<h3>Slide 24<a class="anchor" aria-label="anchor" href="#slide-24"><i class="fas fa-link"></i></a>
+</h3>
+<p>A fair coin is flipped repeatedly. Find the expected number of flips needed to get two heads in a row.</p>
+<blockquote>
+<p>Let X be the expected number of flips we need to get two heads in a row.
+Flipping 2 coins repeatedly and observe two consecutive outcomes, we have the following cases:</p>
+</blockquote>
+<blockquote>
+<div align="center" class="inline-figure">
+<img src="https://drive.google.com/uc?export=view&amp;id=1uGWB38oS8ryrlLdp1_qqKyxz4CHcMMgt">
+</div>
+</blockquote>
+<blockquote>
+<h4>
+Case 1 (T): A tail appears on the first flip, we do not need to flip the second one.
+</h4>
+<p>On the first flip of the coin, there is a 1/2 chance we get a tails. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 2 (HT): A heads appears on the first flip and then a tails appears on the second flip.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get a heads appears on the first flip and then a tails appears on the second flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}\)</span>. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 3 (HH): Two heads appear on two tosses.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get two heads appear on two flips is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}\)</span>. In this case, the expected flips needed will be 2.</p>
+</blockquote>
+<blockquote>
+<p>Framing the above three cases in the form of equations and adding we will get:
+<span class="math display">\[\begin{align*}
+X&amp;=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(2) \frac{1}{4} \\
+\rightarrow X&amp;=6
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: On average, the coin needs flipping 6 times to get two heads in a row.</p>
+</blockquote>
+</div>
+<div id="slide-25" class="section level3 unnumbered">
+<h3>Slide 25<a class="anchor" aria-label="anchor" href="#slide-25"><i class="fas fa-link"></i></a>
+</h3>
+<div id="exercise-1-2" class="section level4" number="1.1.0.6">
+<h4>
+<span class="header-section-number">1.1.0.6</span> Exercise 1<a class="anchor" aria-label="anchor" href="#exercise-1-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>A fair coin is flipped repeatedly. Find the expected number of flips
+needed to get three heads in a row.</p>
+<blockquote>
+<p>Let X be the expected number of flips we need to get two three in a row.
+Flipping 3 coins repeatedly and observe three consecutive outcomes, we have the following cases:</p>
+</blockquote>
+<blockquote>
+<div align="center" class="inline-figure">
+<img src="https://drive.google.com/uc?export=view&amp;id=1TqkVrV6orUEHAcWc4ObVFYl_i5218VPD">
+</div>
+</blockquote>
+<blockquote>
+<h4>
+Case 1 (T): A tail appears on the first flip, we do not need to flip the second and third one.
+</h4>
+<p>On the first flip of the coin, there is a 1/2 chance we get a tails. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 2 (HT): A heads appears on the first flip and then a tails appears on the second flip, we do not need to flip the third one.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get a heads appears on the first flip and then a tails appears on the second flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}\)</span>. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 3 (HHH): Three heads appear on three flips.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get three heads appear on three flips heads appear on two flips is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}\)</span>. In this case, the expected flips needed will be 2.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 4 (HHT): Two heads appear on two flips and then a tails appears on the third flip.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get two heads appear on two flips and then a tails appears on the third flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}\)</span>. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.</p>
+</blockquote>
+<blockquote>
+<p>Framing the above three cases in the form of equations and adding we will get:
+Framing the above three cases in the form of equations and adding we will get:
+<span class="math display">\[\begin{align*}
+X&amp;=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(3)\frac{1}{8}+ (3+X)\frac{1}{8} \\
+\rightarrow X&amp;=14
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: On average, the coin needs flipping 6 times to get two heads in a row.</p>
+</blockquote>
+</div>
+<div id="exercise-2-2" class="section level4" number="1.1.0.7">
+<h4>
+<span class="header-section-number">1.1.0.7</span> Exercise 2<a class="anchor" aria-label="anchor" href="#exercise-2-2"><i class="fas fa-link"></i></a>
+</h4>
+<p>A fair coin is flipped repeatedly. Find the expected number of flips
+needed to get 2 consecutive heads followed by a tails (HHT in a row).</p>
+<blockquote>
+<p>Let X be the expected number of flips we need to get two three in a row.
+Flipping 3 coins repeatedly and observe three consecutive outcomes, we have the following cases:</p>
+</blockquote>
+<blockquote>
+<div align="center" class="inline-figure">
+<img src="https://drive.google.com/uc?export=view&amp;id=1AD95VJziqQZMsMe217sEwy9qTKu3EDkE">
+</div>
+</blockquote>
+<blockquote>
+<h4>
+Case 1 (T): A tail appears on the first flip, we do not need to flip the second and third one.
+</h4>
+<p>On the first flip of the coin, there is a 1/2 chance we get a tails. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 2 (HT): A heads appears on the first flip and then a tails appears on the second flip, we do not need to flip the third one.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get a heads appears on the first flip and then a tails appears on the second flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}\)</span>. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 3 (HHH): Three heads appear on three flips.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get three heads appear on three flips heads appear on two flips is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}\)</span>. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 4 (HHT): Two heads appear on two flips and then a tails appears on the third flip.
+</h4>
+<p>The chance a heads appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> so the the probability to get two heads appear on two flips and then a tails appears on the third flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}\)</span>. In this case, the expected flips needed will be 2.</p>
+</blockquote>
+<blockquote>
+<p>Framing the above three cases in the form of equations and adding we will get:
+<span class="math display">\[\begin{align*}
+X&amp;=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(3+X)\frac{1}{8}+(3) \frac{1}{8} \\
+\rightarrow X&amp;=14
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: On average, the coin needs flipping 14 times to get two consecutive heads followed by a tails (HHT in a row).</p>
+</blockquote>
+</div>
+<div id="exercise-3-1" class="section level4" number="1.1.0.8">
+<h4>
+<span class="header-section-number">1.1.0.8</span> Exercise 3<a class="anchor" aria-label="anchor" href="#exercise-3-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>You play a slot machine repeatedly. The probability of winning on a
+single play is 5%, and successive plays are independent. The random
+variable of interest is X, the number of unsuccessful attempts before
+the first win.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Find an expression for the cumulative distribution function of X.</li>
+</ol>
+<blockquote>
+<p>X is the number of unsuccessful attempts before the first win so X follows the Geometric distribution having the cumulative distribution:
+<span class="math display">\[\begin{align*}
+P(X \leq k) &amp;=1-(1-p)^k \\
+&amp;=1-(1-0.05)^x \\
+&amp;=1-0.95^x
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expression for the cumulative distribution function of X: <span class="math inline">\(P(X \leq k)=1-0.95^x\)</span>.</p>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How many times would you need to play the slot machine in order
+to be sure that your probability of winning at least once is greater
+than or equal to 90%?</li>
+</ol>
+<blockquote>
+<p>In order to be sure that the probability of winning at least once is greater than or equal to 90%:
+<span class="math display">\[\begin{align*}
+&amp;P(X \leq k) &amp;\geq 0.9 \\
+&amp;\rightarrow 1-0.95^x &amp;\geq 0.9 \\
+&amp;\rightarrow x &amp;\leq 44.89
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: I need to play 45 times in order to be sure that the probability of winning at least one is greater than or equal to 90%.</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div id="continuous" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> Continuous<a class="anchor" aria-label="anchor" href="#continuous"><i class="fas fa-link"></i></a>
+</h2>
+<div id="slide-33" class="section level3 unnumbered">
+<h3>Slide 33<a class="anchor" aria-label="anchor" href="#slide-33"><i class="fas fa-link"></i></a>
+</h3>
+<p>When Katie goes to the gym, she will either run, bicycle, or row. She will
+choose one of the aerobic activities with respective probabilities 0.5, 0.3,
+and 0.2. And having chosen an activity, the amount of time (in minutes)
+she spends exercising is exponentially distributed with respective
+parameters 0.05, 0.025, and 0.01. Find the expectation of Katie exercise
+time.</p>
+<blockquote>
+<p>Let X be the Katie exercise time and Y be a random variable that takes values 1, 2, and 3 corresponding to her choice of running, bicycling, and rowing.</p>
+</blockquote>
+<blockquote>
+<p>The amount of time (in minutes)
+she spends running is exponentially distributed with respective
+parameters 0.05 so the expectation of Katie run time is <span class="math inline">\(\frac{1}{0.05}=20\)</span> (minutes).</p>
+</blockquote>
+<blockquote>
+<p>The amount of time (in minutes)
+she spends riding bicycle is exponentially distributed with respective
+parameters 0.025 so the expectation of Katie bicycle time is <span class="math inline">\(\frac{1}{0.025}=40\)</span> (minutes).</p>
+</blockquote>
+<blockquote>
+<p>The amount of time (in minutes)
+she spends rowing is exponentially distributed with respective
+parameters 0.01 so the expectation of Katie row time is <span class="math inline">\(\frac{1}{0.01}=100\)</span> (minutes).</p>
+</blockquote>
+<blockquote>
+<p>The expectation of Katie exercise time for each activity is 20,40 and 100 minutes respectively. The mass function of X is:
+<span class="math display">\[\begin{align*}
+P(Y=k)=\begin{cases}
+0.5 &amp; \text{k=1}\\
+0.3 &amp; \text{k=2}\\
+0.2 &amp; \text{k=3}
+\end{cases}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Using the law of total expectation, the expectation of Katie exercise time is the expected time for her choice of running, bicycling, and rowing.
+<span class="math display">\[\begin{align*}
+E[X]&amp;=E[X|Y=1]P(Y=1)+E[X|Y=2]P(Y=2)+E[X|Y=3]P(Y=3) \\
+&amp;=0.5 \cdot 20+ 0.3 \cdot 40+0.2 \cdot 100 \\
+&amp;=42
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expectation of Katie exercise time is 42 minutes.</p>
+</blockquote>
+</div>
+<div id="slide-35" class="section level3 unnumbered">
+<h3>Slide 35<a class="anchor" aria-label="anchor" href="#slide-35"><i class="fas fa-link"></i></a>
+</h3>
+<p>Assume the length of withdrawing money in minutes in an ATM booth is an exponential random variable with rate <span class="math inline">\(\lambda = 0.5\)</span>.<br>
+If someone arrives at the ATM booth before you arrive, find the probability that someone have to wait:</p>
+<blockquote>
+<p>Let X be the length of withdrawing money in minutes in an ATM booth. X is an exponential random variable with rate <span class="math inline">\(\lambda = 0.5\)</span> then the cumulative distribution function:
+<span class="math display">\[\begin{align*}
+P(X&lt;x) &amp;=1-e^{- \lambda x} \\
+&amp;=1-e^{- 0.5 x}
+\end{align*}\]</span></p>
+</blockquote>
+<ul>
+<li>less than 1 minute</li>
+</ul>
+<blockquote>
+<p>The probability that someone have to wait less than 1 minute:
+<span class="math display">\[\begin{align*}
+P(X&lt;1)&amp;=1-e^{- 0.5 \cdot 1} \\
+&amp;=0.3935
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that someone have to wait less than 1 minute is 39.35%</p>
+</blockquote>
+<ul>
+<li>greater than 3 minutes</li>
+</ul>
+<blockquote>
+<p>The probability that someone have to wait greater than 3 minutes:
+<span class="math display">\[\begin{align*}
+P(X&gt;3)&amp;=1-P(X&gt;3) \\
+&amp;=1-(1-e^{- 0.5 \cdot 3}) \\
+&amp;=0.2231
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that someone have to wait greater than 3 minutes is 22.31%</p>
+</blockquote>
+<ul>
+<li>between 1 to 3 minutes</li>
+</ul>
+<blockquote>
+<p>The probability that someone have to wait between 1 to 3 minutes:
+<span class="math display">\[\begin{align*}
+P(1&lt;X&lt;3) &amp;= P(X&lt;3)-P(X&lt;1) \\
+&amp;=1-e^{- 0.5 \cdot 3}-(1-e^{- 0.5 \cdot 1}) \\
+&amp;=e^{- 0.5 \cdot 1}-e^{- 0.5 \cdot 3} \\
+&amp;=0.3834
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that someone have to wait between 1 to 3 minutes is 38.34%</p>
+</blockquote>
+</div>
+<div id="slide-37" class="section level3 unnumbered">
+<h3>Slide 37<a class="anchor" aria-label="anchor" href="#slide-37"><i class="fas fa-link"></i></a>
+</h3>
+<p>When Dung goes to the gym, he will either run, bicycle, or row. He will choose one of the aerobic activities with respective probabilities 0.5, 0.3, and 0.2. If he chooses running or bicycling, the amount of time (in minutes) he spends exercising is exponentially distributed with respective parameters 0.05, 0.025. Whenever he chooses rowing he only rows for 10 minutes, stops to take a drink of water, and starts all over, choosing one of the three activities at random as if he had just walked in the door.<br>
+Find the expectation of Dungs exercise time.</p>
+<blockquote>
+<p>Let X be the his exercise time and Y be a random variable that takes values 1, 2, and 3 corresponding to his choice of running, bicycling, and rowing.</p>
+</blockquote>
+<blockquote>
+<p>The amount of time (in minutes)
+he spends running is exponentially distributed with respective
+parameters 0.05 so the expectation of Katie run time is <span class="math inline">\(\frac{1}{0.05}=20\)</span> (minutes).</p>
+</blockquote>
+<blockquote>
+<p>The amount of time (in minutes)
+he spends riding bicycle is exponentially distributed with respective
+parameters 0.025 so the expectation of Katie bicycle time is <span class="math inline">\(\frac{1}{0.025}=40\)</span> (minutes).</p>
+</blockquote>
+<blockquote>
+<p>The amount of time (in minutes)
+he spends rowing is 10 minutes, stops to take a drink of water, and starts all over so the expectation of Katie row time is <span class="math inline">\(10+E[X]\)</span> (minutes).</p>
+</blockquote>
+<blockquote>
+<p>The expectation of his exercise time for each activity is 20,40 and 10+E[X] minutes respectively. The mass function of X is:
+<span class="math display">\[\begin{align*}
+P(X=k)&amp;=\begin{cases}
+0.5 &amp; \text{k=1}\\
+0.3 &amp; \text{k=2}\\
+0.2 &amp; \text{k=3}
+\end{cases} \\
+\end{align*} \]</span></p>
+</blockquote>
+<blockquote>
+<p>Using the law of total expectation, the expectation of his exercise time is the expected time for her choice of running, bicycling, and rowing.
+<span class="math display">\[\begin{align*}
+E[X]&amp;= E[X|Y=1]P(Y=1)+E[X|Y=2]P(Y=2)+E[X|Y=3]P(Y=3) \\
+&amp;= 0.5 \cdot 20+0.3 \cdot 40+0.2 \cdot (10+E[X]) \\
+\rightarrow E[X]&amp;=30
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expectation of Dung exercise time is 30 minutes.</p>
+</blockquote>
+</div>
+<div id="slide-69" class="section level3 unnumbered">
+<h3>Slide 69<a class="anchor" aria-label="anchor" href="#slide-69"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let X be a continuous normal random variable with the probability density
+function <span class="math inline">\(f(x) = \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}}\)</span></p>
+<ol style="list-style-type: decimal">
+<li>Verify <span class="math inline">\(\int_{-\infty}^{\infty} f(x) \,dx=1\)</span>
+</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_{-\infty}^{\infty} \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}}\,dx
+&amp;=\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}}\,d \left( \frac{x-\mu}{\sigma} \right) \\
+&amp;=\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2}\,d y \\
+&amp;=I
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I^2&amp;=\int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2}\,d y \cdot \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2}\,d y \\
+&amp;= \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}x^2}\,d x \cdot \int_{-\infty}^{\infty} \frac{1}{\sqrt{2\pi}} e^{-\frac{1}{2}y^2}\,d y \\
+&amp;=\frac{1}{{2\pi}}\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}e^{-\frac{1}{2}(x^2+y^2)}\,d x\,d y \\
+&amp;=\frac{1}{{2\pi}}\int_{0}^{\infty} \int_{0}^{2\pi} r e^{\frac{-r^2}{2}}\,d r \,d \theta \\
+&amp;=\frac{1}{{2\pi}} \cdot -2\pi e^{\frac{-r^2}{2}}\Biggr|_{0}^{\infty}=1
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the moment generating function <span class="math inline">\(E[e^{tX}]\)</span> and then derive <span class="math inline">\(E[X^4]\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{x-\mu}{\sqrt{2\sigma}}\)</span>, <span class="math inline">\(v=u-\frac{\sqrt{2}}{2} \sigma t\)</span> and <span class="math inline">\(I=\int_{-\infty}^{\infty} e^{-v^2}\,dv\)</span>
+<span class="math display">\[\begin{align*}
+I^2&amp;=\int_{-\infty}^{\infty}  e^{-v^2}\,dy \cdot \int_{-\infty}^{\infty}  e^{-v^2}\,dv \\
+&amp;= \int_{-\infty}^{\infty}  e^{-x^2}\,d x \cdot \int_{-\infty}^{\infty}  e^{-y^2}\,dy \\
+&amp;=\int_{-\infty}^{\infty} \int_{-\infty}^{\infty}e^{-(x^2+y^2)}\,dx\,dy \\
+&amp;=\int_{0}^{\infty} \int_{0}^{2\pi} r e^{-r^2}\,dr \,d\theta \\
+&amp;= -2\pi \cdot \frac{1}{2} e^{-r^2}\Biggr|_{0}^{\infty}=\pi
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[e^{tX}]&amp;= \int_{-\infty}^{\infty} e^{tx} \cdot \frac{1}{\sigma \sqrt{2\pi}}e^{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}} \,dx \\
+&amp;=\frac{1}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} e^{tx-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}} \,dx \\
+&amp;=\frac{\sqrt{2}\sigma}{\sigma \sqrt{2\pi}} \int_{-\infty}^{\infty} e^{t(\mu+\sqrt{2}\sigma u)-u^2} \,du \\
+&amp;=\frac{e^{\mu t}}{ \sqrt{\pi}} \int_{-\infty}^{\infty} e^{-\left(u-\frac{\sqrt{2}}{2}\sigma t \right)^2+\frac{1}{2}\sigma^2 t^2} \,du \\
+&amp;=\frac{e^{\mu t+ \frac{1}{2}\sigma^2 t^2}}{ \sqrt{\pi}} \int_{-\infty}^{\infty} e^{-v^2}\,dv=\frac{e^{\mu t+ \frac{1}{2}\sigma^2 t^2}}{ \sqrt{\pi}} \cdot I \\
+&amp;=e^{\mu t+ \frac{1}{2}\sigma^2 t^2}=M(t)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+M'(t)&amp;=(\mu+\sigma^2t)e^{\mu t+ \frac{1}{2}\sigma^2 t^2} \\
+M''(t)&amp;=[(\mu+\sigma^2t)^2+\sigma^2]e^{\mu t+ \frac{1}{2}\sigma^2 t^2} \\
+M^{(3)}(t)&amp;=[(\mu+\sigma^2t)^3+3\sigma^2(\mu+\sigma^2t)]e^{\mu t+ \frac{1}{2}\sigma^2 t^2} \\
+M^{(4)}(t)&amp;=[(\mu+\sigma^2t)^4 +6\sigma^2(\mu+\sigma^2t)^2+3\sigma^4]e^{\mu t+ \frac{1}{2}\sigma^2 t^2} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X^4]&amp;= M^{(4)}(0) \\
+&amp;=\mu^4 +6\mu^2\sigma^2+3\sigma^4
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The moment generating function is <span class="math inline">\(E[e^{tX}]=e^{\mu t+\frac{1}{2}\sigma^2t^2}\)</span> and the derivative of <span class="math inline">\(E[X^4]=\mu^4 +6\mu^2\sigma^2+3\sigma^4\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Compute the mean and variance of <span class="math inline">\(X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X]&amp;= M'(0)=\mu \\
+E[X^2]&amp;=M''(0)=\mu^2+\sigma^2 \\
+Var(X)&amp;=E[X^2]-E[X]^2 \\
+&amp;=\sigma^2
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean, and variance of <span class="math inline">\(X\)</span> is <span class="math inline">\(E[X]=\mu\)</span>, and <span class="math inline">\(Var(X)=\sigma^2\)</span>, respectively</p>
+</blockquote>
+<ol start="4" style="list-style-type: decimal">
+<li>Compute the mean and variance of <span class="math inline">\(e^X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[e^X]&amp;=e^{\mu+ \frac{1}{2}\sigma^2} \\
+E[(e^X)^2]&amp;=E[e^{2X}]=e^{2\mu+ 2\sigma^2} \\
+Var(e^X)&amp;=E[(e^X)^2]-E[e^X]^2 \\
+&amp;=e^{2\mu+ 2\sigma^2}-e^{2\mu+ \sigma^2} \\
+&amp;=e^{2\mu+ \sigma^2}(e^{\sigma^2}-1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean of <span class="math inline">\(e^X\)</span> is <span class="math inline">\(E[e^X]=e^{\mu+\frac{1}{2}\sigma^2}\)</span> and its variance is <span class="math inline">\(Var(e^X)=e^{2\mu+ \sigma^2}(e^{\sigma^2}-1)\)</span></p>
+</blockquote>
+</div>
+<div id="slide-73" class="section level3 unnumbered">
+<h3>Slide 73<a class="anchor" aria-label="anchor" href="#slide-73"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let X be a continuous uniform random variable with the probability density function
+<span class="math display">\[f(x)= \frac{1}{b-a}, \forall a \leq x \leq b\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Verify <span class="math inline">\(\int_{a}^{b} f(x) \,dx=1\)</span>
+</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_{a}^{b} \frac{1}{b-a} \,dx &amp;=\frac{x}{b-a}\Biggr|_{a}^{b} \\
+&amp;=\frac{b}{b-a}-\frac{a}{b-a} \\
+&amp;=1
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the mean and variance of <span class="math inline">\(X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X]&amp;=\int xf(x) \,dx \\
+&amp;=\int_{a}^{b} x \cdot \frac{1}{b-a} \,dx \\
+&amp;=\frac{x^2}{2(b-a)}\Biggr|_{a}^{b} \\
+&amp;=\frac{b^2}{2(b-a)}-\frac{a^2}{2(b-a)}  \\
+&amp;=\frac{a+b}{2}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+Var(X)&amp;=E[X^2]-E[X]^2 \\
+&amp;=\int_{a}^{b} \left(\frac{x^2}{b-a}\right)- \left(\frac{a+b}{2} \right)^2 \,dx \\
+&amp;=\frac{x^3}{3(b-a)}\Biggr|_{a}^{b} - \left(\frac{a+b}{2} \right)^2 \\
+&amp;=\frac{b^3-a^3}{3(b-a)}-\frac{a^2+2ab+b^2}{4} \\
+&amp;=\frac{(b-a)^2}{12}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean of <span class="math inline">\(X\)</span> is <span class="math inline">\(E[X]=\frac{a+b}{2}\)</span> and its variance is <span class="math inline">\(Var(X)=\frac{(b-a)^2}{12}\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Compute the cumulative distribution function of <span class="math inline">\(X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+F(x)&amp;=P(X \leq x) \\
+&amp;=\int_{a}^{x}f(t)\,dt \\
+&amp;=\int_{a}^{x} \frac{1}{b-a}\,dt \\
+&amp;= \frac{t}{b-a}\Biggr|_{a}^{x} \\
+&amp;=\frac{x-a}{b-a}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The cumulative distribution function of X is:<br><span class="math display">\[ F(x) =
+\begin{cases}
+1      &amp; \quad \text{if } x \geq b \\
+\frac{x-a}{b-a}  &amp; \quad \text{if } a &lt; x &lt; b \\
+0    &amp; \quad \text{if } x \leq a
+\end{cases}\]</span></p>
+</blockquote>
+</div>
+<div id="slide-74" class="section level3 unnumbered">
+<h3>Slide 74<a class="anchor" aria-label="anchor" href="#slide-74"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let X be a exponential random variable with the probability density function
+<span class="math display">\[f(x)= \lambda e^{-\lambda x}, x&gt;0,\lambda &gt;0\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Verify <span class="math inline">\(\int_{0}^{+\infty} f(x) \,dx=1\)</span>
+</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_{0}^{\infty} \lambda e^{-\lambda x} \,dx &amp;= -\lambda \cdot \frac{e^{-\lambda x}}{\lambda}\Biggr|_{0}^{\infty} \\
+&amp;=-e^{-\lambda x}\Biggr|_{0}^{\infty} \\
+&amp;=1
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the mean and variance of <span class="math inline">\(X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[e^{tX}]&amp;= \int_{0}^{\infty} f(x)e^{tx} \,dx \\
+&amp;=\int_{0}^{\infty} \lambda e^{-\lambda x}e^{tx} \,dx \\
+&amp;=\lambda\int_{0}^{\infty}e^{x(t-\lambda)}\,dx \\
+&amp;= \lambda \frac{-e^{x(t-\lambda)}}{t-\lambda}\Biggr|_{0}^{\infty} \\
+&amp;=\frac{\lambda}{\lambda-t}  \\
+&amp;=M(t)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+M'(t)&amp;=E[Xe^{tX}] &amp;&amp;=\frac{-\lambda}{(\lambda-t)^2} \\
+\rightarrow E[X]&amp;=M'(0)&amp;&amp;=\frac{-1}{\lambda} \\
+M''(t)&amp;=E[X^2e^{tX}]&amp;&amp;=\frac{2\lambda}{(\lambda-t)^3} \\
+\rightarrow E[X^2]&amp;=M''(0)&amp;&amp;=\frac{2}{\lambda^2} \\
+\rightarrow Var(X)&amp;=E[X^2]-E[X]^2&amp;&amp;=\frac{2}{\lambda^2}-\left(\frac{-1}{\lambda} \right)^2=\frac{1}{\lambda^2}&amp;&amp;
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean of <span class="math inline">\(X\)</span> is <span class="math inline">\(E[X]=\frac{-1}{\lambda}\)</span> and its variance is <span class="math inline">\(Var(X)=\frac{1}{\lambda^2}\)</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>Compute the cumulative distribution function of <span class="math inline">\(X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+F(x)&amp;=P(X \leq x) \\
+&amp;=\int_{0}^{x}f(t)\,dt \\
+&amp;=\int_{0}^{x}\lambda e^{-\lambda t}  \,dt \\
+&amp;= -e^{-\lambda t}\Biggr|_{0}^{x} \\
+&amp;=1-e^{-\lambda x}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The cumulative distribution function of <span class="math inline">\(X\)</span> is:<br><span class="math display">\[ F(x) =
+\begin{cases}
+1-e^{-\lambda x}      &amp; \quad \text{if } x &gt; 0\\
+0  &amp; \quad \text{if } x \leq 0
+\end{cases}\]</span></p>
+</blockquote>
+</div>
+<div id="slide-75" class="section level3 unnumbered">
+<h3>Slide 75<a class="anchor" aria-label="anchor" href="#slide-75"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let X be a continuous log-normal random variable with the probability density function
+<span class="math display">\[f(x)= \frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{(\ln x - \mu)^2}{2 \sigma^2}}\]</span></p>
+<ol style="list-style-type: decimal">
+<li>Verify <span class="math inline">\(\int_{-\infty}^{+\infty} f(x) \,dx=1\)</span>
+</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_{-\infty}^{+\infty}\frac{1}{x\sigma\sqrt{2\pi}}e^{-\frac{(\ln x - \mu)^2}{2 \sigma^2}}\,dx &amp;=\int_{-\infty}^{+\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(\ln x - \mu)^2}{2 \sigma^2}}\,d(\ln x) \\ &amp;=\int_{-\infty}^{+\infty}\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y - \mu)^2}{2 \sigma^2}}\,dy=1
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Compute the mean and variance of <span class="math inline">\(X\)</span>.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[e^X]&amp;=e^{\mu+ \frac{1}{2}\sigma^2} \\
+E[(e^X)^2]&amp;=E[e^{2X}]=e^{2\mu+ 2\sigma^2} \\
+Var(e^X)&amp;=E[(e^X)^2]-E[e^X]^2 \\
+&amp;=e^{2\mu+ 2\sigma^2}-e^{2\mu+ \sigma^2} \\
+&amp;=e^{2\mu+ \sigma^2}(e^{\sigma^2}-1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X]=E[e^Y]&amp;=e^{\mu+ \frac{1}{2}\sigma^2} \\
+E[(e^Y)^2]&amp;=E[e^{2Y}]=e^{2\mu+ 2\sigma^2} \\
+Var(X)=Var(e^Y)&amp;=E[(e^Y)^2]-E[e^Y]^2 \\
+&amp;=e^{2\mu+ 2\sigma^2}-e^{2\mu+ \sigma^2} \\
+&amp;=e^{2\mu+ \sigma^2}(e^{\sigma^2}-1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean of X is <span class="math inline">\(E[X]=e^{\mu+\frac{1}{2}\sigma^2}\)</span> and its variance is <span class="math inline">\(Var(X)=e^{2\mu+ \sigma^2}(e^{\sigma^2}-1)\)</span></p>
+</blockquote>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">Course Descripition</a></div>
+<div class="next"><a href="random-walk.html"><span class="header-section-number">2</span> Random walk</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#distribution"><span class="header-section-number">1</span> Distribution</a></li>
+<li>
+<a class="nav-link" href="#discrete"><span class="header-section-number">1.1</span> Discrete</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-11">Slide 11</a></li>
+<li><a class="nav-link" href="#slide-21">Slide 21</a></li>
+<li><a class="nav-link" href="#slide-26">Slide 26</a></li>
+<li><a class="nav-link" href="#slide-32">Slide 32</a></li>
+<li><a class="nav-link" href="#slide-24">Slide 24</a></li>
+<li><a class="nav-link" href="#slide-25">Slide 25</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#continuous"><span class="header-section-number">1.2</span> Continuous</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#slide-33">Slide 33</a></li>
+<li><a class="nav-link" href="#slide-35">Slide 35</a></li>
+<li><a class="nav-link" href="#slide-37">Slide 37</a></li>
+<li><a class="nav-link" href="#slide-69">Slide 69</a></li>
+<li><a class="nav-link" href="#slide-73">Slide 73</a></li>
+<li><a class="nav-link" href="#slide-74">Slide 74</a></li>
+<li><a class="nav-link" href="#slide-75">Slide 75</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/cliex159/fin-risk-mana/blob/master/01-intro.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/cliex159/fin-risk-mana/edit/master/01-intro.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-03-29.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
