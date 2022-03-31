@@ -91,7 +91,7 @@ $$P(Y=k)=\begin{cases}
     
 >$$E[X^2]=\frac{1}{100} \cdot 1+\frac{1}{100} \cdot 4+...+\frac{1}{100} \cdot 10000=3383.5 $$
 
->Answer: The the expected value of $X^2$ is 3383.5.
+>Answer: the expected value of $X^2$ is 3383.5.
 
 #### Exercise 3
 
@@ -202,10 +202,10 @@ Flipping 2 coins repeatedly and observe two consecutive outcomes, we have the fo
 On the first flip of the coin, there is a 1/2 chance we get a tails. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.
 
 ><h4>Case 2 (HT): A heads appears on the first flip and then a tails appears on the second flip.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a tails appears on the second flip is $\frac{1}{2}$ so the the probability to get a heads appears on the first flip and then a tails appears on the second flip is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a tails appears on the second flip is $\frac{1}{2}$ so the probability to get a heads appears on the first flip and then a tails appears on the second flip is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.
 
 ><h4>Case 3 (HH): Two heads appear on two tosses.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ so the the probability to get two heads appear on two flips is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, the expected flips needed will be 2.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ so the probability to get two heads appear on two flips is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, the expected flips needed will be 2.
 
 > Framing the above three cases in the form of equations and adding we will get:
 $$\begin{align*}
@@ -233,13 +233,13 @@ Flipping 3 coins repeatedly and observe three consecutive outcomes, we have the 
 On the first flip of the coin, there is a 1/2 chance we get a tails. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.
 
 ><h4>Case 2 (HT): A heads appears on the first flip and then a tails appears on the second flip, we do not need to flip the third one.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a tails appears on the second flip is $\frac{1}{2}$ so the the probability to get a heads appears on the first flip and then a tails appears on the second flip is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a tails appears on the second flip is $\frac{1}{2}$ so the probability to get a heads appears on the first flip and then a tails appears on the second flip is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.
 
 ><h4>Case 3 (HHH): Three heads appear on three flips.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a heads appears on the third flip is $\frac{1}{2}$ so the the probability to get three heads appear on three flips heads appear on two flips is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, the expected flips needed will be 2.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a heads appears on the third flip is $\frac{1}{2}$ so the probability to get three heads appear on three flips heads appear on two flips is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, the expected flips needed will be 2.
 
 ><h4>Case 4 (HHT): Two heads appear on two flips and then a tails appears on the third flip.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a tails appears on the third flip is $\frac{1}{2}$ so the the probability to get two heads appear on two flips and then a tails appears on the third flip is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a tails appears on the third flip is $\frac{1}{2}$ so the probability to get two heads appear on two flips and then a tails appears on the third flip is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.
 
 > Framing the above three cases in the form of equations and adding we will get:
 > Framing the above three cases in the form of equations and adding we will get:
@@ -266,13 +266,13 @@ Flipping 3 coins repeatedly and observe three consecutive outcomes, we have the 
 On the first flip of the coin, there is a 1/2 chance we get a tails. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.
 
 ><h4>Case 2 (HT): A heads appears on the first flip and then a tails appears on the second flip, we do not need to flip the third one.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a tails appears on the second flip is $\frac{1}{2}$ so the the probability to get a heads appears on the first flip and then a tails appears on the second flip is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a tails appears on the second flip is $\frac{1}{2}$ so the probability to get a heads appears on the first flip and then a tails appears on the second flip is $\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}$. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.
 
 ><h4>Case 3 (HHH): Three heads appear on three flips.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a heads appears on the third flip is $\frac{1}{2}$ so the the probability to get three heads appear on three flips heads appear on two flips is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a heads appears on the third flip is $\frac{1}{2}$ so the probability to get three heads appear on three flips heads appear on two flips is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.
 
 ><h4>Case 4 (HHT): Two heads appear on two flips and then a tails appears on the third flip.  </h4>
-The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a tails appears on the third flip is $\frac{1}{2}$ so the the probability to get two heads appear on two flips and then a tails appears on the third flip is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, the expected flips needed will be 2.
+The chance a heads appears on the first flip is $\frac{1}{2}$ and the chance a heads appears on the second flip is $\frac{1}{2}$ and the chance a tails appears on the third flip is $\frac{1}{2}$ so the probability to get two heads appear on two flips and then a tails appears on the third flip is $\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}$. In this case, the expected flips needed will be 2.
 
 > Framing the above three cases in the form of equations and adding we will get:
 $$\begin{align*}
@@ -1547,7 +1547,7 @@ d(X_t^2) &= 2X_t \,dX_t + 2\,dX_t^2 \\
 
 >Answer: $d(X_t^2)=(10X_t+9)\,dt + 6X_t\,dW_t$
 
-5. Let $\,d X_t =5 \,dt+3 \,dW_t$. Compute $\,d(e^{X_t})$ in terms of $\,d_t$ and $\,d W_t$.  
+5. Let $\,d X_t =5 \,dt+3 \,dW_t$. Compute $\,d(e^{X_t})$ in terms of $\,dt$ and $\,d W_t$.  
 
 > Apply the formula  
 $$df(X_t) = f'(X_t)\,dX_t + \frac{1}{2}f''(X_t)\,dX_t^2$$  

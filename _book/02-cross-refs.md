@@ -860,7 +860,7 @@ d_2&=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \
 &=0.51 \\
 \end{align*}$$
 
->The value of the call option is:
+>The value of the put option is:
 $$\begin{align*}
 P&= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
 &=10 \cdot N(-0.51) \cdot e^{-0.06 \cdot (1-0.5)} - 11 \cdot N(-0.72) \\

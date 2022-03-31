@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 7 Sem 1 2021-2022 | FM2</title>
+<meta name="author" content="Tran Thanh Dat">
+<meta name="description" content="7.1 Question 1 (10 points) A fair coin is flipped repeatedly. Find the expected number of flips needed to get three consecutive tails followed by a heads (TTTH in a row) Let X be the expected...">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 7 Sem 1 2021-2022 | FM2">
+<meta property="og:type" content="book">
+<meta property="og:description" content="7.1 Question 1 (10 points) A fair coin is flipped repeatedly. Find the expected number of flips needed to get three consecutive tails followed by a heads (TTTH in a row) Let X be the expected...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 7 Sem 1 2021-2022 | FM2">
+<meta name="twitter:description" content="7.1 Question 1 (10 points) A fair coin is flipped repeatedly. Find the expected number of flips needed to get three consecutive tails followed by a heads (TTTH in a row) Let X be the expected...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">FM2</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Course Descripition</a></li>
+<li class="book-part">Probability</li>
+<li><a class="" href="distribution.html"><span class="header-section-number">1</span> Distribution</a></li>
+<li><a class="" href="stochastic-process.html"><span class="header-section-number">2</span> Stochastic Process</a></li>
+<li><a class="" href="ito---doeblin-formula.html"><span class="header-section-number">3</span> Ito - Doeblin Formula</a></li>
+<li class="book-part">Risk Neutral</li>
+<li><a class="" href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></li>
+<li><a class="" href="risk-neutral-pricing-bs.html"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a></li>
+<li><a class="" href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></li>
+<li class="book-part">Midterm Mock</li>
+<li><a class="active" href="sem-1-2021-2022.html"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
+<li><a class="" href="sem-2-2020-2021.html"><span class="header-section-number">8</span> Sem 2 2020-2021</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/cliex159/fin-risk-mana">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sem-1-2021-2022" class="section level1" number="7">
+<h1>
+<span class="header-section-number">7</span> Sem 1 2021-2022<a class="anchor" aria-label="anchor" href="#sem-1-2021-2022"><i class="fas fa-link"></i></a>
+</h1>
+<div id="question-1-10-points" class="section level2" number="7.1">
+<h2>
+<span class="header-section-number">7.1</span> Question 1 (10 points)<a class="anchor" aria-label="anchor" href="#question-1-10-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>A fair coin is flipped repeatedly. Find the expected number of flips
+needed to get three consecutive tails followed by a heads (TTTH in a row)</p>
+<blockquote>
+<p>Let X be the expected number of flips we need to get three consecutive tails followed by a heads (TTTH in a row).
+Flipping 4 coins repeatedly and observe four consecutive outcomes, we have the following cases:</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 1 (H): A head appears on the first flip.
+</h4>
+<p>On the first flip of the coin, there is a 1/2 chance we get a heads. In this case, we are back at the starting point and we have wasted 1 flip thus the expected number of flips needed will be X + 1.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 2 (TH): A tails appears on the first flip and then a heads appears on the second flip.
+</h4>
+<p>The chance a tails appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> so the probability to get a tails appears on the first flip and then a heads appears on the second flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} = \frac{1}{4}\)</span>. In this case, we are back at the starting point and we have wasted 2 flips thus the expected number of flips needed will be X + 2.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 3 (TTH): Two tails appear on the first and the second flips and one heads appear on the third flip.
+</h4>
+<p>The chance a tails appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> so two tails appear on the first and the second flips and one heads appear on the third flip is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} = \frac{1}{8}\)</span>. In this case, we are back at the starting point and we have wasted 3 flips thus the expected number of flips needed will be X + 3.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 4 (TTTT): Four tails appear on 4 flips.
+</h4>
+<p>The chance a tails appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appear on the fourth flip is <span class="math inline">\(\frac{1}{2}\)</span> so the probability to get four tails appear on 4 flips is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2}= \frac{1}{16}\)</span>. In this case, we are back at the starting point and we have wasted 4 flips thus the expected number of flips needed will be X + 4.</p>
+</blockquote>
+<blockquote>
+<h4>
+Case 5 (TTTH): Three consecutive tails followed by a heads.
+</h4>
+<p>The chance a tails appears on the first flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the second flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a tails appears on the third flip is <span class="math inline">\(\frac{1}{2}\)</span> and the chance a heads appear on the fourth flip is <span class="math inline">\(\frac{1}{2}\)</span> so the probability to get three consecutive tails followed by a heads is <span class="math inline">\(\frac{1}{2} \cdot \frac{1}{2} \cdot \frac{1}{2}\cdot \frac{1}{2} = \frac{1}{16}\)</span>. In this case, the expected flips needed will be 4.</p>
+</blockquote>
+<blockquote>
+<p>Framing the above three cases in the form of equations and adding we will get:
+<span class="math display">\[\begin{align*}
+X&amp;=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(3+X)\frac{1}{8}+(4+X)\frac{1}{16}+(4) \frac{1}{16} \\
+\rightarrow X&amp;=30
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: On average, the coin needs flipping 30 times to get three consecutive tails followed by a heads (TTTH in a row).</p>
+</blockquote>
+</div>
+<div id="question-2-20-points" class="section level2" number="7.2">
+<h2>
+<span class="header-section-number">7.2</span> Question 2 (20 points)<a class="anchor" aria-label="anchor" href="#question-2-20-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>Consider the asset price process <span class="math inline">\((S_t)_{t \geq 0}\)</span> follows an equation:
+<span class="math display">\[ \,dS_t = (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t \]</span>
+where <span class="math inline">\((W_t)_{t \geq 0}\)</span> is a standard Brownian motion on a filtered probability space <span class="math inline">\((\omega,\mathcal{F},(\mathcal{F}_t)_{t \geq 0}\)</span>. Suppose the asset price is now 10.</p>
+<ol style="list-style-type: lower-alpha">
+<li>(10 points) What is the probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13?</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,dS_t &amp;= (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t \\
+\int_0^3 \,dS_t &amp;= \int_0^3 (0.04t + 0.08t^3)\,dt + \int_0^3 0.3 \,dW_t \\
+S_3 - S_0 &amp;= 1.8 + 0.3 (W_3-W_0) \\
+S_3 &amp;= 11.8 + 0.3W_3 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\mathcal{P}(S_3 &lt; 13) &amp;= \mathcal{P}(11.8 + 0.3W_3 &lt; 13) \\
+&amp;= \mathcal{P} \left(W_3 &lt; \frac{13-11.8}{0.3}\right) \\
+&amp;= \mathcal{P} \left(\mathcal{Z} &lt; \frac{13-11.8}{0.3\sqrt{3}}\right) \\
+&amp;= \Phi(2.31) \\
+&amp;= 0.98954
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13 is <span class="math inline">\(98.954\%\)</span>.</p>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>(10 points) What is the expected price after 3 years from now?</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+W_3 &amp;\sim \mathcal{N}(0,3) \\
+11.8+ 0.3W_3 &amp;\sim \mathcal{N}(11.8,0.3^2 \cdot3) \\
+(S_3|S_0) &amp;\sim (11.8,0.27)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The expected price after 3 years from now is 11.8.</p>
+</blockquote>
+</div>
+<div id="question-3-20-points" class="section level2" number="7.3">
+<h2>
+<span class="header-section-number">7.3</span> Question 3 (20 points)<a class="anchor" aria-label="anchor" href="#question-3-20-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let <span class="math inline">\(\{(W_t)_t \geq 0\}\)</span> be a standard Brownian motion on the probability space <span class="math inline">\((\Omega,\mathcal{F},\mathcal{P})\)</span>. Suppose that the process <span class="math inline">\((X_t)_t \geq 0\)</span> is governed by the equation:
+<span class="math inline">\(\,d X_t =4tX_t\,dt+(3t^2-2t)X_t\,dW_t\)</span>.
+Find the distribution, the mean and variance of the random variable
+<span class="math inline">\((X_5|X_2 = 3)\)</span>.</p>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln X_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+dY_t&amp;= \frac{1}{X_t}(4tX_t\,dt+(3t^2-2t)X_t\,dW_t) - \frac{1}{2}\frac{1}{X_t^2}(4tX_t\,dt+(3t^2-2t)X_t\,dW_t)^2 \\
+dY_t&amp;= \frac{1}{X_t} \cdot 4tX_t\,dt+ \frac{1}{X_t} \cdot(3t^2-2t)X_t\,dW_t - \frac{1}{2}\frac{1}{X_t^2} \cdot (3t^2-2t)^2X_t^2\,dW_t^2 \\
+dY_t&amp;=   4t\,dt+  (3t^2-2t)\,dW_t - \frac{1}{2}  (3t^2-2t)^2\,dt \\
+dY_t&amp;=   \left(4t-\frac{1}{2}  (3t^2-2t)^2 \right)\,dt+  (3t^2-2t)\,dW_t \\
+\rightarrow \int_2^5 dY_t&amp;=   \int_2^5 \left(4t-\frac{1}{2}  (3t^2-2t)^2 \right)\,dt+  \int_2^5(3t^2-2t)\,dW_t \\
+\rightarrow  Y_5-Y_2  &amp;= -1906.2 +  \int_2^5(3t^2-2t)\,dW_t \\
+\rightarrow  \ln X_5-\ln X_2  &amp;= -1906.2 +  \int_2^5(3t^2-2t)\,dW_t \\
+\rightarrow  X_5  &amp;= e^{\ln X_2-1906.2 +  \int_2^5(3t^2-2t)\,dW_t \\} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\int_2^5(3t^2-2t)\,dW_t &amp;\sim \mathcal{N} \left(0,\int_2^5 (3t^2-2t)^2 \,d t \right) \\
+&amp;\sim \mathcal{N}\left(0,3896.4 \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\rightarrow \ln X_2-1906.2+\int_2^5(3t^2-2t)\,dW_t &amp;\sim \mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
+\rightarrow e^{\ln X_2-1906.2+\int_2^5(3t^2-2t)\,dW_t} &amp;\sim \ln\mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
+\rightarrow X_5 &amp;\sim \ln\mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+(X_5|X_2=3) &amp;\sim \ln\mathcal{N} \left(\ln 3-1906.2,3896.4 \right) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[X_4|X_2=3]&amp;=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
+&amp;=e^{217.09} \approx e^{43} \\
+Var(X_4|X_2=3)&amp;=\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}  \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The mean and variance of <span class="math inline">\((X_4|X_2=3)\)</span> are <span class="math inline">\(e^{43}\)</span> and <span class="math inline">\(\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}\)</span></p>
+</blockquote>
+</div>
+<div id="question-4-50-points" class="section level2" number="7.4">
+<h2>
+<span class="header-section-number">7.4</span> Question 4 (50 points)<a class="anchor" aria-label="anchor" href="#question-4-50-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>Suppose the stochastic process of the asset price <span class="math inline">\(S_t\)</span> follows a geometric
+Brownian motion:
+<span class="math display">\[\,d S_t = 0.2 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}\]</span>
+where <span class="math inline">\(W_t^P\)</span>
+is a standard Brownian motion on the real world probability
+space, denoted by <span class="math inline">\((\omega, \mathcal{F},\mathcal{P})\)</span>. A European put option written on the stock
+with parameters: exercise price <span class="math inline">\(K = 15\)</span>, maturity time <span class="math inline">\(T=2\)</span>, <span class="math inline">\(t=0.5\)</span> (year), the
+risk-free interest rate is <span class="math inline">\(r = 0.06\)</span>, <span class="math inline">\(S_t=12\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>(15 points) Let <span class="math inline">\(\widetilde W_t = W_t + \theta t\)</span>, with <span class="math inline">\(\theta\)</span> being a constant is an adapted process with respect to the filtration <span class="math inline">\(()\mathcal{F}_t)_{t \geq 0}\)</span>. Find <span class="math inline">\(\theta\)</span> such that the discounted <span class="math inline">\((e^{−0.07t}S_t)_{t \ge 0}\)</span> is a martingale process with respect to <span class="math inline">\(\widetilde W_t\)</span>.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = 0.2S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-0.07t}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-0.07e^{-0.07t}x \\
+f_x&amp;=e^{-0.07t} \\
+f_{tt}&amp;=0.07^2e^{-0.07t}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=-0.07e^{-0.07t}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-0.07t}S_t) &amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\,dt \,dS_t \\
+&amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}(0.2 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
+&amp;-0.07e^{-0.07t}\,dt(0.2 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-0.07t}S_t[(0.2-0.07) \,dt+0.3 \,d W_t^{\mathcal{P}}] \\
+&amp;-0.07 \cdot 0.2 e^{-0.07t}St\,dt^2 - 0.07 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-0.07t}S_t[(0.2-0.07) \,dt+0.3 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-0.07t}S_t[(0.2-0.07-0.3 \theta_t) \,dt+0.3 \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{-0.07t}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[-0.07+0.2-0.3 \theta_t=0 \rightarrow \theta_t=\frac{-0.07+0.2}{0.3}=0.434 \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>(20 points) Derive the Black-Scholes-Merton formula and then compute the option price.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-rt}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-re^{-rt}x \\
+f_x&amp;=e^{-rt} \\
+f_{tt}&amp;=r^2e^{-rt}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=-re^{-rt}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Aply Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-rt}S_t) &amp;= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
+&amp;= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-rt}S_t[(\mu-r) \,dt+\sigma \,d W_t^{\mathcal{P}}] -\mu re^{-rt}St\,dt^2 + \sigma S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-rt}S_t[\mu-r \,dt+\sigma (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-rt}S_t[(\mu-r-\sigma \theta_t) \,dt+\sigma \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−rt}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[\mu-r-\sigma \theta_t=0 \rightarrow \theta_t=\frac{\mu-r}{\sigma} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P} \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\frac{\mu-r}{\sigma} \,dt) \\
+&amp;=\left(\mu-\sigma\cdot\frac{\mu-r}{\sigma} \right)S_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+&amp;=rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
+<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{\sigma x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \]</span></p>
+</blockquote>
+<blockquote>
+<p>From Feyman-Kac formula we have:
+<span class="math display">\[ P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] \]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying the moment generating function, we have:
+<span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\ln \left( \frac{x}{S_t} \right)&amp;=\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t) \\
+x&amp;=S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,du&amp;=\frac{1}{\sigma x\sqrt{T-t}}\,dx \\
+\sigma\sqrt{T-t}\,du&amp;=\frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u_K&amp;=\frac{\ln K-\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}} \\
+&amp;=\frac{\ln \left( \frac{K}{S_t} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the put option becomes:
+<span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi} \sqrt{T-t}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{T-t}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}+K)e^{-\frac{1}{2} u^2} \sigma\sqrt{T-t}\,du \\
+&amp;=\frac{e^{-r(T-t)}\sqrt{T-t}}{\sqrt{2\pi}\sqrt{T-t}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}e^{-\frac{1}{2} u^2}+Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}+Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} -S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}\,du \\
+&amp;+\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} Ke^{-\frac{1}{2} u^2} \,du \\
+&amp;= I_1 \\
+&amp;+I_2
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_1&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2+\sigma u\sqrt{T-t}-r(T-t)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}\,du \\
+&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,du \\
+&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,d(u-\sigma\sqrt{T-t}) \\
+&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K-\sigma\sqrt{T-t}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=-S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\sigma^2(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=-S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=-S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math inline">\(\begin{align*} I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \end{align*}\)</span>$</p>
+</blockquote>
+<blockquote>
+<p>Therefore, the Black-Scholes-Merton formula is:
+<span class="math display">\[\begin{align*}
+P(S_t,t) &amp;= -S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  \\
+&amp;+ Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)\\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+S_t &amp;=12 \\ K&amp;=15 \\ r&amp;=0.06 \\ \sigma &amp;=0.4 \\ T&amp;=2 \\ t&amp;=0.5
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We calculate <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span>
+<span class="math display">\[\begin{align*}
+d_1&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r+\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=\frac{\ln\left(\frac{12}{15} \right)+(0.06+\frac{1}{2} \cdot 0.4^2) \cdot (2-0.5)}{0.4 \cdot \sqrt{(2-0.5)}} \\
+&amp;=-0.0268 \\
+d_2&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \sqrt{T-t}} \\
+&amp;=\frac{\ln\left(\frac{12}{15} \right)+(0.06-\frac{1}{2} \cdot 0.4^2) \cdot (2-0.5)}{0.4 \cdot \sqrt{(2-0.5)}} \\
+&amp;=-0.5167 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the put option is:
+<span class="math display">\[\begin{align*}
+P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
+&amp;=15 \cdot N(-0.51) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(-0.72) \\
+&amp;=3.43
+\end{align*}\]</span></p>
+</blockquote>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">BS_call</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">S0</span>,<span class="va">K</span>,<span class="va">T</span>,<span class="va">r</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span>
+  <span class="va">d1</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">S0</span><span class="op">/</span><span class="va">K</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="va">r</span><span class="op">+</span><span class="fl">0.5</span><span class="op">*</span><span class="va">sigma</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="cn">T</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span> 
+  <span class="va">d2</span> <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">-</span> <span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span>
+  <span class="va">opt.val</span> <span class="op">&lt;-</span> <span class="op">-</span><span class="va">S0</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="op">-</span><span class="va">d1</span><span class="op">)</span><span class="op">+</span><span class="va">K</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span><span class="op">*</span><span class="cn">T</span><span class="op">)</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="op">-</span><span class="va">d2</span><span class="op">)</span> 
+  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">opt.val</span><span class="op">)</span>
+<span class="op">}</span>
+
+<span class="fu">BS_call</span><span class="op">(</span>S0<span class="op">=</span><span class="fl">12</span>,K<span class="op">=</span><span class="fl">15</span>,T<span class="op">=</span><span class="fl">2</span><span class="op">-</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.06</span>,sigma<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; [1] 3.431205</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>(15 points) Compute the option price using the 3-step CRR binomial tree.</li>
+</ol>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u&amp;=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
+&amp;=e^{0.4\sqrt{\frac{2-0.5}{3}}} \\
+&amp;=1.33 \\
+d&amp;=e^{-\sigma \sqrt{\frac{T-t}{N}}} \\
+&amp;=e^{-0.4\sqrt{\frac{2-0.5}{3}}} \\
+&amp;=0.75 \\
+p &amp;= \frac{e^{r \cdot \frac{T-t}{N}-d}}{u-d} \\
+&amp;= \frac{e^{0.06 \cdot \frac{2-0.5}{3}-0.75}}{1.33-0.75} \\
+&amp;=0.48 \\
+q &amp;= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
+&amp;= \frac{1.33-e^{0.06 \cdot \frac{2-0.5}{3}}}{1.33-0.75} \\
+&amp;=0.52 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{03}&amp;=\max(-12 \cdot 1.33^3+15,0) \\
+&amp;=\max(-12 \cdot 1.33^3+15,0) \\
+&amp;= 0 \\
+V_{13}&amp;=\max(-S_0 \cdot u^2 d+15,0) \\
+&amp;=\max(-12 \cdot 1.33^2 \cdot 0.75+15,0) \\
+&amp;= 0 \\
+V_{23}&amp;=\max(-S_0 \cdot u d^2+15,0) \\
+&amp;=\max(-12 \cdot 1.33 \cdot 0.75^2+15,0) \\
+&amp;= 5.96 \\
+V_{33}&amp;=\max(-S_0 \cdot d^3+15,0) \\
+&amp;=\max(-12 \cdot 0.75^3+15,0) \\
+&amp;= 9.86
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{02}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{03} \cdot p + V_{13} \cdot q) \\
+&amp;=e^{-0.06 \cdot \frac{2-0.5}{3}}(0 \cdot 0.48 + 0 \cdot 0.52) \\
+&amp;=0 \\
+V_{12}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{13} \cdot p + V_{23} \cdot q) \\
+&amp;=e^{-0.06 \cdot \frac{2-0.5}{3}}(0 \cdot 0.48 + 5.96 \cdot 0.52) \\
+&amp;=2.99 \\
+V_{22}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{23} \cdot p + V_{33} \cdot q) \\
+&amp;=e^{-0.06 \cdot \frac{2-0.5}{3}}(5.96 \cdot 0.48 + 9.86 \cdot 0.52) \\
+&amp;=7.74 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{01}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{02} \cdot p + V_{12} \cdot q) \\
+&amp;=e^{-0.06 \cdot \frac{2-0.5}{3}}(0 \cdot 0.48 + 2.99 \cdot 0.52) \\
+&amp;=1.50 \\
+V_{11}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{12} \cdot p + V_{22} \cdot q) \\
+&amp;=e^{-0.06 \cdot \frac{2-0.5}{3}}(2.99 \cdot 0.48 + 7.74 \cdot 0.52) \\
+&amp;=5.29 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
+&amp;=e^{-0.06 \cdot \frac{2-0.5}{3}}(1.50 \cdot 0.48 + 5.29 \cdot 0.52) \\
+&amp;=3.355
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The fair price of the option is <span class="math inline">\(3.355\)</span></p>
+</blockquote>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">European_call_binomial</span><span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">T</span>, <span class="va">t</span>,<span class="va">r</span>, <span class="va">X</span>,<span class="va">N</span>,<span class="va">S0</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span> 
+  <span class="va">delta_t</span><span class="op">=</span><span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="va">N</span>
+  <span class="va">u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
+  <span class="va">p</span> <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="va">delta_t</span><span class="op">)</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">u</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span> <span class="co">### probability of up move </span>
+  <span class="va">Df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span> <span class="op">*</span> <span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="co">### discounting factor</span>
+  <span class="va">Ce</span><span class="op">=</span><span class="fl">0</span>;
+  <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
+    <span class="va">Ce</span> <span class="op">=</span><span class="va">Ce</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="va">N</span>,<span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">p</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">p</span><span class="op">)</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">-</span><span class="va">i</span><span class="op">}</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">X</span><span class="op">-</span><span class="va">S0</span><span class="op">*</span><span class="va">u</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="va">d</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">-</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span><span class="op">}</span>,<span class="fl">0</span><span class="op">)</span>
+    <span class="op">}</span>
+<span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">Df</span><span class="op">*</span><span class="va">Ce</span><span class="op">)</span>
+<span class="op">}</span>
+<span class="fu">European_call_binomial</span><span class="op">(</span>T<span class="op">=</span><span class="fl">2</span>, t<span class="op">=</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.06</span>, X<span class="op">=</span><span class="fl">15</span>,N<span class="op">=</span><span class="fl">3</span>,S0<span class="op">=</span><span class="fl">12</span>,sigma<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span></code></pre></div>
+<pre><code>#&gt; [1] 3.355349</code></pre>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></div>
+<div class="next"><a href="sem-2-2020-2021.html"><span class="header-section-number">8</span> Sem 2 2020-2021</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#sem-1-2021-2022"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
+<li><a class="nav-link" href="#question-1-10-points"><span class="header-section-number">7.1</span> Question 1 (10 points)</a></li>
+<li><a class="nav-link" href="#question-2-20-points"><span class="header-section-number">7.2</span> Question 2 (20 points)</a></li>
+<li><a class="nav-link" href="#question-3-20-points"><span class="header-section-number">7.3</span> Question 3 (20 points)</a></li>
+<li><a class="nav-link" href="#question-4-50-points"><span class="header-section-number">7.4</span> Question 4 (50 points)</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/cliex159/fin-risk-mana/blob/master/03-parts.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/cliex159/fin-risk-mana/edit/master/03-parts.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-03-31.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
