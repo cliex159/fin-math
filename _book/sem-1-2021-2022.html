@@ -152,7 +152,7 @@ S_3 &amp;= 11.8 + 0.3W_3 \\
 <p><span class="math display">\[\begin{align*}
 W_3 &amp;\sim \mathcal{N}(0,3) \\
 11.8+ 0.3W_3 &amp;\sim \mathcal{N}(11.8,0.3^2 \cdot3) \\
-(S_3|S_0) &amp;\sim (11.8,0.27)
+(S_3|S_0 = 10) &amp;\sim \mathcal{N}(11.8,0.27)
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -247,7 +247,7 @@ f_{tx}&amp;=-0.07e^{-0.07t}
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Aply Ito-Doeblin formula, we have:
+<p>Applying Ito-Doeblin formula, we have:
 <span class="math display">\[\begin{align*}
 d(e^{-0.07t}S_t) &amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\,dt \,dS_t \\
 &amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}(0.2 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
@@ -281,7 +281,7 @@ f_{tx}&amp;=-re^{-rt}
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Aply Ito-Doeblin formula, we have:
+<p>Applying Ito-Doeblin formula, we have:
 <span class="math display">\[\begin{align*}
 d(e^{-rt}S_t) &amp;= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
 &amp;= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\

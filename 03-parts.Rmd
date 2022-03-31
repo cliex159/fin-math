@@ -63,7 +63,7 @@ b. (10 points) What is the expected price after 3 years from now?
 >$$\begin{align*}
 W_3 &\sim \mathcal{N}(0,3) \\
 11.8+ 0.3W_3 &\sim \mathcal{N}(11.8,0.3^2 \cdot3) \\
-(S_3|S_0) &\sim (11.8,0.27)
+(S_3|S_0 = 10) &\sim \mathcal{N}(11.8,0.27)
 \end{align*}$$
 
 >Answer: The expected price after 3 years from now is 11.8.
@@ -144,7 +144,7 @@ f_{xx}&=0 \\
 f_{tx}&=-0.07e^{-0.07t}
 \end{align*}$$
 
->Aply Ito-Doeblin formula, we have:
+>Applying Ito-Doeblin formula, we have:
 $$\begin{align*}
 d(e^{-0.07t}S_t) &= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\,dt \,dS_t \\
 &= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}(0.2 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
@@ -173,7 +173,7 @@ f_{xx}&=0 \\
 f_{tx}&=-re^{-rt}
 \end{align*}$$
 
->Aply Ito-Doeblin formula, we have:
+>Applying Ito-Doeblin formula, we have:
 $$\begin{align*}
 d(e^{-rt}S_t) &= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
 &= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
@@ -515,7 +515,7 @@ f_{xx}&=0 \\
 f_{tx}&=-0.1e^{-0.1t}
 \end{align*}$$
 
->Aply Ito-Doeblin formula, we have:
+>Applying Ito-Doeblin formula, we have:
 $$\begin{align*}
 d(e^{-0.1t}S_t) &= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}\,dS_t -0.1e^{-0.1t}\,dt \,dS_t \\
 &= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
@@ -544,7 +544,7 @@ f_{xx}&=0 \\
 f_{tx}&=-re^{-rt}
 \end{align*}$$
 
->Aply Ito-Doeblin formula, we have:
+>Applying Ito-Doeblin formula, we have:
 $$\begin{align*}
 d(e^{-rt}S_t) &= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
 &= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
@@ -653,7 +653,7 @@ I_1&=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2+\
 &=-S_t \cdot N \left({-\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)  \\
 \end{align*}$$
 
->$\begin{align*}
+>$$\begin{align*}
 I_2&=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\
 &=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
 &=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\

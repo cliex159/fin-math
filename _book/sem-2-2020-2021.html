@@ -187,7 +187,7 @@ f_{tx}&amp;=-0.1e^{-0.1t}
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Aply Ito-Doeblin formula, we have:
+<p>Applying Ito-Doeblin formula, we have:
 <span class="math display">\[\begin{align*}
 d(e^{-0.1t}S_t) &amp;= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}\,dS_t -0.1e^{-0.1t}\,dt \,dS_t \\
 &amp;= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
@@ -221,7 +221,7 @@ f_{tx}&amp;=-re^{-rt}
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Aply Ito-Doeblin formula, we have:
+<p>Applying Ito-Doeblin formula, we have:
 <span class="math display">\[\begin{align*}
 d(e^{-rt}S_t) &amp;= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
 &amp;= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
@@ -346,7 +346,12 @@ I_1&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p><span class="math inline">\(\begin{align*} I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \end{align*}\)</span>$</p>
+<p><span class="math display">\[\begin{align*}
+I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
 </blockquote>
 <blockquote>
 <p>Therefore, the Black-Scholes-Merton formula is:
