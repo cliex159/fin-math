@@ -2,7 +2,7 @@
 
 # Sem 1 2021-2022 
 
-## Question 1 (10 points)
+## Question 1 (10 points) {.unnumbered}
 
 A fair coin is flipped repeatedly. Find the expected number of flips
 needed to get three consecutive tails followed by a heads (TTTH in a row)
@@ -33,7 +33,7 @@ X&=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(3+X)\frac{1}{8}+(4+X)\frac{1}{16}+(4) \fra
 
 > Answer: On average, the coin needs flipping 30 times to get three consecutive tails followed by a heads (TTTH in a row).
 
-## Question 2 (20 points)
+## Question 2 (20 points) {.unnumbered}
 
 Consider the asset price process $(S_t)_{t \geq 0}$ follows an equation:
 $$ \,dS_t = (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t $$
@@ -68,7 +68,7 @@ W_3 &\sim \mathcal{N}(0,3) \\
 
 >Answer: The expected price after 3 years from now is 11.8.
 
-## Question 3 (20 points)
+## Question 3 (20 points) {.unnumbered}
 
 Let $\{(W_t)_t \geq 0\}$ be a standard Brownian motion on the probability space $(\Omega,\mathcal{F},\mathcal{P})$. Suppose that the process $(X_t)_t \geq 0$ is governed by the equation:
 $\,d X_t =4tX_t\,dt+(3t^2-2t)X_t\,dW_t$.
@@ -119,7 +119,7 @@ Var(X_4|X_2=3)&=\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)
 
 >Answer: The mean and variance of $(X_4|X_2=3)$ are $e^{43}$ and $\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}$
 
-## Question 4 (50 points)
+## Question 4 (50 points) {.unnumbered}
 
 Suppose the stochastic process of the asset price $S_t$ follows a geometric
 Brownian motion:
@@ -408,7 +408,7 @@ European_call_binomial(T=2, t=0.5,r=0.06, X=15,N=3,S0=12,sigma=0.4)
 
 # Sem 2 2020-2021 
 
-## Question 1 (20 points)
+## Question 1 (20 points) {.unnumbered}
 
 Let $\{(W_t)_t \geq 0\}$ be a standard Brownian motion on the probability space $(\Omega,\mathcal{F},\mathcal{P})$. Suppose that the process $(X_t)_t \geq 0$ is governed by the equation:
 $\,d X_t =2X_t\,dt+1X_t\,dW_t$.
@@ -453,7 +453,7 @@ Var(X_4|X_2=3)&=\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}  \\
 
 >Answer: The distribution, mean and variance of $(X_3|X_1=10)$ are $\log\mathcal{N} \left(\ln 10+3,2 \right)$, $e^{6.3}$ and $\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}$, respectively.
 
-## Question 2 (25 points)
+## Question 2 (25 points) {.unnumbered}
 
 Consider the asset price process $(S_t)_{t \geq 0}$ follows an equation:
 $$ \,dS_t = (0.2 + t^3)\,dt + 0.3 \,dW_t $$
@@ -490,7 +490,7 @@ W_4 &\sim \mathcal{N}(0,4) \\
 
 >Answer: The expected price after 3 years from now is 74.8.
 
-## Question 3 (55 points)
+## Question 3 (55 points) {.unnumbered}
 
 Suppose the stochastic process of the asset price $S_t$ follows a geometric
 Brownian motion:

@@ -33,11 +33,4 @@ integrand
 r-programming
 risk-neutral-pricing-ar
 sem-1-2021-2022
-question-1-10-points
-question-2-20-points
-question-3-20-points
-question-4-50-points
 sem-2-2020-2021
-question-1-20-points
-question-2-25-points
-question-3-55-points
