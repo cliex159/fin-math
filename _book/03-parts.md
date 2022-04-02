@@ -113,7 +113,7 @@ dY_t&=   \left(4t-\frac{1}{2}  (3t^2-2t)^2 \right)\,dt+  (3t^2-2t)\,dW_t \\
 
 >$$\begin{align*}
 E[X_4|X_2=3]&=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
-&=e^{217.09} \approx e^{43} \\
+&\approx e^{43} \\
 Var(X_4|X_2=3)&=\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}  \\
 \end{align*}$$
 
@@ -520,7 +520,7 @@ $$dSt = 0.1S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}$$
 $$\begin{align*} 
 f_t&=-0.1e^{-0.1t}x \\
 f_x&=e^{-0.1t} \\
-f_{tt}&=0.07^2e^{-0.1t}x \\
+f_{tt}&=0.1^2e^{-0.1t}x \\
 f_{xx}&=0 \\
 f_{tx}&=-0.1e^{-0.1t}
 \end{align*}$$
@@ -531,7 +531,7 @@ d(e^{-0.1t}S_t) &= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}\,dS_t -0.1e^{-0.1t}\,dt \,dS_t
 &= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
 &-0.1e^{-0.1t}\,dt(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
 &= e^{-0.1t}S_t[(0.1-0.1) \,dt+0.3 \,d W_t^{\mathcal{P}}] \\
-&-0.1 \cdot 0.1 e^{-0.1t}St\,dt^2 - 0.07 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
+&-0.1 \cdot 0.1 e^{-0.1t}St\,dt^2 - 0.1 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
 &= e^{-0.1t}S_t[(0.1-0.1) \,dt+0.3 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
 &= e^{-0.1t}S_t[(0.1-0.1-0.3 \theta_t) \,dt+0.3 \,d W_t^{\mathcal{Q}} \,dt]
 \end{align*}$$

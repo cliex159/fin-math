@@ -181,7 +181,7 @@ risk-free interest rate is <span class="math inline">\(r = 0.1\)</span>, <span c
 <span class="math display">\[\begin{align*}
 f_t&amp;=-0.1e^{-0.1t}x \\
 f_x&amp;=e^{-0.1t} \\
-f_{tt}&amp;=0.07^2e^{-0.1t}x \\
+f_{tt}&amp;=0.1^2e^{-0.1t}x \\
 f_{xx}&amp;=0 \\
 f_{tx}&amp;=-0.1e^{-0.1t}
 \end{align*}\]</span></p>
@@ -193,7 +193,7 @@ d(e^{-0.1t}S_t) &amp;= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}\,dS_t -0.1e^{-0.1t}\,dt \,
 &amp;= -0.1e^{-0.1t}S_t\,dt+e^{-0.1t}(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
 &amp;-0.1e^{-0.1t}\,dt(0.1 S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}) \\
 &amp;= e^{-0.1t}S_t[(0.1-0.1) \,dt+0.3 \,d W_t^{\mathcal{P}}] \\
-&amp;-0.1 \cdot 0.1 e^{-0.1t}St\,dt^2 - 0.07 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;-0.1 \cdot 0.1 e^{-0.1t}St\,dt^2 - 0.1 \cdot 0.3 S_t \,dt\,dW_t^\mathcal{P})\\
 &amp;= e^{-0.1t}S_t[(0.1-0.1) \,dt+0.3 (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
 &amp;= e^{-0.1t}S_t[(0.1-0.1-0.3 \theta_t) \,dt+0.3 \,d W_t^{\mathcal{Q}} \,dt]
 \end{align*}\]</span></p>
@@ -507,7 +507,7 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-03-31.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-02.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
