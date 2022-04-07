@@ -91,7 +91,7 @@ dY_t&amp;= \frac{1}{X_t} \cdot 2X_t\,dt+ \frac{1}{X_t} \cdot X_t\,dW_t - \frac{1
 dY_t&amp;=   2\,dt+  \,dW_t - \frac{1}{2}  \,dt \\
 dY_t&amp;=   \left(2-\frac{1}{2} \right)\,dt+  \,dW_t \\
 \rightarrow \int_1^3 dY_t&amp;=   \int_1^3 \left(2-\frac{1}{2} \right)\,dt+  \int_1^3 \,dW_t \\
-\rightarrow  Y_3-Y_1  &amp;= 3 +  \int_2^5\,dW_t \\
+\rightarrow  Y_3-Y_1  &amp;= 3 +  \int_1^3\,dW_t \\
 \rightarrow  \ln X_3-\ln X_1  &amp;= 3 +  W_3-W_1 \\
 \rightarrow  X_3  &amp;= e^{\ln X_1+3 +  W_3-W_1} \\
 \end{align*}\]</span></p>
@@ -108,7 +108,7 @@ e^{\ln X_1+3 +  W_3-W_1} &amp;\sim \log\mathcal{N} \left(\ln X_1+3,2 \right) \\
 <p><span class="math display">\[\begin{align*}
 E[X_3|X_1 = 10]&amp;=e^{\ln 10+3+ \frac{1}{2} \cdot 2} \\
 &amp;\approx e^{6.3} \\
-Var(X_4|X_2=3)&amp;=\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}  \\
+Var(X_3|X_1=3)&amp;=\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}  \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -151,11 +151,11 @@ S_4 &amp;= 74.8 + 0.3W_4 \\
 <p><span class="math display">\[\begin{align*}
 W_4 &amp;\sim \mathcal{N}(0,4) \\
 74.8+ 0.3W_4 &amp;\sim \mathcal{N}(74.8,0.3^2 \cdot4) \\
-(S_3|S_0) &amp;\sim (74.8,0.36)
+(S_4|S_0) &amp;\sim \mathcal{N}(74.8,0.36)
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Answer: The expected price after 3 years from now is 74.8.</p>
+<p>Answer: The expected price after 4 years from now is 74.8.</p>
 </blockquote>
 </div>
 <div id="question-3-55-points" class="section level2 unnumbered">
@@ -293,12 +293,8 @@ e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\m
 <p>Applying the moment generating function, we have:
 <span class="math display">\[\begin{align*}
 P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
-&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
-\end{align*}\]</span></p>
-</blockquote>
-<blockquote>
-<p><span class="math display">\[\begin{align*}
-P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
 &amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
 \end{align*}\]</span></p>
 </blockquote>
@@ -507,7 +503,7 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-02.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

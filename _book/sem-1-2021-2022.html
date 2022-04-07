@@ -350,18 +350,14 @@ e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\m
 <span class="math display">\[ P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] \]</span></p>
 </blockquote>
 <blockquote>
-<p>Applying the moment generating function, we have:
-<span class="math display">\[\begin{align*}
-P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
-&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
-\end{align*}\]</span></p>
+<p>Applying the moment generating function, we have:</p>
 </blockquote>
-<blockquote>
 <p><span class="math display">\[\begin{align*}
-P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
 &amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
 \end{align*}\]</span></p>
-</blockquote>
 <blockquote>
 <p>Let <span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
 <span class="math display">\[\begin{align*}
@@ -435,7 +431,7 @@ d_2&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sig
 <p>The value of the put option is:
 <span class="math display">\[\begin{align*}
 P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
-&amp;=15 \cdot N(-0.51) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(-0.72) \\
+&amp;=15 \cdot N(0.5167) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(0.0268) \\
 &amp;=3.43
 \end{align*}\]</span></p>
 </blockquote>
@@ -562,7 +558,7 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-02.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

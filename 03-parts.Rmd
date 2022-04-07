@@ -234,13 +234,11 @@ $$f_{S_T|S_t}(x)=\frac{1}{\sigma x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-
 $$ P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] $$
 
 >Applying the moment generating function, we have:
+
 $$\begin{align*} 
 P(S_t,t)&=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
-&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
-\end{align*}$$
-
->$$\begin{align*}
-P(S_t,t)&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
 &=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
 \end{align*}$$
 
@@ -312,7 +310,7 @@ d_2&=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \
 >The value of the put option is:
 $$\begin{align*}
 P&= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
-&=15 \cdot N(-0.51) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(-0.72) \\
+&=15 \cdot N(0.5167) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(0.0268) \\
 &=3.43
 \end{align*}$$
 
@@ -431,7 +429,7 @@ dY_t&= \frac{1}{X_t} \cdot 2X_t\,dt+ \frac{1}{X_t} \cdot X_t\,dW_t - \frac{1}{2}
 dY_t&=   2\,dt+  \,dW_t - \frac{1}{2}  \,dt \\
 dY_t&=   \left(2-\frac{1}{2} \right)\,dt+  \,dW_t \\
 \rightarrow \int_1^3 dY_t&=   \int_1^3 \left(2-\frac{1}{2} \right)\,dt+  \int_1^3 \,dW_t \\
-\rightarrow  Y_3-Y_1  &= 3 +  \int_2^5\,dW_t \\
+\rightarrow  Y_3-Y_1  &= 3 +  \int_1^3\,dW_t \\
 \rightarrow  \ln X_3-\ln X_1  &= 3 +  W_3-W_1 \\
 \rightarrow  X_3  &= e^{\ln X_1+3 +  W_3-W_1} \\
 \end{align*}$$
@@ -448,7 +446,7 @@ e^{\ln X_1+3 +  W_3-W_1} &\sim \log\mathcal{N} \left(\ln X_1+3,2 \right) \\
 $$\begin{align*}
 E[X_3|X_1 = 10]&=e^{\ln 10+3+ \frac{1}{2} \cdot 2} \\
 &\approx e^{6.3} \\
-Var(X_4|X_2=3)&=\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}  \\
+Var(X_3|X_1=3)&=\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}  \\
 \end{align*}$$
 
 >Answer: The distribution, mean and variance of $(X_3|X_1=10)$ are $\log\mathcal{N} \left(\ln 10+3,2 \right)$, $e^{6.3}$ and $\left(e^{2^2}-1\right)e^{2(\ln 10+3)+2}$, respectively.
@@ -485,10 +483,10 @@ b. (10 points) What is the expected price after 4 years from now?
 >$$\begin{align*}
 W_4 &\sim \mathcal{N}(0,4) \\
 74.8+ 0.3W_4 &\sim \mathcal{N}(74.8,0.3^2 \cdot4) \\
-(S_3|S_0) &\sim (74.8,0.36)
+(S_4|S_0) &\sim \mathcal{N}(74.8,0.36)
 \end{align*}$$
 
->Answer: The expected price after 3 years from now is 74.8.
+>Answer: The expected price after 4 years from now is 74.8.
 
 ## Question 3 (55 points) {.unnumbered}
 
@@ -607,11 +605,8 @@ $$ P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] $$
 >Applying the moment generating function, we have:
 $$\begin{align*} 
 P(S_t,t)&=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
-&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
-\end{align*}$$
-
->$$\begin{align*}
-P(S_t,t)&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
 &=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
 \end{align*}$$
 
