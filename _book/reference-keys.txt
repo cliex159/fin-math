@@ -33,10 +33,3 @@ integrand
 r-programming
 risk-neutral-pricing-ar
 sem-1-2021-2022
-a.-10-points
-b.-10-points
-a.-15-points
-b.-20-points-call
-b.-20-points-put
-c.-15-points
-url-your-book-url-like-httpsbookdown.orgyihuibookdown

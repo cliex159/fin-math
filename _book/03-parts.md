@@ -39,7 +39,7 @@ Consider the asset price process $(S_t)_{t \geq 0}$ follows an equation:
 $$ \,dS_t = (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t $$
 where $(W_t)_{t \geq 0}$ is a standard Brownian motion on a filtered probability space $(\omega,\mathcal{F},(\mathcal{F}_t)_{t \geq 0}$. Suppose the asset price is now 10.
 
-### a. (10 points) 
+### a. (10 points)  {.unnumbered}
 
 What is the probability that the asset price after 3 years from now (i.e $S_3$) will be less than 13?
 
@@ -60,7 +60,7 @@ S_3 &= 11.8 + 0.3W_3 \\
 
 >Answer: The probability that the asset price after 3 years from now (i.e $S_3$) will be less than 13 is $98.954\%$.
 
-### b. (10 points) 
+### b. (10 points)  {.unnumbered}
 
 What is the expected price after 3 years from now?
 
@@ -71,6 +71,29 @@ W_3 &\sim \mathcal{N}(0,3) \\
 \end{align*}$$
 
 >Answer: The expected price after 3 years from now is 11.8.
+
+### b'. (0 points)  {.unnumbered}
+
+What is the expected value and variance of the exponential price after 3 years from now?
+
+>$$\begin{align*}
+(S_3|S_0 = 10) &\sim \mathcal{N}(11.8,0.27) \\
+e^{(S_3|S_0 = 10)} &\sim \log \mathcal{N}(11.8,0.27)
+\end{align*}$$
+
+>$$\begin{align*}
+E[e^{(S_3|S_0 = 10)}] &= e^{\mu+\frac{1}{2}\sigma^2} \\
+&= e^{11.8+\frac{1}{2}0.27} \\ 
+&\approx e^{11.935}
+\end{align*}$$
+
+>$$\begin{align*}
+Var(e^{(S_3|S_0 = 10)})&= e^{2\mu+\sigma^2}(e^{\sigma^2}-1)\\
+&=e^{\left(2 \cdot 11.8+0.27 \right)}\left(e^{0.27}-1\right)  \\
+&\approx e^{23.87}\left(e^{0.27}-1\right)
+\end{align*}$$
+
+>Answer: the expected value and variance of the exponential price after 3 years from now are $E[e^{(S_3|S_0 = 10)}]=e^{11.935}$ and $Var(e^{(S_3|S_0 = 10)})=e^{23.87}\left(e^{0.27}-1\right)$
 
 ## Question 3 (20 points) {.unnumbered}
 
@@ -115,13 +138,17 @@ dY_t&=   \left(4t-\frac{1}{2}  (3t^2-2t)^2 \right)\,dt+  (3t^2-2t)\,dW_t \\
 (X_5|X_2=3) &\sim \log\mathcal{N} \left(\ln 3-1906.2,3896.4 \right) \\
 \end{align*}$$
 
->$$\begin{align*}
-E[X_4|X_2=3]&=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
+>
+$$\begin{align*}
+E[X_5|X_2=3]&= e^{\mu+\frac{1}{2}\sigma^2} \\
+&=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
 &\approx e^{43} \\
-Var(X_4|X_2=3)&=\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}  \\
+Var(X_4|X_2=3)&= e^{2\mu+\sigma^2}(e^{\sigma^2}-1)\\
+&=e^{\left(2(\ln 3-1906.2)+3896.4 \right)}\left(e^{3896.4}-1\right)  \\
+&\approx e^{86}\left(e^{3896}-1\right)
 \end{align*}$$
 
->Answer: The mean and variance of $(X_4|X_2=3)$ are $e^{43}$ and $\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}$
+>Answer: The mean and variance of $(X_4|X_2=3)$ are $e^{43}$ and $e^{86}\left(e^{3896}-1\right)$
 
 ## Question 4 (50 points) {.unnumbered}
 
@@ -134,7 +161,7 @@ space, denoted by $(\omega, \mathcal{F},\mathcal{P})$. A European put option wri
 with parameters: exercise price $K = 15$, maturity time $T=2$, $t=0.5$ (year), the
 risk-free interest rate is $r = 0.06$, $S_t=12$.
 
-### a. (15 points) 
+### a. (15 points)  {.unnumbered}
 
 Let $\widetilde W_t = W_t + \theta t$, with $\theta$ being a constant is an adapted process with respect to the filtration $()\mathcal{F}_t)_{t \geq 0}$. Find $\theta$ such that the discounted $(e^{−0.07t}S_t)_{t \ge 0}$ is a martingale process with respect to $\widetilde W_t$.
 
@@ -165,7 +192,7 @@ d(e^{-0.07t}S_t) &= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\,dt 
 $$-0.07+0.2-0.3 \theta_t=0 \rightarrow \theta_t=\frac{-0.07+0.2}{0.3}=0.434 $$
 then $$E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]<\infty$$
 
-### b'. (20 points) CALL
+### b'. (0 points) CALL {.unnumbered}
 
 Derive the Black-Scholes-Merton formula and then compute the option price.
 
@@ -224,7 +251,7 @@ $$\begin{align*}
 &=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
 \,d(\ln S_t)&=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
  \int_t^T \,d(\ln S_s)&=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
- ln \left( \frac{S_T}{S_t} \right)&=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+ \ln \left( \frac{S_T}{S_t} \right)&=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
  S_T&=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
 \end{align*}$$
 
@@ -304,11 +331,13 @@ I_2 &=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2}
 \end{align*}$$
 
 >Answer: The value of the call option is:
-$$
-C(S_t,t) =S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) - Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+$$\begin{align*}
+C(S_t,t) = &S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \\
+&- Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}$$
 
 
-### b. (20 points) PUT
+### b. (20 points) PUT {.unnumbered}
 
 Derive the Black-Scholes-Merton formula and then compute the option price.
 
@@ -367,7 +396,7 @@ $$\begin{align*}
 &=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
 \,d(\ln S_t)&=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
  \int_t^T \,d(\ln S_s)&=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
- ln \left( \frac{S_T}{S_t} \right)&=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+ \ln \left( \frac{S_T}{S_t} \right)&=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
  S_T&=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
 \end{align*}$$
 
@@ -463,7 +492,7 @@ d_2&=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sigma \
 &=-0.5167 \\
 \end{align*}$$
 
->The value of the put option is:
+>Answer: The value of the put option is:
 $$\begin{align*}
 P&= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
 &=15 \cdot N(0.5167) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(0.0268) \\
@@ -486,7 +515,7 @@ BS_call(S0=12,K=15,T=2-0.5,r=0.06,sigma=0.4)
 #> [1] 3.431205
 ```
 
-### c. (15 points) 
+### c. (15 points)  {.unnumbered}
 
 Compute the option price using the 3-step CRR binomial tree.
 
@@ -508,7 +537,7 @@ q &= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 
 >
 $$\begin{align*}
-V_{03}&=\max(-12 \cdot 1.33^3+15,0) \\
+V_{13}&=\max(-S_0 \cdot u^3+15,0) \\
 &=\max(-12 \cdot 1.33^3+15,0) \\
 &= 0 \\
 V_{13}&=\max(-S_0 \cdot u^2 d+15,0) \\
@@ -557,8 +586,8 @@ European_call_binomial=function(T, t,r, X,N,S0,sigma){
   delta_t=(T-t)/N
   u = exp(sigma*sqrt(delta_t))
   d = exp(-sigma*sqrt(delta_t))
-  p = (exp(r * delta_t) - d)/(u - d) ### probability of up move 
-  Df = exp(-r * (T-t)) ### discounting factor
+  p = (exp(r * delta_t) - d)/(u - d) ### probability of up move  {.unnumbered}
+  Df = exp(-r * (T-t)) ### discounting factor {.unnumbered}
   Ce=0;
   for (i in 1:(N+1)){
     Ce =Ce+choose(N,i-1)*p^{i-1}*(1-p)^{N+1-i}*max(X-S0*u^{i-1}*d^{N-i+1},0)
@@ -571,3 +600,324 @@ European_call_binomial(T=2, t=0.5,r=0.06, X=15,N=3,S0=12,sigma=0.4)
 ```
 #> [1] 3.355349
 ```
+
+## Question 5' (0 points) {.unnumbered}
+
+### a. (0 points) {.unnumbered}
+
+A gambler starts with \$3 dollars. On each play a fair coin is tossed and the gambler wins \$1 if heads occurs, or loses \$1 if tails occurs. The gambler stops when he reaches \$8 or loses all his money. Find the probability that the gambler will eventually lose.
+
+>Let $R_n$ denote the total fortune after the $n^{th}$ gamble.
+While the game proceeds, $\{R_n : n \geq 0\}$ forms a simple random walk:
+$$R_n = R_0+ \Delta_1 +\Delta_2+ · · · + \Delta_n $$
+where $\{\Delta n\}$ forms an i.i.d. random variables as $P(\Delta = 1) = p$, $P(\Delta = −1) = q$, $p+q=1$, and represents the earnings on the succesive gambles.
+
+>Let $P_3$ denote the probability that the gambler wins when $R_0 = 3$, we need to find $1-P_3$.
+<ul>
+<li>If $\Delta_1 = 1$, then the gambler’s total fortune
+increases to $R_1 = 3+1$ and so the gambler will now win with probability $P_{4}$.</li>
+<li>If $\Delta_1 = −1$, then the gambler’s fortune decreases to $R_1 = 3 − 1$ and so the gambler will now win with probability $P_{2}$.</li>
+</ul>
+$$\begin{align*}
+P_3&= pP_{4}+qP_{2} \\ 
+pP_{3}+qP_{3}&= pP_{4}+qP_{2} \\ 
+p(P_4-P_3)&=q(P_3-P_2) \\ 
+P_4-P_3&=\frac{q}{p}(P_3-P_2) \\ 
+&=\left( \frac{q}{p} \right)^2(P_2-P_1) \\
+&=\left( \frac{q}{p} \right)^3 (P_1-P_0) \\
+&=\left( \frac{q}{p} \right)^3 (P_1)
+\end{align*}$$
+
+>By induction, we can prove $P_{k+1}-P_k= \left( \frac{q}{p} \right)^k P_1$, which implies the following recursive sequence:
+$$\begin{align*}
+P_2-P_1&=\left( \frac{q}{p} \right)(P_1-P_0)=\left( \frac{q}{p} \right) P_1\\
+P_3-P_2&=\left( \frac{q}{p} \right)(P_2-P_1)=\left( \frac{q}{p} \right)^2 P_1 \\
+...\\
+P_{i+1}-P_i&= \left( \frac{q}{p} \right)^i P_1
+\end{align*}$$
+
+>Adding all the above sequence and noticing that $P_N=1$ shall yield:
+
+>$$\begin{align*}
+P_{i+1}-P_1&=  \sum_{k=1}^{i} (P_{k+1}-P_k) \\
+&=\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\ 
+\end{align*}$$
+
+>
+$$\begin{align*}
+>P_{i+1}&=P_1+\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\ 
+&= P_1\sum_{k=0}^{i} \left( \frac{q}{p} \right)^k \\ 
+&=P_1\sum_{k=0}^{i} \left( \frac{0.5}{0.5} \right)^k  \\
+&=P_1\sum_{k=0}^{i} \left( 1 \right)^k  \\
+&=P_1(i+1) \\
+\rightarrow P_N&=P_1\cdot N \\
+\rightarrow P_1&=\frac{1}{N} \\
+\rightarrow P_3&=3 P_1 \\
+&=3\cdot \frac{1}{N} \\ 
+&=\frac{3}{N} \\
+&=\frac{3}{8} \\
+\rightarrow 1-P_3&=\frac{5}{8} \\
+\end{align*}$$
+
+>Answer: The probability that the gambler will eventually lose is 62.5\%.
+
+### b. (0 points) {.unnumbered}
+
+A gambler starts with $3 dollars. On each play an unfair coin is tossed and
+the gambler wins \$1 if heads occurs, with probability 0.6, or loses \$1 if
+tails occurs, with probability 0.4. The gambler stops when he reaches $8
+or loses all his money. Find the probability that the gambler will eventually
+lose.
+
+>Let $R_n$ denote the total fortune after the $n^{th}$ gamble.
+While the game proceeds, $\{R_n : n \geq 0\}$ forms a simple random walk:
+$$R_n = R_0+ \Delta_1 +\Delta_2+ · · · + \Delta_n $$
+where $\{\Delta n\}$ forms an i.i.d. random variables as $P(\Delta = 1) = p$, $P(\Delta = −1) = q$, $p+q=1$, and represents the earnings on the succesive gambles.
+
+
+>Let $P_3$ denote the probability that the gambler wins when $R_0 = 3$, we need to find $1-P_3$.
+<ul>
+<li>If $\Delta_1 = 1$, then the gambler’s total fortune
+increases to $R_1 = 3+1$ and so the gambler will now win with probability $P_{4}$.</li>
+<li>If $\Delta_1 = −1$, then the gambler’s fortune decreases to $R_1 = 3 − 1$ and so the gambler will now win with probability $P_{2}$.</li>
+</ul>
+$$\begin{align*}
+P_3&= pP_{4}+qP_{2} \\ 
+pP_{3}+qP_{3}&= pP_{4}+qP_{2} \\ 
+p(P_4-P_3)&=q(P_3-P_2) \\ 
+P_4-P_3&=\frac{q}{p}(P_3-P_2) \\ 
+&=\left( \frac{q}{p} \right)^2(P_2-P_1) \\
+&=\left( \frac{q}{p} \right)^3 (P_1-P_0) \\
+&=\left( \frac{q}{p} \right)^3 (P_1)
+\end{align*}$$
+
+>By induction, we can prove $P_{k+1}-P_k= \left( \frac{q}{p} \right)^k P_1$, which implies the following recursive sequence:
+$$\begin{align*}
+P_2-P_1&=\left( \frac{q}{p} \right)(P_1-P_0)=\left( \frac{q}{p} \right) P_1\\
+P_3-P_2&=\left( \frac{q}{p} \right)(P_2-P_1)=\left( \frac{q}{p} \right)^2 P_1 \\
+...\\
+P_{i+1}-P_i&= \left( \frac{q}{p} \right)^i P_1
+\end{align*}$$
+
+>Adding all the above sequence and noticing that $P_N=1$ shall yield:
+
+>$$\begin{align*}
+P_{i+1}-P_1&=  \sum_{k=1}^{i} (P_{k+1}-P_k) \\
+&=\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\ 
+\end{align*}$$
+
+>$$\begin{align*}
+>P_{i+1}&=P_1+\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\ 
+&= P_1\sum_{k=0}^{i} \left( \frac{q}{p} \right)^k \\ 
+&=P_1 \cdot \frac{1-(\frac{q}{p})^{i+1}}{1-\frac{q}{p}} &(1) \\
+\end{align*}$$
+
+>$$\begin{align*}
+P_N&=P_1 \cdot \frac{1-(\frac{q}{p})^N}{1-\frac{q}{p}} \\
+P_1&= \frac{1-\frac{q}{p}}{1-(\frac{q}{p})^N}&(2) \\
+\end{align*}$$
+
+>$$\begin{align*}
+(1),(2)\rightarrow P_{i+1}&=\frac{1-(\frac{q}{p})^{i+1}}{1-(\frac{q}{p})^N} \\ 
+P_{3}&=\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8} \\
+1-P_{3}&=1-\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8}=0.2677
+\end{align*}$$
+
+>Answer: The probability that the gambler will eventually lose is 26.77\%.
+
+## Question 6' (0 points) {.unnumbered}
+
+For each toss of a unfair coin, you will win $\$2$ if it lands up heads and lose $\$1$ if it lands up tails. The probability of landing up heads is 0.3 and the probability of landing up tails is 0.7. Suppose that you start the game with $\$0$ and denote $M_k$ is the amount of money you obtain after k tosses.  
+
+- Should you play the game?  
+
+>While the game proceeds, $(M_k)_{k\in \mathbb{N}}$ forms a simple random walk:
+$$M_k = M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k $$
+where $M_0=0$, $\{\Delta n\}$ forms an i.i.d. random variables as $P(\Delta = 2) = 0.3$, $P(\Delta = −1) = 0.7$, and represents the earnings on the succesive games.
+
+>Using the law of total expectation, the expected accumulated money after every play is the expected money for each toss either the coin lands up head or tail.
+\begin{align*} 
+E[\Delta_i] &=E[\Delta_i|\Delta_i=2]P(\Delta_i=2)+E[\Delta_i|\Delta_i=-1]P(\Delta_i=-1) \\
+&=0.3(1)+0.7(-1) \\
+&=-0.1
+\end{align*}
+
+>$$\begin{align*} 
+E[M_k] &= E[M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k] = M_0+ E[\Delta_1] +E[\Delta_2]+ · · · + E[\Delta_k] \\
+&= M_0 -0.1 -0.1 ... -0.1 \\
+&=0 - 0.1k \\
+&< M_0
+\end{align*}
+
+>Answer: The game should not be played.
+
+## Question 7' (0 points) {.unnumbered}
+
+For each toss of a fair coin, you will win $\$1$ if it lands up heads and lose $\$1$ if it lands up tails. Suppose that you start the game with $\$0$ and denote $M_k$ is the amount of money you obtain after k tosses. Then $(M_k)_{k\in\mathbb{N}}$ is a random walk.  
+
+- Compute the probability of winning after playing the game 9 times.  
+
+> We need to find the probability that $M_9$ or the amount of money after nine
+plays greater than 0
+
+>$$\begin{align*}
+P(M_9>0)&=P(5H4T)+P(6H3T)+P(7H2T)+P(8H1T)+P(9H0T) \\
+&= \sum_{k=5}^{9} \binom{9}{k}p^k(1-p)^{9-k} \\
+&=0.5
+\end{align*}$$
+
+> Answer: The probability of winning after playing the game 9 times is  50\%
+
+- Compute the probability of winning after playing the game 10 times.
+
+> We need to find the probability that $M_{10}$ or the amount of money after ten
+plays greater than 0
+
+>$$\begin{align*}
+P(M_{10}>0)&=P(6H4T)+P(7H3T)+P(8H2T)+P(9H1T)+P(10H0T) \\
+&= \sum_{k=6}^{10} \binom{10}{k}p^k(1-p)^{10-k} \\
+&=0.3769
+\end{align*}$$
+
+> Answer: The probability of winning after playing the game 10 times is  37.69\%
+
+- Is this game fair, i.e., the chance of winning a fair game is equal for all players?
+
+>Answer: This is a fair game when the number of k tosses is odd (9 tosses) and this is not a fair game when the number of k tosses is even (10 tosses).
+
+## Question 8' (0 points) {.unnumbered}
+
+Prove the following random processes are martingale:
+
+1. Brownian motion $(B_t)$ is a martingale process.
+
+Let $\{\mathcal{F}_t\}_{t \geq 0}$ be the natural filtration of Brownian motion $\{ B_t \}_{t \geq0}$. For all $0 \leq s <t$, we have:
+
+>$$\begin{align*}
+E[|B_t|]&= \int_{-\infty}^{\infty}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx  \\
+&=\int_{-\infty}^{0}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx+\int_{0}^{\infty}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx \\
+&=\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx+\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx \\
+&=\sqrt{\frac{2}{{\pi t}}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx \\
+&=\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}e^{\frac{-x^2}{2t}}\,dx^2 \\
+&=-\sqrt{\frac{2t}{\pi}}e^{\frac{-u}{2t}}\Biggr|_{0}^{\infty} \\
+&=\sqrt{\frac{2t}{\pi}} < \infty
+\end{align*}$$
+
+>$$\begin{align*}
+E[B_t|\mathcal{F}_s]&=E[(B_t-B_s)+B_s|\mathcal{F}_s] \\
+&=E[(B_t-B_s)|\mathcal{F}_s]+E[B_s|\mathcal{F}_s] \\ 
+&=0+B_s \\
+&=B_s 
+\end{align*}$$
+
+2. Let $Y_t = B_t^2 − t, \forall t \geq 0$. Show that $(Y_t)_{t \geq 0}$ is a martingale with respect to Brownian motion.
+
+>Let $\{\mathcal{F}_t\}_{t \geq 0}$ be the natural filtration of $\{ Y_t=B_t^2-t \}_{t \geq0}$. For all $0 \leq s <t$, we have:
+
+>$$\begin{align*}
+E[|Y_t|]&=E[|B_t^2-t] \\
+&\leq E[B_t^2+t] \\
+&=E[B_t^2]+t \\
+&=2t < \infty
+\end{align*}$$
+
+>$$\begin{align*}
+E[Y_t|\mathcal{F}_s]&=E[B_t^2-t|\mathcal{F}_s] \\
+&=E[(B_t-B_s+B_s)^2|\mathcal{F}_s]-t \\
+&=E[(B_t-B_s)^2+2B_s(B_t-B_s)+B_s^2|\mathcal{F}_s]-t \\ 
+&=E[(B_t-B_s)^2|\mathcal{F}_s]+E[2B_s(B_t-B_s)|\mathcal{F}_s]+E[B_s^2|\mathcal{F}_s]-t \\
+&=E[(B_t-B_s)^2]+0+B_s^2-t \\
+&=E[(B_t-B_s)^2]-E[B_t-B_s]^2+B_s^2-t \\
+&=Var[B_t-B_s]+B_s^2-t \\
+&=t-s+B_s^2-t \\
+&=B_s^2-s
+\end{align*}$$
+
+3. $Z_t = e^{\sigma B_t − \frac{1}{2} \sigma^2 t}$ ($\sigma$ is a positive constant) is a martingale with respect to the standard Brownian motion.
+
+>Let $\{\mathcal{F}_t\}_{t \geq 0}$ be the natural filtration of $\{ Z_t=e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\}$. For all $0 \leq s <t$, since $B_t-B_s \sim N(0,t-s)$ we have:
+
+>$$\begin{align*}
+E[|Z_t|]&=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
+&=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}] \\
+&=E[Z_t] \\
+&=1
+\end{align*}$$
+
+>$$E[e^{tX}]=e^{\mu t+\frac{1}{2}\sigma^2 t^2} \rightarrow E[e^{\sigma (B_t-B_s)}]=e^{\frac{1}{2}\sigma^2 (t-s)}$$
+
+>$$\begin{align*}
+E[Z_t|\mathcal{F}_s]&=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|\mathcal{F}_s] \\
+&=E[e^{\sigma (B_t-B_s+B_s) − \frac{1}{2} \sigma^2 (t-s+s)}|\mathcal{F}_s] \\ 
+&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)}] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2}  \\
+&= Z_s
+\end{align*}$$
+
+## Question 9' (0 points) {.unnumbered}
+
+Let $(W_t)_{t≥0}$ be a Brownian motion on the filtered probability space $(\omega,\mathcal{F},\mathcal{F}_t)_{t≥0}$).
+Compute $\,dX_t$ in terms of $\,dW_t$ and $\,dt$.
+
+a. $X_t=t Y_t^4$ with $\,d Y_t = -6 Y_t \,dt + 2Y_t \,dW_t$
+
+>Let $f(t,x)=tx^4$ then
+$$\begin{align*}
+&f_t =x^4 \\ 
+&f_{tt} =0 \\
+&f_x =4tx^3 \\ 
+&f_{xx} =12tx^2 \\
+&f_{tx} =4x^3 \\
+\end{align*}$$
+
+>Applying Ito formula to $X_t=f(t,Y_t)$, we have:
+
+>
+$$\begin{align*}
+\,d(X_t) &= \,d(t Y_t^4) \\
+&= Y_t^4 \,dt + 4tY_t^3 \,d Y_t + 12tY_t^2 \,d Y_t^2 + 4Y_t^3 \,dt \,dY_t \\
+&= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 + 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
+&= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + 12tY_t^2 \cdot 4Y_t^2 \,dt \\
+&= (Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t
+\end{align*}$$
+
+>Answer: $\,d(X_t)=(Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t$
+
+b. $X_t=\ln \frac{t}{Y_t}$ with $\,d Y_t = \frac{1}{2Y_t} \,dt + \,dW_t$
+
+>Let $f(t,x)=\ln \frac{t}{x}$ then
+$$\begin{align*}
+&f_t =\frac{1}{t} \\ 
+&f_{tt} =-\frac{1}{t^2} \\
+&f_x =-\frac{1}{x} \\ 
+&f_{xx} =\frac{1}{x^2} \\
+&f_{tx} =0 \\
+\end{align*}$$
+
+>Applying Ito formula to $X_t=f(t,Y_t)$, we have:
+
+>
+$$\begin{align*}
+\,d(X_t) &= \,d(\ln \frac{t}{Y_t}) \\
+&= \frac{1}{t} \,dt -\frac{1}{Y_t} (\frac{1}{2Y_t} \,dt + \,dW_t) + \frac{1}{Y_t^2} \left(\frac{1}{2Y_t} \,dt + \,dW_t\right)^2 \\
+&= \frac{1}{t} \,dt -\frac{1}{Y_t} \cdot\frac{1}{2Y_t} \,dt -\frac{1}{Y_t}\,dW_t \\
+&= \left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{Y_t}\,dW_t 
+\end{align*}$$
+
+>Answer: $\,d(X_t)=\left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{Y_t}\,dW_t$
+
+## Question 10' (0 points) {.unnumbered}
+
+Suppose you buy a European call option written on asset paying no
+dividend, with strike price $K = 50$, $T = 0.5$ (year), $r = 0.05$. If it is sure
+that the asset price at expiry is $S_T = 60$. How much should be the fair
+value of the option?
+
+>The price of the call option at time T: 
+$$C(S,T)=max(S_T−K;0)=max(60−50;0)=10$$
+
+>The fair value of the option is the present value of the option at time 0: $PV=\frac{FV}{e^{r \cdot \Delta t}}=\frac{10}{e^{0.05 \cdot 0.5}}=9.753$
+
+>Answer: The fair value of the option should be $9.753$.

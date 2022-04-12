@@ -893,8 +893,8 @@ E[X] &= E[X|X=1]P(X=1)+E[X|X=-1]P(X=-1) \\
 >If the process $M_k$ is a martingale, it is a fair game.
 $$\begin{align*}
 E[M_{k+1} | \mathcal{F}_k] &= E[M_k+X_{k+1} | \mathcal{F}_k] \\
-&=E[M_k| \mathcal{F}_k]+E[X_{k+1} | \mathcal{F}_k] \\
-&=E[M_k]
+&=M_k+E[X_{k+1} | \mathcal{F}_k] \\
+&=M_k
 \end{align*}$$
 
 > Answer: This is a fair game.

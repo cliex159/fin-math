@@ -121,9 +121,8 @@ X&amp;=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(3+X)\frac{1}{8}+(4+X)\frac{1}{16}+(4) 
 <p>Consider the asset price process <span class="math inline">\((S_t)_{t \geq 0}\)</span> follows an equation:
 <span class="math display">\[ \,dS_t = (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t \]</span>
 where <span class="math inline">\((W_t)_{t \geq 0}\)</span> is a standard Brownian motion on a filtered probability space <span class="math inline">\((\omega,\mathcal{F},(\mathcal{F}_t)_{t \geq 0}\)</span>. Suppose the asset price is now 10.</p>
-<div id="a.-10-points" class="section level3" number="7.0.1">
-<h3>
-<span class="header-section-number">7.0.1</span> a. (10 points)<a class="anchor" aria-label="anchor" href="#a.-10-points"><i class="fas fa-link"></i></a>
+<div id="a.-10-points" class="section level3 unnumbered">
+<h3>a. (10 points)<a class="anchor" aria-label="anchor" href="#a.-10-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>What is the probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13?</p>
 <blockquote>
@@ -147,9 +146,8 @@ S_3 &amp;= 11.8 + 0.3W_3 \\
 <p>Answer: The probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13 is <span class="math inline">\(98.954\%\)</span>.</p>
 </blockquote>
 </div>
-<div id="b.-10-points" class="section level3" number="7.0.2">
-<h3>
-<span class="header-section-number">7.0.2</span> b. (10 points)<a class="anchor" aria-label="anchor" href="#b.-10-points"><i class="fas fa-link"></i></a>
+<div id="b.-10-points" class="section level3 unnumbered">
+<h3>b. (10 points)<a class="anchor" aria-label="anchor" href="#b.-10-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>What is the expected price after 3 years from now?</p>
 <blockquote>
@@ -161,6 +159,34 @@ W_3 &amp;\sim \mathcal{N}(0,3) \\
 </blockquote>
 <blockquote>
 <p>Answer: The expected price after 3 years from now is 11.8.</p>
+</blockquote>
+</div>
+<div id="b.-0-points" class="section level3 unnumbered">
+<h3>b’. (0 points)<a class="anchor" aria-label="anchor" href="#b.-0-points"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the expected value and variance of the exponential price after 3 years from now?</p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+(S_3|S_0 = 10) &amp;\sim \mathcal{N}(11.8,0.27) \\
+e^{(S_3|S_0 = 10)} &amp;\sim \log \mathcal{N}(11.8,0.27)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[e^{(S_3|S_0 = 10)}] &amp;= e^{\mu+\frac{1}{2}\sigma^2} \\
+&amp;= e^{11.8+\frac{1}{2}0.27} \\
+&amp;\approx e^{11.935}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+Var(e^{(S_3|S_0 = 10)})&amp;= e^{2\mu+\sigma^2}(e^{\sigma^2}-1)\\
+&amp;=e^{\left(2 \cdot 11.8+0.27 \right)}\left(e^{0.27}-1\right)  \\
+&amp;\approx e^{23.87}\left(e^{0.27}-1\right)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: the expected value and variance of the exponential price after 3 years from now are <span class="math inline">\(E[e^{(S_3|S_0 = 10)}]=e^{11.935}\)</span> and <span class="math inline">\(Var(e^{(S_3|S_0 = 10)})=e^{23.87}\left(e^{0.27}-1\right)\)</span></p>
 </blockquote>
 </div>
 </div>
@@ -214,13 +240,16 @@ dY_t&amp;=   \left(4t-\frac{1}{2}  (3t^2-2t)^2 \right)\,dt+  (3t^2-2t)\,dW_t \\
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-E[X_4|X_2=3]&amp;=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
+E[X_5|X_2=3]&amp;= e^{\mu+\frac{1}{2}\sigma^2} \\
+&amp;=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
 &amp;\approx e^{43} \\
-Var(X_4|X_2=3)&amp;=\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}  \\
+Var(X_4|X_2=3)&amp;= e^{2\mu+\sigma^2}(e^{\sigma^2}-1)\\
+&amp;=e^{\left(2(\ln 3-1906.2)+3896.4 \right)}\left(e^{3896.4}-1\right)  \\
+&amp;\approx e^{86}\left(e^{3896}-1\right)
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Answer: The mean and variance of <span class="math inline">\((X_4|X_2=3)\)</span> are <span class="math inline">\(e^{43}\)</span> and <span class="math inline">\(\left(e^{3896.4}-1\right)e^{\left(2(\ln 3-1906.2)+3896.4 \right)}\)</span></p>
+<p>Answer: The mean and variance of <span class="math inline">\((X_4|X_2=3)\)</span> are <span class="math inline">\(e^{43}\)</span> and <span class="math inline">\(e^{86}\left(e^{3896}-1\right)\)</span></p>
 </blockquote>
 </div>
 <div id="question-4-50-points" class="section level2 unnumbered">
@@ -234,9 +263,8 @@ is a standard Brownian motion on the real world probability
 space, denoted by <span class="math inline">\((\omega, \mathcal{F},\mathcal{P})\)</span>. A European put option written on the stock
 with parameters: exercise price <span class="math inline">\(K = 15\)</span>, maturity time <span class="math inline">\(T=2\)</span>, <span class="math inline">\(t=0.5\)</span> (year), the
 risk-free interest rate is <span class="math inline">\(r = 0.06\)</span>, <span class="math inline">\(S_t=12\)</span>.</p>
-<div id="a.-15-points" class="section level3" number="7.0.3">
-<h3>
-<span class="header-section-number">7.0.3</span> a. (15 points)<a class="anchor" aria-label="anchor" href="#a.-15-points"><i class="fas fa-link"></i></a>
+<div id="a.-15-points" class="section level3 unnumbered">
+<h3>a. (15 points)<a class="anchor" aria-label="anchor" href="#a.-15-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>Let <span class="math inline">\(\widetilde W_t = W_t + \theta t\)</span>, with <span class="math inline">\(\theta\)</span> being a constant is an adapted process with respect to the filtration <span class="math inline">\(()\mathcal{F}_t)_{t \geq 0}\)</span>. Find <span class="math inline">\(\theta\)</span> such that the discounted <span class="math inline">\((e^{−0.07t}S_t)_{t \ge 0}\)</span> is a martingale process with respect to <span class="math inline">\(\widetilde W_t\)</span>.</p>
 <blockquote>
@@ -271,9 +299,8 @@ d(e^{-0.07t}S_t) &amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\
 then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
 </blockquote>
 </div>
-<div id="b.-20-points-call" class="section level3" number="7.0.4">
-<h3>
-<span class="header-section-number">7.0.4</span> b’. (20 points) CALL<a class="anchor" aria-label="anchor" href="#b.-20-points-call"><i class="fas fa-link"></i></a>
+<div id="b.-0-points-call" class="section level3 unnumbered">
+<h3>b’. (0 points) CALL<a class="anchor" aria-label="anchor" href="#b.-0-points-call"><i class="fas fa-link"></i></a>
 </h3>
 <p>Derive the Black-Scholes-Merton formula and then compute the option price.</p>
 <blockquote>
@@ -339,7 +366,7 @@ f_{tx}&amp;=0 \\
 &amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
 \,d(\ln S_t)&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
 \int_t^T \,d(\ln S_s)&amp;=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
-ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+\ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
 S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
 \end{align*}\]</span></p>
 </blockquote>
@@ -428,13 +455,14 @@ I_2 &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1
 </blockquote>
 <blockquote>
 <p>Answer: The value of the call option is:
-$$
-C(S_t,t) =S_t N ({}) - Ke^{-r(T-t)} N ({})</p>
+<span class="math display">\[\begin{align*}
+C(S_t,t) = &amp;S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \\
+&amp;- Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
 </blockquote>
 </div>
-<div id="b.-20-points-put" class="section level3" number="7.0.5">
-<h3>
-<span class="header-section-number">7.0.5</span> b. (20 points) PUT<a class="anchor" aria-label="anchor" href="#b.-20-points-put"><i class="fas fa-link"></i></a>
+<div id="b.-20-points-put" class="section level3 unnumbered">
+<h3>b. (20 points) PUT<a class="anchor" aria-label="anchor" href="#b.-20-points-put"><i class="fas fa-link"></i></a>
 </h3>
 <p>Derive the Black-Scholes-Merton formula and then compute the option price.</p>
 <blockquote>
@@ -500,7 +528,7 @@ f_{tx}&amp;=0 \\
 &amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
 \,d(\ln S_t)&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
 \int_t^T \,d(\ln S_s)&amp;=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
-ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+\ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
 S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
 \end{align*}\]</span></p>
 </blockquote>
@@ -606,7 +634,7 @@ d_2&amp;=\frac{\ln\left(\frac{S_t}{K} \right)+(r-\frac{1}{2}\sigma^2)(T-t)}{\sig
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>The value of the put option is:
+<p>Answer: The value of the put option is:
 <span class="math display">\[\begin{align*}
 P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
 &amp;=15 \cdot N(0.5167) \cdot e^{-0.06 \cdot (2-0.5)} - 12 \cdot N(0.0268) \\
@@ -624,9 +652,8 @@ P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
 <span class="fu">BS_call</span><span class="op">(</span>S0<span class="op">=</span><span class="fl">12</span>,K<span class="op">=</span><span class="fl">15</span>,T<span class="op">=</span><span class="fl">2</span><span class="op">-</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.06</span>,sigma<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; [1] 3.431205</code></pre>
 </div>
-<div id="c.-15-points" class="section level3" number="7.0.6">
-<h3>
-<span class="header-section-number">7.0.6</span> c. (15 points)<a class="anchor" aria-label="anchor" href="#c.-15-points"><i class="fas fa-link"></i></a>
+<div id="c.-15-points" class="section level3 unnumbered">
+<h3>c. (15 points)<a class="anchor" aria-label="anchor" href="#c.-15-points"><i class="fas fa-link"></i></a>
 </h3>
 <p>Compute the option price using the 3-step CRR binomial tree.</p>
 <blockquote>
@@ -647,7 +674,7 @@ q &amp;= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-V_{03}&amp;=\max(-12 \cdot 1.33^3+15,0) \\
+V_{13}&amp;=\max(-S_0 \cdot u^3+15,0) \\
 &amp;=\max(-12 \cdot 1.33^3+15,0) \\
 &amp;= 0 \\
 V_{13}&amp;=\max(-S_0 \cdot u^2 d+15,0) \\
@@ -699,8 +726,8 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
   <span class="va">delta_t</span><span class="op">=</span><span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="va">N</span>
   <span class="va">u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
   <span class="va">d</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
-  <span class="va">p</span> <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="va">delta_t</span><span class="op">)</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">u</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span> <span class="co">### probability of up move </span>
-  <span class="va">Df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span> <span class="op">*</span> <span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="co">### discounting factor</span>
+  <span class="va">p</span> <span class="op">=</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">r</span> <span class="op">*</span> <span class="va">delta_t</span><span class="op">)</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">u</span> <span class="op">-</span> <span class="va">d</span><span class="op">)</span> <span class="co">### probability of up move  {.unnumbered}</span>
+  <span class="va">Df</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="op">-</span><span class="va">r</span> <span class="op">*</span> <span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">)</span> <span class="co">### discounting factor {.unnumbered}</span>
   <span class="va">Ce</span><span class="op">=</span><span class="fl">0</span>;
   <span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="op">(</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">{</span>
     <span class="va">Ce</span> <span class="op">=</span><span class="va">Ce</span><span class="op">+</span><span class="fu"><a href="https://rdrr.io/r/base/Special.html">choose</a></span><span class="op">(</span><span class="va">N</span>,<span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">)</span><span class="op">*</span><span class="va">p</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="op">(</span><span class="fl">1</span><span class="op">-</span><span class="va">p</span><span class="op">)</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">+</span><span class="fl">1</span><span class="op">-</span><span class="va">i</span><span class="op">}</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/Extremes.html">max</a></span><span class="op">(</span><span class="va">X</span><span class="op">-</span><span class="va">S0</span><span class="op">*</span><span class="va">u</span><span class="op">^</span><span class="op">{</span><span class="va">i</span><span class="op">-</span><span class="fl">1</span><span class="op">}</span><span class="op">*</span><span class="va">d</span><span class="op">^</span><span class="op">{</span><span class="va">N</span><span class="op">-</span><span class="va">i</span><span class="op">+</span><span class="fl">1</span><span class="op">}</span>,<span class="fl">0</span><span class="op">)</span>
@@ -709,8 +736,402 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <span class="op">}</span>
 <span class="fu">European_call_binomial</span><span class="op">(</span>T<span class="op">=</span><span class="fl">2</span>, t<span class="op">=</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.06</span>, X<span class="op">=</span><span class="fl">15</span>,N<span class="op">=</span><span class="fl">3</span>,S0<span class="op">=</span><span class="fl">12</span>,sigma<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; [1] 3.355349</code></pre>
-
 </div>
+</div>
+<div id="question-5-0-points" class="section level2 unnumbered">
+<h2>Question 5’ (0 points)<a class="anchor" aria-label="anchor" href="#question-5-0-points"><i class="fas fa-link"></i></a>
+</h2>
+<div id="a.-0-points" class="section level3 unnumbered">
+<h3>a. (0 points)<a class="anchor" aria-label="anchor" href="#a.-0-points"><i class="fas fa-link"></i></a>
+</h3>
+<p>A gambler starts with $3 dollars. On each play a fair coin is tossed and the gambler wins $1 if heads occurs, or loses $1 if tails occurs. The gambler stops when he reaches $8 or loses all his money. Find the probability that the gambler will eventually lose.</p>
+<blockquote>
+<p>Let <span class="math inline">\(R_n\)</span> denote the total fortune after the <span class="math inline">\(n^{th}\)</span> gamble.
+While the game proceeds, <span class="math inline">\(\{R_n : n \geq 0\}\)</span> forms a simple random walk:
+<span class="math display">\[R_n = R_0+ \Delta_1 +\Delta_2+ · · · + \Delta_n \]</span>
+where <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 1) = p\)</span>, <span class="math inline">\(P(\Delta = −1) = q\)</span>, <span class="math inline">\(p+q=1\)</span>, and represents the earnings on the succesive gambles.</p>
+</blockquote>
+<blockquote>
+Let <span class="math inline">\(P_3\)</span> denote the probability that the gambler wins when <span class="math inline">\(R_0 = 3\)</span>, we need to find <span class="math inline">\(1-P_3\)</span>.
+<ul>
+<li>
+If <span class="math inline">\(\Delta_1 = 1\)</span>, then the gambler’s total fortune
+increases to <span class="math inline">\(R_1 = 3+1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{4}\)</span>.
+</li>
+<li>
+If <span class="math inline">\(\Delta_1 = −1\)</span>, then the gambler’s fortune decreases to <span class="math inline">\(R_1 = 3 − 1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{2}\)</span>.
+</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+P_3&amp;= pP_{4}+qP_{2} \\
+pP_{3}+qP_{3}&amp;= pP_{4}+qP_{2} \\
+p(P_4-P_3)&amp;=q(P_3-P_2) \\
+P_4-P_3&amp;=\frac{q}{p}(P_3-P_2) \\
+&amp;=\left( \frac{q}{p} \right)^2(P_2-P_1) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1-P_0) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>By induction, we can prove <span class="math inline">\(P_{k+1}-P_k= \left( \frac{q}{p} \right)^k P_1\)</span>, which implies the following recursive sequence:
+<span class="math display">\[\begin{align*}
+P_2-P_1&amp;=\left( \frac{q}{p} \right)(P_1-P_0)=\left( \frac{q}{p} \right) P_1\\
+P_3-P_2&amp;=\left( \frac{q}{p} \right)(P_2-P_1)=\left( \frac{q}{p} \right)^2 P_1 \\
+...\\
+P_{i+1}-P_i&amp;= \left( \frac{q}{p} \right)^i P_1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Adding all the above sequence and noticing that <span class="math inline">\(P_N=1\)</span> shall yield:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}-P_1&amp;=  \sum_{k=1}^{i} (P_{k+1}-P_k) \\
+&amp;=\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}&amp;=P_1+\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+&amp;= P_1\sum_{k=0}^{i} \left( \frac{q}{p} \right)^k \\
+&amp;=P_1\sum_{k=0}^{i} \left( \frac{0.5}{0.5} \right)^k  \\
+&amp;=P_1\sum_{k=0}^{i} \left( 1 \right)^k  \\
+&amp;=P_1(i+1) \\
+\rightarrow P_N&amp;=P_1\cdot N \\
+\rightarrow P_1&amp;=\frac{1}{N} \\
+\rightarrow P_3&amp;=3 P_1 \\
+&amp;=3\cdot \frac{1}{N} \\
+&amp;=\frac{3}{N} \\
+&amp;=\frac{3}{8} \\
+\rightarrow 1-P_3&amp;=\frac{5}{8} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the gambler will eventually lose is 62.5%.</p>
+</blockquote>
+</div>
+<div id="b.-0-points-1" class="section level3 unnumbered">
+<h3>b. (0 points)<a class="anchor" aria-label="anchor" href="#b.-0-points-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>A gambler starts with $3 dollars. On each play an unfair coin is tossed and
+the gambler wins $1 if heads occurs, with probability 0.6, or loses $1 if
+tails occurs, with probability 0.4. The gambler stops when he reaches $8
+or loses all his money. Find the probability that the gambler will eventually
+lose.</p>
+<blockquote>
+<p>Let <span class="math inline">\(R_n\)</span> denote the total fortune after the <span class="math inline">\(n^{th}\)</span> gamble.
+While the game proceeds, <span class="math inline">\(\{R_n : n \geq 0\}\)</span> forms a simple random walk:
+<span class="math display">\[R_n = R_0+ \Delta_1 +\Delta_2+ · · · + \Delta_n \]</span>
+where <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 1) = p\)</span>, <span class="math inline">\(P(\Delta = −1) = q\)</span>, <span class="math inline">\(p+q=1\)</span>, and represents the earnings on the succesive gambles.</p>
+</blockquote>
+<blockquote>
+Let <span class="math inline">\(P_3\)</span> denote the probability that the gambler wins when <span class="math inline">\(R_0 = 3\)</span>, we need to find <span class="math inline">\(1-P_3\)</span>.
+<ul>
+<li>
+If <span class="math inline">\(\Delta_1 = 1\)</span>, then the gambler’s total fortune
+increases to <span class="math inline">\(R_1 = 3+1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{4}\)</span>.
+</li>
+<li>
+If <span class="math inline">\(\Delta_1 = −1\)</span>, then the gambler’s fortune decreases to <span class="math inline">\(R_1 = 3 − 1\)</span> and so the gambler will now win with probability <span class="math inline">\(P_{2}\)</span>.
+</li>
+</ul>
+<p><span class="math display">\[\begin{align*}
+P_3&amp;= pP_{4}+qP_{2} \\
+pP_{3}+qP_{3}&amp;= pP_{4}+qP_{2} \\
+p(P_4-P_3)&amp;=q(P_3-P_2) \\
+P_4-P_3&amp;=\frac{q}{p}(P_3-P_2) \\
+&amp;=\left( \frac{q}{p} \right)^2(P_2-P_1) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1-P_0) \\
+&amp;=\left( \frac{q}{p} \right)^3 (P_1)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>By induction, we can prove <span class="math inline">\(P_{k+1}-P_k= \left( \frac{q}{p} \right)^k P_1\)</span>, which implies the following recursive sequence:
+<span class="math display">\[\begin{align*}
+P_2-P_1&amp;=\left( \frac{q}{p} \right)(P_1-P_0)=\left( \frac{q}{p} \right) P_1\\
+P_3-P_2&amp;=\left( \frac{q}{p} \right)(P_2-P_1)=\left( \frac{q}{p} \right)^2 P_1 \\
+...\\
+P_{i+1}-P_i&amp;= \left( \frac{q}{p} \right)^i P_1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Adding all the above sequence and noticing that <span class="math inline">\(P_N=1\)</span> shall yield:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}-P_1&amp;=  \sum_{k=1}^{i} (P_{k+1}-P_k) \\
+&amp;=\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_{i+1}&amp;=P_1+\sum_{k=1}^{i} \left( \frac{q}{p} \right)^k P_1 \\
+&amp;= P_1\sum_{k=0}^{i} \left( \frac{q}{p} \right)^k \\
+&amp;=P_1 \cdot \frac{1-(\frac{q}{p})^{i+1}}{1-\frac{q}{p}} &amp;(1) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P_N&amp;=P_1 \cdot \frac{1-(\frac{q}{p})^N}{1-\frac{q}{p}} \\
+P_1&amp;= \frac{1-\frac{q}{p}}{1-(\frac{q}{p})^N}&amp;(2) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+(1),(2)\rightarrow P_{i+1}&amp;=\frac{1-(\frac{q}{p})^{i+1}}{1-(\frac{q}{p})^N} \\
+P_{3}&amp;=\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8} \\
+1-P_{3}&amp;=1-\frac{1-(\frac{q}{p})^{3}}{1-(\frac{q}{p})^8}=0.2677
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability that the gambler will eventually lose is 26.77%.</p>
+</blockquote>
+</div>
+</div>
+<div id="question-6-0-points" class="section level2 unnumbered">
+<h2>Question 6’ (0 points)<a class="anchor" aria-label="anchor" href="#question-6-0-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>For each toss of a unfair coin, you will win <span class="math inline">\(\$2\)</span> if it lands up heads and lose <span class="math inline">\(\$1\)</span> if it lands up tails. The probability of landing up heads is 0.3 and the probability of landing up tails is 0.7. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k tosses.</p>
+<ul>
+<li>Should you play the game?</li>
+</ul>
+<blockquote>
+<p>While the game proceeds, <span class="math inline">\((M_k)_{k\in \mathbb{N}}\)</span> forms a simple random walk:
+<span class="math display">\[M_k = M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k \]</span>
+where <span class="math inline">\(M_0=0\)</span>, <span class="math inline">\(\{\Delta n\}\)</span> forms an i.i.d. random variables as <span class="math inline">\(P(\Delta = 2) = 0.3\)</span>, <span class="math inline">\(P(\Delta = −1) = 0.7\)</span>, and represents the earnings on the succesive games.</p>
+</blockquote>
+<blockquote>
+<p>Using the law of total expectation, the expected accumulated money after every play is the expected money for each toss either the coin lands up head or tail.
+<span class="math display">\[\begin{align*}
+E[\Delta_i] &amp;=E[\Delta_i|\Delta_i=2]P(\Delta_i=2)+E[\Delta_i|\Delta_i=-1]P(\Delta_i=-1) \\
+&amp;=0.3(1)+0.7(-1) \\
+&amp;=-0.1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>$$<span class="math display">\[\begin{align*}
+E[M_k] &amp;= E[M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k] = M_0+ E[\Delta_1] +E[\Delta_2]+ · · · + E[\Delta_k] \\
+&amp;= M_0 -0.1 -0.1 ... -0.1 \\
+&amp;=0 - 0.1k \\
+&amp;&lt; M_0
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The game should not be played.</p>
+</blockquote>
+</div>
+<div id="question-7-0-points" class="section level2 unnumbered">
+<h2>Question 7’ (0 points)<a class="anchor" aria-label="anchor" href="#question-7-0-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>For each toss of a fair coin, you will win <span class="math inline">\(\$1\)</span> if it lands up heads and lose <span class="math inline">\(\$1\)</span> if it lands up tails. Suppose that you start the game with <span class="math inline">\(\$0\)</span> and denote <span class="math inline">\(M_k\)</span> is the amount of money you obtain after k tosses. Then <span class="math inline">\((M_k)_{k\in\mathbb{N}}\)</span> is a random walk.</p>
+<ul>
+<li>Compute the probability of winning after playing the game 9 times.</li>
+</ul>
+<blockquote>
+<p>We need to find the probability that <span class="math inline">\(M_9\)</span> or the amount of money after nine
+plays greater than 0</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(M_9&gt;0)&amp;=P(5H4T)+P(6H3T)+P(7H2T)+P(8H1T)+P(9H0T) \\
+&amp;= \sum_{k=5}^{9} \binom{9}{k}p^k(1-p)^{9-k} \\
+&amp;=0.5
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability of winning after playing the game 9 times is 50%</p>
+</blockquote>
+<ul>
+<li>Compute the probability of winning after playing the game 10 times.</li>
+</ul>
+<blockquote>
+<p>We need to find the probability that <span class="math inline">\(M_{10}\)</span> or the amount of money after ten
+plays greater than 0</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+P(M_{10}&gt;0)&amp;=P(6H4T)+P(7H3T)+P(8H2T)+P(9H1T)+P(10H0T) \\
+&amp;= \sum_{k=6}^{10} \binom{10}{k}p^k(1-p)^{10-k} \\
+&amp;=0.3769
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The probability of winning after playing the game 10 times is 37.69%</p>
+</blockquote>
+<ul>
+<li>Is this game fair, i.e., the chance of winning a fair game is equal for all players?</li>
+</ul>
+<blockquote>
+<p>Answer: This is a fair game when the number of k tosses is odd (9 tosses) and this is not a fair game when the number of k tosses is even (10 tosses).</p>
+</blockquote>
+</div>
+<div id="question-8-0-points" class="section level2 unnumbered">
+<h2>Question 8’ (0 points)<a class="anchor" aria-label="anchor" href="#question-8-0-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>Prove the following random processes are martingale:</p>
+<ol style="list-style-type: decimal">
+<li>Brownian motion <span class="math inline">\((B_t)\)</span> is a martingale process.</li>
+</ol>
+<p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of Brownian motion <span class="math inline">\(\{ B_t \}_{t \geq0}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, we have:</p>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[|B_t|]&amp;= \int_{-\infty}^{\infty}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx  \\
+&amp;=\int_{-\infty}^{0}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx+\int_{0}^{\infty}|x|\frac{1}{\sqrt{2 \pi t}}e^{\frac{-x^2}{2t}}\,dx \\
+&amp;=\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx+\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx \\
+&amp;=\sqrt{\frac{2}{{\pi t}}}\int_{0}^{\infty}xe^{\frac{-x^2}{2t}}\,dx \\
+&amp;=\frac{1}{\sqrt{2 \pi t}}\int_{0}^{\infty}e^{\frac{-x^2}{2t}}\,dx^2 \\
+&amp;=-\sqrt{\frac{2t}{\pi}}e^{\frac{-u}{2t}}\Biggr|_{0}^{\infty} \\
+&amp;=\sqrt{\frac{2t}{\pi}} &lt; \infty
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[B_t|\mathcal{F}_s]&amp;=E[(B_t-B_s)+B_s|\mathcal{F}_s] \\
+&amp;=E[(B_t-B_s)|\mathcal{F}_s]+E[B_s|\mathcal{F}_s] \\
+&amp;=0+B_s \\
+&amp;=B_s
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li>Let <span class="math inline">\(Y_t = B_t^2 − t, \forall t \geq 0\)</span>. Show that <span class="math inline">\((Y_t)_{t \geq 0}\)</span> is a martingale with respect to Brownian motion.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of <span class="math inline">\(\{ Y_t=B_t^2-t \}_{t \geq0}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[|Y_t|]&amp;=E[|B_t^2-t] \\
+&amp;\leq E[B_t^2+t] \\
+&amp;=E[B_t^2]+t \\
+&amp;=2t &lt; \infty
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[Y_t|\mathcal{F}_s]&amp;=E[B_t^2-t|\mathcal{F}_s] \\
+&amp;=E[(B_t-B_s+B_s)^2|\mathcal{F}_s]-t \\
+&amp;=E[(B_t-B_s)^2+2B_s(B_t-B_s)+B_s^2|\mathcal{F}_s]-t \\
+&amp;=E[(B_t-B_s)^2|\mathcal{F}_s]+E[2B_s(B_t-B_s)|\mathcal{F}_s]+E[B_s^2|\mathcal{F}_s]-t \\
+&amp;=E[(B_t-B_s)^2]+0+B_s^2-t \\
+&amp;=E[(B_t-B_s)^2]-E[B_t-B_s]^2+B_s^2-t \\
+&amp;=Var[B_t-B_s]+B_s^2-t \\
+&amp;=t-s+B_s^2-t \\
+&amp;=B_s^2-s
+\end{align*}\]</span></p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>
+<span class="math inline">\(Z_t = e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\)</span> (<span class="math inline">\(\sigma\)</span> is a positive constant) is a martingale with respect to the standard Brownian motion.</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of <span class="math inline">\(\{ Z_t=e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, since <span class="math inline">\(B_t-B_s \sim N(0,t-s)\)</span> we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[|Z_t|]&amp;=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
+&amp;=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}] \\
+&amp;=E[Z_t] \\
+&amp;=1
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[E[e^{tX}]=e^{\mu t+\frac{1}{2}\sigma^2 t^2} \rightarrow E[e^{\sigma (B_t-B_s)}]=e^{\frac{1}{2}\sigma^2 (t-s)}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+E[Z_t|\mathcal{F}_s]&amp;=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|\mathcal{F}_s] \\
+&amp;=E[e^{\sigma (B_t-B_s+B_s) − \frac{1}{2} \sigma^2 (t-s+s)}|\mathcal{F}_s] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)}] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2}  \\
+&amp;= Z_s
+\end{align*}\]</span></p>
+</blockquote>
+</div>
+<div id="question-9-0-points" class="section level2 unnumbered">
+<h2>Question 9’ (0 points)<a class="anchor" aria-label="anchor" href="#question-9-0-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let <span class="math inline">\((W_t)_{t≥0}\)</span> be a Brownian motion on the filtered probability space <span class="math inline">\((\omega,\mathcal{F},\mathcal{F}_t)_{t≥0}\)</span>).
+Compute <span class="math inline">\(\,dX_t\)</span> in terms of <span class="math inline">\(\,dW_t\)</span> and <span class="math inline">\(\,dt\)</span>.</p>
+<ol style="list-style-type: lower-alpha">
+<li>
+<span class="math inline">\(X_t=t Y_t^4\)</span> with <span class="math inline">\(\,d Y_t = -6 Y_t \,dt + 2Y_t \,dW_t\)</span>
+</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,x)=tx^4\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =x^4 \\
+&amp;f_{tt} =0 \\
+&amp;f_x =4tx^3 \\
+&amp;f_{xx} =12tx^2 \\
+&amp;f_{tx} =4x^3 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(X_t=f(t,Y_t)\)</span>, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,d(X_t) &amp;= \,d(t Y_t^4) \\
+&amp;= Y_t^4 \,dt + 4tY_t^3 \,d Y_t + 12tY_t^2 \,d Y_t^2 + 4Y_t^3 \,dt \,dY_t \\
+&amp;= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 + 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
+&amp;= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + 12tY_t^2 \cdot 4Y_t^2 \,dt \\
+&amp;= (Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\,d(X_t)=(Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t\)</span></p>
+</blockquote>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>
+<span class="math inline">\(X_t=\ln \frac{t}{Y_t}\)</span> with <span class="math inline">\(\,d Y_t = \frac{1}{2Y_t} \,dt + \,dW_t\)</span>
+</li>
+</ol>
+<blockquote>
+<p>Let <span class="math inline">\(f(t,x)=\ln \frac{t}{x}\)</span> then
+<span class="math display">\[\begin{align*}
+&amp;f_t =\frac{1}{t} \\
+&amp;f_{tt} =-\frac{1}{t^2} \\
+&amp;f_x =-\frac{1}{x} \\
+&amp;f_{xx} =\frac{1}{x^2} \\
+&amp;f_{tx} =0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito formula to <span class="math inline">\(X_t=f(t,Y_t)\)</span>, we have:</p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,d(X_t) &amp;= \,d(\ln \frac{t}{Y_t}) \\
+&amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} (\frac{1}{2Y_t} \,dt + \,dW_t) + \frac{1}{Y_t^2} \left(\frac{1}{2Y_t} \,dt + \,dW_t\right)^2 \\
+&amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} \cdot\frac{1}{2Y_t} \,dt -\frac{1}{Y_t}\,dW_t \\
+&amp;= \left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{Y_t}\,dW_t
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: <span class="math inline">\(\,d(X_t)=\left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{Y_t}\,dW_t\)</span></p>
+</blockquote>
+</div>
+<div id="question-10-0-points" class="section level2 unnumbered">
+<h2>Question 10’ (0 points)<a class="anchor" aria-label="anchor" href="#question-10-0-points"><i class="fas fa-link"></i></a>
+</h2>
+<p>Suppose you buy a European call option written on asset paying no
+dividend, with strike price <span class="math inline">\(K = 50\)</span>, <span class="math inline">\(T = 0.5\)</span> (year), <span class="math inline">\(r = 0.05\)</span>. If it is sure
+that the asset price at expiry is <span class="math inline">\(S_T = 60\)</span>. How much should be the fair
+value of the option?</p>
+<blockquote>
+<p>The price of the call option at time T:
+<span class="math display">\[C(S,T)=max(S_T−K;0)=max(60−50;0)=10\]</span></p>
+</blockquote>
+<blockquote>
+<p>The fair value of the option is the present value of the option at time 0: <span class="math inline">\(PV=\frac{FV}{e^{r \cdot \Delta t}}=\frac{10}{e^{0.05 \cdot 0.5}}=9.753\)</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The fair value of the option should be <span class="math inline">\(9.753\)</span>.</p>
+</blockquote>
+
 </div>
 </div>
   <div class="chapter-nav">
@@ -723,19 +1144,31 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <li><a class="nav-link" href="#question-1-10-points">Question 1 (10 points)</a></li>
 <li>
 <a class="nav-link" href="#question-2-20-points">Question 2 (20 points)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#a.-10-points"><span class="header-section-number">7.0.1</span> a. (10 points)</a></li>
-<li><a class="nav-link" href="#b.-10-points"><span class="header-section-number">7.0.2</span> b. (10 points)</a></li>
+<li><a class="nav-link" href="#a.-10-points">a. (10 points)</a></li>
+<li><a class="nav-link" href="#b.-10-points">b. (10 points)</a></li>
+<li><a class="nav-link" href="#b.-0-points">b’. (0 points)</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#question-3-20-points">Question 3 (20 points)</a></li>
 <li>
 <a class="nav-link" href="#question-4-50-points">Question 4 (50 points)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#a.-15-points"><span class="header-section-number">7.0.3</span> a. (15 points)</a></li>
-<li><a class="nav-link" href="#b.-20-points-call"><span class="header-section-number">7.0.4</span> b’. (20 points) CALL</a></li>
-<li><a class="nav-link" href="#b.-20-points-put"><span class="header-section-number">7.0.5</span> b. (20 points) PUT</a></li>
-<li><a class="nav-link" href="#c.-15-points"><span class="header-section-number">7.0.6</span> c. (15 points)</a></li>
+<li><a class="nav-link" href="#a.-15-points">a. (15 points)</a></li>
+<li><a class="nav-link" href="#b.-0-points-call">b’. (0 points) CALL</a></li>
+<li><a class="nav-link" href="#b.-20-points-put">b. (20 points) PUT</a></li>
+<li><a class="nav-link" href="#c.-15-points">c. (15 points)</a></li>
 </ul>
 </li>
+<li>
+<a class="nav-link" href="#question-5-0-points">Question 5’ (0 points)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a.-0-points">a. (0 points)</a></li>
+<li><a class="nav-link" href="#b.-0-points-1">b. (0 points)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#question-6-0-points">Question 6’ (0 points)</a></li>
+<li><a class="nav-link" href="#question-7-0-points">Question 7’ (0 points)</a></li>
+<li><a class="nav-link" href="#question-8-0-points">Question 8’ (0 points)</a></li>
+<li><a class="nav-link" href="#question-9-0-points">Question 9’ (0 points)</a></li>
+<li><a class="nav-link" href="#question-10-0-points">Question 10’ (0 points)</a></li>
 </ul>
 
       <div class="book-extra">
