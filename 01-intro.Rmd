@@ -2017,12 +2017,12 @@ dY_t&= \frac{1}{X_t}dX_t - \frac{1}{2}\frac{1}{X_t^2}dX_tdX_t \\
 
 >$$\begin{align*}
 \rightarrow \ln X_3+12+2(W_5-W_3) &\sim \mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
-\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &\sim \ln\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
-\rightarrow X_5 &\sim \ln\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &\sim \log\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\rightarrow X_5 &\sim \log\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
 \end{align*}$$
 
 >$$\begin{align*}
-\rightarrow (X_5|X_3=4) &\sim \ln\mathcal{N} \left(\ln 4+12,4 \right) \\
+\rightarrow (X_5|X_3=4) &\sim \log\mathcal{N} \left(\ln 4+12,4 \right) \\
 \end{align*}$$
 
 >$$\begin{align*}
@@ -2061,12 +2061,12 @@ dY_t&= \frac{1}{X_t}(4(t^3−3)X_t\,dt+t^2X_t\,dW_t) - \frac{1}{2}\frac{1}{X_t^2
 
 >$$\begin{align*}
 \rightarrow \ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t &\sim \mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
-\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &\sim \ln\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
-\rightarrow X_4 &\sim \ln\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &\sim \log\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\rightarrow X_4 &\sim \log\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
 \end{align*}$$
 
 >$$\begin{align*}
-(X_4|X_2=3) &\sim \ln\mathcal{N} \left(\ln 3+\frac{584}{5},\frac{992}{5} \right) \\
+(X_4|X_2=3) &\sim \log\mathcal{N} \left(\ln 3+\frac{584}{5},\frac{992}{5} \right) \\
 \end{align*}$$
 
 >$$\begin{align*}

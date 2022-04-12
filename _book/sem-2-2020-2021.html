@@ -277,8 +277,8 @@ S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}
 <p>We have
 <span class="math display">\[\begin{align*}
 \ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -401,8 +401,8 @@ u&amp;=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
 d&amp;=e^{-\sigma \sqrt{\frac{T-t}{N}}} \\
 &amp;=e^{-0.3\sqrt{\frac{1-0.3}{3}}} \\
 &amp;=0.8651 \\
-p &amp;= \frac{e^{r \cdot \frac{T-t}{N}-d}}{u-d} \\
-&amp;= \frac{e^{0.1 \cdot \frac{1-0.3}{3}-0.8651}}{1.1559-0.8651} \\
+p &amp;= \frac{e^{r \cdot \frac{T-t}{N}}-d}{u-d} \\
+&amp;= \frac{e^{0.1 \cdot \frac{1-0.3}{3}}-0.8651}{1.1559-0.8651} \\
 &amp;=0.5450 \\
 q &amp;= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 &amp;= \frac{1.1559-e^{0.1 \cdot \frac{1-0.3}{3}}}{1.1559-0.8651} \\
@@ -503,7 +503,7 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-07.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

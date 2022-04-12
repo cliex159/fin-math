@@ -54,7 +54,6 @@
 <li><a class="" href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></li>
 <li class="book-part">Midterm Mock</li>
 <li><a class="active" href="sem-1-2021-2022.html"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
-<li><a class="" href="sem-2-2020-2021.html"><span class="header-section-number">8</span> Sem 2 2020-2021</a></li>
 </ul>
 
         <div class="book-extra">
@@ -122,9 +121,11 @@ X&amp;=(1+X)\frac{1}{2}+(2+X)\frac{1}{4}+(3+X)\frac{1}{8}+(4+X)\frac{1}{16}+(4) 
 <p>Consider the asset price process <span class="math inline">\((S_t)_{t \geq 0}\)</span> follows an equation:
 <span class="math display">\[ \,dS_t = (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t \]</span>
 where <span class="math inline">\((W_t)_{t \geq 0}\)</span> is a standard Brownian motion on a filtered probability space <span class="math inline">\((\omega,\mathcal{F},(\mathcal{F}_t)_{t \geq 0}\)</span>. Suppose the asset price is now 10.</p>
-<ol style="list-style-type: lower-alpha">
-<li>(10 points) What is the probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13?</li>
-</ol>
+<div id="a.-10-points" class="section level3" number="7.0.1">
+<h3>
+<span class="header-section-number">7.0.1</span> a. (10 points)<a class="anchor" aria-label="anchor" href="#a.-10-points"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13?</p>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
 \,dS_t &amp;= (0.04t + 0.08t^3)\,dt + 0.3 \,dW_t \\
@@ -145,9 +146,12 @@ S_3 &amp;= 11.8 + 0.3W_3 \\
 <blockquote>
 <p>Answer: The probability that the asset price after 3 years from now (i.e <span class="math inline">\(S_3\)</span>) will be less than 13 is <span class="math inline">\(98.954\%\)</span>.</p>
 </blockquote>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>(10 points) What is the expected price after 3 years from now?</li>
-</ol>
+</div>
+<div id="b.-10-points" class="section level3" number="7.0.2">
+<h3>
+<span class="header-section-number">7.0.2</span> b. (10 points)<a class="anchor" aria-label="anchor" href="#b.-10-points"><i class="fas fa-link"></i></a>
+</h3>
+<p>What is the expected price after 3 years from now?</p>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
 W_3 &amp;\sim \mathcal{N}(0,3) \\
@@ -158,6 +162,7 @@ W_3 &amp;\sim \mathcal{N}(0,3) \\
 <blockquote>
 <p>Answer: The expected price after 3 years from now is 11.8.</p>
 </blockquote>
+</div>
 </div>
 <div id="question-3-20-points" class="section level2 unnumbered">
 <h2>Question 3 (20 points)<a class="anchor" aria-label="anchor" href="#question-3-20-points"><i class="fas fa-link"></i></a>
@@ -198,13 +203,13 @@ dY_t&amp;=   \left(4t-\frac{1}{2}  (3t^2-2t)^2 \right)\,dt+  (3t^2-2t)\,dW_t \\
 <blockquote>
 <p><span class="math display">\[\begin{align*}
 \rightarrow \ln X_2-1906.2+\int_2^5(3t^2-2t)\,dW_t &amp;\sim \mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
-\rightarrow e^{\ln X_2-1906.2+\int_2^5(3t^2-2t)\,dW_t} &amp;\sim \ln\mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
-\rightarrow X_5 &amp;\sim \ln\mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
+\rightarrow e^{\ln X_2-1906.2+\int_2^5(3t^2-2t)\,dW_t} &amp;\sim \log\mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
+\rightarrow X_5 &amp;\sim \log\mathcal{N} \left(\ln X_2-1906.2,3896.4 \right) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-(X_5|X_2=3) &amp;\sim \ln\mathcal{N} \left(\ln 3-1906.2,3896.4 \right) \\
+(X_5|X_2=3) &amp;\sim \log\mathcal{N} \left(\ln 3-1906.2,3896.4 \right) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -229,9 +234,11 @@ is a standard Brownian motion on the real world probability
 space, denoted by <span class="math inline">\((\omega, \mathcal{F},\mathcal{P})\)</span>. A European put option written on the stock
 with parameters: exercise price <span class="math inline">\(K = 15\)</span>, maturity time <span class="math inline">\(T=2\)</span>, <span class="math inline">\(t=0.5\)</span> (year), the
 risk-free interest rate is <span class="math inline">\(r = 0.06\)</span>, <span class="math inline">\(S_t=12\)</span>.</p>
-<ol style="list-style-type: lower-alpha">
-<li>(15 points) Let <span class="math inline">\(\widetilde W_t = W_t + \theta t\)</span>, with <span class="math inline">\(\theta\)</span> being a constant is an adapted process with respect to the filtration <span class="math inline">\(()\mathcal{F}_t)_{t \geq 0}\)</span>. Find <span class="math inline">\(\theta\)</span> such that the discounted <span class="math inline">\((e^{−0.07t}S_t)_{t \ge 0}\)</span> is a martingale process with respect to <span class="math inline">\(\widetilde W_t\)</span>.</li>
-</ol>
+<div id="a.-15-points" class="section level3" number="7.0.3">
+<h3>
+<span class="header-section-number">7.0.3</span> a. (15 points)<a class="anchor" aria-label="anchor" href="#a.-15-points"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let <span class="math inline">\(\widetilde W_t = W_t + \theta t\)</span>, with <span class="math inline">\(\theta\)</span> being a constant is an adapted process with respect to the filtration <span class="math inline">\(()\mathcal{F}_t)_{t \geq 0}\)</span>. Find <span class="math inline">\(\theta\)</span> such that the discounted <span class="math inline">\((e^{−0.07t}S_t)_{t \ge 0}\)</span> is a martingale process with respect to <span class="math inline">\(\widetilde W_t\)</span>.</p>
 <blockquote>
 <p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
 <span class="math display">\[dSt = 0.2S_t \,dt + 0.3 S_t \,dW_t^\mathcal{P}\]</span></p>
@@ -263,9 +270,12 @@ d(e^{-0.07t}S_t) &amp;= -0.07e^{-0.07t}S_t\,dt+e^{-0.07t}\,dS_t -0.07e^{-0.07t}\
 <span class="math display">\[-0.07+0.2-0.3 \theta_t=0 \rightarrow \theta_t=\frac{-0.07+0.2}{0.3}=0.434 \]</span>
 then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
 </blockquote>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>(20 points) Derive the Black-Scholes-Merton formula and then compute the option price.</li>
-</ol>
+</div>
+<div id="b.-20-points-call" class="section level3" number="7.0.4">
+<h3>
+<span class="header-section-number">7.0.4</span> b’. (20 points) CALL<a class="anchor" aria-label="anchor" href="#b.-20-points-call"><i class="fas fa-link"></i></a>
+</h3>
+<p>Derive the Black-Scholes-Merton formula and then compute the option price.</p>
 <blockquote>
 <p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
 <span class="math display">\[dSt = \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}\]</span></p>
@@ -347,19 +357,182 @@ e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\m
 </blockquote>
 <blockquote>
 <p>From Feyman-Kac formula we have:
-<span class="math display">\[ P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] \]</span></p>
+<span class="math display">\[ C(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(S_T-K,0)|\mathcal{F}_t] \]</span></p>
 </blockquote>
 <blockquote>
-<p>Applying the moment generating function, we have:</p>
+<p>Applying the moment generating function, we have:
+<span class="math display">\[\begin{align*}
+C(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(x-K,0) f_{S_T|S_t}(x) \,dx \\
+&amp;=e^{-r(T-t)}\int_K^\infty (x-K) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx
+\end{align*}\]</span></p>
 </blockquote>
+<blockquote>
 <p><span class="math display">\[\begin{align*}
-P(S_t,t)&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
+C(S_t,t)&amp;=e^{-r(T-t)}\int_K^\infty (x-K) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_K^\infty (x-K)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
+<span class="math display">\[\begin{align*}
+\ln \left( \frac{x}{S_t} \right)&amp;=\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t) \\
+x&amp;=S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+\,du&amp;=\frac{1}{\sigma x\sqrt{T-t}}\,dx \\
+\sigma\sqrt{T-t}\,du&amp;=\frac{1}{x}\,dx
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+u_K&amp;=\frac{\ln K-\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}} \\
+&amp;=\frac{\ln \left( \frac{K}{S_t} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The value of the call option becomes:
+<span class="math display">\[\begin{align*}
+C(S_t,t)&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi} \sqrt{T-t}} \int_K^\infty (x-K)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{T-t}} \int_{u_K}^\infty (S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}-K)e^{-\frac{1}{2} u^2} \sigma\sqrt{T-t}\,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sigma\sqrt{2\pi}\sqrt{T-t}} \sigma\sqrt{T-t} \int_{u_K}^\infty (S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}e^{-\frac{1}{2} u^2}-Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{u_K}^\infty (S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}-Ke^{-\frac{1}{2} u^2}) \,du \\
+&amp;=\frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty S_te^{\sigma u\sqrt{T-t}-\frac{1}{2} \cdot \sigma^2(T-t)-\frac{1}{2} u^2}\,du \\
+&amp;-\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{u_K}^\infty Ke^{-\frac{1}{2} u^2} \,du \\
+&amp;=I_1 \\
+&amp;-  I_2 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_1 &amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} u^2+\sigma u\sqrt{T-t}-\frac{1}{2} \cdot \sigma^2(T-t)}\,du \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,du \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,d(u-\sigma\sqrt{T-t}) \\
+&amp;=S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K-\sigma\sqrt{T-t}}^\infty e^{-\frac{1}{2} u^2}\,du \\
+&amp;= S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\sigma\sqrt{T-t}-u_K} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\sigma\sqrt{T-t}-\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\sigma^2(T-t)-\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t\cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2}\,du \\
+&amp;=S_t \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r+\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p><span class="math display">\[\begin{align*}
+I_2 &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{u_K}^\infty e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-u_K} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot N \left({\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Answer: The value of the call option is:
+$$
+C(S_t,t) =S_t N ({}) - Ke^{-r(T-t)} N ({})</p>
+</blockquote>
+</div>
+<div id="b.-20-points-put" class="section level3" number="7.0.5">
+<h3>
+<span class="header-section-number">7.0.5</span> b. (20 points) PUT<a class="anchor" aria-label="anchor" href="#b.-20-points-put"><i class="fas fa-link"></i></a>
+</h3>
+<p>Derive the Black-Scholes-Merton formula and then compute the option price.</p>
+<blockquote>
+<p>Let <span class="math inline">\(\mathcal{P}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> be the physical and risk neutral measures on <span class="math inline">\((\omega,\mathcal{F})\)</span> respectively. Let <span class="math inline">\(\{W_t^\mathcal{P}\}_{t \geq 0}\)</span> be the standard Brownian motion on <span class="math inline">\(\mathcal{P}\)</span>. For <span class="math inline">\(\{S_t\}_{t \geq 0}\)</span> be the process of asset price, we have:
+<span class="math display">\[dSt = \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}\]</span></p>
+</blockquote>
+<blockquote>
+<p>With <span class="math inline">\(f(t,x)=e^{-rt}x\)</span> then we can calculate:
+<span class="math display">\[\begin{align*}
+f_t&amp;=-re^{-rt}x \\
+f_x&amp;=e^{-rt} \\
+f_{tt}&amp;=r^2e^{-rt}x \\
+f_{xx}&amp;=0 \\
+f_{tx}&amp;=-re^{-rt}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito-Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+d(e^{-rt}S_t) &amp;= -re^{-rt}S_t\,dt+e^{-rt}\,dS_t -re^{-rt}\,dt \,dS_t \\
+&amp;= -re^{-rt}S_t\,dt+e^{-rt}(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) -re^{-rt}\,dt(\mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P}) \\
+&amp;= e^{-rt}S_t[(\mu-r) \,dt+\sigma \,d W_t^{\mathcal{P}}] -\mu re^{-rt}St\,dt^2 + \sigma S_t \,dt\,dW_t^\mathcal{P})\\
+&amp;= e^{-rt}S_t[\mu-r \,dt+\sigma (\,d W_t^{\mathcal{Q}}-\theta_t) \,dt] \\
+&amp;= e^{-rt}S_t[(\mu-r-\sigma \theta_t) \,dt+\sigma \,d W_t^{\mathcal{Q}} \,dt]
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>In order to have the process <span class="math inline">\(\{e^{−rt}S_t\}_{t \geq 0}\)</span> be the martigale process, we choose <span class="math inline">\(\theta_t\)</span> such that:
+<span class="math display">\[\mu-r-\sigma \theta_t=0 \rightarrow \theta_t=\frac{\mu-r}{\sigma} \]</span>
+then <span class="math display">\[E^\mathcal{P}[e^{\frac{1}{2} \int_0^T \theta_t^2\,dt}]&lt;\infty\]</span></p>
+</blockquote>
+<blockquote>
+<p>By the Girsanov’s theorem, there is a risk neutral measure <span class="math inline">\(\mathcal{Q}\)</span> defined by the Radon-Nykodym <span class="math display">\[E \left[\frac{\,d \mathcal{Q}}{\,d \mathcal{P}} |\mathcal{F}_t\right]=Z_t=e^{-\int_0^t \theta_s \,d W_s^\mathcal{P}-\frac{1}{2} \theta_s^2 \,ds}\]</span> such that <span class="math inline">\(W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds\)</span><br>
+is the standard Brownian motion under <span class="math inline">\(\mathcal{Q}\)</span>.
+<span class="math display">\[W_t^\mathcal{Q}=W_t^\mathcal{P}+\int_0^t\theta_s \,ds \\
+\rightarrow \,dW_t^\mathcal{Q}=\,dW_t^\mathcal{P}+\theta_t\,dt\]</span></p>
+</blockquote>
+<blockquote>
+<p>Since <span class="math inline">\(e^{-rt}S_t\)</span> is a martingale under <span class="math inline">\(\mathcal{Q}\)</span> and <span class="math inline">\(\mathcal{Q}\)</span> is an equivalent martingale measure to <span class="math inline">\(\mathcal{P}\)</span>, we can write:
+<span class="math display">\[\begin{align*}
+\,dS_t &amp;= \mu S_t \,dt + \sigma S_t \,dW_t^\mathcal{P} \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\theta_t \,dt) \\
+&amp;=\mu S_t \,dt + \sigma S_t (\,dW_t^\mathcal{Q}-\frac{\mu-r}{\sigma} \,dt) \\
+&amp;=\left(\mu-\sigma\cdot\frac{\mu-r}{\sigma} \right)S_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+&amp;=rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q} \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Let <span class="math inline">\(Y_t=\ln S_t\)</span> and <span class="math inline">\(f(t,x)=\ln x\)</span>, we have:
+<span class="math display">\[\begin{align*}
+f_t&amp;=0 \\
+f_x&amp;=\frac{1}{x} \\
+f_{tt}&amp;=0 \\
+f_{xx}&amp;=-\frac{1}{x^2} \\
+f_{tx}&amp;=0 \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying Ito Doeblin formula, we have:
+<span class="math display">\[\begin{align*}
+\,d(Y_t)&amp;=\frac{1}{S_t} \,dS_t-\frac{1}{2}\frac{1}{S_t^2}\,dS_t^2 \\
+&amp;=\frac{1}{S_t} (rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})-\frac{1}{2}\frac{1}{S_t^2}(rS_t \,dt + \sigma S_t \,dW_t^\mathcal{Q})^2 \\
+&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\,d(\ln S_t)&amp;=(r-\frac{1}{2} \cdot \sigma^2)\,dt + \sigma \,dW_t^\mathcal{Q} \\
+\int_t^T \,d(\ln S_s)&amp;=\int_t^T(r-\frac{1}{2} \cdot \sigma^2)\,ds + \int_t^T\sigma \,dW_s^\mathcal{Q} \\
+ln \left( \frac{S_T}{S_t} \right)&amp;=(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^\mathcal{Q}-W_t^\mathcal{Q}) \\
+S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})}
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>We have
+<span class="math display">\[\begin{align*}
+\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+\end{align*}\]</span></p>
+</blockquote>
+<blockquote>
+<p>The probability density function of <span class="math inline">\((S_T|S_t)\)</span> is
+<span class="math display">\[f_{S_T|S_t}(x)=\frac{1}{\sigma x\sqrt{2\pi(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \]</span></p>
+</blockquote>
+<blockquote>
+<p>From Feyman-Kac formula we have:
+<span class="math display">\[P(S_t,t)=e^{-r(T-t)} \mathbb{E}^\mathcal{Q}[max(K-S_T,0)|\mathcal{F}_t] \]</span></p>
+</blockquote>
+<blockquote>
+<p>Applying the moment generating function, we have:
+<span class="math display">\[\begin{align*}
+P(S_t,t)&amp;=e^{-r(T-t)}\int_{0}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
+&amp;=e^{-r(T-t)}\int_{-\infty}^\infty \max(K-x,0) f_{S_T|S_t}(x) \,dx \\
 &amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
 &amp;=e^{-r(T-t)}\int_{-\infty}^K (K-x) \frac{1}{\sigma x\sqrt{2\pi}\sqrt{(T-t)}}e^{-\frac{1}{2} \frac{(\ln x-(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \,dx \\
 &amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{(T-t)}} \int_{-\infty}^K (K-x)e^{-\frac{1}{2} \frac{(\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)))^2}{\sigma^2(T-t)}} \frac{1}{x}\,dx
 \end{align*}\]</span></p>
+</blockquote>
 <blockquote>
-<p>Let <span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
+<p>Let
+<span class="math inline">\(u=\frac{\ln x-\ln S_t -(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\)</span>, we have
 <span class="math display">\[\begin{align*}
 \ln \left( \frac{x}{S_t} \right)&amp;=\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t) \\
 x&amp;=S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}
@@ -384,7 +557,7 @@ P(S_t,t)&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi} \sqrt{T-t}} \int_{-\infty}^K
 &amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi}\sqrt{T-t}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}+K)e^{-\frac{1}{2} u^2} \sigma\sqrt{T-t}\,du \\
 &amp;=\frac{e^{-r(T-t)}\sqrt{T-t}}{\sqrt{2\pi}\sqrt{T-t}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}e^{-\frac{1}{2} u^2}+Ke^{-\frac{1}{2} u^2}) \,du \\
 &amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} (-S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}+Ke^{-\frac{1}{2} u^2}) \,du \\
-&amp;=\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} -S_te^{\sigma u\sqrt{T-t}+(r-\frac{1}{2} \cdot \sigma^2)(T-t)-\frac{1}{2} u^2}\,du \\
+&amp;=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} -S_te^{\sigma u\sqrt{T-t}-\frac{1}{2} \cdot \sigma^2(T-t)-\frac{1}{2} u^2}\,du \\
 &amp;+\frac{e^{-r(T-t)}}{\sqrt{2\pi}} \int_{-\infty}^{u_K} Ke^{-\frac{1}{2} u^2} \,du \\
 &amp;= I_1 \\
 &amp;+I_2
@@ -392,7 +565,7 @@ P(S_t,t)&amp;=\frac{e^{-r(T-t)}}{\sigma \sqrt{2\pi} \sqrt{T-t}} \int_{-\infty}^K
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-I_1&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2+\sigma u\sqrt{T-t}-r(T-t)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}\,du \\
+I_1&amp;=\frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} -S_te^{\sigma u\sqrt{T-t}-\frac{1}{2} \cdot \sigma^2(T-t)-\frac{1}{2} u^2}\,du \\
 &amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,du \\
 &amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} (u-\sigma\sqrt{T-t})^2}\,d(u-\sigma\sqrt{T-t}) \\
 &amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K-\sigma\sqrt{T-t}} e^{-\frac{1}{2} u^2}\,du \\
@@ -402,7 +575,12 @@ I_1&amp;=-S_t \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p><span class="math inline">\(\begin{align*} I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\ &amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right) \end{align*}\)</span>$</p>
+<p><span class="math display">\[\begin{align*}
+I_2&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\frac{\ln \left( \frac{K}{S_t} \right)-(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{-\left(\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}\right)} e^{-\frac{1}{2} u^2} \,du \\
+&amp;=Ke^{-r(T-t)} \cdot N \left(-{\frac{\ln \left( \frac{S_t}{K} \right)+(r-\frac{1}{2} \cdot \sigma^2)(T-t)}{\sigma\sqrt{T-t}}}\right)
+\end{align*}\]</span></p>
 </blockquote>
 <blockquote>
 <p>Therefore, the Black-Scholes-Merton formula is:
@@ -445,9 +623,12 @@ P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
 
 <span class="fu">BS_call</span><span class="op">(</span>S0<span class="op">=</span><span class="fl">12</span>,K<span class="op">=</span><span class="fl">15</span>,T<span class="op">=</span><span class="fl">2</span><span class="op">-</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.06</span>,sigma<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; [1] 3.431205</code></pre>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>(15 points) Compute the option price using the 3-step CRR binomial tree.</li>
-</ol>
+</div>
+<div id="c.-15-points" class="section level3" number="7.0.6">
+<h3>
+<span class="header-section-number">7.0.6</span> c. (15 points)<a class="anchor" aria-label="anchor" href="#c.-15-points"><i class="fas fa-link"></i></a>
+</h3>
+<p>Compute the option price using the 3-step CRR binomial tree.</p>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
 u&amp;=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
@@ -456,8 +637,8 @@ u&amp;=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
 d&amp;=e^{-\sigma \sqrt{\frac{T-t}{N}}} \\
 &amp;=e^{-0.4\sqrt{\frac{2-0.5}{3}}} \\
 &amp;=0.75 \\
-p &amp;= \frac{e^{r \cdot \frac{T-t}{N}-d}}{u-d} \\
-&amp;= \frac{e^{0.06 \cdot \frac{2-0.5}{3}-0.75}}{1.33-0.75} \\
+p &amp;= \frac{e^{r \cdot \frac{T-t}{N}}-d}{u-d} \\
+&amp;= \frac{e^{0.06 \cdot \frac{2-0.5}{3}}-0.75}{1.33-0.75} \\
 &amp;=0.48 \\
 q &amp;= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 &amp;= \frac{1.33-e^{0.06 \cdot \frac{2-0.5}{3}}}{1.33-0.75} \\
@@ -528,19 +709,33 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <span class="op">}</span>
 <span class="fu">European_call_binomial</span><span class="op">(</span>T<span class="op">=</span><span class="fl">2</span>, t<span class="op">=</span><span class="fl">0.5</span>,r<span class="op">=</span><span class="fl">0.06</span>, X<span class="op">=</span><span class="fl">15</span>,N<span class="op">=</span><span class="fl">3</span>,S0<span class="op">=</span><span class="fl">12</span>,sigma<span class="op">=</span><span class="fl">0.4</span><span class="op">)</span></code></pre></div>
 <pre><code>#&gt; [1] 3.355349</code></pre>
+
+</div>
 </div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></div>
-<div class="next"><a href="sem-2-2020-2021.html"><span class="header-section-number">8</span> Sem 2 2020-2021</a></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#sem-1-2021-2022"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
 <li><a class="nav-link" href="#question-1-10-points">Question 1 (10 points)</a></li>
-<li><a class="nav-link" href="#question-2-20-points">Question 2 (20 points)</a></li>
+<li>
+<a class="nav-link" href="#question-2-20-points">Question 2 (20 points)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a.-10-points"><span class="header-section-number">7.0.1</span> a. (10 points)</a></li>
+<li><a class="nav-link" href="#b.-10-points"><span class="header-section-number">7.0.2</span> b. (10 points)</a></li>
+</ul>
+</li>
 <li><a class="nav-link" href="#question-3-20-points">Question 3 (20 points)</a></li>
-<li><a class="nav-link" href="#question-4-50-points">Question 4 (50 points)</a></li>
+<li>
+<a class="nav-link" href="#question-4-50-points">Question 4 (50 points)</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#a.-15-points"><span class="header-section-number">7.0.3</span> a. (15 points)</a></li>
+<li><a class="nav-link" href="#b.-20-points-call"><span class="header-section-number">7.0.4</span> b’. (20 points) CALL</a></li>
+<li><a class="nav-link" href="#b.-20-points-put"><span class="header-section-number">7.0.5</span> b. (20 points) PUT</a></li>
+<li><a class="nav-link" href="#c.-15-points"><span class="header-section-number">7.0.6</span> c. (15 points)</a></li>
+</ul>
+</li>
 </ul>
 
       <div class="book-extra">
@@ -558,7 +753,7 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-07.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

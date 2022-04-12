@@ -266,8 +266,8 @@ u&=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
 d&=e^{-\sigma \sqrt{\frac{T-t}{N}}} \\
 &=e^{-0.3\sqrt{\frac{1-0.5}{3}}} \\
 &=0.88 \\
-p &= \frac{e^{r \cdot \frac{T-t}{N}-d}}{u-d} \\
-&= \frac{e^{0.07 \cdot \frac{1-0.5}{3}-0.88}}{1.13-0.88} \\
+p &= \frac{e^{r \cdot \frac{T-t}{N}}-d}{u-d} \\
+&= \frac{e^{0.07 \cdot \frac{1-0.5}{3}}-0.88}{1.13-0.88} \\
 &=0.52 \\
 q &= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 &= \frac{1.13-e^{0.07 \cdot \frac{1-0.5}{3}}}{1.13-0.88} \\
@@ -430,8 +430,8 @@ $$\begin{align*}
 >We have
 $$\begin{align*}
 \ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
- (S_T|S_t) &\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+ (S_T|S_t) &\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
 \end{align*}$$
 
 >The probability density function of $(S_T|S_t)$ is
@@ -588,9 +588,9 @@ $$\begin{align*}
 &\sim \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \\
 &e^{\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} \\
-&\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+&\sim \log\mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \\
-&(S_T|10) \sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+&(S_T|10) \sim \log\mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \end{align*}$$
 
 >The probability density function of $(S_T|10)$ is
@@ -683,8 +683,8 @@ $$\begin{align*}
 >We have
 $$\begin{align*}
 \ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
- (S_T|S_t) &\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+ (S_T|S_t) &\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
 \end{align*}$$
 
 >The probability density function of $(S_T|S_t)$ is
@@ -836,9 +836,9 @@ $$\begin{align*}
 &\sim \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \\
 &e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} \\
-&\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+&\sim \log\mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \\
-&(S_T|S_t) \sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+&(S_T|S_t) \sim \log\mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \end{align*}$$
 
 >The probability density function of $(S_T|S_t)$ is

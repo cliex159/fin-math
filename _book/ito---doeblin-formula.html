@@ -54,7 +54,6 @@
 <li><a class="" href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></li>
 <li class="book-part">Midterm Mock</li>
 <li><a class="" href="sem-1-2021-2022.html"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
-<li><a class="" href="sem-2-2020-2021.html"><span class="header-section-number">8</span> Sem 2 2020-2021</a></li>
 </ul>
 
         <div class="book-extra">
@@ -1174,13 +1173,13 @@ dY_t&amp;= \frac{1}{X_t}dX_t - \frac{1}{2}\frac{1}{X_t^2}dX_tdX_t \\
 <blockquote>
 <p><span class="math display">\[\begin{align*}
 \rightarrow \ln X_3+12+2(W_5-W_3) &amp;\sim \mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
-\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &amp;\sim \ln\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
-\rightarrow X_5 &amp;\sim \ln\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &amp;\sim \log\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
+\rightarrow X_5 &amp;\sim \log\mathcal{N} \left(\ln X_3+12,2 \cdot 2 \right) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-\rightarrow (X_5|X_3=4) &amp;\sim \ln\mathcal{N} \left(\ln 4+12,4 \right) \\
+\rightarrow (X_5|X_3=4) &amp;\sim \log\mathcal{N} \left(\ln 4+12,4 \right) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -1226,13 +1225,13 @@ dY_t&amp;= \frac{1}{X_t}(4(t^3−3)X_t\,dt+t^2X_t\,dW_t) - \frac{1}{2}\frac{1}{X
 <blockquote>
 <p><span class="math display">\[\begin{align*}
 \rightarrow \ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t &amp;\sim \mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
-\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &amp;\sim \ln\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
-\rightarrow X_4 &amp;\sim \ln\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\rightarrow e^{\ln X_2+\frac{584}{5}+\int_2^4 t^2dW_t} &amp;\sim \log\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
+\rightarrow X_4 &amp;\sim \log\mathcal{N} \left(\ln X_2+\frac{584}{5},\frac{992}{5} \right) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-(X_4|X_2=3) &amp;\sim \ln\mathcal{N} \left(\ln 3+\frac{584}{5},\frac{992}{5} \right) \\
+(X_4|X_2=3) &amp;\sim \log\mathcal{N} \left(\ln 3+\frac{584}{5},\frac{992}{5} \right) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -1317,7 +1316,7 @@ Var(X_4|X_2=3)&amp;=\left(e^{\frac{992}{5}}-1\right)e^{\left(2(\ln 3+\frac{584}{
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-07.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

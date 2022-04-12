@@ -54,7 +54,6 @@
 <li><a class="" href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></li>
 <li class="book-part">Midterm Mock</li>
 <li><a class="" href="sem-1-2021-2022.html"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
-<li><a class="" href="sem-2-2020-2021.html"><span class="header-section-number">8</span> Sem 2 2020-2021</a></li>
 </ul>
 
         <div class="book-extra">
@@ -167,8 +166,8 @@ u&amp;=e^{\sigma \sqrt{\frac{T-t}{N}}} \\
 d&amp;=e^{-\sigma \sqrt{\frac{T-t}{N}}} \\
 &amp;=e^{-0.3\sqrt{\frac{1-0.5}{3}}} \\
 &amp;=0.88 \\
-p &amp;= \frac{e^{r \cdot \frac{T-t}{N}-d}}{u-d} \\
-&amp;= \frac{e^{0.07 \cdot \frac{1-0.5}{3}-0.88}}{1.13-0.88} \\
+p &amp;= \frac{e^{r \cdot \frac{T-t}{N}}-d}{u-d} \\
+&amp;= \frac{e^{0.07 \cdot \frac{1-0.5}{3}}-0.88}{1.13-0.88} \\
 &amp;=0.52 \\
 q &amp;= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 &amp;= \frac{1.13-e^{0.07 \cdot \frac{1-0.5}{3}}}{1.13-0.88} \\
@@ -349,8 +348,8 @@ S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}
 <p>We have
 <span class="math display">\[\begin{align*}
 \ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -525,9 +524,9 @@ S_T&amp;=e^{\ln S_t +(0.06-\frac{1}{2} \cdot 0.4^2)(T-t)+0.4(W_T^{\mathcal{Q}}-W
 &amp;\sim \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \\
 &amp;e^{\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5)+0.4(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} \\
-&amp;\sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+&amp;\sim \log\mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \\
-&amp;(S_T|10) \sim \ln \mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
+&amp;(S_T|10) \sim \log\mathcal{N}(\ln 10 +(0.06-\frac{1}{2} \cdot 0.4^2)(1-0.5),0.4^2(1-0.5)) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -638,8 +637,8 @@ S_T&amp;=e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}
 <p>We have
 <span class="math display">\[\begin{align*}
 \ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}}) &amp;\sim \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
-(S_T|S_t) &amp;\sim \ln \mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+e^{\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t)+\sigma(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
+(S_T|S_t) &amp;\sim \log\mathcal{N}(\ln S_t +(r-\frac{1}{2} \cdot \sigma^2)(T-t),\sigma^2(T-t)) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -807,9 +806,9 @@ S_T&amp;=e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W
 &amp;\sim \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \\
 &amp;e^{\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t)+0.3(W_T^{\mathcal{Q}}-W_t^{\mathcal{Q}})} \\
-&amp;\sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+&amp;\sim \log\mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \\
-&amp;(S_T|S_t) \sim \ln \mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
+&amp;(S_T|S_t) \sim \log\mathcal{N}(\ln S_t +(0.07-\frac{1}{2} \cdot 0.3^2)(T-t),0.3^2(T-t)) \\
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -1372,7 +1371,7 @@ RHS &amp;=Ke^{-r(T-t)} \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{u_K}e^{-\frac{1}{2}
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-07.</p>
+    <p>"<strong>FM2</strong>" was written by Tran Thanh Dat. It was last built on 2022-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
