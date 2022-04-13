@@ -1073,14 +1073,15 @@ Compute <span class="math inline">\(\,dX_t\)</span> in terms of <span class="mat
 <p>Applying Ito formula to <span class="math inline">\(X_t=f(t,Y_t)\)</span>, we have:</p>
 </blockquote>
 <blockquote>
+
+</blockquote>
 <p><span class="math display">\[\begin{align*}
 \,d(X_t) &amp;= \,d(t Y_t^4) \\
-&amp;= Y_t^4 \,dt +  4tY_t^3 \,d Y_t + \frac{1}{2} 12tY_t^2 \,d Y_t^2 + \frac{1}{2} 4Y_t^3 \,dt \,dY_t \\
-&amp;= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + \frac{1}{2} 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 +  \frac{1}{2} 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
+&amp;= Y_t^4 \,dt +  4tY_t^3 \,d Y_t + \frac{1}{2} 12tY_t^2 \,d Y_t^2 + 4Y_t^3 \,dt \,dY_t \\
+&amp;= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + \frac{1}{2} 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 + 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
 &amp;= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + \frac{1}{2} 12tY_t^2 \cdot 4Y_t^2 \,dt \\
 &amp;= Y_t^4 \,dt + 8Y_t^4 \,dW_t
 \end{align*}\]</span></p>
-</blockquote>
 <blockquote>
 <p>Answer: <span class="math inline">\(\,d(X_t)=(Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t\)</span></p>
 </blockquote>

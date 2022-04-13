@@ -33,4 +33,3 @@ integrand
 r-programming
 risk-neutral-pricing-ar
 sem-1-2021-2022
-url-your-book-url-like-httpsbookdown.orgyihuibookdown
