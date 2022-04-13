@@ -143,12 +143,12 @@ $$\begin{align*}
 E[X_5|X_2=3]&= e^{\mu+\frac{1}{2}\sigma^2} \\
 &=e^{\ln 3-1906.2+ \frac{1}{2} \cdot 3896.4} \\
 &\approx e^{43} \\
-Var(X_4|X_2=3)&= e^{2\mu+\sigma^2}(e^{\sigma^2}-1)\\
+Var(X_5|X_2=3)&= e^{2\mu+\sigma^2}(e^{\sigma^2}-1)\\
 &=e^{\left(2(\ln 3-1906.2)+3896.4 \right)}\left(e^{3896.4}-1\right)  \\
 &\approx e^{86}\left(e^{3896}-1\right)
 \end{align*}$$
 
->Answer: The mean and variance of $(X_4|X_2=3)$ are $e^{43}$ and $e^{86}\left(e^{3896}-1\right)$
+>Answer: The mean and variance of $(X_5|X_2=3)$ are $e^{43}$ and $e^{86}\left(e^{3896}-1\right)$
 
 ## Question 4 (50 points) {.unnumbered}
 
@@ -737,7 +737,7 @@ E[M_k] &= E[M_0+ \Delta_1 +\Delta_2+ · · · + \Delta_k] = M_0+ E[\Delta_1] +E[
 &= M_0 -0.1 -0.1 ... -0.1 \\
 &=0 - 0.1k \\
 &< M_0
-\end{align*}
+\end{align*}$$
 
 >Answer: The game should not be played.
 
