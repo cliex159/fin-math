@@ -865,16 +865,15 @@ $$\begin{align*}
 >Applying Ito formula to $X_t=f(t,Y_t)$, we have:
 
 >
-
 $$\begin{align*}
 \,d(X_t) &= \,d(t Y_t^4) \\
-&= Y_t^4 \,dt +  4tY_t^3 \,d Y_t + \frac{1}{2} 12tY_t^2 \,d Y_t^2 + 4Y_t^3 \,dt \,dY_t \\
-&= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + \frac{1}{2} 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 + 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
-&= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + \frac{1}{2} 12tY_t^2 \cdot 4Y_t^2 \,dt \\
+&= Y_t^4 \,dt +  4tY_t^3 \,d Y_t + \frac{1}{2} \cdot 12tY_t^2 \,d Y_t^2 + 4Y_t^3 \,dt \,dY_t \\
+&= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + \frac{1}{2} \cdot 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 + 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
+&= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + \frac{1}{2} \cdot 12tY_t^2 \cdot 4Y_t^2 \,dt \\
 &= Y_t^4 \,dt + 8Y_t^4 \,dW_t
 \end{align*}$$
 
->Answer: $\,d(X_t)=(Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t$
+>Answer: $\,d(X_t)=Y_t^4 \,dt + 8Y_t^4 \,dW_t$
 
 b. $X_t=\ln \frac{t}{Y_t}$ with $\,d Y_t = \frac{1}{2Y_t} \,dt + \,dW_t$
 
@@ -892,12 +891,13 @@ $$\begin{align*}
 >
 $$\begin{align*}
 \,d(X_t) &= \,d(\ln \frac{t}{Y_t}) \\
-&= \frac{1}{t} \,dt -\frac{1}{Y_t} (\frac{1}{2Y_t} \,dt + \,dW_t) + \frac{1}{Y_t^2} \left(\frac{1}{2Y_t} \,dt + \,dW_t\right)^2 \\
-&= \frac{1}{t} \,dt -\frac{1}{Y_t} \cdot\frac{1}{2Y_t} \,dt -\frac{1}{Y_t}\,dW_t \\
-&= \left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{Y_t}\,dW_t 
+&= \frac{1}{t} \,dt -\frac{1}{Y_t} \,dY_t + \frac{1}{2} \frac{1}{Y_t^2} \,dY_t ^2 \\
+&= \frac{1}{t} \,dt -\frac{1}{Y_t} (\frac{1}{2Y_t} \,dt + \,dW_t) + \frac{1}{2} \cdot \frac{1}{Y_t^2} \left(\frac{1}{2Y_t} \,dt + \,dW_t\right)^2 \\
+&= \frac{1}{t} \,dt -\frac{1}{Y_t} \cdot\frac{1}{2Y_t} \,dt -\frac{1}{2} \cdot \frac{1}{Y_t}\,dW_t \\
+&= \left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{2Y_t}\,dW_t 
 \end{align*}$$
 
->Answer: $\,d(X_t)=\left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{Y_t}\,dW_t$
+>Answer: $\,d(X_t)=\left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{2Y_t}\,dW_t $
 
 ## Question 10' (0 points) {.unnumbered}
 
