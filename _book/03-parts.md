@@ -877,10 +877,10 @@ $$\begin{align*}
 >
 $$\begin{align*}
 \,d(X_t) &= \,d(t Y_t^4) \\
-&= Y_t^4 \,dt + 4tY_t^3 \,d Y_t + 12tY_t^2 \,d Y_t^2 + 4Y_t^3 \,dt \,dY_t \\
-&= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 + 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
-&= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + 12tY_t^2 \cdot 4Y_t^2 \,dt \\
-&= (Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t
+&= Y_t^4 \,dt +  4tY_t^3 \,d Y_t + \frac{1}{2} 12tY_t^2 \,d Y_t^2 + \frac{1}{2} 4Y_t^3 \,dt \,dY_t \\
+&= Y_t^4 \,dt + 4tY_t^3 (-6 Y_t \,dt + 2Y_t \,dW_t) + \frac{1}{2} 12tY_t^2 (-6 Y_t \,dt + 2Y_t \,dW_t)^2 +  \frac{1}{2} 4Y_t^3 \,dt (-6 Y_t \,dt + 2Y_t \,dW_t) \\
+&= Y_t^4 \,dt - 24tY_t^4 \,dt + 8Y_t^4 \,dW_t + \frac{1}{2} 12tY_t^2 \cdot 4Y_t^2 \,dt \\
+&= Y_t^4 \,dt + 8Y_t^4 \,dW_t
 \end{align*}$$
 
 >Answer: $\,d(X_t)=(Y_t^4 +24tY_t^4) \,dt + 8Y_t^4 \,dW_t$
