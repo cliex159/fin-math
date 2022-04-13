@@ -827,22 +827,28 @@ E[Y_t|\mathcal{F}_s]&=E[B_t^2-t|\mathcal{F}_s] \\
 
 >Let $\{\mathcal{F}_t\}_{t \geq 0}$ be the natural filtration of $\{ Z_t=e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\}$. For all $0 \leq s <t$, since $B_t-B_s \sim N(0,t-s)$ we have:
 
->$$\begin{align*}
+>$$\sigma B_t − \frac{1}{2} \sigma^2 t \sim \mathcal{N} \left(-\frac{1}{2}\sigma^2t,\sigma^2t \right)$$
+
+>
+$$\begin{align*}
 E[|Z_t|]&=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
 &=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}] \\
 &=E[Z_t] \\
+&=e^{\mu + \frac{1}{2}\sigma^2} \\
+&=e^{-\frrac{1}{2}\sigma^2 + \frac{1}{2}\sigma^2} \\
 &=1
 \end{align*}$$
 
 >$$E[e^{tX}]=e^{\mu t+\frac{1}{2}\sigma^2 t^2} \rightarrow E[e^{\sigma (B_t-B_s)}]=e^{\frac{1}{2}\sigma^2 (t-s)}$$
 
->$$\begin{align*}
+>
+$$\begin{align*}
 E[Z_t|\mathcal{F}_s]&=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|\mathcal{F}_s] \\
 &=E[e^{\sigma (B_t-B_s+B_s) − \frac{1}{2} \sigma^2 (t-s+s)}|\mathcal{F}_s] \\ 
-&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
-&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
-&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)}] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
-&=e^{\sigma B_s-\frac{1}{2}\sigma_s^2}  \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma^2 s} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma^2 s} \cdot E[e^{\sigma (B_t-B_s)}|\mathcal{F}_s] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma^2 s} \cdot e^ {\frac{1}{2} \sigma^2 (t-s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)} \\
+&=e^{\sigma B_s-\frac{1}{2}\sigma^2 s}  \\
 &= Z_s
 \end{align*}$$
 

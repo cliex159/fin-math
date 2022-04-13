@@ -1027,10 +1027,15 @@ E[Y_t|\mathcal{F}_s]&amp;=E[B_t^2-t|\mathcal{F}_s] \\
 <p>Let <span class="math inline">\(\{\mathcal{F}_t\}_{t \geq 0}\)</span> be the natural filtration of <span class="math inline">\(\{ Z_t=e^{\sigma B_t − \frac{1}{2} \sigma^2 t}\}\)</span>. For all <span class="math inline">\(0 \leq s &lt;t\)</span>, since <span class="math inline">\(B_t-B_s \sim N(0,t-s)\)</span> we have:</p>
 </blockquote>
 <blockquote>
+<p><span class="math display">\[\sigma B_t − \frac{1}{2} \sigma^2 t \sim \mathcal{N} \left(-\frac{1}{2}\sigma^2t,\sigma^2t \right)\]</span></p>
+</blockquote>
+<blockquote>
 <p><span class="math display">\[\begin{align*}
 E[|Z_t|]&amp;=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
 &amp;=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}] \\
 &amp;=E[Z_t] \\
+&amp;=e^{\mu + \frac{1}{2}\sigma^2} \\
+&amp;=e^{-\frrac{1}{2}\sigma^2 + \frac{1}{2}\sigma^2} \\
 &amp;=1
 \end{align*}\]</span></p>
 </blockquote>
@@ -1041,10 +1046,10 @@ E[|Z_t|]&amp;=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
 <p><span class="math display">\[\begin{align*}
 E[Z_t|\mathcal{F}_s]&amp;=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|\mathcal{F}_s] \\
 &amp;=E[e^{\sigma (B_t-B_s+B_s) − \frac{1}{2} \sigma^2 (t-s+s)}|\mathcal{F}_s] \\
-&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
-&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
-&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2} \cdot E[e^{\sigma (B_t-B_s)}] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}] \\
-&amp;=e^{\sigma B_s-\frac{1}{2}\sigma_s^2}  \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma^2 s} \cdot E[e^{\sigma (B_t-B_s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma^2 s} \cdot E[e^{\sigma (B_t-B_s)}|\mathcal{F}_s] \cdot E[e^ {− \frac{1}{2} \sigma^2 (t-s)}|\mathcal{F}_s] \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma^2 s} \cdot e^ {\frac{1}{2} \sigma^2 (t-s)} \cdot e^ {− \frac{1}{2} \sigma^2 (t-s)} \\
+&amp;=e^{\sigma B_s-\frac{1}{2}\sigma^2 s}  \\
 &amp;= Z_s
 \end{align*}\]</span></p>
 </blockquote>
