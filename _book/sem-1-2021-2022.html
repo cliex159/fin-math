@@ -1106,13 +1106,13 @@ Compute <span class="math inline">\(\,dX_t\)</span> in terms of <span class="mat
 <p><span class="math display">\[\begin{align*}
 \,d(X_t) &amp;= \,d(\ln \frac{t}{Y_t}) \\
 &amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} \,dY_t + \frac{1}{2} \frac{1}{Y_t^2} \,dY_t ^2 \\
-&amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} (\frac{1}{2Y_t} \,dt + \,dW_t) + \frac{1}{2} \cdot \frac{1}{Y_t^2} \left(\frac{1}{2Y_t} \,dt + \,dW_t\right)^2 \\
-&amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} \cdot\frac{1}{2Y_t} \,dt -\frac{1}{2} \cdot \frac{1}{Y_t}\,dW_t \\
-&amp;= \left(\frac{1}{t} -\frac{1}{2Y_t^2}\right) \,dt -\frac{1}{2Y_t}\,dW_t
+&amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} \left(\frac{1}{2Y_t} \,dt + \,dW_t \right) + \frac{1}{2} \cdot \frac{1}{Y_t^2} \left(\frac{1}{2Y_t} \,dt + \,dW_t\right)^2 \\
+&amp;= \frac{1}{t} \,dt -\frac{1}{Y_t} \cdot\frac{1}{2Y_t} \,dt -\frac{1}{Y_t}\,dW_t +\frac{1}{2} \cdot \frac{1}{Y_t^2}\,dt \\
+&amp;= \frac{1}{t}  \,dt -\frac{1}{Y_t}\,dW_t
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
-<p>Answer: $,d(X_t)=( -) ,dt -,dW_t $</p>
+<p>Answer: <span class="math inline">\(\frac{1}{t} \,dt -\frac{1}{Y_t}\,dW_t\)</span></p>
 </blockquote>
 </div>
 <div id="question-10-0-points" class="section level2 unnumbered">
