@@ -844,8 +844,8 @@ $$\begin{align*}
 E[|Z_t|]&=E[|e^{\sigma B_t − \frac{1}{2} \sigma^2 t}|] \\
 &=E[e^{\sigma B_t − \frac{1}{2} \sigma^2 t}] \\
 &=E[Z_t] \\
-&=e^{\mu + \frac{1}{2}\sigma^2} \\
-&=e^{-\frrac{1}{2}\sigma^2 + \frac{1}{2}\sigma^2} \\
+&=e^{\mu_{Z_t} + \frac{1}{2}\sigma_{Z_t}^2} \\
+&=e^{-\frac{1}{2}\sigma^2t + \frac{1}{2}\sigma^2t} \\
 &=1
 \end{align*}$$
 
