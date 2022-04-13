@@ -738,7 +738,7 @@ where $M_0=0$, $\{\Delta n\}$ forms an i.i.d. random variables as $P(\Delta = 2)
 >Using the law of total expectation, the expected accumulated money after every play is the expected money for each toss either the coin lands up head or tail.
 \begin{align*} 
 E[\Delta_i] &=E[\Delta_i|\Delta_i=2]P(\Delta_i=2)+E[\Delta_i|\Delta_i=-1]P(\Delta_i=-1) \\
-&=0.3(1)+0.7(-1) \\
+&=0.3(2)+0.7(-1) \\
 &=-0.1
 \end{align*}
 
