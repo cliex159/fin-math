@@ -532,16 +532,16 @@ q &= \frac{u-e^{r \cdot \frac{T-t}{N}}}{u-d} \\
 
 >
 $$\begin{align*}
-V_{13}&=\max(-S_0 \cdot u^3+15,0) \\
+V_{03}&=\max(-S_0 \cdot u^3+K,0) \\
 &=\max(-12 \cdot 1.33^3+15,0) \\
 &= 0 \\
-V_{13}&=\max(-S_0 \cdot u^2 d+15,0) \\
+V_{13}&=\max(-S_0 \cdot u^2 d+K,0) \\
 &=\max(-12 \cdot 1.33^2 \cdot 0.75+15,0) \\
 &= 0 \\
-V_{23}&=\max(-S_0 \cdot u d^2+15,0) \\
+V_{23}&=\max(-S_0 \cdot u d^2+K,0) \\
 &=\max(-12 \cdot 1.33 \cdot 0.75^2+15,0) \\
 &= 5.96 \\
-V_{33}&=\max(-S_0 \cdot d^3+15,0) \\
+V_{33}&=\max(-S_0 \cdot d^3+K,0) \\
 &=\max(-12 \cdot 0.75^3+15,0) \\
 &= 9.86
 \end{align*}$$
