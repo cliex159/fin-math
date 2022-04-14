@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 7 Sem 1 2021-2022 | FM2</title>
+<title>Chapter 2 Sem 1 2021-2022 | FM2</title>
 <meta name="author" content="Tran Thanh Dat">
 <meta name="description" content="Question 1 (10 points) A fair coin is flipped repeatedly. Find the expected number of flips needed to get three consecutive tails followed by a heads (TTTH in a row) Let X be the expected number...">
 <meta name="generator" content="bookdown 0.25 with bs4_book()">
-<meta property="og:title" content="Chapter 7 Sem 1 2021-2022 | FM2">
+<meta property="og:title" content="Chapter 2 Sem 1 2021-2022 | FM2">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Question 1 (10 points) A fair coin is flipped repeatedly. Find the expected number of flips needed to get three consecutive tails followed by a heads (TTTH in a row) Let X be the expected number...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 7 Sem 1 2021-2022 | FM2">
+<meta name="twitter:title" content="Chapter 2 Sem 1 2021-2022 | FM2">
 <meta name="twitter:description" content="Question 1 (10 points) A fair coin is flipped repeatedly. Find the expected number of flips needed to get three consecutive tails followed by a heads (TTTH in a row) Let X be the expected number...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -42,28 +42,16 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html">Course Descripition</a></li>
-<li class="book-part">Probability</li>
-<li><a class="" href="distribution.html"><span class="header-section-number">1</span> Distribution</a></li>
-<li><a class="" href="stochastic-process.html"><span class="header-section-number">2</span> Stochastic Process</a></li>
-<li><a class="" href="ito---doeblin-formula.html"><span class="header-section-number">3</span> Ito - Doeblin Formula</a></li>
-<li class="book-part">Risk Neutral</li>
-<li><a class="" href="risk-neutral-pricing.html"><span class="header-section-number">4</span> Risk Neutral Pricing</a></li>
-<li><a class="" href="risk-neutral-pricing-bs.html"><span class="header-section-number">5</span> Risk Neutral Pricing BS</a></li>
-<li><a class="" href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></li>
-<li class="book-part">Midterm Mock</li>
-<li><a class="active" href="sem-1-2021-2022.html"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Chapter 2</span> Sem 1 2021-2022</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/cliex159/fin-risk-mana">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sem-1-2021-2022" class="section level1" number="7">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="sem-1-2021-2022" class="section level1" number="2">
 <h1>
-<span class="header-section-number">7</span> Sem 1 2021-2022<a class="anchor" aria-label="anchor" href="#sem-1-2021-2022"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2</span> Sem 1 2021-2022<a class="anchor" aria-label="anchor" href="#sem-1-2021-2022"><i class="fas fa-link"></i></a>
 </h1>
 <div id="question-1-10-points" class="section level2 unnumbered">
 <h2>Question 1 (10 points)<a class="anchor" aria-label="anchor" href="#question-1-10-points"><i class="fas fa-link"></i></a>
@@ -641,7 +629,7 @@ P&amp;= K \cdot N(-d_2) \cdot e^{-r(T-t)} - S_t \cdot N(-d_1) \\
 &amp;=3.43
 \end{align*}\]</span></p>
 </blockquote>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">BS_call</span> <span class="op">&lt;-</span> <span class="kw">function</span> <span class="op">(</span><span class="va">S0</span>,<span class="va">K</span>,<span class="va">T</span>,<span class="va">r</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span>
   <span class="va">d1</span> <span class="op">&lt;-</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">S0</span><span class="op">/</span><span class="va">K</span><span class="op">)</span><span class="op">+</span><span class="op">(</span><span class="va">r</span><span class="op">+</span><span class="fl">0.5</span><span class="op">*</span><span class="va">sigma</span><span class="op">^</span><span class="fl">2</span><span class="op">)</span><span class="op">*</span><span class="cn">T</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span><span class="op">)</span> 
   <span class="va">d2</span> <span class="op">&lt;-</span> <span class="va">d1</span><span class="op">-</span> <span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="cn">T</span><span class="op">)</span>
@@ -721,7 +709,7 @@ V_{0}&amp;=e^{-r \cdot \frac{T-t}{N}}(V_{01} \cdot p + V_{11} \cdot q) \\
 <blockquote>
 <p>Answer: The fair price of the option is <span class="math inline">\(3.355\)</span></p>
 </blockquote>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">European_call_binomial</span><span class="op">=</span><span class="kw">function</span><span class="op">(</span><span class="va">T</span>, <span class="va">t</span>,<span class="va">r</span>, <span class="va">X</span>,<span class="va">N</span>,<span class="va">S0</span>,<span class="va">sigma</span><span class="op">)</span><span class="op">{</span> 
   <span class="va">delta_t</span><span class="op">=</span><span class="op">(</span><span class="cn">T</span><span class="op">-</span><span class="va">t</span><span class="op">)</span><span class="op">/</span><span class="va">N</span>
   <span class="va">u</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="va">sigma</span><span class="op">*</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">delta_t</span><span class="op">)</span><span class="op">)</span>
@@ -1000,10 +988,10 @@ E[B_t|\mathcal{F}_s]&amp;=E[(B_t-B_s)+B_s|\mathcal{F}_s] \\
 </blockquote>
 <blockquote>
 <p><span class="math display">\[\begin{align*}
-E[|Y_t|]&amp;=E[|B_t^2-t] \\
+E[|Y_t|]&amp;=E[|B_t^2-t|] \\
 &amp;\leq E[B_t^2+t] \\
 &amp;=E[B_t^2]+t \\
-&amp;=2t &lt; \infty
+&amp;=t &lt; \infty
 \end{align*}\]</span></p>
 </blockquote>
 <blockquote>
@@ -1141,46 +1129,15 @@ value of the option?</p>
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="risk-neutral-pricing-ar.html"><span class="header-section-number">6</span> Risk Neutral Pricing AR</a></div>
+<div class="empty"></div>
 <div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#sem-1-2021-2022"><span class="header-section-number">7</span> Sem 1 2021-2022</a></li>
-<li><a class="nav-link" href="#question-1-10-points">Question 1 (10 points)</a></li>
-<li>
-<a class="nav-link" href="#question-2-20-points">Question 2 (20 points)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#a.-10-points">a. (10 points)</a></li>
-<li><a class="nav-link" href="#b.-10-points">b. (10 points)</a></li>
-<li><a class="nav-link" href="#b.-0-points">b’. (0 points)</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#question-3-20-points">Question 3 (20 points)</a></li>
-<li>
-<a class="nav-link" href="#question-4-50-points">Question 4 (50 points)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#a.-15-points">a. (15 points)</a></li>
-<li><a class="nav-link" href="#b.-0-points-call">b’. (0 points) CALL</a></li>
-<li><a class="nav-link" href="#b.-20-points-put">b. (20 points) PUT</a></li>
-<li><a class="nav-link" href="#c.-15-points">c. (15 points)</a></li>
-</ul>
-</li>
-<li>
-<a class="nav-link" href="#question-5-0-points">Question 5’ (0 points)</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#a.-0-points">a. (0 points)</a></li>
-<li><a class="nav-link" href="#b.-0-points-1">b. (0 points)</a></li>
-</ul>
-</li>
-<li><a class="nav-link" href="#question-6-0-points">Question 6’ (0 points)</a></li>
-<li><a class="nav-link" href="#question-7-0-points">Question 7’ (0 points)</a></li>
-<li><a class="nav-link" href="#question-8-0-points">Question 8’ (0 points)</a></li>
-<li><a class="nav-link" href="#question-9-0-points">Question 9’ (0 points)</a></li>
-<li><a class="nav-link" href="#question-10-0-points">Question 10’ (0 points)</a></li>
-</ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/cliex159/fin-risk-mana/blob/master/03-parts.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/cliex159/fin-risk-mana/edit/master/03-parts.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
