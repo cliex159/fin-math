@@ -1,7 +1,7 @@
 --- 
 title: "FM2"
 author: "Tran Thanh Dat"
-date: "2022-04-14"
+date: "2022-04-26"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
